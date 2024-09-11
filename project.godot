@@ -10,6 +10,17 @@ config_version=5
 
 [application]
 
-config/name="codeartistic.ninja"
+config/name="The Chronicles of the Codeartistic Ninja"
+run/main_scene="res://scenes/global.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://cover.png"
+
+[autoload]
+
+Global="*res://scenes/global.tscn"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/stretch/mode="viewport"
