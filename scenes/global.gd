@@ -6,6 +6,7 @@ var history: Array = []
 
 
 func _ready():
+	Global.load_scene("/scenes/global")
 	if not OS.is_debug_build():
 		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
 
@@ -32,11 +33,16 @@ func go_back():
 		get_tree().quit()
 
 
+func replace_scene(name:String):
+	history.pop_back()
+	load_scene(name)
+
+
 func load_scene(name: String):
 	if name.is_absolute_path():
-		name = scene_name.simplify_path()
+		name = name.simplify_path()
 	else:
-		name = name.get_base_dir().path_join(name).simplify_path()
+		name = scene_name.get_base_dir().path_join(name).simplify_path()
 	if loading:
 		if name == scene_name:
 			push_warning("Already loading " + name)
@@ -45,19 +51,22 @@ func load_scene(name: String):
 		return
 	print("Loading scene '" + name + "'")
 	loading = true
-	history.push_back(name)
 	scene_name = name
+	history = history.filter(func(_name): return _name != scene_name)
+	history.push_back(name)
 
 	$TransitionAnimations.play("fade_to_black")
 	await $TransitionAnimations.animation_finished
 
 	get_tree().change_scene_to_file("res:/" + scene_name + ".tscn")
-	await get_tree().node_added
+	if get_tree():
+		await get_tree().node_added
 
 	$TransitionAnimations.play_backwards("fade_to_black")
 	await $TransitionAnimations.animation_finished
 	focus_first(get_tree().current_scene)
 	loading = false
+	print(scene_name, "loaded!")
 
 
 func focus_first(parent: Node):
