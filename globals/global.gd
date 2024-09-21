@@ -6,12 +6,12 @@ var history: Array = []
 
 
 func _ready():
-	Global.load_scene("/scenes/global")
+	$TransitionAnimations.play_backwards("fade_to_black")
 	if not OS.is_debug_build():
 		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
 
 
-func _input(event):
+func _input(event: InputEvent):
 	if event.is_class("InputEventMouse"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
@@ -33,7 +33,7 @@ func go_back():
 		get_tree().quit()
 
 
-func replace_scene(name:String):
+func replace_scene(name: String):
 	history.pop_back()
 	load_scene(name)
 
@@ -48,19 +48,18 @@ func load_scene(name: String):
 			push_warning("Already loading " + name)
 		else:
 			push_warning("Attempt to load " + name + " while loading " + scene_name)
-		return
-	print("Loading scene '" + name + "'")
+		return false
+	assert(FileAccess.file_exists("res:/" + name + ".tscn"), "Scene not found " + name)
 	loading = true
+	print("Loading scene '" + name + "'")
 	scene_name = name
-	history = history.filter(func(_name): return _name != scene_name)
 	history.push_back(name)
 
 	$TransitionAnimations.play("fade_to_black")
 	await $TransitionAnimations.animation_finished
 
 	get_tree().change_scene_to_file("res:/" + scene_name + ".tscn")
-	if get_tree():
-		await get_tree().node_added
+	await get_tree().node_added
 
 	$TransitionAnimations.play_backwards("fade_to_black")
 	await $TransitionAnimations.animation_finished
