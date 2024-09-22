@@ -4,7 +4,6 @@
 
 [sub_resource type="Animation" id="Animation_bvdxb"]
 resource_name = "fade_to_black"
-length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -12,7 +11,7 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
@@ -31,6 +30,7 @@ script = ExtResource("1_xolcf")
 libraries = {
 "": SubResource("AnimationLibrary_jdcfe")
 }
+speed_scale = 2.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -43,3 +43,8 @@ offset_bottom = 4.61169e+18
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

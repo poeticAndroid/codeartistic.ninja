@@ -1,7 +1,7 @@
 extends Node2D
 
 var loading: bool
-var scene_name: String = "/"
+var scene_name: String = "/start"
 var history: Array = []
 
 
@@ -26,31 +26,33 @@ func _input(event: InputEvent):
 
 
 func go_back():
+	if loading:
+		return false
 	history.pop_back()
 	if history.size():
 		goto_scene(history.pop_back())
+	elif $ReloadTimer.is_stopped():
+		$ReloadTimer.start()
 	else:
 		get_tree().quit()
 
 
 func replace_scene(name: String):
+	if loading:
+		return false
 	history.pop_back()
 	goto_scene(name)
 
 
 func goto_scene(name: String):
+	if loading:
+		return false
+	loading = true
 	if name.is_absolute_path():
 		name = name.simplify_path()
 	else:
 		name = scene_name.get_base_dir().path_join(name).simplify_path()
-	if loading:
-		if name == scene_name:
-			push_warning("Already loading " + name)
-		else:
-			push_warning("Attempt to load " + name + " while loading " + scene_name)
-		return false
 	assert(FileAccess.file_exists("res:/" + name + ".tscn"), "Scene not found " + name)
-	loading = true
 	print("Loading scene '" + name + "'")
 	scene_name = name
 	history.push_back(name)
@@ -65,7 +67,7 @@ func goto_scene(name: String):
 	await $TransitionAnimations.animation_finished
 	focus_first(get_tree().current_scene)
 	loading = false
-	print(scene_name, "loaded!")
+	print(scene_name, " loaded!")
 
 
 func focus_first(parent: Node):
@@ -76,3 +78,7 @@ func focus_first(parent: Node):
 		elif focus_first(node):
 			return true
 	return false
+
+
+func _on_reload_timer_timeout() -> void:
+	replace_scene(scene_name)
