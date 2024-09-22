@@ -28,17 +28,17 @@ func _input(event: InputEvent):
 func go_back():
 	history.pop_back()
 	if history.size():
-		load_scene(history.pop_back())
+		goto_scene(history.pop_back())
 	else:
 		get_tree().quit()
 
 
 func replace_scene(name: String):
 	history.pop_back()
-	load_scene(name)
+	goto_scene(name)
 
 
-func load_scene(name: String):
+func goto_scene(name: String):
 	if name.is_absolute_path():
 		name = name.simplify_path()
 	else:
