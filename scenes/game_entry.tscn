@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://fkmmgy2pmka3"]
+
+[ext_resource type="FontFile" uid="uid://bg8vhdmbyk3hn" path="res://assets/fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf" id="1_262mc"]
+[ext_resource type="Script" path="res://scenes/game_entry.gd" id="1_fgbj8"]
+[ext_resource type="Texture2D" uid="uid://bf6svy7qxav88" path="res://games/killerapp/cover.png" id="2_fue73"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_568vs"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0, 0, 0, 0.498039)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="GameEntry" type="Control"]
+custom_minimum_size = Vector2(236, 185)
+layout_mode = 3
+anchors_preset = 0
+size_flags_vertical = 3
+script = ExtResource("1_fgbj8")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="Node2D"]
+offset_right = 236.0
+offset_bottom = 185.0
+pivot_offset = Vector2(118, 92)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.666667, 0.8, 1, 1)
+theme_override_fonts/font = ExtResource("1_262mc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_568vs")
+text = "The Game"
+icon = ExtResource("2_fue73")
+icon_alignment = 1
+vertical_icon_alignment = 0

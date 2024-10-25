@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://xbcsln686yky"]
+[gd_scene load_steps=6 format=3 uid="uid://xbcsln686yky"]
 
 [ext_resource type="Texture2D" uid="uid://blfxasjqmys6o" path="res://assets/images/cubular_space_plugs.jpg" id="1_bxklj"]
 [ext_resource type="FontFile" uid="uid://d3j0gva448gdp" path="res://assets/fonts/Special_Elite/SpecialElite-Regular.ttf" id="1_kxh0q"]
+[ext_resource type="PackedScene" uid="uid://fkmmgy2pmka3" path="res://scenes/game_entry.tscn" id="3_geavr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5j2l"]
 texture = ExtResource("1_bxklj")
@@ -30,11 +31,16 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_u5j2l")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
@@ -42,3 +48,51 @@ theme_override_font_sizes/font_size = 70
 text = "Legacy of the
 codeartistic.ninja"
 horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 3
+
+[node name="GameEntry" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry2" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry3" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry4" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry5" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry6" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry7" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry8" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry9" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry10" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry11" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry12" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry13" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
+
+[node name="GameEntry14" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+layout_mode = 2
