@@ -72,7 +72,7 @@ func goto_scene(name: String):
 
 func focus_first(parent: Node):
 	for node in parent.get_children():
-		if node.is_class("Control"):
+		if node.is_class("Button"):
 			node.grab_focus()
 			return true
 		elif focus_first(node):
