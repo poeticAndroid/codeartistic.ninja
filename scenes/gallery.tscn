@@ -1,16 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://xbcsln686yky"]
+[gd_scene load_steps=21 format=3 uid="uid://xbcsln686yky"]
 
 [ext_resource type="Texture2D" uid="uid://blfxasjqmys6o" path="res://assets/images/cubular_space_plugs.jpg" id="1_bxklj"]
+[ext_resource type="Script" path="res://scenes/gallery.gd" id="1_fcl6s"]
 [ext_resource type="FontFile" uid="uid://d3j0gva448gdp" path="res://assets/fonts/Special_Elite/SpecialElite-Regular.ttf" id="1_kxh0q"]
 [ext_resource type="PackedScene" uid="uid://fkmmgy2pmka3" path="res://scenes/game_entry.tscn" id="3_geavr"]
+[ext_resource type="Texture2D" uid="uid://bmxch3ab7i8fw" path="res://games/oneofyouguys/cover.png" id="4_cgpmf"]
+[ext_resource type="Texture2D" uid="uid://pc3dkl5ojd32" path="res://games/polarbears/cover.png" id="5_tb3wq"]
+[ext_resource type="Texture2D" uid="uid://8r0h5bfqc1g6" path="res://games/adaptor/cover.png" id="6_swq45"]
+[ext_resource type="Texture2D" uid="uid://cakstth88sp8l" path="res://games/someday/cover.png" id="7_s86oa"]
+[ext_resource type="Texture2D" uid="uid://b54iqmx84mefv" path="res://games/blank/cover.png" id="8_e1m1r"]
+[ext_resource type="Texture2D" uid="uid://234n0r6f1ry3" path="res://games/restless/cover.png" id="9_8tby2"]
+[ext_resource type="Texture2D" uid="uid://bf6svy7qxav88" path="res://games/killerapp/cover.png" id="10_umsnr"]
+[ext_resource type="Texture2D" uid="uid://igwuyy5r7j6u" path="res://games/danger/cover.png" id="11_wutrm"]
+[ext_resource type="Texture2D" uid="uid://b1gh84t1x762w" path="res://games/fine/cover.png" id="12_puv5g"]
+[ext_resource type="Texture2D" uid="uid://545ioey4iosg" path="res://games/sertraline/cover.png" id="13_voiff"]
+[ext_resource type="Texture2D" uid="uid://d0mipdfyhgw5" path="res://games/emotions/cover.png" id="14_wxqpj"]
+[ext_resource type="Texture2D" uid="uid://cj8tses563u8b" path="res://games/machine/cover.png" id="15_08qmf"]
+[ext_resource type="Texture2D" uid="uid://b14c0rcqtjdte" path="res://games/cost_of_creation/cover.png" id="16_daghe"]
+[ext_resource type="Texture2D" uid="uid://kpw24qqcnbjp" path="res://games/mothballed/cover.png" id="17_f1ijr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5j2l"]
 texture = ExtResource("1_bxklj")
+modulate_color = Color(0.5, 0.5, 0.5, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_625yf"]
 base_font = ExtResource("1_kxh0q")
 variation_embolden = 0.5
-spacing_top = 20
 
 [node name="Gallery" type="Control"]
 layout_mode = 3
@@ -19,8 +34,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_fcl6s")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,59 +58,156 @@ size_flags_vertical = 3
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="BlankLine" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 35
+
+[node name="Title3" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0.8, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 35
+text = "Legacy of the"
+
+[node name="Title2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 70
-text = "Legacy of the
-codeartistic.ninja"
-horizontal_alignment = 1
+text = "codeartistic.ninja"
+horizontal_alignment = 2
 
-[node name="GridContainer" type="GridContainer" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="BlankLine2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 35
+
+[node name="GamesContainer" type="GridContainer" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 3
 
-[node name="GameEntry" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("4_cgpmf")
+game_title = "I'm one of you guys now"
+game_name = "oneofyouguys"
+game_description = "My first game release and entry for the Ludum Dare 35."
 
-[node name="GameEntry2" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry2" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("5_tb3wq")
+game_title = "Polar bears..?"
+game_name = "polarbears"
+game_description = "A fight against the polar bear invasion with timeloop ship!"
 
-[node name="GameEntry3" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry3" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("6_swq45")
+game_title = "The Adaptor"
+game_name = "adaptor"
+game_description = "A mysterious text adventure game about existence."
 
-[node name="GameEntry4" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry4" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("7_s86oa")
+game_title = "Some day"
+game_name = "someday"
+game_description = "A game about cats, little blue boys and astronauts."
 
-[node name="GameEntry5" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry5" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("8_e1m1r")
+game_title = "The ___ adventure of ___"
+game_name = "blank"
+game_description = "It's the ___ game where you play the role of ___ and help ___ in order to ___."
 
-[node name="GameEntry6" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry6" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("9_8tby2")
+game_title = "Restless in a small world"
+game_name = "restless"
+game_description = "A pico-8 game about the afterlife, made for Ludum Dare 38."
 
-[node name="GameEntry7" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry7" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("10_umsnr")
+game_title = "Killer App 2017"
+game_name = "killerapp"
+game_description = "This is what the kids are into these days! Hours of fun! Totally gonna win Game Of The Year 2017! ;)"
 
-[node name="GameEntry8" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry8" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("11_wutrm")
+game_title = "Danger everywhere"
+game_name = "danger"
+game_description = "Something about anxiety and not being able to rest anywhere.."
 
-[node name="GameEntry9" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry9" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("12_puv5g")
+game_title = "This is fine"
+game_name = "fine"
+game_description = "Yet another pretentious anti-game.. *You* figure out what it means.."
 
-[node name="GameEntry10" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry10" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("13_voiff")
+game_title = "Sertraline"
+game_name = "sertraline"
+game_description = "Gimme them calming drugs.. so that I may feel nothing.."
 
-[node name="GameEntry11" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry11" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("14_wxqpj")
+game_title = "It's just emotions"
+game_name = "emotions"
+game_description = "What am I supposed to do with these..?"
 
-[node name="GameEntry12" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry12" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("15_08qmf")
+game_title = "The Machine"
+game_name = "machine"
+game_description = "We built it over centuries.. Now it's everywhere.. Now there is no going back.."
 
-[node name="GameEntry13" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry13" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("16_daghe")
+game_title = "The cost of creation"
+game_name = "cost_of_creation"
+game_description = "This is a multiplayer/collaborative canvas.."
 
-[node name="GameEntry14" parent="ScrollContainer/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource("3_geavr")]
+[node name="GameEntry14" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 layout_mode = 2
+game_cover = ExtResource("17_f1ijr")
+game_title = "Mothballed"
+game_name = "mothballed"
+game_description = "My gallery of failure.."
+
+[node name="BlankLine3" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="Copyright2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 16
+text = "(c) poeticAndroid 2024"
+horizontal_alignment = 1
+
+[node name="BlankLine4" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
