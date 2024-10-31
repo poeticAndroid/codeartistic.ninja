@@ -9,7 +9,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var btn: Button = %Button
-	if game_cover: btn.icon  = game_cover
+	if game_cover: btn.icon = game_cover
 	if game_title: btn.text = game_title
 	if game_description: btn.tooltip_text = game_description
 	btn.rotation = randf_range(-PI / 90, PI / 90)
@@ -22,16 +22,20 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	print("Starting game ", game_name)
+	Global.goto_scene("games/" + game_name + "/start")
 
 
 func _on_focus_entered() -> void:
 	%Button.grab_focus()
 	var tween = get_tree().create_tween()
+	tween.set_parallel()
 	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(%Button, "rotation", randf_range(-PI / 90, PI / 90), 1)
-	$AnimationPlayer.play("focus")
-	#%Button.rotation = randf_range(-PI / 90, PI / 90)
+	tween.tween_property(%Button, "scale", Vector2(1.1, 1.1), 1)
 
 
 func _on_focus_exited() -> void:
-	$AnimationPlayer.play_backwards("focus")
+	var tween = get_tree().create_tween()
+	tween.set_parallel()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	tween.tween_property(%Button, "scale", Vector2.ONE, 1)

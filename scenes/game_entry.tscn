@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fkmmgy2pmka3"]
+[gd_scene load_steps=6 format=3 uid="uid://fkmmgy2pmka3"]
 
 [ext_resource type="FontFile" uid="uid://bg8vhdmbyk3hn" path="res://assets/fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf" id="1_262mc"]
 [ext_resource type="Script" path="res://scenes/game_entry.gd" id="1_fgbj8"]
@@ -28,42 +28,6 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.666667, 0.8, 1, 1)
 
-[sub_resource type="Animation" id="Animation_11vea"]
-resource_name = "focus"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Button:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
-}
-
-[sub_resource type="Animation" id="Animation_7vto7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Button:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ah3do"]
-_data = {
-"RESET": SubResource("Animation_7vto7"),
-"focus": SubResource("Animation_11vea")
-}
-
 [node name="GameEntry" type="Control"]
 custom_minimum_size = Vector2(236, 185)
 layout_mode = 3
@@ -88,12 +52,6 @@ text = "The Game"
 icon = ExtResource("2_fue73")
 icon_alignment = 1
 vertical_icon_alignment = 0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ah3do")
-}
-speed_scale = 2.0
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
