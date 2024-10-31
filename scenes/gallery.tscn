@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://xbcsln686yky"]
+[gd_scene load_steps=24 format=3 uid="uid://xbcsln686yky"]
 
 [ext_resource type="Texture2D" uid="uid://blfxasjqmys6o" path="res://assets/images/cubular_space_plugs.jpg" id="1_bxklj"]
 [ext_resource type="Script" path="res://scenes/gallery.gd" id="1_fcl6s"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cj8tses563u8b" path="res://games/machine/cover.png" id="15_08qmf"]
 [ext_resource type="Texture2D" uid="uid://b14c0rcqtjdte" path="res://games/cost_of_creation/cover.png" id="16_daghe"]
 [ext_resource type="Texture2D" uid="uid://kpw24qqcnbjp" path="res://games/mothballed/cover.png" id="17_f1ijr"]
+[ext_resource type="FontFile" uid="uid://bg8vhdmbyk3hn" path="res://assets/fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf" id="19_q283d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5j2l"]
 texture = ExtResource("1_bxklj")
@@ -26,6 +27,13 @@ modulate_color = Color(0.5, 0.5, 0.5, 1)
 [sub_resource type="FontVariation" id="FontVariation_625yf"]
 base_font = ExtResource("1_kxh0q")
 variation_embolden = 0.5
+
+[sub_resource type="FontVariation" id="FontVariation_ex5ph"]
+base_font = ExtResource("19_q283d")
+
+[sub_resource type="FontVariation" id="FontVariation_4aduo"]
+base_font = ExtResource("19_q283d")
+variation_embolden = 1.0
 
 [node name="Gallery" type="Control"]
 layout_mode = 3
@@ -77,16 +85,81 @@ theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 70
 text = "codeartistic.ninja"
-horizontal_alignment = 2
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="WorksLink" type="LinkButton" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0.8, 1, 1)
+theme_override_colors/font_hover_color = Color(0.666667, 0.8, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 25
+text = "works"
+underline = 1
+
+[node name="Seperator2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 25
+text = " / "
+
+[node name="ManifestoLink" type="LinkButton" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0.8, 1, 1)
+theme_override_colors/font_hover_color = Color(0.666667, 0.8, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 25
+text = "manifesto"
+underline = 1
+
+[node name="Seperator3" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 25
+text = " / "
+
+[node name="WebLink" type="LinkButton" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0.8, 1, 1)
+theme_override_colors/font_hover_color = Color(0.666667, 0.8, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 25
+text = "poeticAndroid"
+underline = 1
+uri = "http://poeticandroid.online/"
 
 [node name="BlankLine2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 0.6, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 10
+
+[node name="Heading" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.6, 1)
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 40
+text = "Heading"
+
+[node name="BlankLine5" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.6, 1)
+theme_override_fonts/font = SubResource("FontVariation_625yf")
+theme_override_font_sizes/font_size = 10
 
 [node name="GamesContainer" type="GridContainer" parent="ScrollContainer/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
@@ -190,6 +263,40 @@ game_title = "Mothballed"
 game_name = "mothballed"
 game_description = "My gallery of failure.."
 
+[node name="ManifestoTxt" type="RichTextLabel" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(740, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("19_q283d")
+theme_override_fonts/italics_font = SubResource("FontVariation_ex5ph")
+theme_override_fonts/bold_font = SubResource("FontVariation_4aduo")
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "I've always been pretty fascinated with what computers can produce in the hands of creative minds.. Growing up with early home computers like the Commodore 64, ZX Spectrum and Amiga, I quickly gained insight to what makes them tick.. And even with that knowledge, it didn't take away from the magic of grabbing the joystick and stepping into an [b][color=#ffff99]interactive world of graphics and sound[/color][/b] and turn it into a [b][color=#ffff99]digital playground[/color][/b].. It wasn't just some advanced calculator or business machine.. Each computer had its own charm and personality.. 
+
+Choosing a career path seemed like a no-brainer.. I had to be a programmer.. so that's what I became.. At the same time computers became a ubiquitous tool, not only in people's homes, but in the workplaces as well.. Processing data and crunching numbers like [b][color=#ffff99]soulless mechanical slaves[/color][/b].. Fascinating, sure, but not exactly \"fun\"..
+
+It eventually became pretty clear, that going to work every day just took the joy out of life for me.. It was repetitive and limiting when I knew I had so much more to offer to the world than to an employer.. [b][color=#ffff99]I am more than just a code monkey[/color][/b].. The thought of living off of the same paychecks for the rest of my life is just to depressing..
+
+Luckily, with the internet connecting people across worlds, computers are becoming more \"human\" again, giving rise to an indie culture of all kinds of media; blogs, code, videos, music, visual arts and social media.. And then there are [b][color=#ffff99]games, which might very well be the most expressive artform[/color][/b] we have to share ideas and stories with each other.. It's an artform that I find very fascinating - [i]and[/i] fun..!
+
+But it's also a very broad, multifaceted and challenging artform.. Something that will take many failed attempts to learn, let alone master.. It takes a great deal of imagination.. Something I feel I have somewhat lost in my career path as an introverted perfectionist programmer.. [b][color=#ffff99]But code can be art too[/color][/b], if you're willing to loosen your grip on rules and conventions..
+
+It's when [b][color=#ffff99]I'm engaged in art that I feel most human[/color][/b].. It challenges my imagination, my social awareness, my emotions, my notions of what it means to be human.. I know that [b][color=#ffff99]making good art takes a lot of practice and failure[/color][/b] and I knew that going in.. And even if it's sometimes tempting to give up, I always seem to manage to stay determined and [b][color=#ffff99]take every failure as an opportunity to learn[/color][/b] and get a step closer to success..
+
+Life is challenging.. But it's also short.. I can't avoid challenges and I can't avoid death.. So I [b][color=#ffff99]better make those challenges meaningful, something that pushes me forward[/color][/b] rather than holding me back.. I don't want to die before I've given as much as I can possibly give to the world.. That is my dream.. To grow as a person and put that growth into something useful for the world..
+
+Dreams are important.. not just for me, but for everyone.. It's important to have a reason to live and not just survive.. I hope that one day we can all live in a world where dreams are worth pursuing.. Where we can be compassionate enough to help each other out, getting rid of meaningless obstacles that hold us all back, so that we are each left with meaningful challenges to help us grow.. [b][color=#ffff99]No potential should go to waste[/color][/b].. No one should die before they have lived the best life they can have..
+
+Life is too short for regrets..
+"
+fit_content = true
+
 [node name="BlankLine3" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
@@ -211,3 +318,6 @@ theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
+
+[connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/WorksLink" to="." method="_on_works_link_pressed"]
+[connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/ManifestoLink" to="." method="_on_manifesto_link_pressed"]
