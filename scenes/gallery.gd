@@ -6,6 +6,12 @@ var active_link: LinkButton
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_on_works_link_pressed()
+	await get_tree().create_timer(1).timeout
+	var tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+	var foc = get_tree().root.gui_get_focus_owner()
+	if foc:
+		tween.tween_property(%ScrollContainer, "scroll_vertical", %ScrollContainer.scroll_vertical + foc.global_position.y - 256, 1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,10 +37,6 @@ func _input(event: InputEvent) -> void:
 		tween.tween_property(%ScrollContainer, "scroll_vertical", %ScrollContainer.scroll_vertical - 200, 1)
 	if Input.is_action_just_pressed("ui_down"):
 		tween.tween_property(%ScrollContainer, "scroll_vertical", %ScrollContainer.scroll_vertical + 200, 1)
-	#if event.is_released() and not event.is_class("InputEventMouse"):
-		#var foc = get_tree().root.gui_get_focus_owner()
-		#if foc:
-			#tween.tween_property(%ScrollContainer, "scroll_vertical", %ScrollContainer.scroll_vertical + foc.global_position.y - 256, 1)
 
 
 func _on_works_link_pressed() -> void:

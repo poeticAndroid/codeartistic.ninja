@@ -12,7 +12,14 @@ func _ready() -> void:
 	if game_cover: btn.icon = game_cover
 	if game_title: btn.text = game_title
 	if game_description: btn.tooltip_text = game_description
+	if Engine.is_editor_hint(): return
+
 	btn.rotation = randf_range(-PI / 90, PI / 90)
+	if Global.session.has("last_game"):
+		if Global.session["last_game"] == game_name: grab_focus()
+	else:
+		Global.session["last_game"] = game_name
+		grab_focus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +29,7 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	print("Starting game ", game_name)
+	Global.session["last_game"] = game_name
 	Global.goto_scene("games/" + game_name + "/start")
 
 

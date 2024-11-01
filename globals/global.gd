@@ -1,5 +1,7 @@
 extends Node2D
 
+var session: Dictionary = {}
+
 var loading: bool
 var scene_name: String = "/start"
 var history: Array = []
@@ -65,19 +67,8 @@ func goto_scene(name: String):
 
 	$TransitionAnimations.play_backwards("fade_to_black")
 	await $TransitionAnimations.animation_finished
-	focus_first(get_tree().current_scene)
 	loading = false
 	print(scene_name, " loaded!")
-
-
-func focus_first(parent: Node):
-	for node in parent.get_children():
-		if node.is_class("Button"):
-			node.grab_focus()
-			return true
-		elif focus_first(node):
-			return true
-	return false
 
 
 func _on_reload_timer_timeout() -> void:
