@@ -60,7 +60,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_u5j2l")
 [node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
 layout_mode = 2
@@ -80,6 +79,7 @@ theme_override_font_sizes/font_size = 35
 text = "Legacy of the"
 
 [node name="Title2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
@@ -149,7 +149,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.6, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 40
-text = "Heading"
 
 [node name="BlankLine5" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -160,6 +159,7 @@ theme_override_font_sizes/font_size = 10
 [node name="GamesContainer" type="GridContainer" parent="ScrollContainer/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
@@ -266,7 +266,6 @@ game_description = "My gallery of failure.."
 [node name="ManifestoTxt" type="RichTextLabel" parent="ScrollContainer/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
-custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("19_q283d")
 theme_override_fonts/italics_font = SubResource("FontVariation_ex5ph")

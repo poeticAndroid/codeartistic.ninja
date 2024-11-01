@@ -40,14 +40,24 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_works_link_pressed() -> void:
-	%Heading.text = "Interactive works of art"
-	%ManifestoTxt.visible = false
-	%GamesContainer.visible = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(%ManifestoTxt, "modulate", Color.TRANSPARENT, 0.25)
+	tween.tween_property(%Heading, "modulate", Color.TRANSPARENT, 0.25)
+	tween.tween_property(%Heading, "text", "Interactive works of art", 0)
+	tween.tween_property(%Heading, "modulate", Color.WHITE, 0.25)
+	tween.tween_property(%ManifestoTxt, "visible", false, 0)
+	tween.tween_property(%GamesContainer, "visible", true, 0)
+	tween.tween_property(%GamesContainer, "modulate", Color.WHITE, 0.25)
 	hi_link(%WorksLink)
 
 
 func _on_manifesto_link_pressed() -> void:
-	%Heading.text = "The Codeartistic Manifesto"
-	%GamesContainer.visible = false
-	%ManifestoTxt.visible = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(%GamesContainer, "modulate", Color.TRANSPARENT, 0.25)
+	tween.tween_property(%Heading, "modulate", Color.TRANSPARENT, 0.25)
+	tween.tween_property(%Heading, "text", "The Codeartistic Manifesto", 0)
+	tween.tween_property(%Heading, "modulate", Color.WHITE, 0.25)
+	tween.tween_property(%GamesContainer, "visible", false, 0)
+	tween.tween_property(%ManifestoTxt, "visible", true, 0)
+	tween.tween_property(%ManifestoTxt, "modulate", Color.WHITE, 0.25)
 	hi_link(%ManifestoLink)

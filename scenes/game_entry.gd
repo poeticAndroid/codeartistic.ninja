@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	print("Starting game ", game_name)
 	Global.session["last_game"] = game_name
-	Global.goto_scene("games/" + game_name + "/start")
+	Global.goto_scene("/games/" + game_name + "/start")
 
 
 func _on_focus_entered() -> void:
