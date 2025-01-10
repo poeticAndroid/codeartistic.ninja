@@ -3,4 +3,4 @@
 /android/
 builds/
 export_presets.cfg
-games/
+games/*/_/
