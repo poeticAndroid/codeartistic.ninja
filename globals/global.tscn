@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkabeq3ceyrqw"]
+[gd_scene load_steps=5 format=3 uid="uid://dkabeq3ceyrqw"]
 
 [ext_resource type="Script" path="res://globals/global.gd" id="1_xolcf"]
 
@@ -22,6 +22,17 @@ _data = {
 "fade_to_black": SubResource("Animation_bvdxb")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkc67"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="Global" type="Node2D"]
 z_index = 1024
 script = ExtResource("1_xolcf")
@@ -31,6 +42,16 @@ libraries = {
 "": SubResource("AnimationLibrary_jdcfe")
 }
 speed_scale = 2.0
+
+[node name="QuitTip" type="Label" parent="."]
+visible = false
+offset_left = 320.0
+offset_top = 8.0
+offset_right = 640.0
+offset_bottom = 39.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qkc67")
+text = "Quit? Press again!"
+horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

@@ -27,26 +27,27 @@ func _input(event: InputEvent):
 			get_window().mode = Window.MODE_WINDOWED
 
 
-func go_back():
+func go_back(fade: bool = true):
 	if loading:
 		return false
 	history.pop_back()
 	if history.size():
-		goto_scene(history.pop_back())
+		goto_scene(history.pop_back(), fade)
 	elif $ReloadTimer.is_stopped():
+		$QuitTip.visible = true
 		$ReloadTimer.start()
 	else:
 		get_tree().quit()
 
 
-func replace_scene(name: String):
+func replace_scene(name: String, fade: bool = false):
 	if loading:
 		return false
 	history.pop_back()
-	goto_scene(name)
+	goto_scene(name, fade)
 
 
-func goto_scene(name: String):
+func goto_scene(name: String, fade: bool = true):
 	if loading:
 		return false
 	loading = true
@@ -59,17 +60,21 @@ func goto_scene(name: String):
 	scene_name = name
 	history.push_back(name)
 
-	$TransitionAnimations.play("fade_to_black")
-	await $TransitionAnimations.animation_finished
+	if fade:
+		$TransitionAnimations.play("fade_to_black")
+		await $TransitionAnimations.animation_finished
 
+	$QuitTip.visible = false
 	get_tree().change_scene_to_file("res:/" + scene_name + ".tscn")
 	await get_tree().node_added
 
-	$TransitionAnimations.play_backwards("fade_to_black")
-	await $TransitionAnimations.animation_finished
+	if fade:
+		$TransitionAnimations.play_backwards("fade_to_black")
+		await $TransitionAnimations.animation_finished
+
 	loading = false
 	print(scene_name, " loaded!")
 
 
 func _on_reload_timer_timeout() -> void:
-	replace_scene(scene_name)
+	replace_scene(scene_name, true)
