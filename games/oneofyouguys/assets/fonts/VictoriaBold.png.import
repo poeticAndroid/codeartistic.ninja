@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://crp62cke5cow0"
+path="res://.godot/imported/VictoriaBold.png-ebb59ffc2ba8d48685d3686d9dc999b4.fontdata"
+
+[deps]
+
+source_file="res://games/oneofyouguys/assets/fonts/VictoriaBold.png"
+dest_files=["res://.godot/imported/VictoriaBold.png-ebb59ffc2ba8d48685d3686d9dc999b4.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("32-126")
+kerning_pairs=PackedStringArray()
+columns=95
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(4, 4, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2
