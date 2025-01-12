@@ -1,6 +1,10 @@
 extends Node2D
 
 var session: Dictionary = {}
+var persistant: Dictionary = {}
+var persistant_json: String
+
+var input_method: int = -1
 
 var loading: bool
 var scene_name: String = "/start"
@@ -9,6 +13,8 @@ var history: Array = []
 
 func _ready():
 	$TransitionAnimations.play_backwards("fade_to_black")
+	if FileAccess.file_exists("user://persistant.json"):
+		persistant = JSON.parse_string(FileAccess.get_file_as_string("user://persistant.json"))
 	if not OS.is_debug_build():
 		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
 
@@ -18,6 +24,7 @@ func _input(event: InputEvent):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+
 	if event.is_action_pressed("ui_cancel"):
 		go_back()
 	if event.is_action_pressed("toggle_fullscreen"):
@@ -51,6 +58,7 @@ func goto_scene(name: String, fade: bool = true):
 	if loading:
 		return false
 	loading = true
+	save_persistant()
 	if name.is_absolute_path():
 		name = name.simplify_path()
 	else:
@@ -76,5 +84,18 @@ func goto_scene(name: String, fade: bool = true):
 	print(scene_name, " loaded!")
 
 
+func save_persistant():
+	var file = FileAccess.open("user://persistant.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(persistant, "  "))
+	file.close()
+
+
 func _on_reload_timer_timeout() -> void:
 	replace_scene(scene_name, true)
+
+
+func _on_save_timer_timeout() -> void:
+	var json = JSON.stringify(persistant)
+	if persistant_json == json: return
+	persistant_json = json
+	save_persistant()

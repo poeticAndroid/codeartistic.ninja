@@ -68,4 +68,8 @@ color = Color(0, 0, 0, 0)
 [node name="ReloadTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="SaveTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]
