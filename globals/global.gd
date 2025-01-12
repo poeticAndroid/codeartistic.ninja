@@ -1,5 +1,9 @@
 extends Node2D
 
+const DESKTOP_INPUT = 0
+const TOUCH_INPUT = 1
+const GAMEPAD_INPUT = 2
+
 var session: Dictionary = {}
 var persistant: Dictionary = {}
 var persistant_json: String
@@ -20,9 +24,20 @@ func _ready():
 
 
 func _input(event: InputEvent):
+	if event.is_class("InputEventKey"):
+		input_method = DESKTOP_INPUT
+	if event.is_class("InputEventMouseButton"):
+		input_method = DESKTOP_INPUT
+	if event.is_class("InputEventScreenTouch"):
+		input_method = TOUCH_INPUT
+	if event.is_class("InputEventJoypadButton"):
+		input_method = GAMEPAD_INPUT
+
 	if event.is_class("InputEventMouse"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	else:
+	elif event.is_class("InputEventFromWindow"):
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	elif event.is_class("InputEventJoypadButton"):
 		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 	if event.is_action_pressed("ui_cancel"):
@@ -58,7 +73,6 @@ func goto_scene(name: String, fade: bool = true):
 	if loading:
 		return false
 	loading = true
-	save_persistant()
 	if name.is_absolute_path():
 		name = name.simplify_path()
 	else:

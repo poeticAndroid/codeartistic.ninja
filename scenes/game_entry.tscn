@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://bg8vhdmbyk3hn" path="res://assets/fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf" id="1_262mc"]
 [ext_resource type="Script" path="res://scenes/game_entry.gd" id="1_fgbj8"]
-[ext_resource type="Texture2D" uid="uid://bf6svy7qxav88" path="res://games/killerapp/cover.png" id="2_fue73"]
+[ext_resource type="Texture2D" uid="uid://dv686wsmh4n0q" path="res://games/killerapp/cover.png" id="2_fue73"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ciyh5"]
 content_margin_left = 8.0

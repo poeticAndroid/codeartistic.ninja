@@ -13,6 +13,7 @@ func _ready() -> void:
 	if game_title: btn.text = game_title
 	if game_description: btn.tooltip_text = game_description
 	if Engine.is_editor_hint(): return
+	await get_tree().create_timer(.8).timeout
 
 	btn.rotation = randf_range(-PI / 90, PI / 90)
 	if Global.session.has("last_game"):

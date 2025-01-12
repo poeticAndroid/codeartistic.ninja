@@ -31,11 +31,13 @@ func hi_link(node: LinkButton):
 
 
 func _input(event: InputEvent) -> void:
-	var tween = get_tree().create_tween()
-	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 	if Input.is_action_just_pressed("ui_up"):
+		var tween = get_tree().create_tween()
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 		tween.tween_property(%ScrollContainer, "scroll_vertical", %ScrollContainer.scroll_vertical - 200, 1)
 	if Input.is_action_just_pressed("ui_down"):
+		var tween = get_tree().create_tween()
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 		tween.tween_property(%ScrollContainer, "scroll_vertical", %ScrollContainer.scroll_vertical + 200, 1)
 
 
