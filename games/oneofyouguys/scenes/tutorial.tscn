@@ -73,12 +73,12 @@ text = "Oh look.. It's one of the green guys..
 
 [node name="Object113" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(176, 48)
-clan = "purple"
+clan = 3
 possessed = true
 
 [node name="Object155" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(1200, 144)
-clan = "green"
+clan = 2
 
 [node name="Attack?" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(1200, 208)
@@ -90,7 +90,7 @@ gamepad_text = "Push A to attack."
 
 [node name="Object163" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2416, 256)
-clan = "green"
+clan = 2
 
 [node name="Possess dead bodies..." parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(2480, 48)

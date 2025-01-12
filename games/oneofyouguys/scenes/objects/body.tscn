@@ -1,6 +1,83 @@
-[gd_scene load_steps=2 format=3 uid="uid://djqlsg7if4btu"]
+[gd_scene load_steps=13 format=3 uid="uid://djqlsg7if4btu"]
 
 [ext_resource type="Script" path="res://games/oneofyouguys/scenes/objects/body.gd" id="1_yqfak"]
+[ext_resource type="Texture2D" uid="uid://wwqt57thp2km" path="res://games/oneofyouguys/assets/sprites/body_32x32.png" id="2_xnqx1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh0ih"]
+atlas = ExtResource("2_xnqx1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywin5"]
+atlas = ExtResource("2_xnqx1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kyh4"]
+atlas = ExtResource("2_xnqx1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcr3l"]
+atlas = ExtResource("2_xnqx1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbpuk"]
+atlas = ExtResource("2_xnqx1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21ws0"]
+atlas = ExtResource("2_xnqx1")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdbqm"]
+atlas = ExtResource("2_xnqx1")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl7i0"]
+atlas = ExtResource("2_xnqx1")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2xjv"]
+atlas = ExtResource("2_xnqx1")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_koqia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh0ih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywin5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kyh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcr3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbpuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21ws0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdbqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl7i0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2xjv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Body" type="Node2D"]
 script = ExtResource("1_yqfak")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_koqia")
+autoplay = "default"
+frame_progress = 0.0581278
