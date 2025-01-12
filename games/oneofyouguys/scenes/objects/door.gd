@@ -6,7 +6,7 @@ extends Node2D
 @export var clan: Clan:
 	set(_clan):
 		clan = _clan
-		if not color_rect:return
+		if not color_rect: return
 		match clan:
 			Clan.RANDOM:
 				color_rect.modulate = Color.WHITE
@@ -19,7 +19,7 @@ extends Node2D
 @export var size: Vector2 = Vector2.ONE:
 	set(_size):
 		size = _size
-		if not color_rect:return
+		if not color_rect: return
 		color_rect.size = size
 		color_rect.position = size * -0.5
 
