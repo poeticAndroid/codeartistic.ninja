@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wwqt57thp2km"
-path="res://.godot/imported/body_32x32.png-7cbec5630dd1790c27652e3bf3309c8a.ctex"
+uid="uid://ba7i73hlrkx23"
+path="res://.godot/imported/body_64x64.png-0ad571f94faa57c3a4aa1dfa92e9f79b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://games/oneofyouguys/assets/sprites/body_32x32.png"
-dest_files=["res://.godot/imported/body_32x32.png-7cbec5630dd1790c27652e3bf3309c8a.ctex"]
+source_file="res://games/oneofyouguys/assets/sprites/body_64x64.png"
+dest_files=["res://.godot/imported/body_64x64.png-0ad571f94faa57c3a4aa1dfa92e9f79b.ctex"]
 
 [params]
 
