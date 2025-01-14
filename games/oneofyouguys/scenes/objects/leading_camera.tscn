@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vc10yy8hd6cr"]
+
+[ext_resource type="Script" path="res://games/oneofyouguys/scenes/objects/leading_camera.gd" id="1_okhsb"]
+
+[node name="LeadingCamera" type="Camera2D"]
+script = ExtResource("1_okhsb")

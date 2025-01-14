@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://jtse747y2g1n"]
+[gd_scene load_steps=9 format=4 uid="uid://jtse747y2g1n"]
 
+[ext_resource type="PackedScene" uid="uid://vc10yy8hd6cr" path="res://games/oneofyouguys/scenes/objects/leading_camera.tscn" id="1_xonr4"]
 [ext_resource type="PackedScene" uid="uid://djqlsg7if4btu" path="res://games/oneofyouguys/scenes/objects/body.tscn" id="gamesoneofyouguysscenesobjectsbody"]
 [ext_resource type="PackedScene" uid="uid://b2ajnp57heq3o" path="res://games/oneofyouguys/scenes/objects/door.tscn" id="gamesoneofyouguysscenesobjectsdoor"]
 [ext_resource type="PackedScene" uid="uid://6mpo0x3vsl7m" path="res://games/oneofyouguys/scenes/objects/goal.tscn" id="gamesoneofyouguysscenesobjectsgoal"]
@@ -67,6 +68,11 @@ sources/0 = SubResource("TileSetAtlasSource_0")
 
 [node name="tutorial" type="Node2D"]
 
+[node name="LeadingCamera" parent="." node_paths=PackedStringArray("limit") instance=ExtResource("1_xonr4")]
+sight = Vector2(160, 0)
+limit = NodePath("../ColorRect")
+follow_group = "possessed"
+
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 3200.0
 offset_bottom = 448.0
@@ -97,15 +103,6 @@ cols = 12
 text = "Oh look.. It's one of the green guys..
  What an asshole.."
 
-[node name="Object113" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
-position = Vector2(176, 48)
-clan = 3
-possessed = true
-
-[node name="Object155" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
-position = Vector2(1200, 144)
-clan = 2
-
 [node name="Attack?" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(1200, 208)
 cols = 12
@@ -113,10 +110,6 @@ text = "[ctrl]"
 desktop_text = "Press X to attack."
 touch_text = "Tap right thumb to attack."
 gamepad_text = "Push A to attack."
-
-[node name="Object163" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
-position = Vector2(2416, 256)
-clan = 2
 
 [node name="Possess dead bodies..." parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(2480, 48)
@@ -135,3 +128,16 @@ text = "Hmm.. A green door..
 [node name="Object169" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
 position = Vector2(3184, 176)
 destination = "friends"
+
+[node name="Object113" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+position = Vector2(176, 48)
+clan = 3
+possessed = true
+
+[node name="Object155" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+position = Vector2(1200, 144)
+clan = 2
+
+[node name="Door" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+position = Vector2(2416, 256)
+clan = 2
