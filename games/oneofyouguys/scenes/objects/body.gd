@@ -5,17 +5,22 @@ extends CharacterBody2D
 @export var clan: Clan:
 	set(_clan):
 		clan = _clan
+		if not %AnimatedSprite2D: await ready
 		match clan:
 			Clan.RANDOM: %AnimatedSprite2D.modulate = Color.WHITE
 			Clan.ORANGE: %AnimatedSprite2D.modulate = Color("FF9200")
 			Clan.GREEN: %AnimatedSprite2D.modulate = Color("74FF00")
 			Clan.PURPLE: %AnimatedSprite2D.modulate = Color("6E01FF")
-@export var possessed: bool
+@export var possessed: bool:
+	set(_possessed):
+		possessed = _possessed
+		if possessed: add_to_group("possessed")
+		else: remove_from_group("possessed")
 
 
 enum Clan {RANDOM, ORANGE, GREEN, PURPLE}
 
-const SPEED = 130.0
+const SPEED = 256
 const JUMP_VELOCITY = -650.0
 const GRAVITY = 2048
 
@@ -43,7 +48,7 @@ func _process(delta: float) -> void:
 		velocity.y += GRAVITY * delta
 
 	if possessed:  # player is in control
-		velocity.x = Input.get_axis("ui_left", "ui_right") * 256
+		velocity.x = Input.get_axis("ui_left", "ui_right") * SPEED
 		if Input.is_action_just_pressed("ui_left"):
 			%AnimatedSprite2D.flip_h = true
 		if Input.is_action_just_pressed("ui_right"):
@@ -63,6 +68,9 @@ func _process(delta: float) -> void:
 			if %AnimatedSprite2D.flip_h:
 				velocity.x *= -1
 
+	if position.y > get_viewport().size.y * 2:  # fell out of the world
+		position.y = 0
+		velocity.y = -100 * randf()
 	move_and_slide()
 
 
