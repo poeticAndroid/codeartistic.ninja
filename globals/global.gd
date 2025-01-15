@@ -19,7 +19,9 @@ func _ready():
 	$TransitionAnimations.play_backwards("fade_to_black")
 	if FileAccess.file_exists("user://persistant.json"):
 		persistant = JSON.parse_string(FileAccess.get_file_as_string("user://persistant.json"))
-	if not OS.is_debug_build():
+	if OS.is_debug_build():
+		get_window().always_on_top = true
+	else:
 		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
 
 
