@@ -171,3 +171,5 @@ animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.518158
 flip_h = true
+
+[connection signal="on_screen" from="." to="." method="_on_on_screen"]

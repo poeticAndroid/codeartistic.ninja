@@ -2,6 +2,8 @@
 class_name Body
 extends CharacterBody2D
 
+signal on_screen
+
 @export var clan: Clan:
 	set(_clan):
 		clan = _clan
@@ -59,17 +61,17 @@ func _process(delta: float) -> void:
 		velocity.x = Input.get_axis("ui_left", "ui_right") * SPEED
 		if Input.is_action_just_pressed("ui_left"):
 			%AnimatedSprite2D.flip_h = true
-		if Input.is_action_just_pressed("ui_right"):
+		elif Input.is_action_just_pressed("ui_right"):
 			%AnimatedSprite2D.flip_h = false
+		else:
+			position = position.ceil() if %AnimatedSprite2D.flip_h else position.floor()
 		if Input.is_action_just_pressed("ui_up"):
 			jump()
-		if Input.is_action_just_pressed("ui_down"):
+		elif Input.is_action_just_pressed("ui_down"):
 			drop()
 		if Input.is_action_just_pressed("ui_accept"):
 			fire()
 	elif alive:  # AI is in control
-		if velocity.x == 0:
-			velocity.x = -50 - 50 * randf()
 		if is_on_wall():
 			%AnimatedSprite2D.flip_h = ! %AnimatedSprite2D.flip_h
 			velocity.x = 64 + 64 * randf()
@@ -370,3 +372,8 @@ func possess():
 
 # }
 # export = Body;
+
+
+func _on_on_screen() -> void:
+	if velocity.x == 0:
+		velocity.x = -50 - 50 * randf()

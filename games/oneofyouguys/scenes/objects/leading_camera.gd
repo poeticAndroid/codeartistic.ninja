@@ -15,6 +15,8 @@ var _subject_center: Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if not sight: sight = get_viewport_rect().size / 5
+	$Area2D/CollisionShape2D.shape.size = get_viewport_rect().size
+
 	var subject = get_tree().get_first_node_in_group(follow_group)
 	if subject:
 		_last_pos = subject.position
@@ -51,4 +53,9 @@ func _process(delta: float) -> void:
 			_current.x = limit.position.x + limit.size.x / 2
 		if get_viewport_rect().size.y > limit.size.y:
 			_current.y = limit.position.y + limit.size.y / 2
-	position = _current
+	position = _current.round()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_signal("on_screen"):
+		body.emit_signal("on_screen")
