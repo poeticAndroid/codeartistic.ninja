@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://b77a8yds8k4q2"]
 
 [node name="Start" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 210.0
+offset_top = 115.0
+offset_right = 318.0
+offset_bottom = 138.0
+text = "Coming soon?"
