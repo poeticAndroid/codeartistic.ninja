@@ -86,25 +86,25 @@ tile_map_data = PackedByteArray("AAAAAAAAAAACAAEAAABLAAAAAAACAAIAAAAAAAEAAAACAAE
 tile_set = SubResource("TileSet_0")
 
 [node name="It\'s you!" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
-position = Vector2(48, 48)
+position = Vector2(80, 48)
 text = "Hi there!
  It looks like you are that little purple guy there.."
 
 [node name="Move and jump..." parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
-position = Vector2(48, 208)
+position = Vector2(112, 208)
 text = "[ctrl]"
 desktop_text = "Move and jump with arrow keys."
 touch_text = "Swipe left thumb to move, right thumb to jump."
 gamepad_text = "Move with left stick. Push B to jump."
 
 [node name="Green guy" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
-position = Vector2(848, 48)
+position = Vector2(976, 48)
 cols = 12
 text = "Oh look.. It's one of the green guys..
  What an asshole.."
 
 [node name="Attack?" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
-position = Vector2(1200, 208)
+position = Vector2(1296, 208)
 cols = 12
 text = "[ctrl]"
 desktop_text = "Press X to attack."
