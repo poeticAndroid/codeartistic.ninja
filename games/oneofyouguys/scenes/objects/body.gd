@@ -63,8 +63,6 @@ func _process(delta: float) -> void:
 			%AnimatedSprite2D.flip_h = true
 		elif Input.is_action_just_pressed("ui_right"):
 			%AnimatedSprite2D.flip_h = false
-		else:
-			position = position.ceil() if %AnimatedSprite2D.flip_h else position.floor()
 		if Input.is_action_just_pressed("ui_up"):
 			jump()
 		elif Input.is_action_just_pressed("ui_down"):
@@ -78,6 +76,8 @@ func _process(delta: float) -> void:
 			if %AnimatedSprite2D.flip_h:
 				velocity.x *= -1
 
+	if velocity.x == 0:
+		position = position.ceil() if %AnimatedSprite2D.flip_h else position.floor()
 	if position.y > get_viewport().size.y * 2:  # fell out of the world
 		position.y = 0
 		velocity.y = -100 * randf()
