@@ -14,7 +14,7 @@ var _subject_center: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if not sight: sight = get_viewport().size / 5
+	if not sight: sight = get_viewport_rect().size / 5
 	var subject = get_tree().get_first_node_in_group(follow_group)
 	if subject:
 		_last_pos = subject.position
@@ -45,10 +45,10 @@ func _process(delta: float) -> void:
 	_current += _speed
 
 	if limit:
-		var center: Vector2 = get_viewport().size / 2
+		var center: Vector2 = get_viewport_rect().size / 2
 		_current = _current.clamp(limit.position + center, limit.position + limit.size - center)
-		if get_viewport().size.x > limit.size.x:
+		if get_viewport_rect().size.x > limit.size.x:
 			_current.x = limit.position.x + limit.size.x / 2
-		if get_viewport().size.y > limit.size.y:
+		if get_viewport_rect().size.y > limit.size.y:
 			_current.y = limit.position.y + limit.size.y / 2
 	position = _current
