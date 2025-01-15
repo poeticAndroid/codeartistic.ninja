@@ -1,12 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2ajnp57heq3o"]
+[gd_scene load_steps=3 format=3 uid="uid://b2ajnp57heq3o"]
 
 [ext_resource type="Script" path="res://games/oneofyouguys/scenes/objects/door.gd" id="1_k85qc"]
 
-[node name="Door" type="Node2D"]
-script = ExtResource("1_k85qc")
-size = Vector2(32, 192)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0v4km"]
+size = Vector2(32, 64)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_k85qc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0v4km")
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D"]
+unique_name_in_owner = true
 offset_left = -16.0
 offset_top = -96.0
 offset_right = 16.0

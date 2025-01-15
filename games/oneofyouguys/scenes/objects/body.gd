@@ -7,10 +7,18 @@ extends CharacterBody2D
 		clan = _clan
 		if not %AnimatedSprite2D: await ready
 		match clan:
-			Clan.RANDOM: %AnimatedSprite2D.modulate = Color.WHITE
-			Clan.ORANGE: %AnimatedSprite2D.modulate = Color("FF9200")
-			Clan.GREEN: %AnimatedSprite2D.modulate = Color("74FF00")
-			Clan.PURPLE: %AnimatedSprite2D.modulate = Color("6E01FF")
+			Clan.RANDOM:
+				%AnimatedSprite2D.modulate = Color.WHITE
+				collision_mask = 1 | 32 | 64 | 128
+			Clan.ORANGE:
+				%AnimatedSprite2D.modulate = Color("FF9200")
+				collision_mask = 1 | 16 | 64 | 128
+			Clan.GREEN:
+				%AnimatedSprite2D.modulate = Color("74FF00")
+				collision_mask = 1 | 16 | 32 | 128
+			Clan.PURPLE:
+				%AnimatedSprite2D.modulate = Color("6E01FF")
+				collision_mask = 1 | 16 | 32 | 64
 @export var possessed: bool:
 	set(_possessed):
 		possessed = _possessed

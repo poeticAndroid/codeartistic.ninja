@@ -131,13 +131,16 @@ destination = "friends"
 
 [node name="Object113" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(176, 48)
+collision_mask = 113
 clan = 3
 possessed = true
 
 [node name="Object155" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(1200, 144)
+collision_mask = 177
 clan = 2
 
 [node name="Door" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2416, 256)
+collision_layer = 64
 clan = 2
