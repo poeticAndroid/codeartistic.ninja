@@ -40,6 +40,7 @@ var traitor: bool
 var in_sight: Body
 var carry: Body
 var grasp: Body
+@onready var gun: Node2D = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,6 +48,8 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	if clan == Clan.RANDOM:
 		clan = randi_range(1, 3)
+	while not gun.has_method("shoot"):
+		gun = gun.get_parent()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -91,7 +94,8 @@ func jump():
 
 
 func fire():
-	pass
+	if %AnimatedSprite2D.flip_h: gun.shoot(position, Vector2(-1600, randf_range(-100, 100)), 0.2)
+	else: gun.shoot(position, Vector2(1600, randf_range(-100, 100)), 0.2)
 
 
 func kill(pos = false):
