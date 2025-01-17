@@ -177,6 +177,5 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_koqia")
 animation = &"idle"
 autoplay = "idle"
-flip_h = true
 
 [connection signal="on_screen" from="." to="." method="_on_on_screen"]
