@@ -21,11 +21,15 @@ signal on_screen
 			Clan.PURPLE:
 				%AnimatedSprite2D.modulate = Color("6E01FF")
 				collision_mask = 1 | 16 | 32 | 64
+			_:
+				collision_mask = 1
 @export var possessed: bool:
 	set(_possessed):
 		possessed = _possessed
 		if possessed: add_to_group("possessed")
 		else: remove_from_group("possessed")
+@export var alive_shape: RectangleShape2D
+@export var dead_shape: RectangleShape2D
 
 
 enum Clan {RANDOM, ORANGE, GREEN, PURPLE}
@@ -34,13 +38,14 @@ const SPEED = 256
 const JUMP_VELOCITY = -650.0
 const GRAVITY = 2048
 
+var health: float = 1
 var alive: bool = true
 var jumps: int = 0
 var traitor: bool
 var in_sight: Body
 var carry: Body
 var grasp: Body
-@onready var gun: Node2D = $".."
+@onready var gun: Node = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -48,7 +53,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint(): return
 	if clan == Clan.RANDOM:
 		clan = randi_range(1, 3)
-	while not gun.has_method("shoot"):
+	while gun and not gun.has_method("shoot"):
 		gun = gun.get_parent()
 
 
@@ -94,16 +99,34 @@ func jump():
 
 
 func fire():
-	if %AnimatedSprite2D.flip_h: gun.shoot(position, Vector2(-1600, randf_range(-100, 100)), 0.2)
-	else: gun.shoot(position, Vector2(1600, randf_range(-100, 100)), 0.2)
+	if %AnimatedSprite2D.flip_h: gun.shoot(self, position, Vector2(-1600, randf_range(-100, 100)), 0.2)
+	else: gun.shoot(self, position, Vector2(1600, randf_range(-100, 100)), 0.2)
+
+
+func damage(damage: float):
+	health -= damage
+	if health <= 0:
+		kill()
 
 
 func kill(pos = false):
-	pass
+	alive = false
+	possessed = false
+	clan += 4
+	%AnimatedSprite2D.play("die")
+	$CollisionShape2D.position = Vector2(0, 24)
+	$CollisionShape2D.shape = dead_shape
+	$CollisionShape2D/AnimatedSprite2D.position = Vector2(0, -24)
+	velocity = Vector2.ZERO
 
 
 func revive(health = 1):
-	pass
+	alive = true
+	clan -= 4
+	%AnimatedSprite2D.play("revive")
+	$CollisionShape2D.position = Vector2(0, 0)
+	$CollisionShape2D.shape = alive_shape
+	$CollisionShape2D/AnimatedSprite2D.position = Vector2(0, 0)
 
 
 func drop():
@@ -379,5 +402,5 @@ func possess():
 
 
 func _on_on_screen() -> void:
-	if velocity.x == 0:
+	if alive and velocity.x == 0:
 		velocity.x = -50 - 50 * randf()

@@ -25,3 +25,10 @@ func enable():
 func disable():
 	$CollisionShape2D.disabled = true
 	visible = false
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body == shooter: return
+	if body.has_method("damage"):
+		body.damage(.34)
+		disable()
