@@ -1,4 +1,5 @@
 @tool
+@icon("./icons/text.png")
 extends Node2D
 
 @export var cols: int = 24:

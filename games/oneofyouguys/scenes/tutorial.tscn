@@ -127,10 +127,6 @@ cols = 12
 text = "Hmm.. A green door..
  Just like that green guy.."
 
-[node name="Object169" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
-position = Vector2(3184, 176)
-destination = "friends"
-
 [node name="Object113" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(176, 48)
 collision_mask = 113
@@ -147,3 +143,7 @@ position = Vector2(2416, 256)
 collision_layer = 64
 clan = 2
 size = Vector2(32, 192)
+
+[node name="Object169" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
+position = Vector2(3184, 176)
+destination = "friends"

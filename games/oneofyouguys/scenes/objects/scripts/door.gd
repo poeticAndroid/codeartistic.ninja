@@ -1,4 +1,5 @@
 @tool
+@icon("./icons/door.png")
 extends StaticBody2D
 
 @export var clan: Clan:
