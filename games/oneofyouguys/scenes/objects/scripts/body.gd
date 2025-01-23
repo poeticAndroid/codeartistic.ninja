@@ -87,7 +87,7 @@ func _process(delta: float) -> void:
 
 	if velocity.x == 0:
 		position = position.round()
-	if position.y > get_viewport().size.y * 2:  # fell out of the world
+	if position.y > get_viewport().size.y * 256:  # fell out of the world
 		position.y = 0
 		velocity.y = -100 * randf()
 	move_and_slide()
@@ -121,6 +121,21 @@ func kill(pos = false):
 	$CollisionShape2D.shape = dead_shape
 	$CollisionShape2D/AnimatedSprite2D.position = Vector2(0, -24)
 	velocity = Vector2.ZERO
+	# if (this.carry && !this.carry.alive) {
+	#   this.drop();
+	# }
+	# if (this.possessed && !pos) {
+	#   setTimeout(() => {
+	#     this.mapState.gameApp.goTo("lose_state");
+	#   }, 1024);
+	# };
+	# this.exists =
+	#   this.visible = true;
+	# this.possessed =
+	#   this.traitor = false;
+	# this.play("die");
+	# this.body.velocity.set(0);
+	# this.body.setSize(32, 10, 0, 22);
 
 
 func revive(health = 1):
@@ -130,17 +145,44 @@ func revive(health = 1):
 	$CollisionShape2D.position = Vector2(0, 0)
 	$CollisionShape2D.shape = alive_shape
 	$CollisionShape2D/AnimatedSprite2D.position = Vector2(0, 0)
+	# super.revive(health);
+	# setTimeout(() => {
+	# 	if (this.alive) {
+	# 		this.possessed = true;
+	# 		(<GameState>this.mapState).leadingCamera.follow(this);
+	# 	} else {
+	# 		this.mapState.gameApp.goTo("lose_state");
+	# 	}
+	# }, 500);
+	# this.play("revive");
+	# this.body.setSize(16, 32, 8, 0);
 
 
 func drop():
+	# if (this.carry){
+	# 		var carry = this.carry;
+	# 		this.carry = null;
+	# 		carry.drop();
+	# }
 	pass
 
 
 func pickup(_carry = grasp):
+	# if (this.carry != = carry){
+	# 		this.drop();
+	# 		this.carry = carry;
+	# 		carry.pickup(this);
+	# }
 	pass
 
 
 func possess():
+	# if (!this.possessed) return;
+	# if (!this.carry) return;
+	# ( < GameState > this.mapState).leadingCamera.follow(null);
+	# this.carry.revive();
+	# this.kill(true);
+	# this.playSound("posses");
 	pass
 
 
