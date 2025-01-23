@@ -25,6 +25,7 @@ extends StaticBody2D
 		%ColorRect.size = size
 		%ColorRect.position = size * -0.5
 		if not $CollisionShape2D: await ready
+		$CollisionShape2D.shape = RectangleShape2D.new()
 		$CollisionShape2D.shape.size = size
 
 enum Clan {RANDOM, ORANGE, GREEN, PURPLE}

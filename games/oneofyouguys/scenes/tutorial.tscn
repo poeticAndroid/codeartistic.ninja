@@ -146,3 +146,4 @@ clan = 2
 position = Vector2(2416, 256)
 collision_layer = 64
 clan = 2
+size = Vector2(32, 192)
