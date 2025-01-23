@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2ajnp57heq3o"]
 
-[ext_resource type="Script" path="res://games/oneofyouguys/scenes/objects/door.gd" id="1_k85qc"]
+[ext_resource type="Script" path="res://games/oneofyouguys/scenes/objects/scripts/door.gd" id="1_k85qc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0v4km"]
 

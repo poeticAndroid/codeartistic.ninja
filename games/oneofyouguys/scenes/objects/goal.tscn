@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://6mpo0x3vsl7m"]
 
-[ext_resource type="Script" path="res://games/oneofyouguys/scenes/objects/goal.gd" id="1_0rqs0"]
+[ext_resource type="Script" path="res://games/oneofyouguys/scenes/objects/scripts/goal.gd" id="1_0rqs0"]
 
 [node name="Goal" type="Node2D"]
 script = ExtResource("1_0rqs0")

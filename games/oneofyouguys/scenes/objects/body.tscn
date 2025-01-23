@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://djqlsg7if4btu"]
 
-[ext_resource type="Script" path="res://games/oneofyouguys/scenes/objects/body.gd" id="1_yqfak"]
+[ext_resource type="Script" path="res://games/oneofyouguys/scenes/objects/scripts/body.gd" id="1_yqfak"]
 [ext_resource type="Texture2D" uid="uid://ba7i73hlrkx23" path="res://games/oneofyouguys/assets/sprites/body_64x64.png" id="2_r0pmk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f022g"]
@@ -177,5 +177,6 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_koqia")
 animation = &"idle"
 autoplay = "idle"
+flip_h = true
 
 [connection signal="on_screen" from="." to="." method="_on_on_screen"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://xbcsln686yky"]
 
 [ext_resource type="Texture2D" uid="uid://blfxasjqmys6o" path="res://assets/images/cubular_space_plugs.jpg" id="1_bxklj"]
-[ext_resource type="Script" path="res://scenes/gallery.gd" id="1_fcl6s"]
+[ext_resource type="Script" path="res://scenes/scripts/gallery.gd" id="1_fcl6s"]
 [ext_resource type="FontFile" uid="uid://d3j0gva448gdp" path="res://assets/fonts/Special_Elite/SpecialElite-Regular.ttf" id="1_kxh0q"]
 [ext_resource type="PackedScene" uid="uid://fkmmgy2pmka3" path="res://scenes/game_entry.tscn" id="3_geavr"]
 [ext_resource type="Texture2D" uid="uid://cpgf7gmqshx0n" path="res://games/oneofyouguys/cover.png" id="4_cgpmf"]
