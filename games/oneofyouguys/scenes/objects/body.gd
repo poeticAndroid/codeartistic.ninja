@@ -47,9 +47,10 @@ var carry: Body
 var grasp: Body
 @onready var gun: Node = $".."
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	%AnimatedSprite2D.scale.x = 1 if possessed else -1
+	%AnimatedSprite2D.flip_h = false if possessed else true
 	if Engine.is_editor_hint(): return
 	if clan == Clan.RANDOM:
 		clan = randi_range(1, 3)
@@ -68,9 +69,9 @@ func _process(delta: float) -> void:
 	if possessed:  # player is in control
 		velocity.x = Input.get_axis("ui_left", "ui_right") * SPEED
 		if Input.is_action_just_pressed("ui_left"):
-			%AnimatedSprite2D.scale.x = -1
+			%AnimatedSprite2D.flip_h = true
 		elif Input.is_action_just_pressed("ui_right"):
-			%AnimatedSprite2D.scale.x = 1
+			%AnimatedSprite2D.flip_h = false
 		if Input.is_action_just_pressed("ui_up"):
 			jump()
 		elif Input.is_action_just_pressed("ui_down"):
@@ -79,11 +80,13 @@ func _process(delta: float) -> void:
 			fire()
 	elif alive:  # AI is in control
 		if is_on_wall():
-			%AnimatedSprite2D.scale.x *= -1
-			velocity.x = 64 + 64 * randf() * %AnimatedSprite2D.scale.x
+			%AnimatedSprite2D.flip_h = not %AnimatedSprite2D.flip_h
+			velocity.x = 64 + 64 * randf()
+			if %AnimatedSprite2D.flip_h:
+				velocity.x *= -1
 
 	if velocity.x == 0:
-		position = position.ceil() if %AnimatedSprite2D.scale.x < 0 else position.floor()
+		position = position.round()
 	if position.y > get_viewport().size.y * 2:  # fell out of the world
 		position.y = 0
 		velocity.y = -100 * randf()
@@ -97,7 +100,10 @@ func jump():
 
 
 func fire():
-	gun.shoot(self, position, Vector2(1600 * %AnimatedSprite2D.scale.x, randf_range(-100, 100)), 0.2)
+	if %AnimatedSprite2D.flip_h:
+		gun.shoot(self, position, Vector2(-1600, randf_range(-100, 100)), 0.2)
+	else:
+		gun.shoot(self, position, Vector2(1600, randf_range(-100, 100)), 0.2)
 
 
 func damage(damage: float):
