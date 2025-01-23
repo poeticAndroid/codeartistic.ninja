@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bci0ajffqgpey"
-path="res://.godot/imported/flag_blue.png-33661dfef438576f8d6d8805c7dc1466.ctex"
+uid="uid://b2g5y2bvr2h1b"
+path="res://.godot/imported/body.png-626b3b2d4218a602f69e3e3defd0755d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://games/oneofyouguys/scenes/objects/scripts/icons/flag_blue.png"
-dest_files=["res://.godot/imported/flag_blue.png-33661dfef438576f8d6d8805c7dc1466.ctex"]
+source_file="res://games/oneofyouguys/scenes/objects/scripts/icons/body.png"
+dest_files=["res://.godot/imported/body.png-626b3b2d4218a602f69e3e3defd0755d.ctex"]
 
 [params]
 

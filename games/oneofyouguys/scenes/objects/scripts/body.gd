@@ -1,4 +1,5 @@
 @tool
+@icon("./icons/body.png")
 class_name Body
 extends CharacterBody2D
 
