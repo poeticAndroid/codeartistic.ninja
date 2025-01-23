@@ -29,6 +29,9 @@ signal on_screen
 		possessed = _possessed
 		if possessed: add_to_group("possessed")
 		else: remove_from_group("possessed")
+		if not Engine.is_editor_hint(): return
+		if not %AnimatedSprite2D: await ready
+		%AnimatedSprite2D.flip_h = false if possessed else true
 @export var alive_shape: RectangleShape2D
 @export var dead_shape: RectangleShape2D
 
@@ -79,12 +82,20 @@ func _process(delta: float) -> void:
 			drop()
 		if Input.is_action_just_pressed("ui_accept"):
 			fire()
+		if Input.is_action_just_pressed("ui_select"):
+			if grasp:
+				pickup()
+			possess()
 	elif alive:  # AI is in control
 		if is_on_wall():
 			%AnimatedSprite2D.flip_h = not %AnimatedSprite2D.flip_h
 			velocity.x = 64 + 64 * randf()
 			if %AnimatedSprite2D.flip_h:
 				velocity.x *= -1
+	elif carry:  # dead and carried
+		position.x = carry.position.x
+		position.y = carry.position.y - 64
+		velocity = Vector2.ZERO
 
 	if velocity.x == 0:
 		position = position.round()
@@ -116,11 +127,12 @@ func damage(damage: float):
 func kill(pos = false):
 	alive = false
 	possessed = false
+	traitor = false
 	clan += 4
 	%AnimatedSprite2D.play("die")
+	%AnimatedSprite2D.position = Vector2(0, -24)
 	$CollisionShape2D.position = Vector2(0, 24)
 	$CollisionShape2D.shape = dead_shape
-	$CollisionShape2D/AnimatedSprite2D.position = Vector2(0, -24)
 	velocity = Vector2.ZERO
 	# if (this.carry && !this.carry.alive) {
 	#   this.drop();
@@ -139,54 +151,54 @@ func kill(pos = false):
 	# this.body.setSize(32, 10, 0, 22);
 
 
-func revive(health = 1):
+func revive(_health = 1):
+	health = _health
 	alive = true
 	clan -= 4
 	%AnimatedSprite2D.play("revive")
+	%AnimatedSprite2D.position = Vector2(0, 0)
 	$CollisionShape2D.position = Vector2(0, 0)
 	$CollisionShape2D.shape = alive_shape
-	$CollisionShape2D/AnimatedSprite2D.position = Vector2(0, 0)
-	# super.revive(health);
-	# setTimeout(() => {
-	# 	if (this.alive) {
-	# 		this.possessed = true;
-	# 		(<GameState>this.mapState).leadingCamera.follow(this);
-	# 	} else {
-	# 		this.mapState.gameApp.goTo("lose_state");
-	# 	}
-	# }, 500);
-	# this.play("revive");
-	# this.body.setSize(16, 32, 8, 0);
+	velocity = Vector2.ZERO
+	await %AnimatedSprite2D.animation_finished
+	if alive:
+		possessed = true
+	else:
+		# Game over
+		pass
 
 
 func drop():
-	# if (this.carry){
-	# 		var carry = this.carry;
-	# 		this.carry = null;
-	# 		carry.drop();
-	# }
-	pass
+	if carry:
+		var _carry = carry
+		carry = null
+		_carry.drop()
 
 
-func pickup(_carry = grasp):
-	# if (this.carry != = carry){
-	# 		this.drop();
-	# 		this.carry = carry;
-	# 		carry.pickup(this);
-	# }
-	pass
+func pickup(_carry: Body = grasp):
+	if carry != _carry:
+		drop()
+		carry = _carry
+		_carry.pickup(self)
 
 
 func possess():
-	# if (!this.possessed) return;
-	# if (!this.carry) return;
-	# ( < GameState > this.mapState).leadingCamera.follow(null);
-	# this.carry.revive();
-	# this.kill(true);
+	if not possessed: return
+	if not carry: return
+	carry.revive()
+	kill(true)
 	# this.playSound("posses");
-	pass
 
 
 func _on_on_screen() -> void:
-	if alive and velocity.x == 0:
+	if alive and velocity.x == 0 and %AnimatedSprite2D.animation == "idle":
 		velocity.x = -50 - 50 * randf()
+
+
+func _on_area_2d_body_entered(body: Body) -> void:
+	if body == self: return
+	grasp = body
+
+
+func _on_area_2d_body_exited(body: Body) -> void:
+	grasp = null

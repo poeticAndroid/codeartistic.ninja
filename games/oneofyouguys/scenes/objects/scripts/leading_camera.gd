@@ -5,6 +5,8 @@ extends Camera2D
 @export var limit: ColorRect
 @export var follow_group: String = "player"
 
+var subject: Node2D
+
 var _speed: Vector2
 var _direction: Vector2
 
@@ -12,12 +14,13 @@ var _last_pos: Vector2
 var _current: Vector2
 var _subject_center: Vector2
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if not sight: sight = get_viewport_rect().size / 5
 	$Area2D/CollisionShape2D.shape.size = get_viewport_rect().size
 
-	var subject = get_tree().get_first_node_in_group(follow_group)
+	subject = get_tree().get_first_node_in_group(follow_group)
 	if subject:
 		_last_pos = subject.position
 		_current = subject.position
@@ -29,7 +32,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var subject = get_tree().get_first_node_in_group(follow_group)
+	var _subject = get_tree().get_first_node_in_group(follow_group)
+	if subject != _subject:
+		subject = _subject
+		_speed = Vector2.ZERO
+		if subject:
+			_last_pos = subject.position
 	if subject:
 		_direction = subject.position - _last_pos
 		_subject_center = subject.position
