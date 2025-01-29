@@ -72,9 +72,9 @@ func _process(delta: float) -> void:
 
 	if possessed:  # player is in control
 		velocity.x = Input.get_axis("ui_left", "ui_right") * SPEED
-		if Input.is_action_just_pressed("ui_left"):
+		if velocity.x < 0:
 			%AnimatedSprite2D.flip_h = true
-		elif Input.is_action_just_pressed("ui_right"):
+		elif velocity.x > 0:
 			%AnimatedSprite2D.flip_h = false
 		if Input.is_action_just_pressed("ui_up"):
 			jump()
@@ -83,8 +83,7 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_accept"):
 			fire()
 		if Input.is_action_just_pressed("ui_select"):
-			if grasp:
-				pickup()
+			if grasp: pickup()
 			possess()
 	elif alive:  # AI is in control
 		if is_on_wall():
