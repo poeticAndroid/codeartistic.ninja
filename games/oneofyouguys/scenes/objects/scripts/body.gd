@@ -126,7 +126,6 @@ func jump():
 
 
 func fire():
-	print("bang!")
 	if %AnimatedSprite2D.flip_h:
 		gun.shoot(self, position, Vector2(-1600, randf_range(-100, 100)), 0.2)
 	else:
