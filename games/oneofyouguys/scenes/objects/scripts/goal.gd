@@ -13,6 +13,7 @@ extends Node2D
 		$CollisionShape2D.shape = RectangleShape2D.new()
 		$CollisionShape2D.shape.size = size
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass  # Replace with function body.
@@ -24,5 +25,5 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Body) -> void:
-	if not body.possessed: return
-	Global.replace_scene(destination)
+	if body.possessed: Global.replace_scene(destination)
+	body.velocity.x *= -1

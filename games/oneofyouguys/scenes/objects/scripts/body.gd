@@ -113,6 +113,9 @@ func _process(delta: float) -> void:
 
 	if velocity.x == 0:
 		position = position.round()
+	if position.y < 0:
+		position.y = 0
+		velocity = Vector2.ONE
 	if position.y > get_viewport().size.y * 256:  # fell out of the world
 		position.y = 0
 		velocity.y = -100 * randf()
@@ -139,6 +142,8 @@ func damage(damage: float):
 
 
 func kill(pos = false):
+	if carry and not carry.alive:
+		drop()
 	alive = false
 	possessed = false
 	traitor = false
