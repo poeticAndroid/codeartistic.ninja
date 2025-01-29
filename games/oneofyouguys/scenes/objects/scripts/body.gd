@@ -46,7 +46,6 @@ var health: float = 1
 var alive: bool = true
 var jumps: int = 0
 var traitor: bool
-var in_sight: Body
 var carry: Body
 var grasp: Body
 @onready var gun: Node = $".."
@@ -91,6 +90,22 @@ func _process(delta: float) -> void:
 			velocity.x = 64 + 64 * randf()
 			if %AnimatedSprite2D.flip_h:
 				velocity.x *= -1
+
+		var right = $SightRight.get_collider()
+		var left = $SightLeft.get_collider()
+		var in_sight: Body
+
+		if %AnimatedSprite2D.flip_h == true and left is Body:
+			in_sight = left
+		if %AnimatedSprite2D.flip_h == false and right is Body:
+			in_sight = right
+
+		if in_sight:
+			if in_sight.traitor:
+				traitor = false
+				if randf() < (10.0 / 60.0): fire()
+			if in_sight.clan != clan:
+				if randf() < (2.0 / 60.0): fire()
 	elif carry:  # dead and carried
 		position.x = carry.position.x
 		position.y = carry.position.y - 64
@@ -111,6 +126,7 @@ func jump():
 
 
 func fire():
+	print("bang!")
 	if %AnimatedSprite2D.flip_h:
 		gun.shoot(self, position, Vector2(-1600, randf_range(-100, 100)), 0.2)
 	else:
@@ -201,3 +217,17 @@ func _on_area_2d_body_entered(body: Body) -> void:
 
 func _on_area_2d_body_exited(body: Body) -> void:
 	grasp = null
+
+
+func _on_traitor_detector_body_entered(body: Body) -> void:
+	if possessed: return
+	if not alive: return
+	if not body.traitor: return
+	if %AnimatedSprite2D.flip_h == true and body.position.x > position.x:
+		%AnimatedSprite2D.flip_h = false
+		velocity.x = randf() * 128
+		if is_on_floor(): jump()
+	if %AnimatedSprite2D.flip_h == false and body.position.x < position.x:
+		%AnimatedSprite2D.flip_h = true
+		velocity.x = randf() * -128
+		if is_on_floor(): jump()
