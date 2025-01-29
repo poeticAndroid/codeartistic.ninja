@@ -23,6 +23,8 @@ func _ready():
 		get_window().always_on_top = true
 	else:
 		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+	scene_name = get_tree().current_scene.scene_file_path.replace("res:/", "").replace(".tscn", "")
+	print("Current scene: ", scene_name)
 
 
 func _input(event: InputEvent):
