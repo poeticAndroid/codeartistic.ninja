@@ -12,6 +12,7 @@
 script = ExtResource("1_24fwp")
 
 [node name="LeadingCamera" parent="." node_paths=PackedStringArray("limit") instance=ExtResource("1_xonr4")]
+position = Vector2(-1024, -1024)
 sight = Vector2(160, 0)
 limit = NodePath("../ColorRect")
 follow_group = "possessed"
