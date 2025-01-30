@@ -91,7 +91,7 @@ func _process(delta: float) -> void:
 			velocity.x = 64 + 64 * randf()
 			if %AnimatedSprite2D.flip_h:
 				velocity.x *= -1
-		
+
 		for body in detected:
 			if body.traitor:
 				if %AnimatedSprite2D.flip_h == true and body.position.x > position.x:
@@ -188,7 +188,7 @@ func revive(_health = 1):
 	alive = true
 	clan -= 4
 	%AnimatedSprite2D.play("revive")
-	%AnimatedSprite2D.position = Vector2(0, 0)
+	%AnimatedSprite2D.position = Vector2(0, -1)
 	$CollisionShape2D.position = Vector2(0, 1)
 	$CollisionShape2D.shape = alive_shape
 	velocity = Vector2.ZERO

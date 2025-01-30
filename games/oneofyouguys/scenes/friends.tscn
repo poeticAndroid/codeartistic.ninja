@@ -35,7 +35,7 @@ text = "Wait... You're one of THEM now..??
 
 [node name="Have fun.." parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(976, 48)
-cols = 14
+cols = 12
 text = "Well.. Have fun with your green little friends.."
 
 [node name="don\'t like oranges" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
@@ -49,7 +49,7 @@ cols = 12
 text = "Nobody likes a stranger.."
 
 [node name="betray them too..?" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
-position = Vector2(1200, 176)
+position = Vector2(1264, 176)
 cols = 12
 text = "Are you going to betray them too?"
 
