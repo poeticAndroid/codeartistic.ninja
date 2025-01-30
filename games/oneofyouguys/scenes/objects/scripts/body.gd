@@ -129,6 +129,7 @@ func jump():
 
 
 func fire():
+	if not gun: return
 	if %AnimatedSprite2D.flip_h:
 		gun.shoot(self, position, Vector2(-1600, randf_range(-100, 100)), 0.2)
 	else:
@@ -176,7 +177,7 @@ func revive(_health = 1):
 	clan -= 4
 	%AnimatedSprite2D.play("revive")
 	%AnimatedSprite2D.position = Vector2(0, 0)
-	$CollisionShape2D.position = Vector2(0, 0)
+	$CollisionShape2D.position = Vector2(0, 1)
 	$CollisionShape2D.shape = alive_shape
 	velocity = Vector2.ZERO
 	await %AnimatedSprite2D.animation_finished

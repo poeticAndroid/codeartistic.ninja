@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ba7i73hlrkx23" path="res://games/oneofyouguys/assets/sprites/body_64x64.png" id="2_r0pmk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f022g"]
-size = Vector2(32, 64)
+size = Vector2(32, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phxmw"]
 size = Vector2(64, 16)
