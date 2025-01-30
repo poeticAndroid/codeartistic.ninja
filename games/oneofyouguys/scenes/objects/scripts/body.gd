@@ -48,6 +48,7 @@ var jumps: int = 0
 var traitor: bool
 var carry: Body
 var grasp: Body
+var detected: Array[Body] = []
 @onready var gun: Node = $".."
 
 
@@ -90,6 +91,17 @@ func _process(delta: float) -> void:
 			velocity.x = 64 + 64 * randf()
 			if %AnimatedSprite2D.flip_h:
 				velocity.x *= -1
+		
+		for body in detected:
+			if body.traitor:
+				if %AnimatedSprite2D.flip_h == true and body.position.x > position.x:
+					%AnimatedSprite2D.flip_h = false
+					velocity.x = randf() * 128
+					if is_on_floor(): jump()
+				if %AnimatedSprite2D.flip_h == false and body.position.x < position.x:
+					%AnimatedSprite2D.flip_h = true
+					velocity.x = randf() * -128
+					if is_on_floor(): jump()
 
 		var right = $SightRight.get_collider()
 		var left = $SightLeft.get_collider()
@@ -227,12 +239,8 @@ func _on_area_2d_body_exited(body: Body) -> void:
 func _on_traitor_detector_body_entered(body: Body) -> void:
 	if possessed: return
 	if not alive: return
-	if not body.traitor: return
-	if %AnimatedSprite2D.flip_h == true and body.position.x > position.x:
-		%AnimatedSprite2D.flip_h = false
-		velocity.x = randf() * 128
-		if is_on_floor(): jump()
-	if %AnimatedSprite2D.flip_h == false and body.position.x < position.x:
-		%AnimatedSprite2D.flip_h = true
-		velocity.x = randf() * -128
-		if is_on_floor(): jump()
+	detected.append(body)
+
+
+func _on_traitor_detector_body_exited(body: Node2D) -> void:
+	detected.erase(body)
