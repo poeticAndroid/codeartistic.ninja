@@ -86,3 +86,4 @@ size = Vector2(32, 192)
 [node name="Goal" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
 position = Vector2(3184, 176)
 destination = "friends"
+size = Vector2(32, 352)
