@@ -6,7 +6,14 @@ extends Node2D
 	set(_cols):
 		cols = _cols
 		$Label.size.x = $Label.label_settings.font_size * cols
-@export var center: bool = false
+@export var size: float = 1:
+	set(_size):
+		size = _size
+		scale = Vector2.ONE * size
+@export var center: bool = false:
+	set(_center):
+		center = _center
+		$Label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 @export_multiline var text: String = "[txt]":
 	set(_text):
 		text = _text
