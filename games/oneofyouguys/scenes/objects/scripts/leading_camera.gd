@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 	if subject != _subject:
 		subject = _subject
 		_speed = Vector2.ZERO
+		_direction = Vector2.ZERO
 		if subject:
 			_last_pos = subject.position
 	if subject:
