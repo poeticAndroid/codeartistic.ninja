@@ -29,6 +29,7 @@ tile_set = ExtResource("1_shfxo")
 
 [node name="on your own.." parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(48, 1264)
+cols = 23
 text = "You're on your own now..
  
  Good luck.."
