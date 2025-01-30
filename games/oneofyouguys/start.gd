@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_start_btn_pressed() -> void:
-	Global.goto_scene("scenes/tutorial")
+	Global.goto_scene("scenes/" + Global.persistant.get_or_add("oneofyouguys_checkpoint", "tutorial"))
