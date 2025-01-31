@@ -142,6 +142,7 @@ func jump():
 
 func fire():
 	if not gun: return
+	if velocity.x == 0 and not possessed: return
 	if %AnimatedSprite2D.flip_h:
 		gun.shoot(self, position, Vector2(-1600, randf_range(-100, 100)), 0.2)
 	else:
@@ -155,49 +156,39 @@ func damage(damage: float):
 
 
 func kill(pos = false):
+	if not alive: return
 	if carry and not carry.alive:
 		drop()
 	alive = false
-	possessed = false
 	traitor = false
 	clan += 4
-	%AnimatedSprite2D.play("die")
 	%AnimatedSprite2D.position = Vector2(0, -24)
 	$CollisionShape2D.position = Vector2(0, 24)
 	$CollisionShape2D.shape = dead_shape
 	velocity = Vector2.ZERO
-	# if (this.carry && !this.carry.alive) {
-	#   this.drop();
-	# }
-	# if (this.possessed && !pos) {
-	#   setTimeout(() => {
-	#     this.mapState.gameApp.goTo("lose_state");
-	#   }, 1024);
-	# };
-	# this.exists =
-	#   this.visible = true;
-	# this.possessed =
-	#   this.traitor = false;
-	# this.play("die");
-	# this.body.velocity.set(0);
-	# this.body.setSize(32, 10, 0, 22);
+	%AnimatedSprite2D.play("die")
+	if possessed:
+		possessed = false
+		if not pos:
+			await get_tree().create_timer(1).timeout
+			Global.goto_scene("lose", false)
 
 
 func revive(_health = 1):
+	if alive: return
 	health = _health
 	alive = true
 	clan -= 4
-	%AnimatedSprite2D.play("revive")
 	%AnimatedSprite2D.position = Vector2(0, -1)
 	$CollisionShape2D.position = Vector2(0, 1)
 	$CollisionShape2D.shape = alive_shape
 	velocity = Vector2.ZERO
+	%AnimatedSprite2D.play("revive")
 	await %AnimatedSprite2D.animation_finished
 	if alive:
 		possessed = true
 	else:
-		# Game over
-		pass
+		Global.goto_scene("lose", false)
 
 
 func drop():

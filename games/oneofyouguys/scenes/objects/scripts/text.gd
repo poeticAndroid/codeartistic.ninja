@@ -9,7 +9,7 @@ extends Node2D
 @export var size: float = 1:
 	set(_size):
 		size = _size
-		scale = Vector2.ONE * size
+		$Label.scale = Vector2.ONE * size
 @export var center: bool = false:
 	set(_center):
 		center = _center

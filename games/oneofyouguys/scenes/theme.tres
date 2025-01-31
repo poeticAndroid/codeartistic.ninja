@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://caaq1vn7ayumq"]
+
+[ext_resource type="FontFile" uid="uid://crp62cke5cow0" path="res://games/oneofyouguys/assets/fonts/VictoriaBold.png" id="1_so8yh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88j8x"]
+bg_color = Color(0.443137, 0.439216, 0.811765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sq4d"]
+bg_color = Color(0.627451, 0.627451, 0.87451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qxj6d"]
+bg_color = Color(0.815686, 0.815686, 0.937255, 1)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.501961)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/fonts/font = ExtResource("1_so8yh")
+Button/styles/disabled = SubResource("StyleBoxFlat_88j8x")
+Button/styles/focus = SubResource("StyleBoxFlat_7sq4d")
+Button/styles/hover = SubResource("StyleBoxFlat_7sq4d")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_qxj6d")
+Button/styles/normal = SubResource("StyleBoxFlat_88j8x")
+Button/styles/pressed = SubResource("StyleBoxFlat_qxj6d")

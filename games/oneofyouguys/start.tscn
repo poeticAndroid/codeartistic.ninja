@@ -18,7 +18,7 @@ text = "The quick brown fox jumped over the lazy dogs."
 label_settings = SubResource("LabelSettings_isqbu")
 autowrap_mode = 2
 
-[node name="StartBtn" type="Button" parent="."]
+[node name="StartBtn" type="Button" parent="." groups=["autofocus"]]
 offset_left = 310.0
 offset_top = 159.0
 offset_right = 403.0
