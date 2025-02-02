@@ -1,28 +1,74 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5kq83jxk2ptg"]
+[gd_scene load_steps=8 format=4 uid="uid://b1tyc3s8wmdf3"]
 
-[ext_resource type="Script" path="res://games/oneofyouguys/start.gd" id="1_508af"]
-[ext_resource type="FontFile" uid="uid://crp62cke5cow0" path="res://games/oneofyouguys/assets/fonts/VictoriaBold.png" id="1_smlio"]
+[ext_resource type="TileSet" uid="uid://buktleburdafy" path="res://games/oneofyouguys/scenes/tileset.tres" id="1_6gbva"]
+[ext_resource type="PackedScene" uid="uid://vc10yy8hd6cr" path="res://games/oneofyouguys/scenes/objects/leading_camera.tscn" id="1_lrk5f"]
+[ext_resource type="Script" path="res://games/oneofyouguys/start.gd" id="1_y72rf"]
+[ext_resource type="Theme" uid="uid://caaq1vn7ayumq" path="res://games/oneofyouguys/scenes/theme.tres" id="3_8epp7"]
+[ext_resource type="Script" path="res://games/oneofyouguys/scenes/scripts/level.gd" id="4_fhe00"]
+[ext_resource type="PackedScene" uid="uid://djqlsg7if4btu" path="res://games/oneofyouguys/scenes/objects/body.tscn" id="gamesoneofyouguysscenesobjectsbody"]
+[ext_resource type="PackedScene" uid="uid://cnd6r5xajtriu" path="res://games/oneofyouguys/scenes/objects/text.tscn" id="gamesoneofyouguysscenesobjectstext"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_isqbu"]
-font = ExtResource("1_smlio")
+[node name="start" type="Node2D"]
+script = ExtResource("1_y72rf")
 
-[node name="Start" type="Node2D"]
-script = ExtResource("1_508af")
+[node name="LeadingCamera" parent="." node_paths=PackedStringArray("limit") instance=ExtResource("1_lrk5f")]
+position = Vector2(-1024, -1024)
+sight = Vector2(160, 0)
+limit = NodePath("../ColorRect")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 38.0
-offset_top = 29.0
-offset_right = 518.0
-offset_bottom = 216.0
-text = "The quick brown fox jumped over the lazy dogs."
-label_settings = SubResource("LabelSettings_isqbu")
-autowrap_mode = 2
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 960.0
+offset_bottom = 544.0
+color = Color(0.933333, 0.933333, 0.933333, 1)
+
+[node name="Sandbox" type="Node2D" parent="."]
+script = ExtResource("4_fhe00")
+
+[node name="tiles" type="TileMapLayer" parent="Sandbox"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAAAA4AAAACAAMAAAAAAA8AAAACAAMAAAAAABAAAAACAAMAAAABABAAAAACAAMAAAACABAAAAACAAMAAAADABAAAAACAAMAAAAEABAAAAACAAMAAAAFABAAAAACAAMAAAAGABAAAAACAAMAAAAHABAAAAACAAMAAAAIABAAAAACAAMAAAAJABAAAAACAAMAAAAKABAAAAACAAMAAAALABAAAAACAAMAAAAMABAAAAACAAMAAAANABAAAAACAAMAAAAOABAAAAACAAMAAAAPABAAAAACAAMAAAAPAA8AAAACAAMAAAAQAA8AAAACAAMAAAARAA8AAAACAAMAAAASAA8AAAACAAMAAAASABAAAAACAAMAAAATABAAAAACAAMAAAAUABAAAAACAAMAAAAVABAAAAACAAMAAAAWABAAAAACAAMAAAAWAA8AAAACAAMAAAAXAA8AAAACAAMAAAAYAA8AAAACAAMAAAAYABAAAAACAAMAAAAZABAAAAACAAMAAAAaABAAAAACAAMAAAAbABAAAAACAAMAAAAcABAAAAACAAMAAAAdABAAAAACAAMAAAAXABAAAAACAAMAAAARABAAAAACAAMAAAAQABAAAAACAAMAAAANAA8AAAACAAMAAAAMAA8AAAACAAMAAAALAA8AAAACAAMAAAAKAA8AAAACAAMAAAAJAA8AAAACAAMAAAAIAA8AAAACAAMAAAAHAA8AAAACAAMAAAAGAA8AAAACAAMAAAAFAA8AAAACAAMAAAAEAA8AAAACAAMAAAADAA8AAAACAAMAAAACAA8AAAACAAMAAAABAA8AAAACAAMAAAAVAA8AAAACAAMAAAAZAA8AAAACAAMAAAAaAA8AAAACAAMAAAAbAA8AAAACAAMAAAAcAA8AAAACAAMAAAAdAA8AAAACAAMAAAAUAA8AAAACAAMAAAATAA8AAAACAAMAAAAOAA8AAAACAAMAAAAFAA4AAAACAAMAAAAEAA4AAAACAAMAAAADAA4AAAACAAMAAAACAA4AAAACAAMAAAABAA4AAAACAAMAAAAGAA4AAAACAAMAAAAHAA4AAAACAAMAAAAIAA4AAAACAAMAAAAJAA4AAAACAAMAAAAKAA4AAAACAAMAAAALAA4AAAACAAMAAAAMAA4AAAACAAMAAAANAA4AAAACAAMAAAAOAA4AAAACAAMAAAAPAA4AAAACAAMAAAAQAA4AAAACAAMAAAARAA4AAAACAAMAAAASAA4AAAACAAMAAAATAA4AAAACAAMAAAAUAA4AAAACAAMAAAAVAA4AAAACAAMAAAAWAA4AAAACAAMAAAAXAA4AAAACAAMAAAAYAA4AAAACAAMAAAAZAA4AAAACAAMAAAAaAA4AAAACAAMAAAAbAA4AAAACAAMAAAAcAA4AAAACAAMAAAAdAA4AAAACAAMAAAAAAA0AAAACAAEAAAAdAA0AAAACAAEAAAA=")
+tile_set = ExtResource("1_6gbva")
+
+[node name="Object92" parent="Sandbox" groups=["player"] instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+position = Vector2(624, 48)
+
+[node name="Object95" parent="Sandbox" instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+position = Vector2(688, 48)
+
+[node name="Object97" parent="Sandbox" instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+position = Vector2(752, 48)
 
 [node name="StartBtn" type="Button" parent="." groups=["autofocus"]]
-offset_left = 310.0
-offset_top = 159.0
-offset_right = 403.0
-offset_bottom = 190.0
-text = "Start game"
+offset_left = 656.0
+offset_top = 56.0
+offset_right = 848.0
+offset_bottom = 120.0
+theme = ExtResource("3_8epp7")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="one of you guys" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+position = Vector2(24, 56)
+cols = 8
+size = 2.0
+center = true
+text = "I'm one of you guys now"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 640.0
+offset_top = 496.0
+offset_right = 944.0
+offset_bottom = 528.0
+color = Color(0.254902, 0.25098, 0.745098, 1)
+
+[node name="LinkButton" type="LinkButton" parent="ColorRect2"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 296.0
+offset_bottom = 24.0
+theme = ExtResource("3_8epp7")
+text = "codeartistic.ninja"
+underline = 2
+uri = "http://codeartistic.ninja/"
 
 [connection signal="pressed" from="StartBtn" to="." method="_on_start_btn_pressed"]

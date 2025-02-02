@@ -3,10 +3,12 @@ extends Node2D
 var bullet_scene = preload("res://games/oneofyouguys/scenes/objects/bullet.tscn")
 var bullet_pool = []
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Engine.max_fps = 60
-	Global.persistant["oneofyouguys_checkpoint"] = Global.scene_name.get_file()
+	if Global.scene_name.get_file() != "start":
+		Global.persistant["oneofyouguys_checkpoint"] = Global.scene_name.get_file()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,3 +30,4 @@ func shoot(shooter: Node2D, from: Vector2, speed: Vector2, ttl: float):
 	await get_tree().create_timer(ttl).timeout
 	bullet.disable()
 	bullet_pool.push_back(bullet)
+
