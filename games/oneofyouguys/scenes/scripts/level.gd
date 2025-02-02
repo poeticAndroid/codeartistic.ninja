@@ -30,4 +30,3 @@ func shoot(shooter: Node2D, from: Vector2, speed: Vector2, ttl: float):
 	await get_tree().create_timer(ttl).timeout
 	bullet.disable()
 	bullet_pool.push_back(bullet)
-

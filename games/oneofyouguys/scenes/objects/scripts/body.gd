@@ -138,6 +138,7 @@ func jump():
 	if jumps > 0:
 		jumps -= 1
 		velocity.y += JUMP_VELOCITY
+		$Sfx/Jump.play()
 
 
 func fire():
@@ -147,10 +148,12 @@ func fire():
 		gun.shoot(self, position, Vector2(-1600, randf_range(-100, 100)), 0.2)
 	else:
 		gun.shoot(self, position, Vector2(1600, randf_range(-100, 100)), 0.2)
+	$Sfx/Shoot.play()
 
 
 func damage(damage: float):
 	health -= damage
+	$Sfx/Damage.play()
 	if health <= 0:
 		kill()
 
@@ -210,7 +213,7 @@ func possess():
 	if not carry: return
 	carry.revive()
 	kill(true)
-	# this.playSound("posses");
+	$Sfx/Possess.play()
 
 
 func _on_on_screen() -> void:
@@ -220,10 +223,12 @@ func _on_on_screen() -> void:
 
 func _on_area_2d_body_entered(body: Body) -> void:
 	if body == self: return
+	if body.alive: return
 	grasp = body
 
 
 func _on_area_2d_body_exited(body: Body) -> void:
+	if body != grasp: return
 	grasp = null
 
 
