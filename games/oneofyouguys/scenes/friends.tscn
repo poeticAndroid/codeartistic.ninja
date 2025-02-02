@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://dvg2k3uge8ye3"]
+[gd_scene load_steps=9 format=4 uid="uid://dvg2k3uge8ye3"]
 
 [ext_resource type="Script" path="res://games/oneofyouguys/scenes/scripts/level.gd" id="1_ym4f6"]
 [ext_resource type="PackedScene" uid="uid://vc10yy8hd6cr" path="res://games/oneofyouguys/scenes/objects/leading_camera.tscn" id="2_2g3eu"]
 [ext_resource type="TileSet" uid="uid://buktleburdafy" path="res://games/oneofyouguys/scenes/tileset.tres" id="3_gsr6u"]
+[ext_resource type="AudioStream" uid="uid://4ldkwwuusiiw" path="res://games/oneofyouguys/assets/music/AuditoryCheesecake_Fresh.ogg" id="8_we8db"]
 [ext_resource type="PackedScene" uid="uid://djqlsg7if4btu" path="res://games/oneofyouguys/scenes/objects/body.tscn" id="gamesoneofyouguysscenesobjectsbody"]
 [ext_resource type="PackedScene" uid="uid://b2ajnp57heq3o" path="res://games/oneofyouguys/scenes/objects/door.tscn" id="gamesoneofyouguysscenesobjectsdoor"]
 [ext_resource type="PackedScene" uid="uid://6mpo0x3vsl7m" path="res://games/oneofyouguys/scenes/objects/goal.tscn" id="gamesoneofyouguysscenesobjectsgoal"]
@@ -104,3 +105,7 @@ size = Vector2(32, 192)
 position = Vector2(3184, 176)
 destination = "spies"
 size = Vector2(32, 352)
+
+[node name="AuditoryCheesecakeFresh" type="AudioStreamPlayer" parent="." groups=["music"]]
+stream = ExtResource("8_we8db")
+bus = &"Music"

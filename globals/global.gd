@@ -14,6 +14,8 @@ var loading: bool
 var scene_name: String = "/start"
 var history: Array = []
 
+var music: AudioStreamPlayer
+
 
 func _ready():
 	$TransitionAnimations.play_backwards("fade_to_black")
@@ -93,6 +95,18 @@ func goto_scene(name: String, fade: bool = true):
 	$QuitTip.visible = false
 	get_tree().change_scene_to_file("res:/" + scene_name + ".tscn")
 	await get_tree().node_added
+	await get_tree().current_scene.ready
+	if get_tree().get_first_node_in_group("music"):
+		var m = get_tree().get_first_node_in_group("music")
+		print("music: ", m.stream)
+		if music and music.stream != m.stream:
+			music.queue_free()
+			music = null
+		if not music:
+			music = m
+			music.remove_from_group("music")
+			music.reparent($".")
+			music.play()
 
 	if fade:
 		$TransitionAnimations.play_backwards("fade_to_black")

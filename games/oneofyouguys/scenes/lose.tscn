@@ -28,4 +28,7 @@ offset_bottom = 448.0
 theme = ExtResource("3_h22rx")
 text = "Retry"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["music"]]
+bus = &"Music"
+
 [connection signal="pressed" from="RetryBtn" to="." method="_on_retry_btn_pressed"]
