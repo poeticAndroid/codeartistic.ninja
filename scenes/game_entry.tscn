@@ -35,7 +35,6 @@ anchors_preset = 0
 size_flags_vertical = 3
 focus_mode = 2
 script = ExtResource("1_fgbj8")
-wip = null
 
 [node name="Button" type="Button" parent="."]
 unique_name_in_owner = true
