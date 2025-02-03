@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://xbcsln686yky"]
+[gd_scene load_steps=25 format=3 uid="uid://xbcsln686yky"]
 
 [ext_resource type="Texture2D" uid="uid://blfxasjqmys6o" path="res://assets/images/cubular_space_plugs.jpg" id="1_bxklj"]
 [ext_resource type="Script" path="res://scenes/scripts/gallery.gd" id="1_fcl6s"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cuvo76bfec37l" path="res://games/cost_of_creation/cover.png" id="16_daghe"]
 [ext_resource type="Texture2D" uid="uid://tk1cu0m4xq8i" path="res://games/mothballed/cover.png" id="17_f1ijr"]
 [ext_resource type="FontFile" uid="uid://bg8vhdmbyk3hn" path="res://assets/fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf" id="19_q283d"]
+[ext_resource type="AudioStream" uid="uid://chulbh8imhu8k" path="res://assets/music/AuditoryCheesecake_Greystone.mp3" id="20_gp0uh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5j2l"]
 texture = ExtResource("1_bxklj")
@@ -317,6 +318,10 @@ theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
+
+[node name="AuditoryCheesecakeGreystone" type="AudioStreamPlayer" parent="." groups=["music"]]
+stream = ExtResource("20_gp0uh")
+bus = &"Music"
 
 [connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/WorksLink" to="." method="_on_works_link_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/ManifestoLink" to="." method="_on_manifesto_link_pressed"]
