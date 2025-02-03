@@ -5,6 +5,7 @@ extends Control
 @export var game_title: String
 @export var game_name: String
 @export var game_description: String
+@export var wip: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +13,7 @@ func _ready() -> void:
 	if game_cover: btn.icon = game_cover
 	if game_title: btn.text = game_title
 	if game_description: btn.tooltip_text = game_description
+	if wip: modulate.a = 0.25
 	if Engine.is_editor_hint(): return
 	await get_tree().create_timer(.8).timeout
 
