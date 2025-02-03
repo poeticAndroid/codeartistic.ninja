@@ -175,6 +175,7 @@ game_description = "My first game release and entry for the Ludum Dare 35."
 wip = false
 
 [node name="GameEntry2" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("5_tb3wq")
 game_title = "Polar bears..?"
@@ -183,6 +184,7 @@ game_description = "A fight against the polar bear invasion with timeloop ship!"
 wip = true
 
 [node name="GameEntry3" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("6_swq45")
 game_title = "The Adaptor"
@@ -191,6 +193,7 @@ game_description = "A mysterious text adventure game about existence."
 wip = true
 
 [node name="GameEntry4" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("7_s86oa")
 game_title = "Some day"
@@ -199,6 +202,7 @@ game_description = "A game about cats, little blue boys and astronauts."
 wip = true
 
 [node name="GameEntry5" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("8_e1m1r")
 game_title = "The ___ adventure of ___"
@@ -207,6 +211,7 @@ game_description = "It's the ___ game where you play the role of ___ and help __
 wip = true
 
 [node name="GameEntry6" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("9_8tby2")
 game_title = "Restless in a small world"
@@ -215,6 +220,7 @@ game_description = "A pico-8 game about the afterlife, made for Ludum Dare 38."
 wip = true
 
 [node name="GameEntry7" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("10_umsnr")
 game_title = "Killer App 2017"
@@ -223,6 +229,7 @@ game_description = "This is what the kids are into these days! Hours of fun! Tot
 wip = true
 
 [node name="GameEntry8" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("11_wutrm")
 game_title = "Danger everywhere"
@@ -231,6 +238,7 @@ game_description = "Something about anxiety and not being able to rest anywhere.
 wip = true
 
 [node name="GameEntry9" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("12_puv5g")
 game_title = "This is fine"
@@ -239,6 +247,7 @@ game_description = "Yet another pretentious anti-game.. *You* figure out what it
 wip = true
 
 [node name="GameEntry10" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("13_voiff")
 game_title = "Sertraline"
@@ -247,6 +256,7 @@ game_description = "Gimme them calming drugs.. so that I may feel nothing.."
 wip = true
 
 [node name="GameEntry11" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("14_wxqpj")
 game_title = "It's just emotions"
@@ -255,6 +265,7 @@ game_description = "What am I supposed to do with these..?"
 wip = true
 
 [node name="GameEntry12" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("15_08qmf")
 game_title = "The Machine"
@@ -263,6 +274,7 @@ game_description = "We built it over centuries.. Now it's everywhere.. Now there
 wip = true
 
 [node name="GameEntry13" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("16_daghe")
 game_title = "The cost of creation"
@@ -271,6 +283,7 @@ game_description = "This is a multiplayer/collaborative canvas.."
 wip = true
 
 [node name="GameEntry14" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("17_f1ijr")
 game_title = "Mothballed"
