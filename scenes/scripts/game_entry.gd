@@ -1,19 +1,28 @@
 @tool
 extends Control
 
-@export var game_cover: Texture2D
-@export var game_title: String
+@export var game_cover: Texture2D:
+	set(_game_cover):
+		game_cover = _game_cover
+		%Button.icon = game_cover
+@export var game_title: String:
+	set(_game_title):
+		game_title = _game_title
+		%Button.text = game_title
 @export var game_name: String
-@export var game_description: String
-@export var wip: bool
+@export var game_description: String:
+	set(_game_description):
+		game_description = _game_description
+		%Button.tooltip_text = game_description
+@export var wip: bool:
+	set(_wip):
+		wip = _wip
+		if wip: modulate.a = 0.25
+		else: modulate = Color.WHITE
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var btn: Button = %Button
-	if game_cover: btn.icon = game_cover
-	if game_title: btn.text = game_title
-	if game_description: btn.tooltip_text = game_description
-	if wip: modulate.a = 0.25
 	if Engine.is_editor_hint(): return
 	await get_tree().create_timer(.8).timeout
 

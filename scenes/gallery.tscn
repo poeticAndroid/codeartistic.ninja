@@ -172,7 +172,6 @@ game_cover = ExtResource("4_cgpmf")
 game_title = "I'm one of you guys now"
 game_name = "oneofyouguys"
 game_description = "My first game release and entry for the Ludum Dare 35."
-wip = false
 
 [node name="GameEntry2" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)
