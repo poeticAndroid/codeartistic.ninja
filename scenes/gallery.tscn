@@ -335,7 +335,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 16
-text = "(c) poeticAndroid 2024"
+text = "(c) 2016-2025 poeticAndroid"
 horizontal_alignment = 1
 
 [node name="BlankLine4" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
