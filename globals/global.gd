@@ -26,6 +26,7 @@ func _ready():
 	else:
 		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
 	scene_name = get_tree().current_scene.scene_file_path.replace("res:/", "").replace(".tscn", "")
+	history.push_back(scene_name)
 	print("Current scene: ", scene_name)
 
 
