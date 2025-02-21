@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://5smyxrkj1fm4"]
+
+[ext_resource type="Texture2D" uid="uid://gvxiey1mtw5q" path="res://games/polarbears/assets/gfx/spaceship_64x64.png" id="1_s7cvp"]
+[ext_resource type="Script" path="res://games/polarbears/scenes/objects/scripts/protagonist.gd" id="1_wb0ig"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwkpy"]
+atlas = ExtResource("1_s7cvp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_883v4"]
+atlas = ExtResource("1_s7cvp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pqf6"]
+atlas = ExtResource("1_s7cvp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc6dy"]
+atlas = ExtResource("1_s7cvp")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlej7"]
+atlas = ExtResource("1_s7cvp")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi36w"]
+atlas = ExtResource("1_s7cvp")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5685o"]
+atlas = ExtResource("1_s7cvp")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tieai"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwkpy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_883v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pqf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc6dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi36w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5685o")
+}],
+"loop": false,
+"name": &"die",
+"speed": 15.0
+}]
+
+[node name="Protagonist" type="Node2D"]
+script = ExtResource("1_wb0ig")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tieai")
+autoplay = "default"

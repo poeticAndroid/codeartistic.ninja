@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://bo8yfdwlehrld"]
+
+[ext_resource type="Script" path="res://games/polarbears/scenes/objects/scripts/grunt.gd" id="1_ee0l3"]
+[ext_resource type="Texture2D" uid="uid://bqfn8yv81expj" path="res://games/polarbears/assets/gfx/polarbear_64x64.png" id="1_vcoik"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhw16"]
+atlas = ExtResource("1_vcoik")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qslj6"]
+atlas = ExtResource("1_vcoik")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei0a8"]
+atlas = ExtResource("1_vcoik")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyk8k"]
+atlas = ExtResource("1_vcoik")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw6wh"]
+atlas = ExtResource("1_vcoik")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdmoh"]
+atlas = ExtResource("1_vcoik")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g61vw"]
+atlas = ExtResource("1_vcoik")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s5nnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhw16")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qslj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei0a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tyk8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw6wh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdmoh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g61vw")
+}],
+"loop": false,
+"name": &"die",
+"speed": 15.0
+}]
+
+[node name="Grunt" type="Node2D"]
+script = ExtResource("1_ee0l3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s5nnq")
+autoplay = "default"
