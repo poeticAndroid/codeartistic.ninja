@@ -69,6 +69,10 @@ func go_back(fade: bool = true):
 		get_tree().quit()
 
 
+func reload_current_scene(fade: bool = false):
+	replace_scene(scene_name, fade)
+
+
 func replace_scene(name: String, fade: bool = false):
 	if loading:
 		return false
