@@ -97,6 +97,9 @@ func goto_scene(name: String, fade: bool = true):
 	get_tree().change_scene_to_file("res:/" + scene_name + ".tscn")
 	await get_tree().node_added
 	await get_tree().current_scene.ready
+
+	var btn = get_tree().get_first_node_in_group("autofocus")
+	if btn and btn.has_method("grab_focus"): btn.grab_focus()
 	if get_tree().get_first_node_in_group("music"):
 		var m = get_tree().get_first_node_in_group("music")
 		print("music: ", m.stream)
@@ -106,6 +109,8 @@ func goto_scene(name: String, fade: bool = true):
 		if not music:
 			music = m
 			music.remove_from_group("music")
+			music.bus = "Music"
+			print("Playing on ", music.bus, " bus")
 			music.reparent($".")
 			music.play()
 

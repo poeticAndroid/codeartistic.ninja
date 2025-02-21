@@ -347,7 +347,6 @@ horizontal_alignment = 1
 
 [node name="AuditoryCheesecakeGreystone" type="AudioStreamPlayer" parent="." groups=["music"]]
 stream = ExtResource("20_gp0uh")
-bus = &"Music"
 
 [connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/WorksLink" to="." method="_on_works_link_pressed"]
 [connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/ManifestoLink" to="." method="_on_manifesto_link_pressed"]
