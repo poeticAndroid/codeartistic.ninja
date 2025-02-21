@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c4cy4cgo0oxbp"]
+
+[ext_resource type="FontFile" uid="uid://cpc0ldo3botg0" path="res://games/polarbears/assets/fonts/nokia.fnt" id="1_7qsgv"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_7qsgv")
+font_size = 32
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
