@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://5smyxrkj1fm4"]
+[gd_scene load_steps=12 format=3 uid="uid://5smyxrkj1fm4"]
 
 [ext_resource type="Texture2D" uid="uid://gvxiey1mtw5q" path="res://games/polarbears/assets/gfx/spaceship_64x64.png" id="1_s7cvp"]
 [ext_resource type="Script" path="res://games/polarbears/scenes/objects/scripts/protagonist.gd" id="1_wb0ig"]
@@ -65,9 +65,17 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2cid"]
+size = Vector2(64, 64)
+
 [node name="Protagonist" type="Node2D"]
 script = ExtResource("1_wb0ig")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tieai")
 autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_e2cid")

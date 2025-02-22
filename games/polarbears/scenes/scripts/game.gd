@@ -20,3 +20,11 @@ func _process(delta: float) -> void:
 		Global.persistant["polarbears_bestTime"] = time_left
 
 	%CountDown.text = "Countdown: " + str(time_left)
+
+
+func _on_area_2d_area_entered(area: Node) -> void:
+	while area:
+		if area.has_signal("on_screen"):
+			area.emit_signal("on_screen")
+			return
+		area = area.get_parent()
