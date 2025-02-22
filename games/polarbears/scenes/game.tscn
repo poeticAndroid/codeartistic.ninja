@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://lxkijtux7740"]
+[gd_scene load_steps=7 format=3 uid="uid://lxkijtux7740"]
 
 [ext_resource type="Script" path="res://games/polarbears/scenes/scripts/game.gd" id="1_gylhf"]
-[ext_resource type="LabelSettings" uid="uid://c4cy4cgo0oxbp" path="res://games/polarbears/assets/fonts/nokia_white.tres" id="5_mjqa0"]
+[ext_resource type="FontFile" uid="uid://br6hxcb6qioqg" path="res://games/polarbears/assets/fonts/nokiafc22.ttf" id="5_1n02c"]
 [ext_resource type="PackedScene" uid="uid://bo8yfdwlehrld" path="res://games/polarbears/scenes/objects/grunt.tscn" id="gamespolarbearsscenesobjectsgrunt"]
 [ext_resource type="PackedScene" uid="uid://bi2gn1ehippgw" path="res://games/polarbears/scenes/objects/patrol.tscn" id="gamespolarbearsscenesobjectspatrol"]
 [ext_resource type="PackedScene" uid="uid://bxjmdb1hiosu" path="res://games/polarbears/scenes/objects/text.tscn" id="gamespolarbearsscenesobjectstext"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xypvr"]
+line_spacing = 0.0
+font = ExtResource("5_1n02c")
+font_size = 24
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_gylhf")
@@ -2104,7 +2109,7 @@ offset_top = -262.0
 offset_right = -152.0
 offset_bottom = -230.0
 text = "Countdown: "
-label_settings = ExtResource("5_mjqa0")
+label_settings = SubResource("LabelSettings_xypvr")
 
 [node name="BestTime" type="Label" parent="Camera2D"]
 unique_name_in_owner = true
@@ -2113,7 +2118,7 @@ offset_top = -262.0
 offset_right = 168.0
 offset_bottom = -230.0
 text = "Best time: "
-label_settings = ExtResource("5_mjqa0")
+label_settings = SubResource("LabelSettings_xypvr")
 
 [node name="Deaths" type="Label" parent="Camera2D"]
 unique_name_in_owner = true
@@ -2122,4 +2127,4 @@ offset_top = -262.0
 offset_right = 488.0
 offset_bottom = -230.0
 text = "Deaths: "
-label_settings = ExtResource("5_mjqa0")
+label_settings = SubResource("LabelSettings_xypvr")
