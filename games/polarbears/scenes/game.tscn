@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://lxkijtux7740"]
+[gd_scene load_steps=12 format=3 uid="uid://lxkijtux7740"]
 
 [ext_resource type="Script" path="res://games/polarbears/scenes/scripts/game.gd" id="1_exhrb"]
 [ext_resource type="Texture2D" uid="uid://br2wvn7pd4jnk" path="res://games/polarbears/assets/gfx/starfield_far.png" id="2_4a3j7"]
@@ -16,6 +16,8 @@ font_size = 24
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxh11"]
 size = Vector2(960, 540)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cd1qa"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_exhrb")
@@ -2196,4 +2198,11 @@ label_settings = SubResource("LabelSettings_xypvr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D"]
 shape = SubResource("RectangleShape2D_pxh11")
 
+[node name="KillZone" type="Area2D" parent="Camera2D"]
+position = Vector2(0, 334)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/KillZone"]
+shape = SubResource("WorldBoundaryShape2D_cd1qa")
+
 [connection signal="area_entered" from="Camera2D/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Camera2D/KillZone" to="." method="_on_kill_zone_area_entered"]
