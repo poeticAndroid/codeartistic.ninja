@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://i6esxupf0ojc"]
+[gd_scene load_steps=9 format=3 uid="uid://i6esxupf0ojc"]
 
 [ext_resource type="Script" path="res://games/polarbears/scenes/objects/scripts/landmark.gd" id="1_cm1ui"]
 [ext_resource type="Texture2D" uid="uid://ctxw22oodpkjl" path="res://games/polarbears/assets/gfx/landmarks_128x128.png" id="1_kn145"]
@@ -39,8 +39,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db4s2"]
+size = Vector2(128, 128)
+
 [node name="Landmark" type="Node2D"]
 script = ExtResource("1_cm1ui")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_pgklg")
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+shape = SubResource("RectangleShape2D_db4s2")

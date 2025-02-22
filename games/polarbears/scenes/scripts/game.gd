@@ -30,5 +30,9 @@ func _on_area_2d_area_entered(area: Node) -> void:
 		area = area.get_parent()
 
 
-func _on_kill_zone_area_entered(area: Area2D) -> void:
-	area.get_parent().queue_free()
+func _on_kill_zone_area_entered(area: Node) -> void:
+	while area:
+		if area.scene_file_path:
+			area.queue_free()
+			return
+		area = area.get_parent()

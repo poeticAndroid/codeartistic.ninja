@@ -68,14 +68,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2cid"]
 size = Vector2(64, 64)
 
-[node name="Protagonist" type="Node2D"]
+[node name="Protagonist" type="Area2D"]
 script = ExtResource("1_wb0ig")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tieai")
 autoplay = "default"
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e2cid")
