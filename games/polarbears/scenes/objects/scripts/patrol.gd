@@ -9,7 +9,7 @@ var max_velocity = 250.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass  # Replace with function body.
+	$AnimatedSprite2D.pause()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,6 +28,7 @@ func die():
 
 func _on_on_screen() -> void:
 	if velocity.x == 0:
+		$AnimatedSprite2D.play()
 		velocity = Vector2(1, -.125)
 		velocity = velocity.normalized() * max_velocity
 
