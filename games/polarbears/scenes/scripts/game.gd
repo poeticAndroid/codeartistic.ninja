@@ -7,8 +7,12 @@ var time_left = 150
 func _ready() -> void:
 	Engine.max_fps = 60
 	var recordings = Global.session.get_or_add("polarbears_recordings", [])
+	var num = 0
 	for recording in recordings:
-		%Protagonists.add_child(Protagonist.create(recording))
+		var inst = Protagonist.create(recording)
+		inst.modulate = Color("#A0A0FF", 0.2 + ((num + 1) / (recordings.size() * 0.7)))
+		%Protagonists.add_child(inst)
+		num += 1
 	recordings.push_back([])
 	%Protagonists.add_child(Protagonist.create(recordings.back(), true))
 
