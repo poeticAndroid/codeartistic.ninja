@@ -18,8 +18,7 @@ func _ready() -> void:
 
 	if Global.persistant.has("polarbears_bestTime"):
 		%BestTime.text = "Best time: " + str(Global.persistant["polarbears_bestTime"])
-	Global.session["polarbears_deaths"] = Global.session.get_or_add("polarbears_deaths", -1) + 1
-	%Deaths.text = "Deaths: " + str(Global.session["polarbears_deaths"])
+	%Deaths.text = "Deaths: " + str(recordings.size()-1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
