@@ -6,6 +6,12 @@ var time_left = 150
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Engine.max_fps = 60
+	var recordings = Global.session.get_or_add("polarbears_recordings", [])
+	for recording in recordings:
+		%Protagonists.add_child(Protagonist.create(recording))
+	recordings.push_back([])
+	%Protagonists.add_child(Protagonist.create(recordings.back(), true))
+
 	if Global.persistant.has("polarbears_bestTime"):
 		%BestTime.text = "Best time: " + str(Global.persistant["polarbears_bestTime"])
 

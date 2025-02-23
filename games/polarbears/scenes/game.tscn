@@ -2166,6 +2166,9 @@ position = Vector2(662.625, 628)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, 9330)
 
+[node name="Protagonists" type="Node2D" parent="Camera2D"]
+unique_name_in_owner = true
+
 [node name="CountDown" type="Label" parent="Camera2D"]
 unique_name_in_owner = true
 offset_left = -472.0
