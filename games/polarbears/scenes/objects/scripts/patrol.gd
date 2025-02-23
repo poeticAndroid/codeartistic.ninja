@@ -19,10 +19,13 @@ func _process(delta: float) -> void:
 
 
 func die():
-	if $AnimatedSprite2D.animation == "die": return
+	if $AnimatedSprite2D.animation == "die": return false
 	collision_layer = 0
 	$AnimatedSprite2D.play("die")
+	$CPUParticles2D.emitting = true
 	await $AnimatedSprite2D.animation_finished
+	$AnimatedSprite2D.visible = false
+	if $CPUParticles2D.emitting == true: await $CPUParticles2D.finished
 	queue_free()
 
 

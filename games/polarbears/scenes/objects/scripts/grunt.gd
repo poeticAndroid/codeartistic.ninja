@@ -15,7 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	velocity = Vector2.ZERO
 	var target = get_tree().get_nodes_in_group("protagonist").back()
-	if target:
+	if target and collision_layer:
 		velocity = target.global_position - global_position
 		velocity = velocity.normalized() * max_velocity
 
@@ -27,7 +27,10 @@ func die():
 	if $AnimatedSprite2D.animation == "die": return false
 	collision_layer = 0
 	$AnimatedSprite2D.play("die")
+	$CPUParticles2D.emitting = true
 	await $AnimatedSprite2D.animation_finished
+	$AnimatedSprite2D.visible = false
+	if $CPUParticles2D.emitting == true: await $CPUParticles2D.finished
 	queue_free()
 
 

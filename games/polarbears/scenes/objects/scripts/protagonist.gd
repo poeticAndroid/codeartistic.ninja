@@ -30,8 +30,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if $AnimatedSprite2D.animation == "die": return
-	if record:
+	if record and collision_layer:
 		while recording.size() <= recpos: recording.push_back(null)
 		recording[recpos] = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") * max_velocity
 	if recording.size() > recpos:

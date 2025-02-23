@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bi2gn1ehippgw"]
+[gd_scene load_steps=14 format=3 uid="uid://bi2gn1ehippgw"]
 
 [ext_resource type="Script" path="res://games/polarbears/scenes/objects/scripts/patrol.gd" id="1_2qdmn"]
 [ext_resource type="Texture2D" uid="uid://lo7cvlwvgn1t" path="res://games/polarbears/assets/gfx/patrol_64x64.png" id="1_ajrw0"]
+[ext_resource type="Texture2D" uid="uid://b50s4sbkb7io7" path="res://games/polarbears/assets/gfx/gore_16x16.png" id="3_nrdxt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yynjq"]
 atlas = ExtResource("1_ajrw0")
@@ -68,6 +69,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8u7qh"]
 size = Vector2(64, 64)
 
+[sub_resource type="Gradient" id="Gradient_qv62v"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Patrol" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_2qdmn")
 
@@ -77,6 +81,21 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8u7qh")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+texture = ExtResource("3_nrdxt")
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 200.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+color_ramp = SubResource("Gradient_qv62v")
 
 [connection signal="off_screen" from="." to="." method="_on_off_screen"]
 [connection signal="on_screen" from="." to="." method="_on_on_screen"]
