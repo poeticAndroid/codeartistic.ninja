@@ -32,6 +32,10 @@ func _process(delta: float) -> void:
 	%CountDown.text = "Countdown: " + str(time_left)
 
 
+func add_bullet(node: Node):
+	%Bullets.add_child(node)
+
+
 func _on_area_2d_area_entered(area: Node) -> void:
 	while area:
 		if area.has_signal("on_screen"):

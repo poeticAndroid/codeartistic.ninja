@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0eatosd6kxmp"]
+
+[ext_resource type="Texture2D" uid="uid://48vrig7xwcck" path="res://games/polarbears/assets/gfx/bullet_16x16.png" id="1_goey6"]
+[ext_resource type="Script" path="res://games/polarbears/scenes/objects/scripts/bullet.gd" id="1_oen1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ja2g3"]
+size = Vector2(16, 16)
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_oen1l")
+
+[node name="Bullet16x16" type="Sprite2D" parent="."]
+texture = ExtResource("1_goey6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ja2g3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

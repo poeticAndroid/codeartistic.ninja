@@ -16,9 +16,17 @@ var recording = []
 var record: bool
 var recpos = 0
 
+var bullet_pool = []
+var bullet_speed: float
+var bullet_max_travel: float
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	var bullet = Bullet.create(position, bullet_pool)
+	bullet_pool.push_back(bullet)
+	bullet_speed = bullet.speed
+	bullet_max_travel = bullet.max_travel
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -43,3 +51,34 @@ func die():
 	$AnimatedSprite2D.play("die")
 	await $AnimatedSprite2D.animation_finished
 	queue_free()
+
+
+func shoot():
+	if not bullet_pool.size(): return
+	var node = $"."
+	while node:
+		if node.has_method("add_bullet"):
+			var bullet = bullet_pool.pop_back()
+			bullet.speed = bullet_speed
+			bullet.max_travel = bullet_max_travel
+			return node.add_bullet(bullet.enable(global_position + Vector2(0, -32)))
+		node = node.get_parent()
+
+
+func upgrade(point = 1):
+	var chance = randf()
+	if chance < 0.5:
+		for i in range(point):
+			bullet_pool.push_back(Bullet.create(position + Vector2(0, -32), bullet_pool))
+	elif chance < 0.6:
+		$gunTimer.wait_time *= pow(0.9, point)
+	elif chance < 0.7:
+		bullet_speed += point * 5
+	elif chance < 0.8:
+		bullet_max_travel += point * 5
+	elif chance < 0.9:
+		for i in range(point):
+			bullet_pool.push_back(Bullet.create(position + Vector2(0, -32), bullet_pool))
+		$gunTimer.wait_time *= pow(0.9, point)
+		bullet_speed += point * 5
+		bullet_max_travel += point * 5

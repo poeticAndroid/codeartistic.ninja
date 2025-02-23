@@ -1,5 +1,5 @@
 @icon("./icons/patrol.png")
-extends Node2D
+extends Area2D
 
 signal on_screen
 signal off_screen
@@ -18,6 +18,14 @@ func _process(delta: float) -> void:
 	$AnimatedSprite2D.position = position.round() - position
 
 
+func die():
+	if $AnimatedSprite2D.animation == "die": return
+	collision_layer = 0
+	$AnimatedSprite2D.play("die")
+	await $AnimatedSprite2D.animation_finished
+	queue_free()
+
+
 func _on_on_screen() -> void:
 	if velocity.x == 0:
 		velocity = Vector2(1, -.125)
@@ -25,5 +33,6 @@ func _on_on_screen() -> void:
 
 
 func _on_off_screen() -> void:
+	if not collision_layer: return
 	velocity.x *= -1
 	$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h
