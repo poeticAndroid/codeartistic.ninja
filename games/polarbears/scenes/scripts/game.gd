@@ -58,3 +58,8 @@ func _on_kill_zone_area_entered(area: Node) -> void:
 			area.queue_free()
 			return
 		area = area.get_parent()
+
+
+func _on_safe_zone_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bullet"):
+		area.collision_layer = 0
