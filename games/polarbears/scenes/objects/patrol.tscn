@@ -77,3 +77,6 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8u7qh")
+
+[connection signal="off_screen" from="." to="." method="_on_off_screen"]
+[connection signal="on_screen" from="." to="." method="_on_on_screen"]
