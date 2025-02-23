@@ -8,7 +8,6 @@ static func create(_recording = [], _record = false):
 	inst.position = Vector2(0, 171)
 	inst.recording = _recording
 	inst.record = _record
-	inst.afk = _record
 	return inst
 
 var velocity = Vector2.ZERO
@@ -16,7 +15,7 @@ var max_velocity = 300.0
 var recording = []
 var record: bool
 var recpos = 0
-var afk: bool
+var afk = true
 
 var bullet_pool = []
 var bullet_speed: float
@@ -38,6 +37,7 @@ func _process(delta: float) -> void:
 	if recording.size() > recpos:
 		velocity = recording[recpos]
 	else:
+		if afk: Global.session.get_or_add("polarbears_recordings", []).erase(recording)
 		die()
 	if velocity.length(): afk = false
 	position += velocity / 60
@@ -49,7 +49,6 @@ func _process(delta: float) -> void:
 
 func die():
 	if $AnimatedSprite2D.animation == "die": return
-	if afk: Global.session.get_or_add("polarbears_recordings", []).pop_back()
 	collision_layer = 0
 	$AnimatedSprite2D.play("die")
 	await $AnimatedSprite2D.animation_finished
