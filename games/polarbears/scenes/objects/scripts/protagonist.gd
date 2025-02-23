@@ -30,6 +30,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if $AnimatedSprite2D.animation == "die": return
 	if record:
 		while recording.size() <= recpos: recording.push_back(null)
 		recording[recpos] = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") * max_velocity
@@ -46,10 +47,10 @@ func _process(delta: float) -> void:
 
 func die():
 	if $AnimatedSprite2D.animation == "die": return
-	monitoring = false
-	monitorable = false
+	collision_layer = 0
 	$AnimatedSprite2D.play("die")
 	await $AnimatedSprite2D.animation_finished
+	if record: Global.reload_current_scene(true)
 	queue_free()
 
 
@@ -82,3 +83,8 @@ func upgrade(point = 1):
 		$gunTimer.wait_time *= pow(0.9, point)
 		bullet_speed += point * 5
 		bullet_max_travel += point * 5
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy"):
+		die()
