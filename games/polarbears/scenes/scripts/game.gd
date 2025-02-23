@@ -18,6 +18,8 @@ func _ready() -> void:
 
 	if Global.persistant.has("polarbears_bestTime"):
 		%BestTime.text = "Best time: " + str(Global.persistant["polarbears_bestTime"])
+	Global.session["polarbears_deaths"] = Global.session.get_or_add("polarbears_deaths", -1) + 1
+	%Deaths.text = "Deaths: " + str(Global.session["polarbears_deaths"])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +35,10 @@ func _process(delta: float) -> void:
 
 
 func add_bullet(node: Node):
-	%Bullets.add_child(node)
+	if node.get_parent():
+		node.reparent(%Bullets)
+	else:
+		%Bullets.add_child(node)
 
 
 func _on_area_2d_area_entered(area: Node) -> void:

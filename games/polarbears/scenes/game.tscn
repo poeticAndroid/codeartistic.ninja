@@ -97,6 +97,9 @@ frame = 1
 position = Vector2(104, 6928)
 frame = 1
 
+[node name="Bullets" type="Node2D" parent="."]
+unique_name_in_owner = true
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Object1047" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
@@ -2165,9 +2168,6 @@ position = Vector2(272.625, 765)
 
 [node name="Object2598" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(662.625, 628)
-
-[node name="Bullets" type="Node2D" parent="."]
-unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, 9330)
