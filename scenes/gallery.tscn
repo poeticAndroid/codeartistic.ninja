@@ -174,13 +174,11 @@ game_name = "oneofyouguys"
 game_description = "My first game release and entry for the Ludum Dare 35."
 
 [node name="GameEntry2" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
-modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("5_tb3wq")
 game_title = "Polar bears..?"
 game_name = "polarbears"
 game_description = "A fight against the polar bear invasion with timeloop ship!"
-wip = true
 
 [node name="GameEntry3" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)
