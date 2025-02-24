@@ -9,7 +9,10 @@ extends Control
 	set(_game_title):
 		game_title = _game_title
 		%Button.text = game_title
-@export var game_name: String
+@export var game_name: String:
+	set(_game_name):
+		game_name = _game_name
+		name = game_name.capitalize() + "Game"
 @export var game_description: String:
 	set(_game_description):
 		game_description = _game_description
