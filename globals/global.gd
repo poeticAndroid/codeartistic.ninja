@@ -132,6 +132,13 @@ func save_persistant():
 	file.close()
 
 
+func play_sound(node: AudioStreamPlayer):
+	node.reparent($".")
+	node.play()
+	await node.finished
+	node.queue_free()
+
+
 func _on_reload_timer_timeout() -> void:
 	replace_scene(scene_name, true)
 

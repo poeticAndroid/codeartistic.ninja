@@ -83,7 +83,7 @@ shape = SubResource("RectangleShape2D_e2cid")
 wait_time = 0.1
 autostart = true
 
-[node name="ExplosionSfx" type="AudioStreamPlayer2D" parent="."]
+[node name="ExplosionSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_w5iaq")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

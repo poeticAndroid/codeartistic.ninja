@@ -54,7 +54,7 @@ func die():
 	$gunTimer.stop()
 	$AnimatedSprite2D.play("die")
 	if record:
-		$ExplosionSfx.play()
+		Global.play_sound($ExplosionSfx)
 		await get_tree().create_timer(1).timeout
 		Global.reload_current_scene(true)
 	else:
