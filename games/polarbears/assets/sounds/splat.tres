@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://xh8af5m2bved"]
+
+[ext_resource type="AudioStream" uid="uid://1sjeipcmsumd" path="res://games/polarbears/assets/sounds/splat1.mp3" id="1_4jkqs"]
+[ext_resource type="AudioStream" uid="uid://c3qnxrhnplh14" path="res://games/polarbears/assets/sounds/splat2.mp3" id="2_38i3u"]
+[ext_resource type="AudioStream" uid="uid://cj12o4fy2xebq" path="res://games/polarbears/assets/sounds/splat3.mp3" id="3_staba"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_4jkqs")
+stream_1/stream = ExtResource("2_38i3u")
+stream_2/stream = ExtResource("3_staba")

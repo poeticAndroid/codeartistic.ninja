@@ -23,6 +23,7 @@ func die():
 	collision_layer = 0
 	$AnimatedSprite2D.play("die")
 	$CPUParticles2D.emitting = true
+	$SplatSfx.play()
 	await $AnimatedSprite2D.animation_finished
 	$AnimatedSprite2D.visible = false
 	if $CPUParticles2D.emitting == true: await $CPUParticles2D.finished
@@ -38,5 +39,9 @@ func _on_on_screen() -> void:
 
 func _on_off_screen() -> void:
 	if not collision_layer: return
-	velocity.x *= -1
-	$AnimatedSprite2D.flip_h = not $AnimatedSprite2D.flip_h
+	if position.x < 480:
+		velocity.x = abs(velocity.x)
+		$AnimatedSprite2D.flip_h = false
+	else:
+		velocity.x = -abs(velocity.x)
+		$AnimatedSprite2D.flip_h = true

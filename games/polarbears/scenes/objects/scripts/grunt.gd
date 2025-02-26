@@ -13,7 +13,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	velocity = Vector2.ZERO
 	var target = get_tree().get_nodes_in_group("protagonist").back()
 	if target and collision_layer:
 		velocity = target.global_position - global_position
@@ -28,6 +27,7 @@ func die():
 	collision_layer = 0
 	$AnimatedSprite2D.play("die")
 	$CPUParticles2D.emitting = true
+	$SplatSfx.play()
 	await $AnimatedSprite2D.animation_finished
 	$AnimatedSprite2D.visible = false
 	if $CPUParticles2D.emitting == true: await $CPUParticles2D.finished

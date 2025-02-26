@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://5smyxrkj1fm4"]
+[gd_scene load_steps=13 format=3 uid="uid://5smyxrkj1fm4"]
 
 [ext_resource type="Texture2D" uid="uid://gvxiey1mtw5q" path="res://games/polarbears/assets/gfx/spaceship_64x64.png" id="1_s7cvp"]
 [ext_resource type="Script" path="res://games/polarbears/scenes/objects/scripts/protagonist.gd" id="1_wb0ig"]
+[ext_resource type="AudioStream" uid="uid://ddvs10e3ely8e" path="res://games/polarbears/assets/sounds/explosion.tres" id="3_w5iaq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nwkpy"]
 atlas = ExtResource("1_s7cvp")
@@ -81,6 +82,9 @@ shape = SubResource("RectangleShape2D_e2cid")
 [node name="gunTimer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="ExplosionSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_w5iaq")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="gunTimer" to="." method="shoot"]

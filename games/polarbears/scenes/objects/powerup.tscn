@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxmept57bv20e"]
+[gd_scene load_steps=12 format=3 uid="uid://cxmept57bv20e"]
 
 [ext_resource type="Script" path="res://games/polarbears/scenes/objects/scripts/powerup.gd" id="1_564go"]
 [ext_resource type="Texture2D" uid="uid://1ioieicqed8n" path="res://games/polarbears/assets/gfx/powerup_32x32.png" id="1_w3i1v"]
 [ext_resource type="Texture2D" uid="uid://48vrig7xwcck" path="res://games/polarbears/assets/gfx/bullet_16x16.png" id="3_cdm3s"]
+[ext_resource type="AudioStream" uid="uid://boovw36a4imt5" path="res://games/polarbears/assets/sounds/upgrade.wav" id="4_r5hcr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kiyth"]
 atlas = ExtResource("1_w3i1v")
@@ -70,5 +71,8 @@ initial_velocity_max = 200.0
 angular_velocity_min = -720.0
 angular_velocity_max = 720.0
 color_ramp = SubResource("Gradient_2nhnc")
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_r5hcr")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

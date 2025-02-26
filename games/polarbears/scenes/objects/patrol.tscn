@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bi2gn1ehippgw"]
+[gd_scene load_steps=15 format=3 uid="uid://bi2gn1ehippgw"]
 
 [ext_resource type="Script" path="res://games/polarbears/scenes/objects/scripts/patrol.gd" id="1_2qdmn"]
 [ext_resource type="Texture2D" uid="uid://lo7cvlwvgn1t" path="res://games/polarbears/assets/gfx/patrol_64x64.png" id="1_ajrw0"]
 [ext_resource type="Texture2D" uid="uid://b50s4sbkb7io7" path="res://games/polarbears/assets/gfx/gore_16x16.png" id="3_nrdxt"]
+[ext_resource type="AudioStream" uid="uid://xh8af5m2bved" path="res://games/polarbears/assets/sounds/splat.tres" id="4_ef811"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yynjq"]
 atlas = ExtResource("1_ajrw0")
@@ -96,6 +97,9 @@ initial_velocity_max = 200.0
 angular_velocity_min = -720.0
 angular_velocity_max = 720.0
 color_ramp = SubResource("Gradient_qv62v")
+
+[node name="SplatSfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ef811")
 
 [connection signal="off_screen" from="." to="." method="_on_off_screen"]
 [connection signal="on_screen" from="." to="." method="_on_on_screen"]

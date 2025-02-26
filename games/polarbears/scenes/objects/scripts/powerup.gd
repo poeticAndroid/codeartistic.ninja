@@ -23,6 +23,7 @@ func die():
 	collision_layer = 0
 	$AnimatedSprite2D.visible = false
 	$CPUParticles2D.emitting = true
+	$Sfx.play()
 	await $CPUParticles2D.finished
 	queue_free()
 

@@ -16,6 +16,7 @@ var recording = []
 var record: bool
 var recpos = 0
 var afk = true
+var sfx
 
 var bullet_pool = []
 var bullet_speed: float
@@ -31,6 +32,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	position = position.clamp(Vector2(-480, -270), Vector2(480, 270))
 	if record and collision_layer:
 		while recording.size() <= recpos: recording.push_back(null)
 		recording[recpos] = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down") * max_velocity
@@ -41,7 +43,6 @@ func _process(delta: float) -> void:
 		die()
 	if velocity.length(): afk = false
 	position += velocity / 60
-	position = position.clamp(Vector2(-480, -270), Vector2(480, 270))
 
 	recpos += 1
 	$AnimatedSprite2D.position = position.round() - position
@@ -50,10 +51,15 @@ func _process(delta: float) -> void:
 func die():
 	if $AnimatedSprite2D.animation == "die": return
 	collision_layer = 0
+	$gunTimer.stop()
 	$AnimatedSprite2D.play("die")
-	await $AnimatedSprite2D.animation_finished
-	if record: Global.reload_current_scene(true)
-	queue_free()
+	if record:
+		$ExplosionSfx.play()
+		await get_tree().create_timer(1).timeout
+		Global.reload_current_scene(true)
+	else:
+		await $AnimatedSprite2D.animation_finished
+		queue_free()
 
 
 func shoot():
