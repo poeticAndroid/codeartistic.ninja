@@ -2,6 +2,7 @@ extends Node2D
 
 var advance_speed = -60
 var time_left = 150
+var player: Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +15,8 @@ func _ready() -> void:
 		%Protagonists.add_child(inst)
 		num += 1
 	recordings.push_back([])
-	%Protagonists.add_child(Protagonist.create(recordings.back(), true))
+	player = Protagonist.create(recordings.back(), true)
+	%Protagonists.add_child(player)
 
 	if Global.persistant.has("polarbears_bestTime"):
 		%BestTime.text = "Best time: " + str(Global.persistant["polarbears_bestTime"])
@@ -27,7 +29,7 @@ func _process(delta: float) -> void:
 	if $Camera2D.position.y <= 270:
 		Global.replace_scene("win", true)
 	time_left = floor(($Camera2D.position.y - 270) / 60)
-	if Global.persistant.get_or_add("polarbears_bestTime", 160) > time_left:
+	if not is_instance_valid(player) and Global.persistant.get_or_add("polarbears_bestTime", time_left) > time_left:
 		Global.persistant["polarbears_bestTime"] = time_left
 
 	%CountDown.text = "Countdown: " + str(time_left)

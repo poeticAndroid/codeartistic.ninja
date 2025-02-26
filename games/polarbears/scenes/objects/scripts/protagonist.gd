@@ -53,13 +53,10 @@ func die():
 	collision_layer = 0
 	$gunTimer.stop()
 	$AnimatedSprite2D.play("die")
-	if record:
-		Global.play_sound($ExplosionSfx)
-		await get_tree().create_timer(1).timeout
-		Global.reload_current_scene(true)
-	else:
-		await $AnimatedSprite2D.animation_finished
-		queue_free()
+	if record: explosion()
+	await $AnimatedSprite2D.animation_finished
+	$AnimatedSprite2D.visible = false
+	if not record: queue_free()
 
 
 func shoot():
@@ -91,6 +88,12 @@ func upgrade(point = 1):
 		$gunTimer.wait_time *= pow(0.9, point)
 		bullet_speed += point * 5
 		bullet_max_travel += point * 5
+
+
+func explosion():
+	Global.play_sound($ExplosionSfx)
+	await get_tree().create_timer(1).timeout
+	Global.reload_current_scene(true)
 
 
 func _on_area_entered(area: Area2D) -> void:
