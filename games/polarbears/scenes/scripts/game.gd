@@ -29,8 +29,9 @@ func _process(delta: float) -> void:
 	if $Camera2D.position.y <= 270:
 		Global.replace_scene("win", true)
 	time_left = floor(($Camera2D.position.y - 270) / 60)
-	if not is_instance_valid(player) and Global.persistant.get_or_add("polarbears_bestTime", time_left) > time_left:
-		Global.persistant["polarbears_bestTime"] = time_left
+	if not (is_instance_valid(player) and player.collision_layer):
+		if Global.persistant.get_or_add("polarbears_bestTime", time_left) > time_left:
+			Global.persistant["polarbears_bestTime"] = time_left
 
 	%CountDown.text = "Countdown: " + str(time_left)
 
