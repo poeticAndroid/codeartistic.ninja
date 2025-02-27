@@ -30,6 +30,8 @@ func _process(delta: float) -> void:
 		Global.replace_scene("win", true)
 	time_left = floor(($Camera2D.position.y - 270) / 60)
 	if not (is_instance_valid(player) and player.collision_layer):
+		$Swirl.visible = true
+		$Swirl.global_position = $Camera2D.global_position
 		if Global.persistant.get_or_add("polarbears_bestTime", time_left) > time_left:
 			Global.persistant["polarbears_bestTime"] = time_left
 
