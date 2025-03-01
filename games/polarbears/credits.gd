@@ -11,9 +11,9 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_start_btn_pressed() -> void:
-	Global.goto_scene("scenes/game")
+func _on_credits_label_meta_clicked(meta: Variant) -> void:
+	OS.shell_open(meta)
 
 
-func _on_credits_btn_pressed() -> void:
-	Global.goto_scene("./credits")
+func _on_back_btn_pressed() -> void:
+	Global.go_back()

@@ -12,7 +12,9 @@ font = ExtResource("2_65n5n")
 font_size = 104
 font_color = Color(0, 0, 0, 1)
 
-[node name="Start" type="Node2D"]
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_ixpag")
 
 [node name="TitleScreen" type="Sprite2D" parent="."]
@@ -37,7 +39,17 @@ theme = ExtResource("3_7c5q5")
 theme_override_font_sizes/font_size = 40
 text = "Play"
 
+[node name="CreditsBtn" type="Button" parent="."]
+offset_left = 736.0
+offset_top = 328.0
+offset_right = 928.0
+offset_bottom = 392.0
+theme = ExtResource("3_7c5q5")
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
 [node name="AuditoryCheesecakeTwentyone" type="AudioStreamPlayer" parent="." groups=["music"]]
 stream = ExtResource("5_v7ydn")
 
 [connection signal="pressed" from="StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="CreditsBtn" to="." method="_on_credits_btn_pressed"]
