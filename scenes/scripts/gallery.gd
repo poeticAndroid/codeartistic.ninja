@@ -5,6 +5,7 @@ var active_link: LinkButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Engine.max_fps = 0
 	_on_works_link_pressed()
 	await get_tree().create_timer(1).timeout
 	var tween = get_tree().create_tween()
