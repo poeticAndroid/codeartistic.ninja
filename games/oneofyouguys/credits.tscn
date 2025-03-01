@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://uhrgh11mrgvw"]
+
+[ext_resource type="Script" path="res://games/oneofyouguys/credits.gd" id="1_y6ccw"]
+[ext_resource type="Theme" uid="uid://caaq1vn7ayumq" path="res://games/oneofyouguys/scenes/theme.tres" id="2_0kpgt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfeh3"]
+bg_color = Color(0, 0, 0, 0.74902)
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y6ccw")
+
+[node name="CreditsLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -238.0
+offset_right = 240.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_kfeh3")
+bbcode_enabled = true
+text = "[b][font_size=32]I'm one of you guys now[/font_size][/b]
+[b][font_size=24]Be whoever you want to be[/font_size][/b]
+
+My first game release and entry for the Ludum Dare 35.
+
+Move around, shoot strangers and take over their bodies to make friends..
+
+[b][font_size=24]Credits[/font_size][/b]
+
+Code and graphics by [url=http://one.poeticandroid.online/]poeticAndroid[/url].
+
+8-bit font by [url=http://opengameart.org/content/a-package-of-8-bit-fonts-for-grafx2-and-linux]usr_share[/url].
+
+Music by [url=https://soundcloud.com/auditory_cheesecake]Auditory Cheesecake[/url].
+
+"
+fit_content = true
+
+[node name="BackBtn" type="Button" parent="." groups=["autofocus"]]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -64.0
+offset_right = 48.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_next = NodePath("../CreditsBtn")
+theme = ExtResource("2_0kpgt")
+text = "<Back"
+
+[connection signal="meta_clicked" from="CreditsLabel" to="." method="_on_credits_label_meta_clicked"]
+[connection signal="pressed" from="BackBtn" to="." method="_on_back_btn_pressed"]

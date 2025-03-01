@@ -22,3 +22,7 @@ func _on_retry_btn_pressed() -> void:
 func _on_menu_btn_pressed() -> void:
 	Global.persistant.erase("oneofyouguys_checkpoint")
 	Global.go_back()
+
+
+func _on_credits_btn_pressed() -> void:
+	Global.goto_scene("./credits")

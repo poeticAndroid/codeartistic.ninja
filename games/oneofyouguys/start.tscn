@@ -39,35 +39,54 @@ position = Vector2(688, 48)
 [node name="Object97" parent="Sandbox" instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(752, 48)
 
-[node name="StartBtn" type="Button" parent="." groups=["autofocus"]]
-offset_left = 656.0
-offset_top = 56.0
-offset_right = 848.0
-offset_bottom = 120.0
-theme = ExtResource("3_8epp7")
-theme_override_font_sizes/font_size = 32
-text = "Play"
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="one of you guys" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="one of you guys" parent="Control" instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(64, 64)
 cols = 8
 size = 2.0
 center = true
 text = "I'm one of you guys now"
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="StartBtn" type="Button" parent="Control" groups=["autofocus"]]
+offset_left = 656.0
+offset_top = 56.0
+offset_right = 848.0
+offset_bottom = 120.0
+focus_next = NodePath("../CreditsBtn")
+theme = ExtResource("3_8epp7")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="CreditsBtn" type="Button" parent="Control"]
+offset_left = 656.0
+offset_top = 168.0
+offset_right = 848.0
+offset_bottom = 232.0
+focus_next = NodePath("../ColorRect2/LinkButton")
+focus_previous = NodePath("../StartBtn")
+theme = ExtResource("3_8epp7")
+theme_override_font_sizes/font_size = 24
+text = "Credits"
+
+[node name="ColorRect2" type="ColorRect" parent="Control"]
 offset_left = 640.0
 offset_top = 496.0
 offset_right = 944.0
 offset_bottom = 528.0
 color = Color(0.254902, 0.25098, 0.745098, 1)
 
-[node name="LinkButton" type="LinkButton" parent="ColorRect2"]
+[node name="LinkButton" type="LinkButton" parent="Control/ColorRect2"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 296.0
 offset_bottom = 24.0
+focus_previous = NodePath("../../CreditsBtn")
 theme = ExtResource("3_8epp7")
 text = "codeartistic.ninja"
 underline = 2
@@ -77,4 +96,5 @@ uri = "http://codeartistic.ninja/"
 stream = ExtResource("8_nq5ly")
 bus = &"Music"
 
-[connection signal="pressed" from="StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Control/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Control/CreditsBtn" to="." method="_on_credits_btn_pressed"]
