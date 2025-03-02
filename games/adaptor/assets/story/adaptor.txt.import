@@ -1,0 +1,14 @@
+[remap]
+
+importer="poeticAndroid.TextTreeImporter"
+type="TextTreeResource"
+uid="uid://dtu1ndt7hf42f"
+path="res://.godot/imported/adaptor.txt-d8bd7bf9389947c91e6eb9364f0dfb0a.tres"
+
+[deps]
+
+source_file="res://games/adaptor/assets/story/adaptor.txt"
+dest_files=["res://.godot/imported/adaptor.txt-d8bd7bf9389947c91e6eb9364f0dfb0a.tres"]
+
+[params]
+
