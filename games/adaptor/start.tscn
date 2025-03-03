@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://dmkonasctsmx5"]
+[gd_scene load_steps=2 format=3 uid="uid://dmkonasctsmx5"]
+
+[ext_resource type="Script" path="res://games/adaptor/start.gd" id="1_1ftp1"]
 
 [node name="Start" type="Node2D"]
+script = ExtResource("1_1ftp1")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 162.0
@@ -8,3 +11,10 @@ offset_top = 107.0
 offset_right = 202.0
 offset_bottom = 130.0
 text = "Coming soon?"
+
+[node name="PlayBtn" type="Button" parent="." groups=["autofocus"]]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Play"
+
+[connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
