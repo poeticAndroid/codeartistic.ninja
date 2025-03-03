@@ -2,9 +2,9 @@
 
 [ext_resource type="TileSet" uid="uid://buktleburdafy" path="res://games/oneofyouguys/scenes/tileset.tres" id="1_6gbva"]
 [ext_resource type="PackedScene" uid="uid://vc10yy8hd6cr" path="res://games/oneofyouguys/scenes/objects/leading_camera.tscn" id="1_lrk5f"]
-[ext_resource type="Script" path="res://games/oneofyouguys/start.gd" id="1_y72rf"]
+[ext_resource type="Script" uid="uid://dwskvvjrwdu6o" path="res://games/oneofyouguys/start.gd" id="1_y72rf"]
 [ext_resource type="Theme" uid="uid://caaq1vn7ayumq" path="res://games/oneofyouguys/scenes/theme.tres" id="3_8epp7"]
-[ext_resource type="Script" path="res://games/oneofyouguys/scenes/scripts/level.gd" id="4_fhe00"]
+[ext_resource type="Script" uid="uid://v6h5uyrcuw76" path="res://games/oneofyouguys/scenes/scripts/level.gd" id="4_fhe00"]
 [ext_resource type="AudioStream" uid="uid://4ldkwwuusiiw" path="res://games/oneofyouguys/assets/music/AuditoryCheesecake_Fresh.ogg" id="8_nq5ly"]
 [ext_resource type="PackedScene" uid="uid://djqlsg7if4btu" path="res://games/oneofyouguys/scenes/objects/body.tscn" id="gamesoneofyouguysscenesobjectsbody"]
 [ext_resource type="PackedScene" uid="uid://cnd6r5xajtriu" path="res://games/oneofyouguys/scenes/objects/text.tscn" id="gamesoneofyouguysscenesobjectstext"]

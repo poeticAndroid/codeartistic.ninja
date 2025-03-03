@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://vc10yy8hd6cr"]
 
-[ext_resource type="Script" path="res://games/oneofyouguys/scenes/objects/scripts/leading_camera.gd" id="1_okhsb"]
+[ext_resource type="Script" uid="uid://dgslmg1q2kk4u" path="res://games/oneofyouguys/scenes/objects/scripts/leading_camera.gd" id="1_okhsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjft1"]
 

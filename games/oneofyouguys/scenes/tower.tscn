@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://jiu6dd2ww7lk"]
 
 [ext_resource type="PackedScene" uid="uid://vc10yy8hd6cr" path="res://games/oneofyouguys/scenes/objects/leading_camera.tscn" id="1_maffj"]
-[ext_resource type="Script" path="res://games/oneofyouguys/scenes/scripts/level.gd" id="1_r84qf"]
+[ext_resource type="Script" uid="uid://v6h5uyrcuw76" path="res://games/oneofyouguys/scenes/scripts/level.gd" id="1_r84qf"]
 [ext_resource type="TileSet" uid="uid://buktleburdafy" path="res://games/oneofyouguys/scenes/tileset.tres" id="1_shfxo"]
 [ext_resource type="AudioStream" uid="uid://4ldkwwuusiiw" path="res://games/oneofyouguys/assets/music/AuditoryCheesecake_Fresh.ogg" id="8_gnfst"]
 [ext_resource type="PackedScene" uid="uid://djqlsg7if4btu" path="res://games/oneofyouguys/scenes/objects/body.tscn" id="gamesoneofyouguysscenesobjectsbody"]

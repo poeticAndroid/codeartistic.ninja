@@ -1,7 +1,7 @@
 [gd_scene load_steps=52 format=3 uid="uid://dl0sdau0pdbqa"]
 
 [ext_resource type="Texture2D" uid="uid://d3515ryc1hock" path="res://assets/images/Aye_on_cube-Sheet.png" id="1_otd0x"]
-[ext_resource type="Script" path="res://start.gd" id="1_xosbf"]
+[ext_resource type="Script" uid="uid://cubm4gn06a2ty" path="res://start.gd" id="1_xosbf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0tb3"]
 atlas = ExtResource("1_otd0x")

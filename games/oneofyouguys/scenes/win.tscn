@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bg46aekrcovu3"]
 
-[ext_resource type="Script" path="res://games/oneofyouguys/start.gd" id="1_isq0g"]
+[ext_resource type="Script" uid="uid://dwskvvjrwdu6o" path="res://games/oneofyouguys/start.gd" id="1_isq0g"]
 [ext_resource type="Theme" uid="uid://caaq1vn7ayumq" path="res://games/oneofyouguys/scenes/theme.tres" id="2_fgbsb"]
 [ext_resource type="AudioStream" uid="uid://decmeuy1n1gjg" path="res://games/oneofyouguys/assets/music/AuditoryCheesecake_DressForIt.ogg" id="4_4a648"]
 [ext_resource type="PackedScene" uid="uid://cnd6r5xajtriu" path="res://games/oneofyouguys/scenes/objects/text.tscn" id="gamesoneofyouguysscenesobjectstext"]

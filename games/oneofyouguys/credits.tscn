@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://uhrgh11mrgvw"]
 
-[ext_resource type="Script" path="res://games/oneofyouguys/credits.gd" id="1_y6ccw"]
+[ext_resource type="Script" uid="uid://bmeevyde3b8b5" path="res://games/oneofyouguys/credits.gd" id="1_y6ccw"]
 [ext_resource type="Theme" uid="uid://caaq1vn7ayumq" path="res://games/oneofyouguys/scenes/theme.tres" id="2_0kpgt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfeh3"]

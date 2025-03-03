@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://djqlsg7if4btu"]
 
-[ext_resource type="Script" path="res://games/oneofyouguys/scenes/objects/scripts/body.gd" id="1_yqfak"]
+[ext_resource type="Script" uid="uid://bw7l3imueo0nl" path="res://games/oneofyouguys/scenes/objects/scripts/body.gd" id="1_yqfak"]
 [ext_resource type="Texture2D" uid="uid://ba7i73hlrkx23" path="res://games/oneofyouguys/assets/sprites/body_64x64.png" id="2_r0pmk"]
 [ext_resource type="AudioStream" uid="uid://bchq6s1gbpscf" path="res://games/oneofyouguys/assets/sfx/jump.ogg" id="3_qwcrb"]
 [ext_resource type="AudioStream" uid="uid://tyy001bvtvck" path="res://games/oneofyouguys/assets/sfx/shoot.ogg" id="4_tk8fb"]
