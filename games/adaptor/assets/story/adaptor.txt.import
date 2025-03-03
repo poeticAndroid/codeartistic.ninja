@@ -1,8 +1,8 @@
 [remap]
 
-importer="poeticAndroid.TextTreeImporter"
-type="TextTreeResource"
-uid="uid://dtu1ndt7hf42f"
+importer="online.poeticandroid.text_resource_importer"
+type="TextResource"
+uid="uid://c24m32hdd2itb"
 path="res://.godot/imported/adaptor.txt-d8bd7bf9389947c91e6eb9364f0dfb0a.tres"
 
 [deps]
