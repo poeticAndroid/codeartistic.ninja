@@ -19,15 +19,6 @@ extends Node2D
 		text = _text
 		$Label.text = text
 
-		var txt = JSON.parse_string(text)
-		if typeof(txt) == TYPE_STRING:
-			text = txt.replace("\n", "\n ")
-		if typeof(txt) == TYPE_ARRAY:
-			desktop_text = txt[Global.DESKTOP_INPUT].replace("\n", "\n ")
-			touch_text = txt[Global.TOUCH_INPUT].replace("\n", "\n ")
-			gamepad_text = txt[Global.GAMEPAD_INPUT].replace("\n", "\n ")
-			text = "[ctrl]"
-
 @export_group("Control hints")
 @export_multiline var desktop_text: String
 @export_multiline var touch_text: String

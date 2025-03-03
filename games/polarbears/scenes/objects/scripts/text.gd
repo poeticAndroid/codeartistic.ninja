@@ -19,10 +19,6 @@ extends Node2D
 		text = _text
 		$Label.text = text
 
-		var txt = JSON.parse_string(text)
-		if typeof(txt) == TYPE_STRING:
-			text = txt.replace("\n", "\n ")
-
 var input_method: int = -1
 
 # Called when the node enters the scene tree for the first time.
