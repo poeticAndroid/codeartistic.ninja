@@ -35,6 +35,7 @@ func remove():
 	if parent: parent.remove_child(self)
 
 
+
 func get_parent():
 	return parent
 
@@ -66,12 +67,13 @@ func get_sibling(delta: int):
 	return null
 
 
-func find(_line: String):
-	if ("\n " + line + " \n").contains(_line): return self
+func find(substr: String):
+	if ("\n " + line + " \n").contains(substr): return self
 	for child in children:
-		var r = child.find(_line.strip_edges())
+		var r = child.find(substr)
 		if r: return r
 	return null
+
 
 
 func get_filename():
@@ -85,6 +87,7 @@ func get_line_number():
 	if get_previous_sibling(): return get_previous_sibling().get_line_number()
 	if parent: return parent.get_line_number()
 	return null
+
 
 
 func has_attribute(key: String):
@@ -125,7 +128,7 @@ func export_text(indentation: String = "\t") -> String:
 	var out = line
 	for child in children:
 		if line:
-			out += "\n" + indentation + child.export_text(indentation).replace("\n", "\n" + indentation)
+			out += "\n" + child.export_text(indentation).indent(indentation)
 		else:
 			out += "\n" + child.export_text(indentation)
 	return out

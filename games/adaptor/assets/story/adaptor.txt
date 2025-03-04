@@ -1,6 +1,4 @@
-pre.
-	+
-// pre #act3ab
+pre +
 #act1
 	pre {$b|0} +
 	article.interrogation

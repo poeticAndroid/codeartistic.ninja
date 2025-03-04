@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtwk8kpufhena"]
+[gd_scene load_steps=7 format=3 uid="uid://dtwk8kpufhena"]
 
 [ext_resource type="Script" uid="uid://bacwsjw8hf30r" path="res://games/adaptor/scenes/scripts/story.gd" id="1_pb40g"]
 [ext_resource type="Resource" uid="uid://c24m32hdd2itb" path="res://games/adaptor/assets/story/adaptor.txt" id="2_ikdwg"]
+[ext_resource type="PackedScene" uid="uid://blmctfdlxdlaq" path="res://games/adaptor/scenes/tellers/paragraph.tscn" id="3_oqjdk"]
+[ext_resource type="PackedScene" uid="uid://6so354i7qqe2" path="res://games/adaptor/scenes/tellers/diverter.tscn" id="4_86lg4"]
+[ext_resource type="PackedScene" uid="uid://caiiqe5cttop7" path="res://games/adaptor/scenes/tellers/chapter.tscn" id="5_6a44h"]
+[ext_resource type="PackedScene" uid="uid://l04brq6v03bg" path="res://games/adaptor/scenes/tellers/chooser.tscn" id="6_gefvv"]
 
-[node name="Story" type="Control"]
-layout_mode = 3
+[node name="Story" type="ScrollContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -12,15 +15,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pb40g")
 story_file = ExtResource("2_ikdwg")
+tellers = Dictionary[String, PackedScene]({
+"article": ExtResource("5_6a44h"),
+"p": ExtResource("3_oqjdk"),
+"pre": ExtResource("4_86lg4"),
+"ul": ExtResource("6_gefvv")
+})
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="StoryContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
-fit_content = true
