@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtwk8kpufhena"]
+[gd_scene load_steps=8 format=3 uid="uid://dtwk8kpufhena"]
 
 [ext_resource type="Script" uid="uid://bacwsjw8hf30r" path="res://games/adaptor/scenes/scripts/story.gd" id="1_pb40g"]
 [ext_resource type="Resource" uid="uid://c24m32hdd2itb" path="res://games/adaptor/assets/story/adaptor.txt" id="2_ikdwg"]
+[ext_resource type="PackedScene" uid="uid://shcakaijlfeu" path="res://games/adaptor/scenes/tellers/passage.tscn" id="3_gefvv"]
 [ext_resource type="PackedScene" uid="uid://blmctfdlxdlaq" path="res://games/adaptor/scenes/tellers/paragraph.tscn" id="3_oqjdk"]
 [ext_resource type="PackedScene" uid="uid://6so354i7qqe2" path="res://games/adaptor/scenes/tellers/diverter.tscn" id="4_86lg4"]
 [ext_resource type="PackedScene" uid="uid://caiiqe5cttop7" path="res://games/adaptor/scenes/tellers/chapter.tscn" id="5_6a44h"]
@@ -18,6 +19,7 @@ size_flags_vertical = 3
 follow_focus = true
 script = ExtResource("1_pb40g")
 story_file = ExtResource("2_ikdwg")
+passage = ExtResource("3_gefvv")
 tellers = Dictionary[String, PackedScene]({
 "article": ExtResource("5_6a44h"),
 "p": ExtResource("3_oqjdk"),

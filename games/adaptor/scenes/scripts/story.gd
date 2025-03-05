@@ -1,10 +1,12 @@
 extends ScrollContainer
 
 @export var story_file: TextResource
+@export var passage: PackedScene
 @export var tellers: Dictionary[String, PackedScene] = {}
 
 var story: TextTree
 var callstack: Array[TextTree] = []
+var currentPassage: Node
 var currentTeller: Node
 var currentLine: TextTree
 var nextLine: TextTree
@@ -14,7 +16,7 @@ var scroll_start: float = 0
 var scroll_pos: float = 0
 var scroll_target: float = 0
 var scroll_accel: float = 100
-var scroll_speed: float = 0
+var scroll_speed: float = 1
 
 var IDs: Dictionary[String, TextTree] = {}
 var _line_num: int
@@ -27,7 +29,7 @@ func _ready() -> void:
 	_line_num = 0
 	parse(story_file.text.split("\n"), story)
 	nextLine = story.get_child(0)
-	step()
+	new_passage()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,7 +46,10 @@ func _process(delta: float) -> void:
 		scroll_pos += abs(scroll_speed * delta)
 		scroll_vertical = scroll_pos
 	else:
-		scroll_speed = 0
+		if scroll_speed:
+			scroll_speed = 0
+			if not is_instance_valid(currentTeller): return step()
+			if not currentTeller.story: return step()
 		scroll_start = scroll_vertical
 		scroll_pos = scroll_vertical
 
@@ -56,8 +61,21 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventJoypadButton: scroll_target = 0
 
 
+func new_passage(line: String = ""):
+	print("\n ---")
+	if currentPassage:
+		print()
+		currentPassage.close()
+	currentPassage = passage.instantiate()
+	currentPassage.line = line
+	%StoryContainer.add_child(currentPassage)
+
+
 func step():
-	disconnect_teller()
+	if is_instance_valid(currentTeller) and currentTeller.story:
+		currentTeller.story = null
+		scroll_speed += 1
+	if scroll_speed: return
 	currentLine = nextLine
 	if not currentLine:
 		if callstack.size(): return endsub()
@@ -69,20 +87,16 @@ func step():
 	if tellers.has(type):
 		nextLine = currentLine.get_next_sibling()
 		currentTeller = tellers[type].instantiate()
+		currentTeller.story = self
 		currentTeller.line = eval_line()
 		currentTeller.tree = currentLine
-		currentTeller.connect("step", step)
-		currentTeller.connect("goto", goto)
-		currentTeller.connect("gosub", gosub)
-		currentTeller.connect("endsub", endsub)
-		%StoryContainer.add_child(currentTeller)
+		currentPassage.add_teller(currentTeller)
 	else:
 		nextLine = currentLine.get_child(0)
 		call_deferred("step")
 
 
 func goto(path: String):
-	disconnect_teller()
 	nextLine = find_line(path)
 	step()
 
@@ -93,22 +107,12 @@ func gosub(path: String):
 
 
 func endsub():
-	disconnect_teller()
 	nextLine = callstack.pop_back()
 	step()
 
 
 func end():
-	disconnect_teller()
 	print("THE END!")
-
-
-func disconnect_teller(node: Node = currentTeller):
-	if not node: return
-	node.disconnect("step", step)
-	node.disconnect("goto", goto)
-	node.disconnect("gosub", gosub)
-	node.disconnect("endsub", endsub)
 
 
 func get_type(line: String) -> String:

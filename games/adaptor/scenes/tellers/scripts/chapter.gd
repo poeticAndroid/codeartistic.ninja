@@ -1,14 +1,14 @@
 extends Control
 
-signal step
-
+var story: Node
 var line: String
 var tree: TextTree
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	emit_signal("step")
+	story.new_passage(line)
+	story.step()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

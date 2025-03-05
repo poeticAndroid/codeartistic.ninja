@@ -1,18 +1,15 @@
 extends Control
 
-signal endsub
-signal gosub
-signal goto
-
+var story: Node
 var line: String
 var tree: TextTree
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if line == "^": emit_signal("endsub")
-	elif line.ends_with(" ^"): emit_signal("gosub", line.left(-1).strip_edges())
-	else: emit_signal("goto", line)
+	if line == "^": story.endsub()
+	elif line.ends_with(" ^"): story.gosub(line.left(-1).strip_edges())
+	else: story.goto(line)
 	queue_free()
 
 
