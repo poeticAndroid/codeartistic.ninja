@@ -33,7 +33,7 @@ pre +
 	p It's worse than I thought. But I have to make sure just how bad it is.
 	p "Let's begin from the top. What is the first thing you remember?"
 	p She {~pauses|freezes} for a second.
-	p {$b|LT 0|"This room," she responds.|GT 0|"...you?" she replies with a confused look.|"I... don't remember anything."}
+	p {$b|<0|"This room," she responds.|>0|"...you?" she replies with a confused look.|"I... don't remember anything."}
 	p This is hopeless. I don't seem to be getting anywhere and I'm quickly running out of questions.
 	p Well... Except for one.
 	ul
@@ -43,7 +43,7 @@ pre +
 		li
 			p "Can you tell me how to fix the device?"
 			pre {$b|+-1} ..+
-	pre {$b|LT 0|#act2a|#act2b}
+	pre {$b|<0|#act2a|#act2b}
 
 #act2a
 	pre {$b|0} +
@@ -86,7 +86,7 @@ pre +
 		li
 			p "You do that."
 			pre {$b|+-1} ..+
-	pre {$b|LT 0|#act3aa|#act3ab}
+	pre {$b|<0|#act3aa|#act3ab}
 #act3aa
 	article.blackout
 	p I barely finished my sentence as the power went out. "What the...?" A glimpse of Eric's face before darkness hits.
@@ -163,7 +163,7 @@ pre +
 			pre {$b|+1} ..+
 		li(title='"No. She isn\'t."')
 			pre {$b|+-1} ..+
-	pre {$b|LT 0|#act3ba|#act3bb}
+	pre {$b|<0|#act3ba|#act3bb}
 #act3ba
 	p "No. I'm afraid she isn't. And it's my fault. Go home Mrs. Mathews. I'll finish up here."
 	p She gives me worried look before grabbing her coat and leaves.
@@ -200,5 +200,5 @@ pre +
 		p(style="text-align:center") THE END
 		ul
 			li(title="Play Again?")
-				pre {{ location.reload(); }} ..+
+				pre #act1
 		p Reloading...

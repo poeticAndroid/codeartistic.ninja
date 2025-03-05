@@ -1,4 +1,4 @@
-extends Control
+extends ScrollContainer
 
 @export var story_file: TextResource
 @export var tellers: Dictionary[String, PackedScene] = {}
@@ -9,6 +9,14 @@ var currentTeller: Node
 var currentLine: TextTree
 var nextLine: TextTree
 
+var max_scroll: float = 0
+var scroll_start: float = 0
+var scroll_pos: float = 0
+var scroll_target: float = 0
+var scroll_accel: float = 100
+var scroll_speed: float = 0
+
+var IDs: Dictionary[String, TextTree] = {}
 var _line_num: int
 
 # Called when the node enters the scene tree for the first time.
@@ -21,9 +29,31 @@ func _ready() -> void:
 	nextLine = story.get_child(0)
 	step()
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if max_scroll < get_v_scroll_bar().max_value - size.y:
+		max_scroll = get_v_scroll_bar().max_value - size.y
+		scroll_target = max_scroll
+	if scroll_vertical < scroll_target:
+		if (scroll_pos -scroll_start) < (scroll_target -scroll_pos):
+			scroll_speed += scroll_accel * delta
+		else:
+			scroll_start = scroll_pos - scroll_target + scroll_pos
+			scroll_speed -= scroll_accel * delta
+		scroll_pos += abs(scroll_speed * delta)
+		scroll_vertical = scroll_pos
+	else:
+		scroll_speed = 0
+		scroll_start = scroll_vertical
+		scroll_pos = scroll_vertical
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey: scroll_target = 0
+	if event is InputEventMouseButton: scroll_target = 0
+	if event is InputEventScreenTouch: scroll_target = 0
+	if event is InputEventJoypadButton: scroll_target = 0
 
 
 func step():
@@ -32,6 +62,7 @@ func step():
 	if not currentLine:
 		if callstack.size(): return endsub()
 		else: return end()
+	print(currentLine.line)
 	currentLine.attributes.get_or_add("_visits", 0)
 	currentLine.set_attribute("_visits", currentLine.get_attribute("_visits") + 1)
 	var type = get_type(currentLine.line)
@@ -81,7 +112,7 @@ func disconnect_teller(node: Node = currentTeller):
 
 
 func get_type(line: String) -> String:
-	return line.get_slice(" ", 0).get_slice(".", 0).get_slice("#", 0)
+	return line.get_slice(" ", 0).get_slice(".", 0).get_slice("#", 0).get_slice("(", 0)
 
 
 func find_line(path: String, context = currentLine):
@@ -100,13 +131,15 @@ func find_line(path: String, context = currentLine):
 			context = context.get_next_sibling()
 		elif part == "-":
 			context = context.get_previous_sibling()
+		elif part.begins_with("#"):
+			context = IDs[part.replace("#", "")]
 		else:
-			context = context.find(part + " ")
+			context = context.find("\n " + part + " ")
 	return context
 
 
 func eval_line(line = currentLine.line) -> String:
-	var out: String = line.substr(line.find(" ")).strip_edges()
+	var out: String = line.substr(line.find(" ")).get_slice("//", 0).strip_edges()
 	var p1: int = 0
 	var p2: int = 0
 	p1 = out.find("{")
@@ -143,6 +176,7 @@ func smart_tag(tag: String) -> String:
 					if expr.has_execute_failed():
 						out = "{" + expr.get_error_text() + "}"
 						break
+					print("$ ", JSON.stringify(out) + parts[i], " == ", result)
 					if result:
 						out = parts[i + 1]
 						break
@@ -179,4 +213,5 @@ func parse(lines: Array[String], parent: TextTree):
 		else:
 			_line_num += 1
 			last_child = parent.add_new_child(line, _line_num)
+			IDs[last_child.line.get_slice(" ", 0).get_slice("#", 1).get_slice(".", 0).get_slice("(", 0).get_slice(" ", 0)] = last_child
 		while _line_num < lines.size() and lines[_line_num].strip_edges() == "": _line_num += 1
