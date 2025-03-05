@@ -50,10 +50,20 @@ func _input(event: InputEvent):
 	if event.is_action_pressed("ui_cancel"):
 		go_back()
 	if event.is_action_pressed("toggle_fullscreen"):
-		if get_window().mode == Window.MODE_WINDOWED:
-			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
-		else:
-			get_window().mode = Window.MODE_WINDOWED
+		toggle_fullscreen()
+	if event.is_action_pressed("toggle_music"):
+		toggle_music()
+
+
+func toggle_fullscreen():
+	if get_window().mode == Window.MODE_WINDOWED:
+		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+	else:
+		get_window().mode = Window.MODE_WINDOWED
+
+
+func toggle_music():
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), not AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")))
 
 
 func go_back(fade: bool = true):
