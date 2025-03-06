@@ -53,6 +53,7 @@ center = true
 text = "I'm one of you guys now"
 
 [node name="StartBtn" type="Button" parent="Control" groups=["autofocus"]]
+layout_mode = 0
 offset_left = 656.0
 offset_top = 56.0
 offset_right = 848.0
@@ -63,6 +64,7 @@ theme_override_font_sizes/font_size = 32
 text = "Play"
 
 [node name="CreditsBtn" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 656.0
 offset_top = 168.0
 offset_right = 848.0
@@ -74,6 +76,7 @@ theme_override_font_sizes/font_size = 24
 text = "Credits"
 
 [node name="ColorRect2" type="ColorRect" parent="Control"]
+layout_mode = 0
 offset_left = 640.0
 offset_top = 496.0
 offset_right = 944.0
@@ -86,7 +89,7 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 296.0
 offset_bottom = 24.0
-focus_previous = NodePath("../../CreditsBtn")
+focus_mode = 2
 theme = ExtResource("3_8epp7")
 text = "codeartistic.ninja"
 underline = 2
