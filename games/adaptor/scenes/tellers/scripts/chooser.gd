@@ -9,6 +9,7 @@ var tree: TextTree
 func _ready() -> void:
 	story.new_passage()
 	story.goto("0")
+	queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

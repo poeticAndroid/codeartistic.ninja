@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ur5inuda4q1c"]
+
+[ext_resource type="FontFile" uid="uid://n4ljjryc8g6x" path="res://games/adaptor/assets/fonts/Georgia.ttf" id="1_3bp6t"]
+
+[resource]
+line_spacing = 6.0
+paragraph_spacing = 16.0
+font = ExtResource("1_3bp6t")
+font_size = 20
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)

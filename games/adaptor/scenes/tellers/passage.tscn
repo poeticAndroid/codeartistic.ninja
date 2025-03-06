@@ -1,15 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://shcakaijlfeu"]
+[gd_scene load_steps=6 format=3 uid="uid://shcakaijlfeu"]
 
 [ext_resource type="Script" uid="uid://1vjv3vrlns61" path="res://games/adaptor/scenes/tellers/scripts/passage.gd" id="1_tibqr"]
+[ext_resource type="Texture2D" uid="uid://brxjryu6kaktr" path="res://games/adaptor/assets/backgrounds/droid.png" id="3_jb3d0"]
+[ext_resource type="Texture2D" uid="uid://1a236bj0mld1" path="res://games/adaptor/assets/backgrounds/interrogation.png" id="4_f4nnk"]
+[ext_resource type="Texture2D" uid="uid://eqs4vebp7bqo" path="res://games/adaptor/assets/backgrounds/lab-break.png" id="5_llqwy"]
+[ext_resource type="Texture2D" uid="uid://2hepa2svd3hn" path="res://games/adaptor/assets/backgrounds/lab.png" id="6_ihnov"]
 
-[node name="Passage" type="VBoxContainer"]
-custom_minimum_size = Vector2(0, 512)
-anchors_preset = 15
+[node name="Passage" type="MarginContainer"]
+clip_contents = true
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -960.0
-offset_bottom = -284.0
+offset_bottom = 540.0
 grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 160
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 160
+theme_override_constants/margin_bottom = 8
 script = ExtResource("1_tibqr")
+
+[node name="Backgrounds" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Interrogation" type="Sprite2D" parent="Backgrounds"]
+visible = false
+texture = ExtResource("4_f4nnk")
+
+[node name="Lab-break" type="Sprite2D" parent="Backgrounds"]
+visible = false
+texture = ExtResource("5_llqwy")
+
+[node name="Lab" type="Sprite2D" parent="Backgrounds"]
+visible = false
+texture = ExtResource("6_ihnov")
+
+[node name="Droid" type="Sprite2D" parent="Backgrounds"]
+visible = false
+texture = ExtResource("3_jb3d0")
+
+[node name="StoryContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 432)
+layout_mode = 2
+theme_override_constants/separation = 16

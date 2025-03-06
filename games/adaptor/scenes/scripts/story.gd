@@ -34,10 +34,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if max_scroll < get_v_scroll_bar().max_value - size.y:
+	if max_scroll != get_v_scroll_bar().max_value - size.y:
 		max_scroll = get_v_scroll_bar().max_value - size.y
 		scroll_target = max_scroll
-	if scroll_vertical < scroll_target:
+	if scroll_pos < scroll_target:
 		if (scroll_pos -scroll_start) < (scroll_target -scroll_pos):
 			scroll_speed += scroll_accel * delta
 		else:

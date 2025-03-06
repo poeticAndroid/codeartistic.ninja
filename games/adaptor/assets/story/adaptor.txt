@@ -1,7 +1,7 @@
 pre +
 #act1
 	pre {$b|0} +
-	article.interrogation
+	article interrogation
 	p I can already tell this is going to be an {~interesting|unusual} day the second I put my hand on the doorhandle.
 	p As I enter the room, a sudden eerie silence hits me right in the face. She just sits there like a lifeless doll. No expression on her face, not even blinking as I sit down in front of her.
 	p I glance down at the blank clipboard. We have absolutely nothing on her. I'm the first one to question her. Let's see if she can even hear me.
@@ -50,7 +50,7 @@ pre +
 	p "No," she replies.
 	p Damn. Not exactly the answers I was hoping for. Ten years of reverse engineering and still no sign of self awareness. What are we doing wrong?
 	p I see Eric tapping the window holding my coffee. Yea, might as well take a break. This test is going nowhere anyway.
-	article.lab-break
+	article lab-break
 	p "So... Any luck?" Eric hands me my coffee.
 	p "Nothing." I take a good long sip to relieve my disappointment.
 	p Eric shrugs. "Man, that Dr. Atman was a piece of work. It's a shame we don't know any more about his damn device."
@@ -88,14 +88,14 @@ pre +
 			pre {$b|+-1} ..+
 	pre {$b|<0|#act3aa|#act3ab}
 #act3aa
-	article.blackout
+	article blackout
 	p I barely finished my sentence as the power went out. "What the...?" A glimpse of Eric's face before darkness hits.
 	p Thud! Eric gasps for air! The crackling bones of his neck slowly turns into a paniced gurgle as he drowns in his own blood!
 	p My heart is pumping furiously as I hear Eric's body silently collapse to the floor. The subtle electric hum from the droid slowly closes in on me.
 	pre #end
 #act3ab
 	p I turn my head to the testing room to see the droid standing in the open doorway.
-	article.droid
+	article droid
 	p "Ca... mil... la..."
 	p Did she just...? Could it be...? I look at Eric who stares at the trembling droid, hammer clenched in his hand.
 	ul
@@ -143,7 +143,7 @@ pre +
 			pre {$b|+-1} ..+
 	p The door opens. Mrs. Mathews peeks inside. "Sorry to disturb you, Dr. Atman. I thought you might want to see this."
 	p I follow her into the lab, leaving Camilla just staring at the wall.
-	article.lab
+	article lab
 	p She hands me the readout with some of the data highlighted.
 	p "It's not much, but I thought it might mean something."
 	p I look at the numbers. "This was all the device could extract?"
@@ -167,7 +167,7 @@ pre +
 #act3ba
 	p "No. I'm afraid she isn't. And it's my fault. Go home Mrs. Mathews. I'll finish up here."
 	p She gives me worried look before grabbing her coat and leaves.
-	article.interrogation
+	article interrogation
 	p I walk back inside and sit down in front of Camilla's blank stare. She looks at me like a stranger. "Hello... Do I know you?" She's already forgotten me. Her mind is slowly deteriorating.
 	#act3bbx
 		p "No... And you never will."
@@ -177,7 +177,7 @@ pre +
 #act3bb
 	p "I can't change what I did to her. But as long as she is still alive, she is still my responsibility. You can go home now Mrs. Mathews. I'll finish up here."
 	p She gives me a cheerful smile before grabbing her coat and leaves. I go back to talk with Camilla.
-	article.interrogation
+	article interrogation
 	p She is still staring blankly into space. I regret not meeting her before the accident. Not knowing what she was like. Now it's all gone.
 	p She looks at me like a stranger. "Hello... Do I know you?" She's already forgotten me. Her mind is slowly deteriorating.
 	ul

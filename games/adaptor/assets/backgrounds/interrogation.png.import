@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jv3y7mxa52uc"
-path="res://.godot/imported/lab.jpg-3c19d59d2d60b9cd4c409ba73c2e84e8.ctex"
+uid="uid://1a236bj0mld1"
+path="res://.godot/imported/interrogation.png-c35dbbe98ff47dc6812dcea46b3cc3c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://games/adaptor/assets/backgrounds/lab.jpg"
-dest_files=["res://.godot/imported/lab.jpg-3c19d59d2d60b9cd4c409ba73c2e84e8.ctex"]
+source_file="res://games/adaptor/assets/backgrounds/interrogation.png"
+dest_files=["res://.godot/imported/interrogation.png-c35dbbe98ff47dc6812dcea46b3cc3c8.ctex"]
 
 [params]
 

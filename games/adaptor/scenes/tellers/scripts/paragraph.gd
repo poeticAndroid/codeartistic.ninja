@@ -7,6 +7,7 @@ var tree: TextTree
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AnimationPlayer.play("reveal")
 	text = line
 	await get_tree().create_timer(max(1, .08 * line.length())).timeout
 	if story: story.step()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8b3mk8uc7ynm"
-path="res://.godot/imported/interrogation.blur.jpg-8d90624f054fac56f5c6720742212e72.ctex"
+uid="uid://eqs4vebp7bqo"
+path="res://.godot/imported/lab-break.png-923eac0b94e000ba9fddb9aaf76bdd23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://games/adaptor/assets/backgrounds/interrogation.blur.jpg"
-dest_files=["res://.godot/imported/interrogation.blur.jpg-8d90624f054fac56f5c6720742212e72.ctex"]
+source_file="res://games/adaptor/assets/backgrounds/lab-break.png"
+dest_files=["res://.godot/imported/lab-break.png-923eac0b94e000ba9fddb9aaf76bdd23.ctex"]
 
 [params]
 
