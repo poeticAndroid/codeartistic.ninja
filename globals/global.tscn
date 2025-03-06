@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkabeq3ceyrqw"]
 
-[ext_resource type="Script" uid="uid://ujm7jwk42ikt" path="res://globals/global.gd" id="1_xolcf"]
+[ext_resource type="Script" uid="uid://ujm7jwk42ikt" path="res://globals/scripts/global.gd" id="1_xolcf"]
 
 [sub_resource type="Animation" id="Animation_bvdxb"]
 resource_name = "fade_to_black"
@@ -39,7 +39,7 @@ script = ExtResource("1_xolcf")
 
 [node name="TransitionAnimations" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_jdcfe")
+&"": SubResource("AnimationLibrary_jdcfe")
 }
 speed_scale = 2.0
 

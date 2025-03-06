@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://muad71khcrxh"]
 
-[ext_resource type="Script" uid="uid://dwskvvjrwdu6o" path="res://games/oneofyouguys/start.gd" id="1_bmd07"]
+[ext_resource type="Script" uid="uid://dwskvvjrwdu6o" path="res://games/oneofyouguys/scripts/start.gd" id="1_bmd07"]
 [ext_resource type="Theme" uid="uid://caaq1vn7ayumq" path="res://games/oneofyouguys/scenes/theme.tres" id="3_h22rx"]
 [ext_resource type="PackedScene" uid="uid://cnd6r5xajtriu" path="res://games/oneofyouguys/scenes/objects/text.tscn" id="gamesoneofyouguysscenesobjectstext"]
 
