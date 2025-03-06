@@ -14,7 +14,7 @@ offset_bottom = 540.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 160
-theme_override_constants/margin_top = 100
+theme_override_constants/margin_top = 84
 theme_override_constants/margin_right = 160
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_tibqr")
@@ -40,6 +40,6 @@ texture = ExtResource("3_jb3d0")
 
 [node name="StoryContainer" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 432)
+custom_minimum_size = Vector2(0, 448)
 layout_mode = 2
 theme_override_constants/separation = 16

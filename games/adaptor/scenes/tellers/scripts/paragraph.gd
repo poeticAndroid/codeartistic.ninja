@@ -17,3 +17,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# custom_minimum_size.y += -1
 	pass
+
+
+func _input(event: InputEvent) -> void:
+	if not story: return
+	if Input.is_action_just_released("ui_down"): story.step()
