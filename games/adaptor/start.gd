@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,3 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_play_btn_pressed() -> void:
 	Global.goto_scene("./scenes/story")
+
+
+func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
+	OS.shell_open(meta)

@@ -1,20 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmkonasctsmx5"]
+[gd_scene load_steps=3 format=3 uid="uid://dmkonasctsmx5"]
 
 [ext_resource type="Script" uid="uid://cx1ydfrg2l287" path="res://games/adaptor/start.gd" id="1_1ftp1"]
+[ext_resource type="FontFile" uid="uid://n4ljjryc8g6x" path="res://games/adaptor/assets/fonts/Georgia.ttf" id="2_4d4v3"]
 
-[node name="Start" type="Node2D"]
+[node name="Start" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_1ftp1")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 162.0
-offset_top = 107.0
-offset_right = 202.0
-offset_bottom = 130.0
-text = "Coming soon?"
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
 
-[node name="PlayBtn" type="Button" parent="." groups=["autofocus"]]
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Play"
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_4d4v3")
+theme_override_fonts/mono_font = ExtResource("2_4d4v3")
+theme_override_fonts/italics_font = ExtResource("2_4d4v3")
+theme_override_fonts/bold_italics_font = ExtResource("2_4d4v3")
+theme_override_fonts/bold_font = ExtResource("2_4d4v3")
+bbcode_enabled = true
+text = "[b][font_size=32]The Adaptor
+[/font_size][/b]
+A mysterious text adventure game about existence.
 
-[connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
+[b][font_size=24]Credits[/font_size][/b]
+
+Code and story by [url=http://one.poeticandroid.online/]poeticAndroid[/url]
+
+Background photos from [url=https://commons.wikimedia.org/wiki/File:Japanese_police_interrogation_room_-_movie_set_-_October_2014.jpg]Nesnad[/url], [url=https://www.flickr.com/photos/beigephotos/2282320621/]Michael Pereckas[/url], [url=https://www.flickr.com/photos/rvc/6360419733/]Rafael Vianna Croffi[/url], [url=https://www.flickr.com/photos/mad_city_bastard/2550528319/]Matt Feifarek[/url] and [url=https://www.flickr.com/photos/viticusgoff/4846052562/]Vit Goff[/url]
+
+"
+fit_content = true
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = " Play "
+
+[connection signal="meta_clicked" from="VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
