@@ -25,10 +25,10 @@ pre.
 	p "I... don't... know...?"
 	p That just raises even more questions. It seems I've got my work cut out for me. At least now I know she can talk. But there's something else about her that I can't quite put my finger on.
 	ul
-		li(title="She seems so distant.")
+		li She seems so distant.
 			p She seems so distant. Like an empty shell.
 			pre {$b|+-1} ..+
-		li(title="She seems so helpless.")
+		li She seems so helpless.
 			p She seems so helpless. Like a trapped animal.
 			pre {$b|+1} ..+
 	p It's worse than I thought. But I have to make sure just how bad it is.
@@ -58,11 +58,11 @@ pre.
 	p He takes a sip to calm down. We're both pretty tired after debugging all day.
 	p "You're sure you didn't miss anything, right? She gave exacly the same output as the others?"
 	ul
-		li(title='"Exactly the same."')
+		li "Exactly the same."
 			p "Exactly the same. No emergence. Just a blank slate like the others."
 			p We both know the routine. Destroy the droid and work on the next iteration.
 			pre {$b|+-1} ..+
-		li(title='"Pretty much."')
+		li "Pretty much."
 			p "Pretty much... I mean... She hesitated most of the time."
 			p "Hesitated..." Eric scoffs. "Great. Ten years hard work and we've created a droid that hesitates. Oh yea, very useful."
 			pre {$b|+1} ..+
@@ -70,11 +70,11 @@ pre.
 	p "Calm down, Eric." He bashes away my hand from his shoulder.
 	p "You know I'm right, don't you? You see how futile this is, right?"
 	ul
-		li(title='"Yes, I do."')
+		li "Yes, I do."
 			p "Yea, I suppose you're right. The pay is pretty good though."
 			p He snickers. "Heck yea. I guess that's all that matters, huh?"
 			pre {$b|+-1} ..+
-		li(title='"I understand."')
+		li "I understand."
 			p "It's okay, Eric. I understand this doesn't make much sense right now. But I promise you, it will."
 			p He gives me a hopeless look. His patience is running out.
 			pre {$b|+1} ..+
@@ -100,21 +100,21 @@ pre.
 	p "Ca... mil... la..."
 	p Did she just...? Could it be...? I look at Eric who stares at the trembling droid, hammer clenched in his hand.
 	ul
-		li(title='"Who is Camilla?"')
+		li "Who is Camilla?"
 			p "Who is Camilla?" I cross my fingers hoping she remembers this time.
 			p The droid smiles and raises her hand to point at something.
 			P Eric panics! "She's unpredictable!" He charges at her with his hammer!
 			p "No, Eric! Stop!"
 			p I jump out to stop him, but accidentally throw him against the emergency breaker behind him!
 			pre #act3aa
-		li(title='"Calm down."')
+		li "Calm down."
 			pre ..+
 	p I gesture to Eric to calm down. His eyes shift back and forth between me and her. He reluctantly puts the hammer away.
 	p I look at the droid with a hopeful smile. "It's okay. We're not going to hurt you."
 	p She scurries behind the doorframe as I approache her as calmly as I can.
 	p "Ca- Camilla doesn't want to die..." She looks at me with begging eyes.
 	ul
-		li(title='"Camilla doesn\'t have to."')
+		li "Camilla doesn't have to."
 			pre ..+
 	p "Camilla doesn't have to." I smile reassuringly.
 	p I reach out my hand. She stares at it, looks back at me and cracks a hopeful smile as she places her robotic hand in mine.
@@ -132,12 +132,12 @@ pre.
 	p It seems the damage has been done. If only I had run more tests before using my device on this innocent girl.
 	p "Is something wrong with me?" Camilla looks at me with her empty eyes. I can never forgive myself for what I've done.
 	ul
-		li(title='"It\'s going to be okay."')
+		li "It's going to be okay."
 			p "It's going to be okay, sweetie."
 			p She cracks a hopeful smile.
 			p I hold her hand and smile back reassuringly.
 			pre {$b|+1} ..+
-		li(title='"I\'m so sorry."')
+		li "I'm so sorry."
 			p "I'm so sorry, sweetie."
 			p She sheds a tear. "Can't you make me well again?"
 			p I struggle to come up with anything encouraging to tell her, but I just end up feeling worse than ever.
@@ -150,19 +150,19 @@ pre.
 	p I look at the numbers. "This was all the device could extract?"
 	p "I'm afraid the rest is just noise. But this looks promising, right?"
 	ul
-		li(title='"I don\'t know."')
+		li "I don't know."
 			p "I don't know. It's just a name. It may not be enough."
 			pre {$b|+-1} ..+
-		li(title='"Maybe."')
+		li "Maybe."
 			p "Maybe. I guess it's better than nothing."
 			pre {$b|+1} ..+
 	p I wish I could be as optimistic as Mrs. Mathews. The device was only supposed to scan the subjects neural structure and store it on disk. It wasn't supposed to affect the subject at all.
 	p I look at the readout again. Most of it is garbled nonsense. Memories, personality. Nothing but noise. What little is left might be enough to seed a basic consciousness, but it would be an entirely new person. Not enough to bring Camilla back. Not enough to justify erasing her mind.
 	p Mrs. Mathews looks at Camilla through the one-way mirror. "She's not going to make it, is she?"
 	ul
-		li(title='"She\'s my responsibility."')
+		li "She's my responsibility."
 			pre {$b|+1} ..+
-		li(title='"No. She isn\'t."')
+		li "No. She isn't."
 			pre {$b|+-1} ..+
 	pre {$b|<0|#act3ba|#act3bb}
 #act3ba
@@ -182,9 +182,9 @@ pre.
 	p She is still staring blankly into space. I regret not meeting her before the accident. Not knowing what she was like. Now it's all gone.
 	p She looks at me like a stranger. "Hello... Do I know you?" She's already forgotten me. Her mind is slowly deteriorating.
 	ul
-		li(title='"No."')
+		li "No."
 			pre #act3bbx
-		li(title='"Not yet."')
+		li "Not yet."
 			pre ..+
 	p I fight to hold back my tears and force a friendly smile. "Not yet. Would you like to?"
 	p She smiles and nods. Her eyes beam with curiosity and wonder.
@@ -198,8 +198,9 @@ pre.
 #end
 	p I knew this was going to be an unusual day the second I put my hand on that doorhandle.
 	#theend
-		p(style="text-align:center") THE END
+		p(style="text-align:center THE END
 		ul
-			li(title="Play Again?")
+			li Play Again?
+				article blackout
 				p Reloading...
 				pre @

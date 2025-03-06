@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://1h4d12njx1mt"]
+
+[ext_resource type="FontFile" uid="uid://n4ljjryc8g6x" path="res://games/adaptor/assets/fonts/Georgia.ttf" id="1_3vofq"]
+
+[resource]
+base_font = ExtResource("1_3vofq")
+variation_embolden = 0.8
+spacing_glyph = 1

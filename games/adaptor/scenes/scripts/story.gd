@@ -61,6 +61,18 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch: scroll_target = 0
 	if event is InputEventJoypadButton: scroll_target = 0
 
+	if currentTeller and currentTeller.is_ancestor_of(get_viewport().gui_get_focus_owner()):
+		max_scroll = 0
+		return
+	if Input.is_action_just_pressed("ui_up"):
+		var tween = get_tree().create_tween()
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+		tween.tween_property(self, "scroll_vertical", self.scroll_vertical - 200, 1)
+	if Input.is_action_just_pressed("ui_down"):
+		var tween = get_tree().create_tween()
+		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
+		tween.tween_property(self, "scroll_vertical", self.scroll_vertical + 200, 1)
+
 
 func new_passage(line: String = ""):
 	print("\n ---")

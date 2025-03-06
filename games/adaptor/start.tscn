@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmkonasctsmx5"]
+[gd_scene load_steps=7 format=3 uid="uid://dmkonasctsmx5"]
 
 [ext_resource type="Script" uid="uid://cx1ydfrg2l287" path="res://games/adaptor/start.gd" id="1_1ftp1"]
 [ext_resource type="FontFile" uid="uid://n4ljjryc8g6x" path="res://games/adaptor/assets/fonts/Georgia.ttf" id="2_4d4v3"]
+[ext_resource type="FontVariation" uid="uid://s3b4l628ffod" path="res://games/adaptor/assets/fonts/Georgia_italics.tres" id="3_k2377"]
+[ext_resource type="FontVariation" uid="uid://okgild4nw874" path="res://games/adaptor/assets/fonts/Georgia_bold_italics.tres" id="4_uif0j"]
+[ext_resource type="FontVariation" uid="uid://1h4d12njx1mt" path="res://games/adaptor/assets/fonts/Georgia_bold.tres" id="5_n6bhd"]
+
+[sub_resource type="SystemFont" id="SystemFont_syfhx"]
+font_names = PackedStringArray("Monospace", "Courier New")
 
 [node name="Start" type="CenterContainer"]
 anchors_preset = 15
@@ -18,10 +24,10 @@ layout_mode = 2
 custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_4d4v3")
-theme_override_fonts/mono_font = ExtResource("2_4d4v3")
-theme_override_fonts/italics_font = ExtResource("2_4d4v3")
-theme_override_fonts/bold_italics_font = ExtResource("2_4d4v3")
-theme_override_fonts/bold_font = ExtResource("2_4d4v3")
+theme_override_fonts/mono_font = SubResource("SystemFont_syfhx")
+theme_override_fonts/italics_font = ExtResource("3_k2377")
+theme_override_fonts/bold_italics_font = ExtResource("4_uif0j")
+theme_override_fonts/bold_font = ExtResource("5_n6bhd")
 bbcode_enabled = true
 text = "[b][font_size=32]The Adaptor
 [/font_size][/b]
@@ -33,13 +39,14 @@ Code and story by [url=http://one.poeticandroid.online/]poeticAndroid[/url]
 
 Background photos from [url=https://commons.wikimedia.org/wiki/File:Japanese_police_interrogation_room_-_movie_set_-_October_2014.jpg]Nesnad[/url], [url=https://www.flickr.com/photos/beigephotos/2282320621/]Michael Pereckas[/url], [url=https://www.flickr.com/photos/rvc/6360419733/]Rafael Vianna Croffi[/url], [url=https://www.flickr.com/photos/mad_city_bastard/2550528319/]Matt Feifarek[/url] and [url=https://www.flickr.com/photos/viticusgoff/4846052562/]Vit Goff[/url]
 
+
 "
 fit_content = true
 
 [node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
 layout_mode = 2
 size_flags_horizontal = 4
-text = " Play "
+text = " Begin "
 
 [connection signal="meta_clicked" from="VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
 [connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]

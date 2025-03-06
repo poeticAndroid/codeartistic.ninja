@@ -181,13 +181,11 @@ game_name = "polarbears"
 game_description = "A fight against the polar bear invasion with timeloop ship!"
 
 [node name="AdaptorGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
-modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("6_swq45")
 game_title = "The Adaptor"
 game_name = "adaptor"
 game_description = "A mysterious text adventure game about existence."
-wip = true
 
 [node name="SomedayGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)
@@ -333,7 +331,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 16
-text = "(c) 2016-2025 poeticAndroid"
+text = "(c) 2016-2025 poeticAndroid (formerly codeartistic.ninja)"
 horizontal_alignment = 1
 
 [node name="BlankLine4" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]

@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	queue_redraw()
+	%Backgrounds.global_position = Vector2(480, 270)
 
 
 func _draw() -> void:
