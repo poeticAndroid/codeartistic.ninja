@@ -198,9 +198,8 @@ pre.
 #end
 	p I knew this was going to be an unusual day the second I put my hand on that doorhandle.
 	#theend
-		p(style="text-align:center THE END
+		p.center THE END
 		ul
 			li Play Again?
-				article blackout
 				p Reloading...
 				pre @

@@ -15,7 +15,7 @@ var max_scroll: float = 0
 var scroll_start: float = 0
 var scroll_pos: float = 0
 var scroll_target: float = 0
-var scroll_accel: float = 100
+var scroll_accel: float = 200
 var scroll_speed: float = 1
 
 var IDs: Dictionary[String, TextTree] = {}
@@ -29,49 +29,61 @@ func _ready() -> void:
 	IDs = {}
 	_line_num = 0
 	parse(story_file.text.split("\n"), story)
-	nextLine = story.get_child(0)
-	new_passage()
+	nextLine = story
+	new_passage("_first")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if max_scroll != get_v_scroll_bar().max_value - size.y:
-		max_scroll = get_v_scroll_bar().max_value - size.y
+	if max_scroll != get_v_scroll_bar().max_value - get_viewport_rect().size.y:
+		max_scroll = max(0, get_v_scroll_bar().max_value - get_viewport_rect().size.y)
 		scroll_target = max_scroll
-	if scroll_pos < scroll_target:
-		if (scroll_pos -scroll_start) < (scroll_target -scroll_pos):
-			scroll_speed += scroll_accel * delta
-		else:
-			scroll_start = scroll_pos - scroll_target + scroll_pos
-			scroll_speed -= scroll_accel * delta
-		scroll_pos += abs(scroll_speed * delta)
+	scroll_target = clamp(scroll_target, 0, max_scroll)
+	if abs(scroll_pos - scroll_target) > 1:
+		if scroll_pos > scroll_target:
+			if scroll_speed > 0:
+				scroll_speed = 0
+				scroll_start = scroll_pos
+			if (scroll_start -scroll_pos) < (scroll_pos -scroll_target):
+				scroll_speed -= scroll_accel * delta
+			else:
+				scroll_start = scroll_pos - scroll_target + scroll_pos
+				scroll_speed += scroll_accel * delta
+		if scroll_pos < scroll_target:
+			if scroll_speed < 0:
+				scroll_speed = 0
+				scroll_start = scroll_pos
+			if (scroll_pos -scroll_start) < (scroll_target -scroll_pos):
+				scroll_speed += scroll_accel * delta
+			else:
+				scroll_start = scroll_pos - scroll_target + scroll_pos
+				scroll_speed -= scroll_accel * delta
+		scroll_pos += scroll_speed * delta
 		scroll_vertical = scroll_pos
 	else:
+		scroll_start = scroll_vertical
+		scroll_pos = scroll_vertical
+		scroll_target = scroll_vertical
 		if scroll_speed:
 			scroll_speed = 0
 			if not is_instance_valid(currentTeller): return step()
 			if not currentTeller.story: return step()
-		scroll_start = scroll_vertical
-		scroll_pos = scroll_vertical
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey: scroll_target = 0
-	if event is InputEventMouseButton: scroll_target = 0
-	if event is InputEventScreenTouch: scroll_target = 0
-	if event is InputEventJoypadButton: scroll_target = 0
+	# if event is InputEventKey: scroll_target = scroll_pos
+	# if event is InputEventMouseButton: scroll_target = scroll_pos
+	# if event is InputEventScreenTouch: scroll_target = scroll_pos
+	# if event is InputEventJoypadButton: scroll_target = scroll_pos
 
-	if currentTeller and currentTeller.is_ancestor_of(get_viewport().gui_get_focus_owner()):
-		max_scroll = 0
-		return
 	if Input.is_action_just_pressed("ui_up"):
-		var tween = get_tree().create_tween()
-		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
-		tween.tween_property(self, "scroll_vertical", self.scroll_vertical - 200, 1)
+		scroll_target = 0
 	if Input.is_action_just_pressed("ui_down"):
-		var tween = get_tree().create_tween()
-		tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
-		tween.tween_property(self, "scroll_vertical", self.scroll_vertical + 200, 1)
+		scroll_target = max_scroll
+	if Input.is_action_just_released("ui_up"):
+		scroll_target = scroll_pos - (scroll_start - scroll_pos)
+	if Input.is_action_just_released("ui_down"):
+		scroll_target = scroll_pos + (scroll_pos - scroll_start)
 
 
 func new_passage(line: String = ""):
@@ -127,11 +139,12 @@ func endsub():
 
 
 func end():
+	print(JSON.stringify(story.export_object()))
 	print("THE END!")
 
 
 func get_type(line: String) -> String:
-	return line.get_slice(" ", 0).get_slice(".", 0).get_slice("#", 0).get_slice("(", 0)
+	return line.get_slice(" ", 0).get_slice(".", 0).get_slice("#", 0).get_slice("(", 0).to_lower()
 
 
 func find_line(path: String, context = currentLine):
@@ -151,7 +164,7 @@ func find_line(path: String, context = currentLine):
 		elif part == "-":
 			context = context.get_previous_sibling()
 		elif part.begins_with("#"):
-			context = IDs[part.replace("#", "")]
+			context = IDs[part.replace("#", "").to_lower()]
 		else:
 			context = context.find("\n " + part + " ")
 	return context
@@ -272,5 +285,5 @@ func parse(lines: Array[String], parent: TextTree):
 			if id.contains("#"):
 				id = id.get_slice("#", 1).get_slice(".", 0).get_slice("(", 0)
 				if id: assert( not IDs.has(id), "ID " + id + " is already declared! (" + last_child.get_filename() + ":" + str(_line_num) + ")")
-				IDs[id] = last_child
+				IDs[id.to_lower()] = last_child
 		while _line_num < lines.size() and lines[_line_num].strip_edges() == "": _line_num += 1
