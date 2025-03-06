@@ -28,6 +28,11 @@ theme_override_fonts/mono_font = SubResource("SystemFont_syfhx")
 theme_override_fonts/italics_font = ExtResource("3_k2377")
 theme_override_fonts/bold_italics_font = ExtResource("4_uif0j")
 theme_override_fonts/bold_font = ExtResource("5_n6bhd")
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
 text = "[b][font_size=32]The Adaptor
 [/font_size][/b]
