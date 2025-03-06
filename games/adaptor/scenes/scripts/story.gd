@@ -26,6 +26,7 @@ func _ready() -> void:
 	var text = story_file.text
 	story = TextTree.new()
 	story.filename = story_file.resource_path
+	IDs = {}
 	_line_num = 0
 	parse(story_file.text.split("\n"), story)
 	nextLine = story.get_child(0)
@@ -82,7 +83,7 @@ func step():
 		else: return end()
 	print(currentLine.line)
 	currentLine.attributes.get_or_add("_visits", 0)
-	currentLine.set_attribute("_visits", currentLine.get_attribute("_visits") + 1)
+	currentLine.add("_visits", 1)
 	var type = get_type(currentLine.line)
 	if tellers.has(type):
 		nextLine = currentLine.get_next_sibling()
@@ -90,6 +91,8 @@ func step():
 		currentTeller.story = self
 		currentTeller.line = eval_line()
 		currentTeller.tree = currentLine
+		if currentLine.line.substr(currentLine.line.find(" ")).strip_edges() != currentTeller.line:
+			print(" L> ", type, " ", currentTeller.line)
 		currentPassage.add_teller(currentTeller)
 	else:
 		nextLine = currentLine.get_child(0)
@@ -143,9 +146,18 @@ func find_line(path: String, context = currentLine):
 
 
 func eval_line(line = currentLine.line) -> String:
-	var out: String = line.substr(line.find(" ")).get_slice("//", 0).strip_edges()
+	var out: String = line.substr(line.find(" ")).strip_edges()
 	var p1: int = 0
 	var p2: int = 0
+
+	p1 = out.find("{{")
+	while p1 >= 0:
+		p1 += 2
+		p2 = out.find("}}", p1)
+		var tag = out.substr(p1, p2 -p1)
+		out = out.left(p1 -2) + eval_tag(tag) + out.right(-2 - p2)
+		p1 = out.find("{{", p2)
+
 	p1 = out.find("{")
 	while p1 >= 0:
 		p1 += 1
@@ -165,21 +177,18 @@ func smart_tag(tag: String) -> String:
 		if parts.size() == 2:
 			out = ""
 			if parts[1].begins_with("+"):
-				currentLine.set_attribute(key, currentLine.get_attribute(key) + lazyJson(parts[1].substr(1)))
+				currentLine.add(key, lazyJson(parts[1].substr(1)))
 			else:
 				currentLine.set_attribute(key, lazyJson(parts[1]))
+			print("$ ", key, " = ", JSON.stringify(currentLine.g(key)))
 		elif parts.size() > 2:
 			var expr = Expression.new()
 			for i in range(1, parts.size(), 2):
 				if i < parts.size()-1:
 					var error = expr.parse(JSON.stringify(out) + parts[i])
-					if error != OK:
-						out = "{" + expr.get_error_text() + "}"
-						break
+					assert(error == OK, expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
 					var result = expr.execute()
-					if expr.has_execute_failed():
-						out = "{" + expr.get_error_text() + "}"
-						break
+					assert( not expr.has_execute_failed(), expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
 					print("$ ", JSON.stringify(out) + parts[i], " == ", result)
 					if result:
 						out = parts[i + 1]
@@ -197,6 +206,23 @@ func smart_tag(tag: String) -> String:
 	return out
 
 
+func eval_tag(tag: String) -> String:
+	var _expr = Expression.new()
+	var _result
+
+	print("Evaluating: ", tag)
+	var _error = _expr.parse(tag)
+	assert(_error == OK, _expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
+	_result = _expr.execute([], currentLine)
+	assert( not _expr.has_execute_failed(), _expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
+
+	print("$$ ", tag, " == ", _result)
+	if _result == null: _result = ""
+	else: _result = str(_result)
+
+	return _result
+
+
 func lazyJson(str: String):
 	if str.strip_edges() == "null": return null
 	var out = JSON.parse_string(str)
@@ -210,12 +236,29 @@ func parse(lines: Array[String], parent: TextTree):
 	var line = lines[_line_num]
 	var indent = line.substr(0, line.find(line.strip_edges()))
 	var last_child = parent
+	var multiline
+	var multiline_indent
 	while _line_num < lines.size() and lines[_line_num].begins_with(indent):
-		line = lines[_line_num].substr(indent.length())
+		line = lines[_line_num].substr(indent.length()).get_slice("//", 0)
 		if line.substr(0, 1).strip_edges() == "":
-			parse(lines, last_child)
+			if multiline:
+				_line_num += 1
+				if not multiline_indent: multiline_indent = line.substr(0, line.find(line.strip_edges()))
+				line = line.substr(multiline_indent.length())
+				last_child.line += "\n" + line
+			else:
+				parse(lines, last_child)
 		else:
+			multiline = false
+			multiline_indent = null
 			_line_num += 1
 			last_child = parent.add_new_child(line, _line_num)
-			IDs[last_child.line.get_slice(" ", 0).get_slice("#", 1).get_slice(".", 0).get_slice("(", 0).get_slice(" ", 0)] = last_child
+			var id = last_child.line.get_slice(" ", 0)
+			if id.ends_with("."):
+				multiline = true
+				last_child.line += " "
+			if id.contains("#"):
+				id = id.get_slice("#", 1).get_slice(".", 0).get_slice("(", 0)
+				if id: assert( not IDs.has(id), "ID " + id + " is already declared! (" + last_child.get_filename() + ":" + str(_line_num) + ")")
+				IDs[id] = last_child
 		while _line_num < lines.size() and lines[_line_num].strip_edges() == "": _line_num += 1

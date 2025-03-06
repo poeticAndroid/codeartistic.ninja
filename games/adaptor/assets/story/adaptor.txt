@@ -1,4 +1,5 @@
-pre +
+pre.
+	+
 #act1
 	pre {$b|0} +
 	article interrogation
@@ -200,5 +201,5 @@ pre +
 		p(style="text-align:center") THE END
 		ul
 			li(title="Play Again?")
-				pre #act1
-		p Reloading...
+				p Reloading...
+				pre @

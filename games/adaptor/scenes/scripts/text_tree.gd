@@ -90,6 +90,18 @@ func get_line_number():
 
 
 
+func g(key: String): return get_attribute(key)
+func s(key: String, val): return set_attribute(key, val)
+func add(key: String, delta): return s(key, g(key) + delta)
+
+
+func get_attributes(_result = {}):
+	if parent: parent.get_attributes(_result)
+	for key in attributes:
+		_result[key] = attributes[key]
+	return _result
+
+
 func has_attribute(key: String):
 	if attributes.has(key): return self
 	if parent: return parent.has_attribute(key)
