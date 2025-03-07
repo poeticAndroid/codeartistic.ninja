@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 			if scroll_speed > 0:
 				scroll_speed = 0
 				scroll_start = scroll_pos
-			if (scroll_start -scroll_pos) < (scroll_pos -scroll_target):
+			if (scroll_start - scroll_pos) < (scroll_pos - scroll_target):
 				scroll_speed -= scroll_accel * delta
 			else:
 				scroll_start = scroll_pos - scroll_target + scroll_pos
@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 			if scroll_speed < 0:
 				scroll_speed = 0
 				scroll_start = scroll_pos
-			if (scroll_pos -scroll_start) < (scroll_target -scroll_pos):
+			if (scroll_pos - scroll_start) < (scroll_target - scroll_pos):
 				scroll_speed += scroll_accel * delta
 			else:
 				scroll_start = scroll_pos - scroll_target + scroll_pos
@@ -71,11 +71,6 @@ func _process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	# if event is InputEventKey: scroll_target = scroll_pos
-	# if event is InputEventMouseButton: scroll_target = scroll_pos
-	# if event is InputEventScreenTouch: scroll_target = scroll_pos
-	# if event is InputEventJoypadButton: scroll_target = scroll_pos
-
 	if Input.is_action_just_pressed("ui_up"):
 		scroll_target = 0
 	if Input.is_action_just_pressed("ui_down"):
