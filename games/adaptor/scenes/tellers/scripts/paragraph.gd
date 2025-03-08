@@ -8,6 +8,8 @@ var tree: TextTree
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimationPlayer.play("reveal")
+	if story.get_classes(tree.line).has("center"):
+		horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	text = line
 	await get_tree().create_timer(max(1, .08 * line.length())).timeout
 	if story: story.step()
@@ -15,7 +17,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# custom_minimum_size.y += -1
 	pass
 
 

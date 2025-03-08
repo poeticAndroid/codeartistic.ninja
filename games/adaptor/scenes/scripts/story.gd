@@ -147,6 +147,16 @@ func get_type(line: String) -> String:
 	return line.get_slice(" ", 0).get_slice(".", 0).get_slice("#", 0).get_slice("(", 0).to_lower()
 
 
+func get_classes(line: String) -> Array[String]:
+	var out: Array[String] = []
+	line = line.get_slice(" ", 0)
+	if not line.contains("."): return out
+	line = line.substr(line.find("."))
+	for part in line.split(".", false):
+		out.push_back(part.get_slice("#", 0).get_slice("(", 0))
+	return out
+
+
 func find_line(path: String, context = currentLine):
 	var parts = path.split(" ", false)
 	for part in parts:
