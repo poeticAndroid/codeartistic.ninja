@@ -4,6 +4,7 @@ var story: Node
 var line: String
 var tree: TextTree
 
+var _pressed: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,4 +23,5 @@ func _process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if not story: return
-	if Input.is_action_just_released("ui_down"): story.step()
+	if _pressed > Input.is_anything_pressed(): story.step()
+	_pressed = Input.is_anything_pressed()
