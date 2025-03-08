@@ -9,6 +9,7 @@ static var background: String
 func _ready() -> void:
 	if line.strip_edges():
 		background = line
+		story.wait_for_scroll = true
 	for node in %Backgrounds.get_children():
 		node.visible = node.name.to_lower() == background.to_lower()
 

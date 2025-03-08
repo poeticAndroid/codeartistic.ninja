@@ -17,6 +17,7 @@ var scroll_pos: float = 0
 var scroll_target: float = 0
 var scroll_accel: float = 200
 var scroll_speed: float = 1
+var wait_for_scroll: bool
 
 var IDs: Dictionary[String, TextTree] = {}
 var _line_num: int
@@ -35,9 +36,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if max_scroll != get_v_scroll_bar().max_value - get_viewport_rect().size.y:
-		max_scroll = max(0, get_v_scroll_bar().max_value - get_viewport_rect().size.y)
-		scroll_target = max_scroll
+	if max_scroll < get_v_scroll_bar().max_value - get_viewport_rect().size.y:
+		scroll_target = get_v_scroll_bar().max_value
+	max_scroll = max(0, get_v_scroll_bar().max_value - get_viewport_rect().size.y)
+	scroll_pos = clamp(scroll_pos, 0, max_scroll)
 	scroll_target = clamp(scroll_target, 0, max_scroll)
 	if abs(scroll_pos - scroll_target) > 1:
 		if scroll_pos > scroll_target:
@@ -87,15 +89,18 @@ func new_passage(line: String = ""):
 		print()
 		currentPassage.close()
 	currentPassage = passage.instantiate()
+	currentPassage.story = self
 	currentPassage.line = line
 	%StoryContainer.add_child(currentPassage)
+	scroll_speed += 1
 
 
 func step():
 	if is_instance_valid(currentTeller) and currentTeller.story:
 		currentTeller.story = null
 		scroll_speed += 1
-	if scroll_speed: return
+	if wait_for_scroll and scroll_speed: return
+	wait_for_scroll = false
 	currentLine = nextLine
 	if not currentLine:
 		if callstack.size(): return endsub()
