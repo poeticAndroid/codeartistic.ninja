@@ -9,7 +9,6 @@ var tree: TextTree
 func _ready() -> void:
 	$AnimationPlayer.play("reveal")
 	var num = 0
-	var first
 	for child in tree.children:
 		var title = story.eval_line(child.line)
 		while child and not title:
@@ -19,11 +18,12 @@ func _ready() -> void:
 			var choice = %Choice.duplicate()
 			choice.text = title
 			choice.pressed.connect(_on_choice_pressed.bind(num))
+			choice.mouse_entered.connect(_on_choice_mouse_entered.bind(num))
 			%Choices.add_child(choice)
-			if not first: first = choice
 		num += 1
 	%Choice.queue_free()
-	first.grab_focus()
+	await get_tree().create_timer(0.02).timeout
+	_on_choice_mouse_entered(0)
 	custom_minimum_size.y = %Choices.size.y + 32
 
 
@@ -41,10 +41,16 @@ func _on_choice_pressed(num: int) -> void:
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(self, "custom_minimum_size:y", 0, 1)
 	for child in %Choices.get_children():
-		if num:
+		if num != 0:
 			tween = create_tween()
 			tween.set_trans(Tween.TRANS_QUAD)
 			tween.tween_property(child, "modulate:a", 0, 0.5)
 		num += -1
 	await $AnimationPlayer.animation_finished
 	queue_free()
+
+
+func _on_choice_mouse_entered(num: int = 0) -> void:
+	for child in %Choices.get_children():
+		if num == 0: child.grab_focus()
+		num += -1
