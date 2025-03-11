@@ -23,6 +23,7 @@ extends Control
 		if wip: modulate.a = 0.25
 		else: modulate = Color.WHITE
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var btn: Button = %Button

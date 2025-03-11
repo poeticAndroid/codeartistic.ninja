@@ -2,7 +2,7 @@ extends ScrollContainer
 
 @export var story_file: TextResource
 @export var passage: PackedScene
-@export var tellers: Dictionary[String, PackedScene] = {}
+@export var tellers: Dictionary[String, PackedScene] = { }
 
 var story: TextTree
 var callstack: Array[TextTree] = []
@@ -19,15 +19,16 @@ var scroll_accel: float = 200
 var scroll_speed: float = 1
 var wait_for_scroll: bool
 
-var IDs: Dictionary[String, TextTree] = {}
+var IDs: Dictionary[String, TextTree] = { }
 var _line_num: int
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var text = story_file.text
 	story = TextTree.new()
 	story.filename = story_file.resource_path
-	IDs = {}
+	IDs = { }
 	_line_num = 0
 	parse(story_file.text.split("\n"), story)
 	nextLine = story
@@ -223,7 +224,7 @@ func smart_tag(tag: String) -> String:
 					var error = expr.parse(JSON.stringify(out) + parts[i])
 					assert(error == OK, expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
 					var result = expr.execute()
-					assert( not expr.has_execute_failed(), expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
+					assert(not expr.has_execute_failed(), expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
 					print("$ ", JSON.stringify(out) + parts[i], " == ", result)
 					if result:
 						out = parts[i + 1]
@@ -249,7 +250,7 @@ func eval_tag(tag: String) -> String:
 	var _error = _expr.parse(tag)
 	assert(_error == OK, _expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
 	_result = _expr.execute([], currentLine)
-	assert( not _expr.has_execute_failed(), _expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
+	assert(not _expr.has_execute_failed(), _expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
 
 	print("$$ ", tag, " == ", _result)
 	if _result == null: _result = ""
@@ -294,6 +295,6 @@ func parse(lines: Array[String], parent: TextTree):
 				last_child.line += " "
 			if id.contains("#"):
 				id = id.get_slice("#", 1).get_slice(".", 0).get_slice("(", 0)
-				if id: assert( not IDs.has(id), "ID " + id + " is already declared! (" + last_child.get_filename() + ":" + str(_line_num) + ")")
+				if id: assert(not IDs.has(id), "ID " + id + " is already declared! (" + last_child.get_filename() + ":" + str(_line_num) + ")")
 				IDs[id.to_lower()] = last_child
 		while _line_num < lines.size() and lines[_line_num].strip_edges() == "": _line_num += 1

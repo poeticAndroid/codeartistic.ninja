@@ -50,7 +50,7 @@ func _on_area_entered(area: Area2D) -> void:
 		if area.has_method("die"):
 			area.die()
 			var chance = randf()
-			if chance<0.1:
+			if chance < 0.1:
 				add_sibling(Powerup.create(area.position))
 		else:
 			area.queue_free()

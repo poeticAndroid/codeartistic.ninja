@@ -4,7 +4,7 @@ var filename: String
 var line_number: int = -1
 var line: String = ""
 var parent: TextTree = null
-var attributes: Dictionary = {}
+var attributes: Dictionary = { }
 var children: Array[TextTree] = []
 
 
@@ -34,6 +34,8 @@ func remove_child(child: TextTree):
 func remove():
 	if parent: parent.remove_child(self)
 
+#
+# navigation
 
 
 func get_parent():
@@ -74,6 +76,8 @@ func find(substr: String):
 		if r: return r
 	return null
 
+#
+# get source
 
 
 func get_filename():
@@ -88,6 +92,10 @@ func get_line_number():
 	if parent: return parent.get_line_number()
 	return null
 
+#
+# attributes
+
+
 
 
 func g(key: String): return get_attribute(key)
@@ -95,7 +103,7 @@ func s(key: String, val): return set_attribute(key, val)
 func add(key: String, delta): return s(key, g(key) + delta)
 
 
-func get_attributes(_result = {}):
+func get_attributes(_result = { }):
 	if parent: parent.get_attributes(_result)
 	for key in attributes:
 		_result[key] = attributes[key]
@@ -121,9 +129,8 @@ func set_attribute(key: String, val):
 	else: attributes[key] = val
 
 
-
 func export_object() -> Dictionary:
-	var out = {}
+	var out = { }
 	if filename: out.filename = filename
 	if line_number > -1: out.line_number = line_number
 	if line: out.line = line

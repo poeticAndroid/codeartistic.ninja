@@ -35,8 +35,7 @@ signal on_screen
 @export var alive_shape: RectangleShape2D
 @export var dead_shape: RectangleShape2D
 
-
-enum Clan {RANDOM, ORANGE, GREEN, PURPLE}
+enum Clan { RANDOM, ORANGE, GREEN, PURPLE }
 
 const SPEED = 256
 const JUMP_VELOCITY = -650.0

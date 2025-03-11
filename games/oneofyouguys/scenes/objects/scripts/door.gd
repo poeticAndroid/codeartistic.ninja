@@ -29,7 +29,8 @@ extends StaticBody2D
 		$CollisionShape2D.shape = RectangleShape2D.new()
 		$CollisionShape2D.shape.size = size
 
-enum Clan {RANDOM, ORANGE, GREEN, PURPLE}
+enum Clan { RANDOM, ORANGE, GREEN, PURPLE }
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

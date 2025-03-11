@@ -4,8 +4,8 @@ const DESKTOP_INPUT = 0
 const TOUCH_INPUT = 1
 const GAMEPAD_INPUT = 2
 
-var session: Dictionary = {}
-var persistant: Dictionary = {}
+var session: Dictionary = { }
+var persistant: Dictionary = { }
 var persistant_json: String
 
 var input_method: int = -1

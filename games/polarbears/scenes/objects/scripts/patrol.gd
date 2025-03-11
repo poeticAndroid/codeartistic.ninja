@@ -7,6 +7,7 @@ signal off_screen
 var velocity = Vector2.ZERO
 var max_velocity = 250.0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.pause()

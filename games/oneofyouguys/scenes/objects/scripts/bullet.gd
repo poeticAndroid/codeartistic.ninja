@@ -4,6 +4,7 @@ extends Area2D
 @export var speed: Vector2 = Vector2.ZERO
 var angular_speed: float = 0
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass  # Replace with function body.

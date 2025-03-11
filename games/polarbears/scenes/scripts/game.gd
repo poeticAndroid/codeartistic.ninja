@@ -4,6 +4,7 @@ var advance_speed = -60
 var time_left = 150
 var player: Area2D
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Engine.max_fps = 60
@@ -29,7 +30,7 @@ func _process(delta: float) -> void:
 	if $Camera2D.position.y <= 270:
 		Global.replace_scene("win", true)
 	time_left = floor(($Camera2D.position.y - 270) / 60)
-	if not (is_instance_valid(player) and player.collision_layer):
+	if not(is_instance_valid(player) and player.collision_layer):
 		$Swirl.visible = true
 		$Swirl.global_position = $Camera2D.global_position
 		if Global.persistant.get_or_add("polarbears_bestTime", time_left) > time_left:

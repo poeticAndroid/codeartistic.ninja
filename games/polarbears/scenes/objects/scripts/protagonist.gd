@@ -22,6 +22,7 @@ var bullet_pool = []
 var bullet_speed: float
 var bullet_max_travel: float
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var bullet = Bullet.create(position, bullet_pool)
