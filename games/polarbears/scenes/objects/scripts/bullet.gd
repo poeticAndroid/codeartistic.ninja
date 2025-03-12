@@ -41,6 +41,7 @@ func enable(pos: Vector2):
 func disable():
 	collision_layer = 0
 	visible = false
+	position.x = -1024
 	if not pool.has(self):
 		pool.push_back(self)
 
