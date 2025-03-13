@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cygvf1nhe6flh"]
 
-[ext_resource type="Script" uid="uid://c76wdulc1e8et" path="res://games/someday/scenes/tellers/scripts/passage.gd" id="1_80qru"]
+[ext_resource type="Script" uid="uid://1vjv3vrlns61" path="res://scripts/story/tellers/passage.gd" id="1_80qru"]
 [ext_resource type="Texture2D" uid="uid://duoh5uddka0n2" path="res://games/someday/assets/backgrounds/static.png" id="2_pjrq7"]
 
 [node name="Passage" type="MarginContainer"]

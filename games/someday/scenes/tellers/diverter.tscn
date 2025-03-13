@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bwd64caxscq1a"]
 
-[ext_resource type="Script" uid="uid://d1wt4e30x4f2k" path="res://games/someday/scenes/tellers/scripts/diverter.gd" id="1_d0s42"]
+[ext_resource type="Script" uid="uid://dr8x73ykccpol" path="res://scripts/story/tellers/diverter.gd" id="1_d0s42"]
 
 [node name="Diverter" type="Control"]
 layout_mode = 3

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://db30sqcggy3nt"]
 
-[ext_resource type="Script" uid="uid://ctgmnahgkqwoc" path="res://games/someday/scenes/scripts/story.gd" id="1_rawxw"]
+[ext_resource type="Script" uid="uid://bacwsjw8hf30r" path="res://scripts/story/story.gd" id="1_rawxw"]
 [ext_resource type="Resource" uid="uid://c2foujmriu5jr" path="res://games/someday/assets/story/someday.txt" id="2_rawxw"]
 [ext_resource type="PackedScene" uid="uid://cygvf1nhe6flh" path="res://games/someday/scenes/tellers/passage.tscn" id="3_xlbcu"]
 [ext_resource type="PackedScene" uid="uid://bvdkumojogind" path="res://games/someday/scenes/tellers/chapter.tscn" id="4_tn6jy"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c75lqqxow4rqb"]
 
-[ext_resource type="Script" uid="uid://2864ktwe0lhs" path="res://games/someday/scenes/tellers/scripts/chooser.gd" id="1_1rjck"]
+[ext_resource type="Script" uid="uid://d3igswhvdt7pg" path="res://scripts/story/tellers/chooser.gd" id="1_1rjck"]
 [ext_resource type="FontVariation" uid="uid://cj5ys585nndy4" path="res://games/someday/assets/fonts/PressStart2P_bold.tres" id="2_1rjck"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8v61k"]

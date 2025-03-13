@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dv4pvslgtk1nu"]
 
 [ext_resource type="LabelSettings" uid="uid://b3t7nby2gf2u4" path="res://games/someday/assets/fonts/label.tres" id="1_v3qw6"]
-[ext_resource type="Script" uid="uid://lbns80tmw2wo" path="res://games/someday/scenes/tellers/scripts/paragraph.gd" id="2_5tf5t"]
+[ext_resource type="Script" uid="uid://d8f16cytslf6" path="res://scripts/story/tellers/paragraph.gd" id="2_5tf5t"]
 
 [sub_resource type="Animation" id="Animation_2u48j"]
 length = 0.001
