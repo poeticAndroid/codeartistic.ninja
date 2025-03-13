@@ -1,0 +1,14 @@
+[remap]
+
+importer="online.poeticandroid.text_resource_importer"
+type="TextResource"
+uid="uid://d1hsgwcrwsed4"
+path="res://.godot/imported/OFL.txt-42a623aefb4674fc5a2078f135ff10bd.tres"
+
+[deps]
+
+source_file="res://games/someday/assets/fonts/OFL.txt"
+dest_files=["res://.godot/imported/OFL.txt-42a623aefb4674fc5a2078f135ff10bd.tres"]
+
+[params]
+

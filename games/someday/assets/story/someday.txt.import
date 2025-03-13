@@ -1,0 +1,14 @@
+[remap]
+
+importer="online.poeticandroid.text_resource_importer"
+type="TextResource"
+uid="uid://c2foujmriu5jr"
+path="res://.godot/imported/someday.txt-5d73210d0b86db371059adf265873d33.tres"
+
+[deps]
+
+source_file="res://games/someday/assets/story/someday.txt"
+dest_files=["res://.godot/imported/someday.txt-5d73210d0b86db371059adf265873d33.tres"]
+
+[params]
+

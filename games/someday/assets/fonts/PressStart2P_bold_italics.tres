@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://kkrjpq5l1mon"]
+
+[ext_resource type="FontFile" uid="uid://dvifi2ds3w245" path="res://games/someday/assets/fonts/PressStart2P-Regular.ttf" id="1_y6521"]
+
+[resource]
+base_font = ExtResource("1_y6521")
+variation_embolden = 1.0
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)

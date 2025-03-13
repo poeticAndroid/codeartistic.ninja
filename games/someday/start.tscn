@@ -1,10 +1,57 @@
-[gd_scene format=3 uid="uid://cgeni3wprypc0"]
+[gd_scene load_steps=7 format=3 uid="uid://cgeni3wprypc0"]
 
-[node name="Start" type="Node2D"]
+[ext_resource type="Script" uid="uid://dqgthecsjbval" path="res://games/someday/scripts/start.gd" id="1_tch31"]
+[ext_resource type="FontFile" uid="uid://dvifi2ds3w245" path="res://games/someday/assets/fonts/PressStart2P-Regular.ttf" id="2_tch31"]
+[ext_resource type="FontVariation" uid="uid://dfel4oqxq7ti1" path="res://games/someday/assets/fonts/PressStart2P_italics.tres" id="3_n17m3"]
+[ext_resource type="FontVariation" uid="uid://kkrjpq5l1mon" path="res://games/someday/assets/fonts/PressStart2P_bold_italics.tres" id="4_36ivb"]
+[ext_resource type="FontVariation" uid="uid://cj5ys585nndy4" path="res://games/someday/assets/fonts/PressStart2P_bold.tres" id="5_qht03"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 349.0
-offset_top = 211.0
-offset_right = 457.0
-offset_bottom = 234.0
-text = "Coming soon?"
+[sub_resource type="SystemFont" id="SystemFont_syfhx"]
+font_names = PackedStringArray("Monospace", "Courier New")
+
+[node name="Start" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tch31")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_tch31")
+theme_override_fonts/mono_font = SubResource("SystemFont_syfhx")
+theme_override_fonts/italics_font = ExtResource("3_n17m3")
+theme_override_fonts/bold_italics_font = ExtResource("4_36ivb")
+theme_override_fonts/bold_font = ExtResource("5_qht03")
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[b][font_size=32]Some day[/font_size][/b]
+
+A game about cats, little blue boys and astronauts.
+
+[b][font_size=24]Credits[/font_size][/b]
+
+Made by [url=http://one.poeticandroid.online/]poeticAndroid[/url]
+
+Music by [url=https://soundcloud.com/mikesnipe/cats-in-the-cradle]mikesnipe[/url]
+
+
+"
+fit_content = true
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = " Begin "
+
+[connection signal="meta_clicked" from="VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]

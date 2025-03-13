@@ -1,0 +1,102 @@
+pre +
+
+article static
+
+#beChild
+	p I'd heard a lot of good things about him. How determined he was, working hard to pay our bills and give us the best life we could possibly have. Always on the move, shaking hands and making deals with important people.
+	p(data-_interval=2048): img(alt="Son meets dad", src="assets/gfx/beChild.png 
+	p I was still in diapers, had just barely learned how to walk when I first saw him. He just stood like a towering figure in front of me with a gentle smile on his face. In awe of his presence, I reached my little arms out to him.
+	p At the time I didn't fully understand just how important he was to us. How naive I was, thinking he would put his function on pause, just to indulge me in a childish hug.
+	p He glanced at his watch. He was already late for a meeting, so he turned and left. I learned quickly how selfish I was asking for just a minute of his precious time.
+	p Even through his absence, he taught me so much. I wanted to be just like him.
+	ul
+		li Be just like him 
+			pre ..+
+	pre .+
+#beKid
+	p On the morning of my tenth birthday, I was invited into his office. A place I was seldom allowed to visit. He had a present for me. A brand new baseball and glove!
+	p(data-_interval=2048): img(alt="Son's birthday", src="assets/gfx/beKid.png 
+	p I was incredibly honored by his generosity. But in my excitement I became greedy, asking him if he would take me to the park and teach me how to throw. But in his wisdom he turned back to his desk, reminding me just how precious his time was.
+	p Humbled by this lesson, I learned to rely on myself. That all I needed was the tools and the willpower to become whatever I wanted to be. He trusted me to use this gift to trust in myself.
+	p I vowed to make him proud.
+	ul
+		li Make him proud 
+			pre ..+
+	pre .+
+#beTeen
+	p I felt sorry for my classmates, wasting their time together, hanging out, throwing parties. Most of them were barely passing their exams as it was. It made me sad seeing them thowing away their future like this. They even tried to invite me multiple times.
+	p As tempting as it was, I never gave up. I studied hard, handed in my assignments weeks in advance, got good grades and, of course, it paid off.
+	p At the time of my graduation, I had already gotten job offers from multiple high profile companies. I could literally get any job I wanted. I had already picked one out. I just needed a car to get there.
+	p(data-_interval=2048): img(alt="Son's graduation", src="assets/gfx/beTeen.png 
+	p He smiled proudly at me. And even though he offered me fatherly advice, I knew I couldn't stop now. I had already scheduled a job-interview, so I humbly asked him for the car keys and he was generous enough to oblige.
+	p If it wasn't for him, I wouldn't be where I am today.
+	ul
+		li Be grateful 
+			pre ..+
+	pre .+
+#getChild
+	p I swiped through all the photos my wife had sent me each day. He was growing up so fast. She told me he had already spoken his first words and taken his first steps. I checked the time and told the taxi driver to hurry up. I'd be putting this off for far too long. I couldn't wait to see him.
+	p I told the driver to wait for me as he pulled up to the drive way. I hurried inside and saw my little boy sitting on the kitchen floor, playing with the toys I bought for him.
+	p(data-_interval=2048): img(alt="Dad meets son", src="assets/gfx/getChild.png 
+	p He look up at me. I wasn't sure if he would recognize me or even know who I was. He then giggled at me with a beaming smile, trying to get up to greet me!
+	p My phone rang. My boss was getting impatient. My workload had already doubled in the time I had been away from the office. I glanced over at my wife. She was on the phone with the bank, trying to convince them to extend our loan.
+	p Having just barely looked at my son, it pained me to leave again so soon. I hurried back to the taxi and told the driver to step on it.
+	p I knew I had to work overtime, just to make up for the time I lost. I couldn't let my family down.
+	ul
+		li Don't let them down 
+			pre ..+
+	pre .+
+#beAdult  // p(data-_interval=2048): img(alt="Son called by dad", src="assets/gfx/beAdult.png 
+	p It was a hectic day at the office when I got the call from the old man's retirement home again. He wanted to see me.
+	p I guess even the best fall out of grace at the end of their lifes. He'd gotten too old to work and was now desperate for anything to keep him occupied. I didn't blame him. I didn't know what I'd do if I ever lost my job.
+	p I didn't have time to meet him, of course. But I did tell him how grateful I was for what he had tought me. To stay determined and work hard for my family, just as he did for his.
+	p I assured him I would keep working to help pay off his debt along with my own. It's the least I could do to give back to him. To thank him for getting me this far.
+	ul
+		li Get back to work 
+			pre ..+
+	pre .+
+#getKid
+	p I had been working overnight for a month to be able to afford his birthday present. It wasn't the latest generation of consoles, but I got a great deal on it.
+	p(data-_interval=2048): img(alt="Dad's gift", src="assets/gfx/getKid.png 
+	p He sat at my office desk and unwrapped it. He was glowing with joy and handed me the second controller.
+	p It pained me to decline his thoughtful offer, but this was not the time to be selfish and spend precious time I had yet to earn.
+	p I had to get back to work. Maybe if I worked diligently for the next few years, I could afford to spend some quality time with my family some day.
+	ul
+		li Spend work, earn time 
+			pre ..+
+	pre .+
+#getTeen
+	p My boss was generous enough to let me spend a week with my family. My son had just gotten home from college. I'd been looking forward to this all my life!
+	p He was excited to tell me he was at the top of his class was already applying for jobs. I was surprised good grades meant that much to him. I'd hoped he had spent some time together with friends and not overexerting himself with his studies. But whatever made him happy, made me happy.
+	p(data-_interval=2048): img(alt="Dad's week off", src="assets/gfx/getTeen.png 
+	p I offered him to play some games together, but of course he had already gotten too old for that. Instead he was really eager to borrow my car to make a good impression on some potential employers. He was really forward thinking and it clearly meant a lot to him to land the perfect job.
+	p In the end, I didn't get to spend much time with him, no matter how patient I was. He locked himself in his room, reading up for next semester.
+	p He was a bright kid and I was happy for him. But I couldn't help getting a bit worried for him too.
+	audio.music
+	ul
+		li Regret 
+			pre ..+
+	pre .+
+#getAdult  // p(data-_interval=2048): img(alt="Dad calls son", src="assets/gfx/getAdult.png 
+	p(data-_interval=4096) ...
+	p(data-_interval=4096) What have I done..?
+	p This isn't what I wanted... This isn't what I worked so hard for... All that time at the office... wasted...
+	p I've tried calling him every day... I've tried to warn him... But he doesn't listen... I never taught him to...
+	p Now I'm just sitting here... wasting what little life I have left... watching him waste his...
+	p There's only one thing left to do...
+	ul
+		li Rest 
+			pre ..+
+	pre .+
+
+#end
+	p(data-_interval=-1)
+	p.center  Rest in peace.
+	p
+	p.center  You have earned it.
+	p
+	p.center  THE END
+	ul
+		li Play Again? 
+			pre @
+			p Reloading...

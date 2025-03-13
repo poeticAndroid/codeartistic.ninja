@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://db30sqcggy3nt"]
+
+[ext_resource type="Script" uid="uid://ctgmnahgkqwoc" path="res://games/someday/scenes/scripts/story.gd" id="1_rawxw"]
+[ext_resource type="Resource" uid="uid://c2foujmriu5jr" path="res://games/someday/assets/story/someday.txt" id="2_rawxw"]
+[ext_resource type="PackedScene" uid="uid://cygvf1nhe6flh" path="res://games/someday/scenes/tellers/passage.tscn" id="3_xlbcu"]
+[ext_resource type="PackedScene" uid="uid://bvdkumojogind" path="res://games/someday/scenes/tellers/chapter.tscn" id="4_tn6jy"]
+[ext_resource type="PackedScene" uid="uid://dv4pvslgtk1nu" path="res://games/someday/scenes/tellers/paragraph.tscn" id="5_c83h5"]
+[ext_resource type="PackedScene" uid="uid://bwd64caxscq1a" path="res://games/someday/scenes/tellers/diverter.tscn" id="6_b5oup"]
+[ext_resource type="PackedScene" uid="uid://c75lqqxow4rqb" path="res://games/someday/scenes/tellers/chooser.tscn" id="7_pwa0c"]
+
+[node name="Story" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_rawxw")
+story_file = ExtResource("2_rawxw")
+passage = ExtResource("3_xlbcu")
+tellers = Dictionary[String, PackedScene]({
+"article": ExtResource("4_tn6jy"),
+"p": ExtResource("5_c83h5"),
+"pre": ExtResource("6_b5oup"),
+"ul": ExtResource("7_pwa0c")
+})
+
+[node name="StoryContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
