@@ -34,8 +34,8 @@ theme_override_font_sizes/mono_font_size = 20
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
-text = "[b][font_size=32]The Adaptor
-[/font_size][/b]
+text = "[b][font_size=32]The Adaptor[/font_size][/b]
+
 A mysterious text adventure game about existence.
 
 [b][font_size=24]Credits[/font_size][/b]
