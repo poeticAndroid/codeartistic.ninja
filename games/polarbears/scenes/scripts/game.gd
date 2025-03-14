@@ -20,7 +20,7 @@ func _ready() -> void:
 	%Protagonists.add_child(player)
 
 	if Global.persistant.has("polarbears_bestTime"):
-		%BestTime.text = "Best time: " + str(Global.persistant["polarbears_bestTime"])
+		%BestTime.text = "Best time: " + str(int(Global.persistant["polarbears_bestTime"]))
 	%Deaths.text = "Deaths: " + str(recordings.size()-1)
 
 
@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 		if Global.persistant.get_or_add("polarbears_bestTime", time_left) > time_left:
 			Global.persistant["polarbears_bestTime"] = time_left
 
-	%CountDown.text = "Countdown: " + str(time_left)
+	%CountDown.text = "Countdown: " + str(int(time_left))
 
 
 func add_bullet(node: Node):
