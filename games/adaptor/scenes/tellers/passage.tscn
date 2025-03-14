@@ -9,6 +9,7 @@
 
 [node name="Passage" type="MarginContainer"]
 clip_contents = true
+custom_minimum_size = Vector2(960, 540)
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 540.0
@@ -17,7 +18,7 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 160
 theme_override_constants/margin_top = 84
 theme_override_constants/margin_right = 160
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_bottom = 32
 script = ExtResource("1_tibqr")
 
 [node name="Backgrounds" type="Node2D" parent="."]
@@ -45,6 +46,5 @@ texture = ExtResource("3_jb3d0")
 
 [node name="StoryContainer" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 448)
 layout_mode = 2
 theme_override_constants/separation = 16
