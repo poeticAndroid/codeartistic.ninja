@@ -66,6 +66,15 @@ func toggle_music():
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), not AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")))
 
 
+func fadeout_music():
+	if not music: return
+	var m = music
+	var tween = create_tween()
+	tween.tween_property(m, "volume_linear", 0, 1)
+	await tween.finished
+	m.queue_free()
+
+
 func go_back(fade: bool = true):
 	if loading:
 		return false
@@ -118,7 +127,7 @@ func goto_scene(name: String, fade: bool = true):
 		var m = get_tree().get_first_node_in_group("music")
 		print("music: ", m.stream)
 		if music and music.stream != m.stream:
-			music.queue_free()
+			fadeout_music()
 			music = null
 		if not music:
 			music = m
