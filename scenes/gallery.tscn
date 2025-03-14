@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://tk1cu0m4xq8i" path="res://games/mothballed/cover.png" id="17_f1ijr"]
 [ext_resource type="FontFile" uid="uid://bg8vhdmbyk3hn" path="res://assets/fonts/Architects_Daughter/ArchitectsDaughter-Regular.ttf" id="19_q283d"]
 [ext_resource type="AudioStream" uid="uid://chulbh8imhu8k" path="res://assets/music/AuditoryCheesecake_Greystone.mp3" id="20_gp0uh"]
+[ext_resource type="FontVariation" uid="uid://dtq3mmww8x31" path="res://assets/fonts/Architects_Daughter/ArchitectsDaughter-italics.tres" id="20_kk4fg"]
+[ext_resource type="FontVariation" uid="uid://ewqfdvf6vca" path="res://assets/fonts/Architects_Daughter/ArchitectsDaughter-bold.tres" id="21_n7qvi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u5j2l"]
 texture = ExtResource("1_bxklj")
@@ -28,13 +30,6 @@ modulate_color = Color(0.5, 0.5, 0.5, 1)
 [sub_resource type="FontVariation" id="FontVariation_625yf"]
 base_font = ExtResource("1_kxh0q")
 variation_embolden = 0.5
-
-[sub_resource type="FontVariation" id="FontVariation_ex5ph"]
-base_font = ExtResource("19_q283d")
-
-[sub_resource type="FontVariation" id="FontVariation_4aduo"]
-base_font = ExtResource("19_q283d")
-variation_embolden = 1.0
 
 [node name="Gallery" type="Control"]
 layout_mode = 3
@@ -286,11 +281,10 @@ wip = true
 
 [node name="ManifestoTxt" type="RichTextLabel" parent="ScrollContainer/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("19_q283d")
-theme_override_fonts/italics_font = SubResource("FontVariation_ex5ph")
-theme_override_fonts/bold_font = SubResource("FontVariation_4aduo")
+theme_override_fonts/italics_font = ExtResource("20_kk4fg")
+theme_override_fonts/bold_font = ExtResource("21_n7qvi")
 theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
@@ -303,7 +297,7 @@ Choosing a career path seemed like a no-brainer.. I had to be a programmer.. so 
 
 It eventually became pretty clear, that going to work every day just took the joy out of life for me.. It was repetitive and limiting when I knew I had so much more to offer to the world than to an employer.. [b][color=#ffff99]I am more than just a code monkey[/color][/b].. The thought of living off of the same paychecks for the rest of my life is just to depressing..
 
-Luckily, with the internet connecting people across worlds, computers are becoming more \"human\" again, giving rise to an indie culture of all kinds of media; blogs, code, videos, music, visual arts and social media.. And then there are [b][color=#ffff99]games, which might very well be the most expressive artform[/color][/b] we have to share ideas and stories with each other.. It's an artform that I find very fascinating - [i]and[/i] fun..!
+Luckily, with the internet connecting people across worlds, computers are becoming more \"human\" again, giving rise to an indie culture of all kinds of media; blogs, code, videos, music, visual arts and social media.. And then there are [b][color=#ffff99]games, which might very well be the most expressive artform[/color][/b] we have to share ideas and stories with each other.. It's an artform that I find very fascinating - [i][color=#eeaaff]and[/color][/i] fun..!
 
 But it's also a very broad, multifaceted and challenging artform.. Something that will take many failed attempts to learn, let alone master.. It takes a great deal of imagination.. Something I feel I have somewhat lost in my career path as an introverted perfectionist programmer.. [b][color=#ffff99]But code can be art too[/color][/b], if you're willing to loosen your grip on rules and conventions..
 
