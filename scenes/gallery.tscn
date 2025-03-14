@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cpgf7gmqshx0n" path="res://games/oneofyouguys/cover.png" id="4_cgpmf"]
 [ext_resource type="Texture2D" uid="uid://bj6r6cplq4dfm" path="res://games/polarbears/cover.png" id="5_tb3wq"]
 [ext_resource type="Texture2D" uid="uid://b02s3tfl6mqyh" path="res://games/adaptor/cover.png" id="6_swq45"]
-[ext_resource type="Texture2D" uid="uid://cll3j5wpyphst" path="res://games/someday/cover.png" id="7_s86oa"]
+[ext_resource type="Texture2D" uid="uid://bos02ff08fit2" path="res://games/someday/cover.png" id="7_s86oa"]
 [ext_resource type="Texture2D" uid="uid://c6e71vypd08o2" path="res://games/blank/cover.png" id="8_e1m1r"]
 [ext_resource type="Texture2D" uid="uid://dg617rx6se6yj" path="res://games/restless/cover.png" id="9_8tby2"]
 [ext_resource type="Texture2D" uid="uid://dv686wsmh4n0q" path="res://games/killerapp/cover.png" id="10_umsnr"]
@@ -188,13 +188,11 @@ game_name = "adaptor"
 game_description = "A mysterious text adventure game about existence."
 
 [node name="SomedayGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
-modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("7_s86oa")
 game_title = "Some day"
 game_name = "someday"
 game_description = "A game about cats, little blue boys and astronauts."
-wip = true
 
 [node name="BlankGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)

@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://cqmf0c6si4uaa"]
+
+[ext_resource type="Script" uid="uid://c1v536hqgpdqu" path="res://scripts/story/tellers/image.gd" id="1_gfgkf"]
+[ext_resource type="Texture2D" uid="uid://1ghes1hbowfc" path="res://games/someday/assets/gfx/beChild.png" id="3_iyhwy"]
+[ext_resource type="Texture2D" uid="uid://dv2feb4yg382f" path="res://games/someday/assets/gfx/beKid.png" id="4_dk1xa"]
+[ext_resource type="Texture2D" uid="uid://gbyr4a2mnr8f" path="res://games/someday/assets/gfx/beTeen.png" id="5_103uq"]
+[ext_resource type="Texture2D" uid="uid://der0vx5ecl3kk" path="res://games/someday/assets/gfx/getChild.png" id="7_5px1m"]
+[ext_resource type="Texture2D" uid="uid://dssr636y1n64m" path="res://games/someday/assets/gfx/getKid.png" id="8_x8ung"]
+[ext_resource type="Texture2D" uid="uid://utlix4bhilxn" path="res://games/someday/assets/gfx/getTeen.png" id="9_xcarx"]
+
+[sub_resource type="Animation" id="Animation_2u48j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_obqov"]
+resource_name = "reveal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nhmyy"]
+_data = {
+&"RESET": SubResource("Animation_2u48j"),
+&"reveal": SubResource("Animation_obqov")
+}
+
+[node name="Image" type="CenterContainer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gfgkf")
+
+[node name="BeChild" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_iyhwy")
+
+[node name="BeKid" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_dk1xa")
+
+[node name="BeTeen" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_103uq")
+
+[node name="GetChild" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_5px1m")
+
+[node name="GetKid" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_x8ung")
+
+[node name="GetTeen" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("9_xcarx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nhmyy")
+}
