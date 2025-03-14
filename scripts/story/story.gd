@@ -151,10 +151,22 @@ func get_classes(line: String) -> Array[String]:
 	var out: Array[String] = []
 	line = line.get_slice(" ", 0)
 	if not line.contains("."): return out
+	line = line.get_slice("(", 0)
 	line = line.substr(line.find("."))
 	for part in line.split(".", false):
 		out.push_back(part.get_slice("#", 0).get_slice("(", 0))
 	return out
+
+
+func get_parameters(line) -> Dictionary:
+	var out = { }
+	line = line.get_slice(" ", 0)
+	if not line.contains("({"): return out
+	line = "{" + line.get_slice("({", 1)
+	if line.ends_with(")"): line = line.left(-1)
+	if not line.ends_with("}"): line += "}"
+	out = JSON.parse_string(line)
+	return out if out else { }
 
 
 func find_line(path: String, context = currentLine):

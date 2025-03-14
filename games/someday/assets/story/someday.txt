@@ -1,9 +1,8 @@
 pre +
-pre $[]
+
 article static
 
 #beChild
-	pre $>
 	p I'd heard a lot of good things about him. How determined he was, working hard to pay our bills and give us the best life we could possibly have. Always on the move, shaking hands and making deals with important people.
 	img beChild Son meets dad
 	p I was still in diapers, had just barely learned how to walk when I first saw him. He just stood like a towering figure in front of me with a gentle smile on his face. In awe of his presence, I reached my little arms out to him.
@@ -47,7 +46,7 @@ article static
 		li Don't let them down 
 			pre ..+
 	pre .+
-#beAdult  // p(data-_interval=2048): img(alt="Son called by dad", src="beAdult 
+#beAdult  // p("duration":2): img(alt:"Son called by dad", src:"beAdult 
 	p It was a hectic day at the office when I got the call from the old man's retirement home again. He wanted to see me.
 	p I guess even the best fall out of grace at the end of their lifes. He'd gotten too old to work and was now desperate for anything to keep him occupied. I didn't blame him. I didn't know what I'd do if I ever lost my job.
 	p I didn't have time to meet him, of course. But I did tell him how grateful I was for what he had tought me. To stay determined and work hard for my family, just as he did for his.
@@ -78,9 +77,9 @@ article static
 		li Regret 
 			pre ..+
 	pre .+
-#getAdult  // p(data-_interval=2048): img(alt="Dad calls son", src="getAdult 
-	p(data-_interval=4096) ...
-	p(data-_interval=4096) What have I done..?
+#getAdult  // p("duration":2): img(alt:"Dad calls son", src:"getAdult 
+	p({"duration":4}) ...
+	p({"duration":4}) What have I done..?
 	p This isn't what I wanted... This isn't what I worked so hard for... All that time at the office... wasted...
 	p I've tried calling him every day... I've tried to warn him... But he doesn't listen... I never taught him to...
 	p Now I'm just sitting here... wasting what little life I have left... watching him waste his...
@@ -91,7 +90,7 @@ article static
 	pre .+
 
 #end
-	p(data-_interval=-1)
+	p({"duration":-1})
 	p.center  Rest in peace.
 	p
 	p.center  You have earned it.

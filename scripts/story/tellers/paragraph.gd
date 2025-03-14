@@ -13,7 +13,13 @@ func _ready() -> void:
 	if story.get_classes(tree.line).has("center"):
 		horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	text = line
-	await get_tree().create_timer(max(1, .08 * line.length())).timeout
+	var params = story.get_parameters(tree.line)
+	if params.has("duration"):
+		if params["duration"] < 0:
+			story.scroll_speed += 1
+			story.wait_for_scroll = true
+		await get_tree().create_timer(params["duration"]).timeout
+	else: await get_tree().create_timer(max(1, .08 * line.length())).timeout
 	if story: story.step()
 
 
