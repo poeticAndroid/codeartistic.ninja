@@ -66,6 +66,21 @@ func toggle_music():
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), not AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")))
 
 
+func play_music(m: AudioStreamPlayer):
+	if not m: return
+	print("music: ", m.stream)
+	if music and music.stream != m.stream:
+		fadeout_music()
+		music = null
+	if not music:
+		music = m
+		music.remove_from_group("music")
+		music.bus = "Music"
+		print("Playing on ", music.bus, " bus")
+		music.reparent($".")
+		music.play()
+
+
 func fadeout_music():
 	if not music: return
 	var m = music
@@ -123,19 +138,7 @@ func goto_scene(name: String, fade: bool = true):
 
 	var btn = get_tree().get_first_node_in_group("autofocus")
 	if btn and btn.has_method("grab_focus"): btn.grab_focus()
-	if get_tree().get_first_node_in_group("music"):
-		var m = get_tree().get_first_node_in_group("music")
-		print("music: ", m.stream)
-		if music and music.stream != m.stream:
-			fadeout_music()
-			music = null
-		if not music:
-			music = m
-			music.remove_from_group("music")
-			music.bus = "Music"
-			print("Playing on ", music.bus, " bus")
-			music.reparent($".")
-			music.play()
+	play_music(get_tree().get_first_node_in_group("music"))
 
 	if fade:
 		$TransitionAnimations.play_backwards("fade_to_black")

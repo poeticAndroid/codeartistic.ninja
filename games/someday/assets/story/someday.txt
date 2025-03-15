@@ -10,7 +10,7 @@ article static
 	p He glanced at his watch. He was already late for a meeting, so he turned and left. I learned quickly how selfish I was asking for just a minute of his precious time.
 	p Even through his absence, he taught me so much. I wanted to be just like him.
 	ul
-		li Be just like him 
+		li Be just like him
 			pre ..+
 	pre .+
 #beKid
@@ -20,7 +20,7 @@ article static
 	p Humbled by this lesson, I learned to rely on myself. That all I needed was the tools and the willpower to become whatever I wanted to be. He trusted me to use this gift to trust in myself.
 	p I vowed to make him proud.
 	ul
-		li Make him proud 
+		li Make him proud
 			pre ..+
 	pre .+
 #beTeen
@@ -31,7 +31,7 @@ article static
 	p He smiled proudly at me. And even though he offered me fatherly advice, I knew I couldn't stop now. I had already scheduled a job-interview, so I humbly asked him for the car keys and he was generous enough to oblige.
 	p If it wasn't for him, I wouldn't be where I am today.
 	ul
-		li Be grateful 
+		li Be grateful
 			pre ..+
 	pre .+
 #getChild
@@ -43,16 +43,16 @@ article static
 	p Having just barely looked at my son, it pained me to leave again so soon. I hurried back to the taxi and told the driver to step on it.
 	p I knew I had to work overtime, just to make up for the time I lost. I couldn't let my family down.
 	ul
-		li Don't let them down 
+		li Don't let them down
 			pre ..+
 	pre .+
-#beAdult  // p("duration":2): img(alt:"Son called by dad", src:"beAdult 
+#beAdult // p("duration":2): img(alt:"Son called by dad", src:"beAdult
 	p It was a hectic day at the office when I got the call from the old man's retirement home again. He wanted to see me.
 	p I guess even the best fall out of grace at the end of their lifes. He'd gotten too old to work and was now desperate for anything to keep him occupied. I didn't blame him. I didn't know what I'd do if I ever lost my job.
 	p I didn't have time to meet him, of course. But I did tell him how grateful I was for what he had tought me. To stay determined and work hard for my family, just as he did for his.
 	p I assured him I would keep working to help pay off his debt along with my own. It's the least I could do to give back to him. To thank him for getting me this far.
 	ul
-		li Get back to work 
+		li Get back to work
 			pre ..+
 	pre .+
 #getKid
@@ -62,7 +62,7 @@ article static
 	p It pained me to decline his thoughtful offer, but this was not the time to be selfish and spend precious time I had yet to earn.
 	p I had to get back to work. Maybe if I worked diligently for the next few years, I could afford to spend some quality time with my family some day.
 	ul
-		li Spend work, earn time 
+		li Spend work, earn time
 			pre ..+
 	pre .+
 #getTeen
@@ -74,10 +74,10 @@ article static
 	p He was a bright kid and I was happy for him. But I couldn't help getting a bit worried for him too.
 	pre $[]
 	ul
-		li Regret 
+		li Regret
 			pre ..+
 	pre .+
-#getAdult  // p("duration":2): img(alt:"Dad calls son", src:"getAdult 
+#getAdult // p("duration":2): img(alt:"Dad calls son", src:"getAdult
 	p({"duration":4}) ...
 	p({"duration":4}) What have I done..?
 	p This isn't what I wanted... This isn't what I worked so hard for... All that time at the office... wasted...
@@ -85,18 +85,18 @@ article static
 	p Now I'm just sitting here... wasting what little life I have left... watching him waste his...
 	p There's only one thing left to do...
 	ul
-		li Rest 
+		li Rest
 			pre ..+
 	pre .+
 
 #end
 	p({"duration":-1})
-	p.center  Rest in peace.
+	p.center Rest in peace.
 	p
-	p.center  You have earned it.
+	p.center You have earned it.
 	p
-	p.center  THE END
+	p.center THE END
 	ul
-		li Play Again? 
-			pre @
+		li Play Again?
 			p Reloading...
+			pre @
