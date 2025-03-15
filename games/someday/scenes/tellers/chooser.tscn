@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c75lqqxow4rqb"]
 
 [ext_resource type="Script" uid="uid://2864ktwe0lhs" path="res://scripts/story/tellers/chooser.gd" id="1_1rjck"]
-[ext_resource type="FontVariation" uid="uid://cj5ys585nndy4" path="res://games/someday/assets/fonts/PressStart2P_bold.tres" id="2_1rjck"]
+[ext_resource type="FontFile" uid="uid://dvifi2ds3w245" path="res://games/someday/assets/fonts/PressStart2P-Regular.ttf" id="2_1rjck"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8v61k"]
 
@@ -96,7 +96,8 @@ layout_mode = 2
 size_flags_horizontal = 8
 focus_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.7)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 0.7)
+theme_override_colors/font_outline_color = Color(0.5, 0.5, 0.5, 1)
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("2_1rjck")
 theme_override_font_sizes/font_size = 16
