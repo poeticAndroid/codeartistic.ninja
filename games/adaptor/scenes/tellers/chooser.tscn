@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://l04brq6v03bg"]
 
-[ext_resource type="Script" uid="uid://d3igswhvdt7pg" path="res://scripts/story/tellers/chooser.gd" id="1_i2i5v"]
+[ext_resource type="Script" uid="uid://2864ktwe0lhs" path="res://scripts/story/tellers/chooser.gd" id="1_i2i5v"]
 [ext_resource type="FontVariation" uid="uid://1h4d12njx1mt" path="res://games/adaptor/assets/fonts/Georgia_bold.tres" id="2_8v61k"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8v61k"]

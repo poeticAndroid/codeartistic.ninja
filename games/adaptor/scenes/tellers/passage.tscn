@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://shcakaijlfeu"]
 
-[ext_resource type="Script" uid="uid://1vjv3vrlns61" path="res://scripts/story/tellers/passage.gd" id="1_tibqr"]
+[ext_resource type="Script" uid="uid://c76wdulc1e8et" path="res://scripts/story/tellers/passage.gd" id="1_tibqr"]
 [ext_resource type="Texture2D" uid="uid://brxjryu6kaktr" path="res://games/adaptor/assets/backgrounds/droid.png" id="3_jb3d0"]
 [ext_resource type="Texture2D" uid="uid://1a236bj0mld1" path="res://games/adaptor/assets/backgrounds/interrogation.png" id="4_f4nnk"]
 [ext_resource type="Texture2D" uid="uid://bhqsda7w1jg4o" path="res://games/adaptor/assets/backgrounds/blackout.png" id="5_k0sqm"]
