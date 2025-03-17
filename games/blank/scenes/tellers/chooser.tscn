@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://k7lb2osbucc5"]
+
+[ext_resource type="Script" uid="uid://2864ktwe0lhs" path="res://scripts/story/tellers/chooser.gd" id="1_gsyog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8v61k"]
+
+[sub_resource type="Animation" id="Animation_5twj6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Choices:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [100.0]
+}
+
+[sub_resource type="Animation" id="Animation_8v61k"]
+resource_name = "reveal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Choices:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [100.0, 16.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6tn5s"]
+_data = {
+&"RESET": SubResource("Animation_5twj6"),
+&"reveal": SubResource("Animation_8v61k")
+}
+
+[node name="Chooser" type="Control"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.0
+offset_bottom = 24.0
+grow_horizontal = 0
+size_flags_vertical = 3
+script = ExtResource("1_gsyog")
+
+[node name="Choices" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -142.0
+offset_top = 100.0
+offset_bottom = 124.0
+grow_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="Choice" type="LinkButton" parent="Choices"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+focus_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.7)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 0.7)
+theme_override_colors/font_outline_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8v61k")
+text = "Choice!"
+underline = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6tn5s")
+}
