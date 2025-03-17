@@ -1,0 +1,14 @@
+[remap]
+
+importer="online.poeticandroid.text_resource_importer"
+type="TextResource"
+uid="uid://bhrcy31r00kum"
+path="res://.godot/imported/blank.txt-b742eb8524fadee390d32b954ba49ba9.tres"
+
+[deps]
+
+source_file="res://games/blank/assets/story/blank.txt"
+dest_files=["res://.godot/imported/blank.txt-b742eb8524fadee390d32b954ba49ba9.tres"]
+
+[params]
+
