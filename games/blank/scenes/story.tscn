@@ -1,14 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkjprqp714mly"]
+[gd_scene load_steps=7 format=3 uid="uid://dkjprqp714mly"]
 
 [ext_resource type="Script" uid="uid://ctgmnahgkqwoc" path="res://scripts/story/story.gd" id="1_m1io6"]
+[ext_resource type="Resource" uid="uid://bhrcy31r00kum" path="res://games/blank/assets/story/blank.txt" id="2_efyhq"]
 [ext_resource type="PackedScene" uid="uid://ch6i21kbpna52" path="res://games/blank/scenes/tellers/passage.tscn" id="3_kik8i"]
-[ext_resource type="PackedScene" uid="uid://bl22dvldm12ja" path="res://games/blank/scenes/tellers/chapter.tscn" id="4_xehwt"]
 [ext_resource type="PackedScene" uid="uid://c3bba7rfsgi10" path="res://games/blank/scenes/tellers/paragraph.tscn" id="6_ov5nt"]
 [ext_resource type="PackedScene" uid="uid://btkjeuh1slswe" path="res://games/blank/scenes/tellers/diverter.tscn" id="7_7icyf"]
 [ext_resource type="PackedScene" uid="uid://k7lb2osbucc5" path="res://games/blank/scenes/tellers/chooser.tscn" id="8_ew6mv"]
-
-[sub_resource type="Resource" id="Resource_q3k4m"]
-metadata/__load_path__ = "res://games/blank/assets/story/someday.txt"
 
 [node name="Story" type="ScrollContainer"]
 anchors_preset = 15
@@ -19,10 +16,9 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_m1io6")
-story_file = SubResource("Resource_q3k4m")
+story_file = ExtResource("2_efyhq")
 passage = ExtResource("3_kik8i")
 tellers = Dictionary[String, PackedScene]({
-"article": ExtResource("4_xehwt"),
 "p": ExtResource("6_ov5nt"),
 "pre": ExtResource("7_7icyf"),
 "ul": ExtResource("8_ew6mv")
