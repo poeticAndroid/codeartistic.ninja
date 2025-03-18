@@ -7,6 +7,7 @@ var tree: TextTree
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if line.strip_edges() == "": line = "+"
 	if line == "@": Global.reload_current_scene(true)
 	elif line == "@<-": Global.go_back(true)
 	elif line.begins_with("@->"): Global.goto_scene(line.substr(3), true)

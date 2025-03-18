@@ -111,22 +111,37 @@ func get_attributes(_result = { }):
 
 
 func has_attribute(key: String):
+	key = key.to_lower()
 	if attributes.has(key): return self
 	if parent: return parent.has_attribute(key)
 	return null
 
 
 func get_attribute(key: String):
-	if attributes.has(key): return attributes[key]
+	var cap = key.substr(0, 1) != key.substr(0, 1).to_lower()
+	if attributes.has(key.to_lower()):
+		key = key.to_lower()
+		return attributes[key].substr(0, 1).to_upper() + attributes[key].substr(1) if cap else attributes[key]
 	if parent: return parent.get_attribute(key)
 	return null
 
 
 func set_attribute(key: String, val):
+	key = key.to_lower()
 	if attributes.has(key): attributes[key] = val
 	elif has_attribute(key): has_attribute(key).set_attribute(key, val)
 	elif parent: parent.attributes[key] = val
 	else: attributes[key] = val
+
+#
+# Expression helpers
+
+
+func if_else(cond, iftrue, iffalse = ""):
+	return iftrue if cond else iffalse
+
+#
+# Exporting
 
 
 func export_object() -> Dictionary:

@@ -201,17 +201,17 @@ func eval_line(line = currentLine.line) -> String:
 	while p1 >= 0:
 		p1 += 2
 		p2 = out.find("}}", p1)
-		var tag = out.substr(p1, p2 -p1)
-		out = out.left(p1 -2) + eval_tag(tag) + out.right(-2 - p2)
-		p1 = out.find("{{", p2)
+		var tag = out.substr(p1, p2 - p1)
+		out = out.left(p1 - 2) + eval_tag(tag) + out.right(-2 - p2)
+		p1 = out.find("{{")
 
 	p1 = out.find("{")
 	while p1 >= 0:
 		p1 += 1
 		p2 = out.find("}", p1)
-		var tag = out.substr(p1, p2 -p1)
-		out = out.left(p1 -1) + smart_tag(tag) + out.right(-1 - p2)
-		p1 = out.find("{", p2)
+		var tag = out.substr(p1, p2 - p1)
+		out = out.left(p1 - 1) + smart_tag(tag) + out.right(-1 - p2)
+		p1 = out.find("{")
 	return out.strip_edges()
 
 
@@ -250,7 +250,7 @@ func smart_tag(tag: String) -> String:
 		out = parts[(int(currentLine.get_attribute("_visits"))-1) % parts.size()]
 	else:
 		out = parts[min((int(currentLine.get_attribute("_visits"))-1), parts.size()-1)]
-	return out
+	return str(out)
 
 
 func eval_tag(tag: String) -> String:
