@@ -53,8 +53,8 @@ pre#reset.
   #ordinaryWorld
     p {|Okay.|One more time.} Once there was a {$heroNoun} by the name of {$Hero}. {$HeroXe} was very {$heroAdj}. In fact, that's what the {$homeInhab} of {$home} always used to call {$heroXim}. {$Hero} the {$heroAdj} {$heroNoun} from {$home}.
     pre {$correct|%correct} {$correct_|[ "yes", "no" ]} +
-    p {Wait... Is that right?|Did I get it right this time?} Hmm... {$Correct}, {$correct|EQ "yes"|it's all coming back to me now.|that doesn't make any sense. Let me try that again.}
-    pre {$correct|EQ "yes"|+|#reset}
+    p {Wait... Is that right?|Did I get it right this time?} Hmm... {$Correct}, {$correct|=="yes"|it's all coming back to me now.|that doesn't make any sense. Let me try that again.}
+    pre {$correct|=="yes"|+|#reset}
     p So anyway... Every day of {$heroXis} life, {$heroXe} liked to {$heroHobby}. It was {$heroXis} favorite thing to do. As long as {$heroXe} didn't have to deal with {$heroFear}, {$heroXe} was happy. Perhaps it was all a part of {$heroXis} {$heroAdj} nature as a {$heroNoun}. 
     pre .+
   #incitingIncident
@@ -67,7 +67,7 @@ pre#reset.
     pre .+
   #refusal
     p When {$heroXe} woke up the next day, {$heroXis} friend, {$Friend}, came to visit. {$FriendXe} came to tell {$Hero} about a {$adj1} dream {$friendXe} had.
-    p "I tell you, {$Hero}, it was the most {$adj1} dream I've ever had in my life," {$friendXe} said. "First I {{$.verbeds[0]}} the {{$.adjs[0]}} {{$.nouns[0]}}, then I {{$.verbeds[1]}} the {{$.adjs[1]}} {{$.nouns[1]}} and then somehow I ended up and {{$.verbeds[2]}} the {{$.adjs[2]}} {{$.nouns[2]}}! It was so embarrasing. All the other {$homeInhab} from all over {$home} was laughing at me!"
+    p "I tell you, {$Hero}, it was the most {$adj1} dream I've ever had in my life," {$friendXe} said. "First I {{g("verbeds")[0]}} the {{g("adjs")[0]}} {{g("nouns")[0]}}, then I {{g("verbeds")[1]}} the {{g("adjs")[1]}} {{g("nouns")[1]}} and then somehow I ended up and {{g("verbeds")[2]}} the {{g("adjs")[2]}} {{g("nouns")[2]}}! It was so embarrasing. All the other {$homeInhab} from all over {$home} was laughing at me!"
     p {$Hero} {$verbed1} some of {$heroXis} {$noun1} as {$heroXe} listened to {$Friend} talk about {$friendXis} {$adj1} dream. {$Hero} thought {$Friend} was very {$friendAdj} and told {$friendXim} to go home, and so {$friendXe} did.
     pre #collect ^
     pre .+
@@ -76,7 +76,7 @@ pre#reset.
   #hub
     pre {$dest|%dest} {$dest_|["archive", "stars", "home"]}
     p {$Hero} thought long and hard about where to go {|next} to solve {$Friend}'s problem. {$HeroXe} could either go to {$home}'s archive to find answers, look up at the stars for guidance or back home to do some more chores.
-    p After a lot of {$heroAdj} thoughts, {$heroXe} decided to go {$dest|EQ "archive"|the archive and look some stuff up|EQ "stars"|look at the stars in hope for a sign|EQ "home"|back home}.
+    p After a lot of {$heroAdj} thoughts, {$heroXe} decided to go {$dest|=="archive"|the archive and look some stuff up|=="stars"|look at the stars in hope for a sign|=="home"|back home}.
     pre \#{$dest}
   #archive
     pre {$noun1_|a type of media}
@@ -85,8 +85,8 @@ pre#reset.
     pre #collect ^
     pre #shift ^
     p It was a fascinating story, but {$Hero} doubted it would do anything to help {$heroXis} {$friendAdj} {$Friend}. And sure enough, when {$heroXe} got home to {$heroXis} {$heroHouse}, {$Friend} was there waiting for {$heroXim}.
-    p "I've had another {{$.adjs[0]}} dream," {$friendXe} said! "It was a {{$.adjs[1]}} family reunion, except the they all {{$.verbeds[0]}} each other! {{$.names[0]}}'s old {{$.relations[0]}}, {{$.names[1]}}, {{$.verbeds[1]}} the {{$.nouns[0]}} which belonged to {{$.names[2]}}, my great great {{$.relations[1]}}! But then when {{$.names[0]}}'s {{$.relations[2]}} showed up and {{$.verbeds[2]}} the place, things got {{$.adjs[2]}} pretty fast! It was a {{$.adjs[3]}} dream indeed!"
-    p {$Hero} took a look at {$Friend}'s {{$.adjs[4]}} {{$.nouns[2]}}, but stayed determined to solve this mystery!
+    p "I've had another {{g("adjs")[0]}} dream," {$friendXe} said! "It was a {{g("adjs")[1]}} family reunion, except the they all {{g("verbeds")[0]}} each other! {{g("names")[0]}}'s old {{g("relations")[0]}}, {{g("names")[1]}}, {{g("verbeds")[1]}} the {{g("nouns")[0]}} which belonged to {{g("names")[2]}}, my great great {{g("relations")[1]}}! But then when {{g("names")[0]}}'s {{g("relations")[2]}} showed up and {{g("verbeds")[2]}} the place, things got {{g("adjs")[2]}} pretty fast! It was a {{g("adjs")[3]}} dream indeed!"
+    p {$Hero} took a look at {$Friend}'s {{g("adjs")[4]}} {{g("nouns")[2]}}, but stayed determined to solve this mystery!
     pre #shuffle ^
     pre #hub
   #stars
@@ -95,19 +95,19 @@ pre#reset.
     p After a while {$heroXe} started to see figures in the stars. {$number1} of them kinda looked like a {$noun1}. Another {$number2} took the form of a {$noun2}. That made {$number3} stars in total, which meant that {$Friend} was starting to become a total {$noun3} or whatever!
     pre #collect ^
     pre #shift ^
-    p Then suddenly a {{$.adjs[0]}} {{$.nouns[0]}} {{$.verbeds[0]}} towards {$heroXim} and {$Friend} got out of it.
-    p "{$Hero}, you stupid {{$.nouns[1]}}! Be warned! {{$.numbers[0]}} days from now, {{$.numbers[1]}} {{$.nouns[1]}} will have {{$.verbeds[1]}} the {{$.adjs[1]}} {{$.nouns[4]}} and then {{$.verbeds[2]}} themselves into {{$.numbers[2]}} {{$.nouns[2]}} and {{$.numbers[2]}} {{$.nouns[3]}}! It will be a {{$.adjs[2]}} time!"
-    p {$Hero} thought that was a very {{$.adjs[3]}} thing to say.
+    p Then suddenly a {{g("adjs")[0]}} {{g("nouns")[0]}} {{g("verbeds")[0]}} towards {$heroXim} and {$Friend} got out of it.
+    p "{$Hero}, you stupid {{g("nouns")[1]}}! Be warned! {{g("numbers")[0]}} days from now, {{g("numbers")[1]}} {{g("nouns")[1]}} will have {{g("verbeds")[1]}} the {{g("adjs")[1]}} {{g("nouns")[4]}} and then {{g("verbeds")[2]}} themselves into {{g("numbers")[2]}} {{g("nouns")[2]}} and {{g("numbers")[2]}} {{g("nouns")[3]}}! It will be a {{g("adjs")[2]}} time!"
+    p {$Hero} thought that was a very {{g("adjs")[3]}} thing to say.
     pre #shuffle ^
     pre #hub
   #home
-    pre {{ if ($._visits LT 3) { "+ +"; } else { "+"; } }}
+    pre {{ if_else(g("_visits") < 3, "+ +", "+") }}
     p {$Hero} took another look at the {$gemAdj} {$gem} {$heroXe} found in the {$gemHidden} and how it {$gemResponse} at {$heroXim}. Perhaps {$heroXe} should do the same to the {$gem}?
     p There were still a lot of stuff to be done around the {$heroHouse}. Like some {$adj1} {$noun1} to be {$verbed1}, not to mention all off {$heroXis} {$adj2} {$noun2} to be {$verbed2} and even more {$adj3} {$noun3} to be {$verbed3}.
     pre #collect ^
     pre #shift ^
-    pre {{ if ($.verbeds.indexOf($.gemResponse) !== -1 AND $.adjs.indexOf($.gemAdj) !== -1 AND $.nouns.indexOf($.gem) !== -1) { "#act3" } else { "+" } }}
-    p {$Friend} didn't even bother showing up this time and instead just sent a {{$.adjs[0]}} {{$.nouns[0]}} that {{$.verbeds[0]}} in order to communicate: "This might sound silly but, do you remember that time when we {{$.verbeds[1]}} the {{$.adjs[1]}} {{$.nouns[1]}} before we {{$.verbeds[2]}} the {{$.adjs[2]}} {{$.nouns[2]}} and then soon after {{$.verbeds[3]}} the {{$.adjs[3]}} {{$.nouns[3]}} and {{$.verbeds[4]}} the {{$.adjs[4]}} {{$.nouns[4]}} by having the {{$.adjs[5]}} {{$.nouns[5]}} {{$.verbeds[5]}}..? No..? Me neither..."
+    pre {{ if_else (g("verbeds").contains(g("gemResponse")) and g("adjs").contains(g("gemAdj")) and g("nouns").contains(g("gem")), "#act3", "+") }}
+    p {$Friend} didn't even bother showing up this time and instead just sent a {{g("adjs")[0]}} {{g("nouns")[0]}} that {{g("verbeds")[0]}} in order to communicate: "This might sound silly but, do you remember that time when we {{g("verbeds")[1]}} the {{g("adjs")[1]}} {{g("nouns")[1]}} before we {{g("verbeds")[2]}} the {{g("adjs")[2]}} {{g("nouns")[2]}} and then soon after {{g("verbeds")[3]}} the {{g("adjs")[3]}} {{g("nouns")[3]}} and {{g("verbeds")[4]}} the {{g("adjs")[4]}} {{g("nouns")[4]}} by having the {{g("adjs")[5]}} {{g("nouns")[5]}} {{g("verbeds")[5]}}..? No..? Me neither..."
     p {$Hero} was getting worried about {$friendAdj} {$Friend}.
     pre #shuffle ^
     pre #hub
@@ -116,8 +116,8 @@ pre#reset.
   p Suddenly the {$gem} {$gemVerbed} back at {$Hero} and a large amount of {$heroFear} appeard in front of {$heroXim}!
   p {$Hero} was terrified and thought {$heroXe}'d had enough of this {$gemAdj} {$gem} and decided to put it back inside the {$place} where {$heroXe} found it!
   #isitover
-    pre {{ if ($.place === $.gemHidden) { "#end" } else { "+" } }}
-    p But {|still} nothing happened! Instead the {$heroFear} just came {|even} closer!
+    pre {{ if_else (g("place") == g("gemHidden"), "#end", "+") }}
+    p But {|still }nothing happened! Instead the {$heroFear} just came {|even }closer!
     p Did {$Hero} forget {|again} where {$heroXe} found the {$gemAdj} {$gem}? {$place|%place}
     p {$HeroXe} put the {$gem} inside the {$place} instead.
     pre #isitover
@@ -126,55 +126,17 @@ pre#reset.
 #end
   p At last the {$heroFear} disappeard and everything in {$home} finally went back to normal and the {$homeInhab} were happy.
   p {$Hero} spent the rest of {$heroXis} days to {$heroHobby} together with {$friendAdj} {$Friend} and lived {$heroAdj} and happily ever after!
-  p(style="text-align:center") THE END
+  p.center THE END
   ul
-    li(title="Play Again?")
-      pre {{ location.reload(); }} ..+
-  p Restarting...
+    li Play Again?
+      p Restarting...
+      pre @
 
 
 
 #collect
-  pre.
-    {{
-      var n = $.cols;
-      for(var i=1;i LTE 3;i++) {
-        for(var j=0;j LT n.length;j++) {
-          if ($[n[j]+i].charAt(0) !== "%") {
-            $[n[j]+"s"].push($[n[j]+i]);
-            $$[n[j]+"s"] = $[n[j]+"s"];
-            $$[n[j]+i] = "%"+n[j]+i;
-          }
-        }
-      }
-    ""}} ^
+  pre {{ push_to_cols(g("cols")) }} ^
 #shift
-  pre.
-    {{
-      var n = $.cols;
-      for(var j=0;j LT n.length;j++) {
-        var col = $[n[j]+"s"];
-        for(var i=1;i LTE j;i++) {
-          col.push(col.shift());
-        }
-        $$[n[j]+"s"] = col;
-      }
-    ""}} ^
+  pre {{ shear_cols(g("cols")) }} ^
 #shuffle
-  pre.
-    {{
-      function shuffle(arr) {
-        var s, r;
-        for(var i=0;i LT arr.length;i++) {
-          r = Math.floor(Math.random()*arr.length);
-          s = arr[i];
-          arr[i] = arr[r];
-          arr[r] = s;
-        }
-        return arr;
-      }
-      var n = $.cols;
-      for(var j=0;j LT n.length;j++) {
-        $$[n[j]+"s"] = shuffle($[n[j]+"s"]);
-      }
-    ""}} ^
+  pre {{ shuffle_cols(g("cols")) }} ^

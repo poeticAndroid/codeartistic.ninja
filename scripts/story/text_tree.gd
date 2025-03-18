@@ -140,6 +140,27 @@ func set_attribute(key: String, val):
 func if_else(cond, iftrue, iffalse = ""):
 	return iftrue if cond else iffalse
 
+
+func push_to_cols(cols, count = 3):
+	for i in range(1, count + 1):
+		for col in cols:
+			if not col.begins_with("%"):
+				g(col + "s").push_back(g(col + str(i)))
+				# s(col + "s") = g(col + "s")
+				s(col + str(i), "%" + col + str(i))
+
+
+func shear_cols(cols):
+	for j in range(cols.size()):
+		var col = g(cols[j] + "s")
+		for i in range(1, j + 1):
+			col.push_back(col.shift())
+
+
+func shuffle_cols(cols):
+	for col in cols:
+		g(col + "s").shuffle()
+
 #
 # Exporting
 
