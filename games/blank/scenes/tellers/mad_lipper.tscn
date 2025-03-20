@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3bba7rfsgi10"]
+
+[ext_resource type="Script" uid="uid://b6dngicgl08sk" path="res://games/blank/scenes/tellers/scripts/mad_lipper.gd" id="1_57hpy"]
+[ext_resource type="AudioStream" uid="uid://jbuxhruntxfu" path="res://games/blank/assets/sounds/key0.wav" id="2_1vkhe"]
+[ext_resource type="AudioStream" uid="uid://cs3s67ifys0ni" path="res://games/blank/assets/sounds/key1.wav" id="3_yd70c"]
+[ext_resource type="AudioStream" uid="uid://b13sgbbpchx6b" path="res://games/blank/assets/sounds/key2.wav" id="4_8uha4"]
+[ext_resource type="AudioStream" uid="uid://cnn6q5gy2kb1c" path="res://games/blank/assets/sounds/enter.wav" id="5_x2i67"]
+[ext_resource type="AudioStream" uid="uid://b070ypmaiuooj" path="res://games/blank/assets/sounds/stop.wav" id="6_egnfs"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c37tn"]
+streams_count = 3
+stream_0/stream = ExtResource("2_1vkhe")
+stream_1/stream = ExtResource("3_yd70c")
+stream_2/stream = ExtResource("4_8uha4")
+
+[node name="MadLipper" type="RichTextLabel"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "The quick brown fox jumped over the lazy dogs."
+fit_content = true
+script = ExtResource("1_57hpy")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+context_menu_enabled = false
+drag_and_drop_selection_enabled = false
+wrap_mode = 1
+
+[node name="TypewriterSfx" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_c37tn")
+
+[node name="EnterSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_x2i67")
+
+[node name="StopSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_egnfs")

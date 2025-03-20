@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ctgmnahgkqwoc" path="res://scripts/story/story.gd" id="1_m1io6"]
 [ext_resource type="Resource" uid="uid://bhrcy31r00kum" path="res://games/blank/assets/story/blank.txt" id="2_efyhq"]
 [ext_resource type="PackedScene" uid="uid://ch6i21kbpna52" path="res://games/blank/scenes/tellers/passage.tscn" id="3_kik8i"]
-[ext_resource type="PackedScene" uid="uid://c3bba7rfsgi10" path="res://games/blank/scenes/tellers/paragraph.tscn" id="6_ov5nt"]
+[ext_resource type="PackedScene" uid="uid://c3bba7rfsgi10" path="res://games/blank/scenes/tellers/mad_lipper.tscn" id="6_ov5nt"]
 [ext_resource type="PackedScene" uid="uid://btkjeuh1slswe" path="res://games/blank/scenes/tellers/diverter.tscn" id="7_7icyf"]
 [ext_resource type="PackedScene" uid="uid://k7lb2osbucc5" path="res://games/blank/scenes/tellers/chooser.tscn" id="8_ew6mv"]
 

@@ -143,6 +143,10 @@ func end():
 	print("THE END!")
 
 
+func set_status(status: String):
+	print("Status: ", status)
+
+
 func get_type(line: String) -> String:
 	return line.get_slice(" ", 0).get_slice(".", 0).get_slice("#", 0).get_slice("(", 0).to_lower()
 
