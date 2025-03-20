@@ -144,7 +144,8 @@ func end():
 
 
 func set_status(status: String):
-	print("Status: ", status)
+	if is_instance_valid(%StatusBar): %StatusBar.text = status
+	else: print("Status: ", status)
 
 
 func get_type(line: String) -> String:

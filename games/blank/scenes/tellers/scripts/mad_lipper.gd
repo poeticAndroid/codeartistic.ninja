@@ -24,9 +24,10 @@ func _process(delta: float) -> void:
 
 
 func type():
-	print("typing")
+	if not is_instance_valid($TextEdit): return
 	if input_name:
 		if $TextEdit.text.strip_edges(): $TypewriterSfx.play()
+		else: $TextEdit.text = " "
 		if $TextEdit.text.ends_with("\n"): set_first_name()
 		if $TextEdit.text.ends_with("\t"): set_first_name()
 		else: set_output()
@@ -40,7 +41,7 @@ func type():
 		elif line.substr(p - 1, 1) != " " and line.strip_edges() != output.strip_edges():
 			$TypewriterSfx.play()
 			await get_tree().create_timer(randf_range(0.03, 0.08)).timeout
-			type()
+			call_deferred("type")
 		else:
 			$TextEdit.text = " "
 	if not story: return
@@ -107,9 +108,10 @@ func set_output(txt = output):
 	output = txt
 	text = output
 	if input_name: text += " " + $TextEdit.text
+	text = text.replace("\n", " ").replace("\t", " ")
 	while text.contains("  "): text = text.replace("  ", " ")
 	if output.length() < line.length():
-		text += '[bgcolor=#777][font_size=1]|'
+		text += '[img]uid://dydc7aycyobo3[/img]'
 		$TextEdit.grab_focus()
 	elif story:
 		$TypewriterSfx.stop()
@@ -162,6 +164,8 @@ func _input(event: InputEvent) -> void:
 		return
 	$TextEdit.grab_click_focus()
 	$TextEdit.grab_focus()
+	$TextEdit.set_caret_line($TextEdit.text.length())
+	$TextEdit.set_caret_column($TextEdit.text.length())
 	if not event is InputEventKey: return
 	if not event.is_pressed(): return
 	call_deferred("type")

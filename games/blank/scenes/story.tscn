@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkjprqp714mly"]
+[gd_scene load_steps=9 format=3 uid="uid://dkjprqp714mly"]
 
 [ext_resource type="Script" uid="uid://ctgmnahgkqwoc" path="res://scripts/story/story.gd" id="1_m1io6"]
 [ext_resource type="Resource" uid="uid://bhrcy31r00kum" path="res://games/blank/assets/story/blank.txt" id="2_efyhq"]
 [ext_resource type="PackedScene" uid="uid://ch6i21kbpna52" path="res://games/blank/scenes/tellers/passage.tscn" id="3_kik8i"]
 [ext_resource type="PackedScene" uid="uid://c3bba7rfsgi10" path="res://games/blank/scenes/tellers/mad_lipper.tscn" id="6_ov5nt"]
 [ext_resource type="PackedScene" uid="uid://btkjeuh1slswe" path="res://games/blank/scenes/tellers/diverter.tscn" id="7_7icyf"]
+[ext_resource type="Texture2D" uid="uid://mqogxv2new8s" path="res://games/blank/assets/gfx/wintop.png" id="7_q3k4m"]
+[ext_resource type="PackedScene" uid="uid://6lll1gupk4pe" path="res://games/blank/scenes/tellers/status.tscn" id="8_cddxm"]
 [ext_resource type="PackedScene" uid="uid://k7lb2osbucc5" path="res://games/blank/scenes/tellers/chooser.tscn" id="8_ew6mv"]
 
 [node name="Story" type="ScrollContainer"]
@@ -31,3 +33,11 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
 [node name="CatsInCradle" type="AudioStreamPlayer" parent="." groups=["music"]]
+
+[node name="Wintop" type="Sprite2D" parent="."]
+position = Vector2(480, 32)
+texture = ExtResource("7_q3k4m")
+
+[node name="StatusBar" parent="." instance=ExtResource("8_cddxm")]
+unique_name_in_owner = true
+position = Vector2(140, 512)

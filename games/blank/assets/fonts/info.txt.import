@@ -1,0 +1,14 @@
+[remap]
+
+importer="online.poeticandroid.text_resource_importer"
+type="TextResource"
+uid="uid://j8m1bfjmplq8"
+path="res://.godot/imported/info.txt-c49a11f6dddcc84109158897683d34b3.tres"
+
+[deps]
+
+source_file="res://games/blank/assets/fonts/info.txt"
+dest_files=["res://.godot/imported/info.txt-c49a11f6dddcc84109158897683d34b3.tres"]
+
+[params]
+

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3bba7rfsgi10"]
+[gd_scene load_steps=9 format=3 uid="uid://c3bba7rfsgi10"]
 
 [ext_resource type="Script" uid="uid://b6dngicgl08sk" path="res://games/blank/scenes/tellers/scripts/mad_lipper.gd" id="1_57hpy"]
+[ext_resource type="FontFile" uid="uid://binqp1mqfam6w" path="res://games/blank/assets/fonts/Ldfcomicsans-jj7l.ttf" id="1_yd70c"]
 [ext_resource type="AudioStream" uid="uid://jbuxhruntxfu" path="res://games/blank/assets/sounds/key0.wav" id="2_1vkhe"]
 [ext_resource type="AudioStream" uid="uid://cs3s67ifys0ni" path="res://games/blank/assets/sounds/key1.wav" id="3_yd70c"]
 [ext_resource type="AudioStream" uid="uid://b13sgbbpchx6b" path="res://games/blank/assets/sounds/key2.wav" id="4_8uha4"]
@@ -19,6 +20,9 @@ anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_yd70c")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 text = "The quick brown fox jumped over the lazy dogs."
 fit_content = true
@@ -35,6 +39,7 @@ grow_vertical = 2
 context_menu_enabled = false
 drag_and_drop_selection_enabled = false
 wrap_mode = 1
+caret_multiple = false
 
 [node name="TypewriterSfx" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_c37tn")
