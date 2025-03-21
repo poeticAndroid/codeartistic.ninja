@@ -1,10 +1,86 @@
-[gd_scene format=3 uid="uid://b77a8yds8k4q2"]
+[gd_scene load_steps=8 format=3 uid="uid://b77a8yds8k4q2"]
 
-[node name="Start" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://cx6hm4m1k5ojt" path="res://games/blank/assets/gfx/marble.png" id="1_2v8st"]
+[ext_resource type="FontFile" uid="uid://binqp1mqfam6w" path="res://games/blank/assets/fonts/Ldfcomicsans-jj7l.ttf" id="2_6p0ji"]
+[ext_resource type="Script" uid="uid://bck2rl5gn2fj1" path="res://games/blank/scripts/start.gd" id="2_nek6n"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 210.0
-offset_top = 115.0
-offset_right = 318.0
-offset_bottom = 138.0
-text = "Coming soon?"
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oncac"]
+texture = ExtResource("1_2v8st")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="FontVariation" id="FontVariation_nek6n"]
+base_font = ExtResource("2_6p0ji")
+variation_embolden = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2v8st"]
+content_margin_left = 16.0
+content_margin_top = 20.0
+content_margin_right = 16.0
+content_margin_bottom = 20.0
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6p0ji"]
+content_margin_left = 32.0
+content_margin_top = 40.0
+content_margin_right = 32.0
+content_margin_bottom = 40.0
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 16
+border_width_top = 20
+border_width_right = 16
+border_width_bottom = 20
+border_color = Color(1, 1, 1, 1)
+
+[node name="Start" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_oncac")
+script = ExtResource("2_nek6n")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(672, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_6p0ji")
+theme_override_fonts/bold_font = SubResource("FontVariation_nek6n")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_2v8st")
+bbcode_enabled = true
+text = "[b][font_size=40]The ___ adventure of ___[/font_size][/b]
+
+It's the ___ game where you play the role of ___ and help ___ in order to ___.
+
+[b][font_size=25]Credits[/font_size][/b]
+
+Made by [url=http://one.poeticandroid.online/]poeticAndroid[/url].
+
+LDF Comic Sans font by [url=https://www.fontspace.com/ldfcomicsans-font-f16951]Jake Luedecke Motion & Graphic Design[/url]."
+fit_content = true
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6p0ji")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="PlayBtn" type="Button" parent="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer" groups=["autofocus"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = " New document "
+
+[connection signal="meta_clicked" from="CenterContainer/VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/PanelContainer/VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]

@@ -114,7 +114,6 @@ func set_output(txt = output):
 		text += '[img]uid://dydc7aycyobo3[/img]'
 		$TextEdit.grab_focus()
 	elif story:
-		$TypewriterSfx.stop()
 		$EnterSfx.play()
 		story.step()
 
