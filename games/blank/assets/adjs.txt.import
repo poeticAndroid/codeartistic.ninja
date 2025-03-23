@@ -1,0 +1,14 @@
+[remap]
+
+importer="online.poeticandroid.text_resource_importer"
+type="TextResource"
+uid="uid://c4lg5she0e3mh"
+path="res://.godot/imported/adjs.txt-c0bd12ec425f397b0a23aecd11a7f70b.tres"
+
+[deps]
+
+source_file="res://games/blank/assets/adjs.txt"
+dest_files=["res://.godot/imported/adjs.txt-c0bd12ec425f397b0a23aecd11a7f70b.tres"]
+
+[params]
+

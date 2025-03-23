@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://k7lb2osbucc5"]
+[gd_scene load_steps=7 format=3 uid="uid://k7lb2osbucc5"]
 
 [ext_resource type="Script" uid="uid://2864ktwe0lhs" path="res://scripts/story/tellers/chooser.gd" id="1_gsyog"]
+[ext_resource type="FontVariation" uid="uid://bcbgt4n72bna3" path="res://games/blank/assets/fonts/Ldfcomicsans-jj7l_bold.tres" id="2_gsyog"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8v61k"]
 
@@ -94,11 +95,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 focus_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 0.7)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 0.7)
-theme_override_colors/font_outline_color = Color(0.5, 0.5, 0.5, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.298039, 0.298039, 0.298039, 1)
+theme_override_colors/font_focus_color = Color(0.298039, 0.298039, 0.298039, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_gsyog")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8v61k")
 text = "Choice!"
 underline = 2

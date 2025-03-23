@@ -154,7 +154,7 @@ func shear_cols(cols):
 	for j in range(cols.size()):
 		var col = g(cols[j] + "s")
 		for i in range(1, j + 1):
-			col.push_back(col.shift())
+			col.push_back(col.pop_front())
 
 
 func shuffle_cols(cols):

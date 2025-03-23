@@ -77,7 +77,7 @@ pre#reset.
     pre {$dest|%dest} {$dest_|["archive", "stars", "home"]}
     p {$Hero} thought long and hard about where to go {|next} to solve {$Friend}'s problem. {$HeroXe} could either go to {$home}'s archive to find answers, look up at the stars for guidance or back home to do some more chores.
     p After a lot of {$heroAdj} thoughts, {$heroXe} decided to go {$dest|=="archive"|the archive and look some stuff up|=="stars"|look at the stars in hope for a sign|=="home"|back home}.
-    pre \#{$dest}
+    pre #{$dest}
   #archive
     pre {$noun1_|a type of media}
     p {$Hero} went to the archives, even though this was no place for a {$heroAdj} {$heroNoun}. {$HeroXe} went through all the {$noun1} about the famous {$homeInhab} in the history of {$home}.
@@ -129,8 +129,8 @@ pre#reset.
   p.center THE END
   ul
     li Play Again?
-      p Restarting...
       pre @
+      p Restarting...
 
 
 

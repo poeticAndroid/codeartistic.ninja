@@ -3,15 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://cx6hm4m1k5ojt" path="res://games/blank/assets/gfx/marble.png" id="1_2v8st"]
 [ext_resource type="FontFile" uid="uid://binqp1mqfam6w" path="res://games/blank/assets/fonts/Ldfcomicsans-jj7l.ttf" id="2_6p0ji"]
 [ext_resource type="Script" uid="uid://bck2rl5gn2fj1" path="res://games/blank/scripts/start.gd" id="2_nek6n"]
+[ext_resource type="FontVariation" uid="uid://bcbgt4n72bna3" path="res://games/blank/assets/fonts/Ldfcomicsans-jj7l_bold.tres" id="4_r75kd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oncac"]
 texture = ExtResource("1_2v8st")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-
-[sub_resource type="FontVariation" id="FontVariation_nek6n"]
-base_font = ExtResource("2_6p0ji")
-variation_embolden = 0.5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2v8st"]
 content_margin_left = 16.0
@@ -55,7 +52,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_6p0ji")
-theme_override_fonts/bold_font = SubResource("FontVariation_nek6n")
+theme_override_fonts/bold_font = ExtResource("4_r75kd")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_2v8st")
 bbcode_enabled = true

@@ -190,13 +190,11 @@ game_name = "someday"
 game_description = "A game about cats, little blue boys and astronauts."
 
 [node name="BlankGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
-modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("8_e1m1r")
 game_title = "The ___ adventure of ___"
 game_name = "blank"
 game_description = "It's the ___ game where you play the role of ___ and help ___ in order to ___."
-wip = true
 
 [node name="RestlessGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)

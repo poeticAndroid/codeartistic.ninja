@@ -1,0 +1,14 @@
+[remap]
+
+importer="online.poeticandroid.text_resource_importer"
+type="TextResource"
+uid="uid://b6f5kg7i2agfw"
+path="res://.godot/imported/nouns.txt-e56dd1b1f2f16e463d8a3851e36c71f0.tres"
+
+[deps]
+
+source_file="res://games/blank/assets/nouns.txt"
+dest_files=["res://.godot/imported/nouns.txt-e56dd1b1f2f16e463d8a3851e36c71f0.tres"]
+
+[params]
+

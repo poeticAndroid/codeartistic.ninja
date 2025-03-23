@@ -1,0 +1,14 @@
+[remap]
+
+importer="online.poeticandroid.text_resource_importer"
+type="TextResource"
+uid="uid://cl8v2bw6vqh6f"
+path="res://.godot/imported/verbs.txt-d79c665edaab396dc252d385c092525f.tres"
+
+[deps]
+
+source_file="res://games/blank/assets/verbs.txt"
+dest_files=["res://.godot/imported/verbs.txt-d79c665edaab396dc252d385c092525f.tres"]
+
+[params]
+

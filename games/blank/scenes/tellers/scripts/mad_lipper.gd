@@ -1,5 +1,36 @@
 extends RichTextLabel
 
+var dict = " an the of to  ATOSCPIBFWMHRDELGNUVJKYQZX eationrslhcdumpgfybwvkxzjq"
+var dicts = {
+		adj = preload("res://games/blank/assets/adjs.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/verbs.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/nouns.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/names.txt").text.get_slice("  ", 0) +
+			"  " + preload("res://games/blank/assets/adjs.txt").text.get_slice("  ", 1),
+		verb = preload("res://games/blank/assets/verbs.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/adjs.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/nouns.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/names.txt").text.get_slice("  ", 0) +
+			"  " + preload("res://games/blank/assets/verbs.txt").text.get_slice("  ", 1),
+		noun = preload("res://games/blank/assets/nouns.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/names.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/verbs.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/adjs.txt").text.get_slice("  ", 0) +
+			"  " + preload("res://games/blank/assets/nouns.txt").text.get_slice("  ", 1),
+		name = preload("res://games/blank/assets/names.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/nouns.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/verbs.txt").text.get_slice("  ", 0) +
+			preload("res://games/blank/assets/adjs.txt").text.get_slice("  ", 0) +
+			"  " + preload("res://games/blank/assets/names.txt").text.get_slice("  ", 1),
+	}
+var categories = {
+		hobby = "verb",
+		relation = "noun",
+		place = "name",
+		inhabitant = "noun",
+		number = "adj"
+	}
+
 var story: Node
 var line: String
 var tree: TextTree
@@ -8,6 +39,8 @@ var input_name
 var output = ""
 var input_choices
 
+var next_char: String
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,7 +48,10 @@ func _ready() -> void:
 		horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	set_output("")
 	$TextEdit.grab_focus()
-	if not line.strip_edges(): story.step()
+	next_char = predict_next_char(" ")
+	if not line.strip_edges():
+		if is_instance_valid($TextEdit): $TextEdit.queue_free()
+		story.step()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,8 +62,7 @@ func _process(delta: float) -> void:
 func type():
 	if not is_instance_valid($TextEdit): return
 	if input_name:
-		if $TextEdit.text.strip_edges(): $TypewriterSfx.play()
-		else: $TextEdit.text = " "
+		if not $TextEdit.text.strip_edges(): $TextEdit.text = " "
 		if $TextEdit.text.ends_with("\n"): set_first_name()
 		if $TextEdit.text.ends_with("\t"): set_first_name()
 		else: set_output()
@@ -39,12 +74,10 @@ func type():
 			$StopSfx.play()
 			get_first_name()
 		elif line.substr(p - 1, 1) != " " and line.strip_edges() != output.strip_edges():
-			$TypewriterSfx.play()
 			await get_tree().create_timer(randf_range(0.03, 0.08)).timeout
 			call_deferred("type")
 		else:
 			$TextEdit.text = " "
-	if not story: return
 	set_status()
 
 
@@ -105,6 +138,7 @@ func set_first_name():
 
 
 func set_output(txt = output):
+	var len_b4 = text.length()
 	output = txt
 	text = output
 	if input_name: text += " " + $TextEdit.text
@@ -112,10 +146,13 @@ func set_output(txt = output):
 	while text.contains("  "): text = text.replace("  ", " ")
 	if output.length() < line.length():
 		text += '[img]uid://dydc7aycyobo3[/img]'
+		if len_b4 != text.length():
+			$TypewriterSfx.play()
 		$TextEdit.grab_focus()
-	elif story:
+	else:
 		$EnterSfx.play()
-		story.step()
+		if is_instance_valid($TextEdit): $TextEdit.queue_free()
+		if story: story.step()
 
 
 func set_status(status = ""):
@@ -144,6 +181,10 @@ func set_status(status = ""):
 				status = "Press enter."
 			else:
 				status = "Type anything."
+	for cat in categories:
+		if status.containsn(cat): dict = dicts[categories[cat]]
+	for cat in dicts:
+		if status.containsn(cat): dict = dicts[cat]
 	if story: story.set_status(status)
 
 
@@ -157,14 +198,88 @@ func get_suffix(name: String):
 	return null
 
 
+func is_dpad_pressed():
+	return \
+		Input.is_action_pressed("ui_up") or \
+		Input.is_action_pressed("ui_down") or \
+		Input.is_action_pressed("ui_left") or \
+		Input.is_action_pressed("ui_right") or \
+		Input.is_action_pressed("ui_accept")
+
+
+func predict_next_char(word: String):
+	word = word.substr(word.rfind(" ")).to_lower()
+	if not word.strip_edges(): return " " + dict.substr(dict.rfind("  ") + 2).to_lower().get_slice(" ", 0) + " "
+	var next_char = ""
+	var p: int
+	while word and next_char.length() < 26:
+		p = dict.find(word)
+		while p > -1:
+			p += word.length()
+			if not next_char.contains(dict.substr(p, 1)): next_char += dict.substr(p, 1).strip_edges()
+			p = dict.find(word, p)
+		word = word.substr(1)
+	p = dict.rfind(" ")
+	while p < dict.length():
+		if not next_char.contains(dict.substr(p, 1)): next_char += dict.substr(p, 1).strip_edges()
+		p += 1
+	return " " + next_char + " "
+
+
 func _input(event: InputEvent) -> void:
-	if not story:
-		if is_instance_valid($TextEdit): $TextEdit.queue_free()
-		return
+	if not story: return
 	$TextEdit.grab_click_focus()
 	$TextEdit.grab_focus()
 	$TextEdit.set_caret_line($TextEdit.text.length())
 	$TextEdit.set_caret_column($TextEdit.text.length())
+
+	if Global.input_method != Global.DESKTOP_INPUT: return _on_game_key_timer_timeout()
 	if not event is InputEventKey: return
+	if event.physical_keycode == KEY_BACKSPACE: event.unicode = 8
+	if event.physical_keycode == KEY_TAB: event.unicode = 9
+	if event.physical_keycode == KEY_ENTER: event.unicode = 10
+	if not event.unicode: return _on_game_key_timer_timeout()
 	if not event.is_pressed(): return
 	call_deferred("type")
+
+
+func _on_game_key_timer_timeout() -> void:
+	if not story: return
+	var idle_wait = 0.5
+	var pressed = is_dpad_pressed()
+	if pressed and not $GameKeyTimer.is_stopped(): return
+	$GameKeyTimer.stop()
+	$GameKeyTimer.wait_time *= 0.8
+
+	if not $TextEdit.text.begins_with(" "): $TextEdit.text = " " + $TextEdit.text
+	var char = $TextEdit.text.right(1)
+	var char_pos = next_char.find(char)
+	if Input.is_action_pressed("ui_up"): char_pos = next_char.rfind(char)
+	if input_choices: char_pos = input_choices.find($TextEdit.text.strip_edges())
+
+	if Input.is_action_pressed("ui_left"):
+		$TextEdit.text = $TextEdit.text.left(-1)
+		next_char = predict_next_char($TextEdit.text.left(-1))
+	if Input.is_action_pressed("ui_right"):
+		next_char = predict_next_char($TextEdit.text)
+		$TextEdit.text += next_char.strip_edges().left(1)
+	if Input.is_action_pressed("ui_down"):
+		char_pos += 1
+	if Input.is_action_pressed("ui_up"):
+		char_pos += -1
+	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up"):
+		if input_choices:
+			if char_pos >= input_choices.size(): char_pos = 0
+			if char_pos < 0: char_pos = input_choices.size() - 1
+			$TextEdit.text = input_choices[char_pos]
+		else:
+			$TextEdit.text = $TextEdit.text.left(-1) + next_char.substr(char_pos, 1)
+	if Input.is_action_pressed("ui_accept"):
+		next_char = predict_next_char(" ")
+		$TextEdit.text += "\n"
+
+	if pressed:
+		$GameKeyTimer.start()
+		call_deferred("type")
+	else:
+		$GameKeyTimer.wait_time = idle_wait
