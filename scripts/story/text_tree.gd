@@ -144,7 +144,7 @@ func if_else(cond, iftrue, iffalse = ""):
 func push_to_cols(cols, count = 3):
 	for i in range(1, count + 1):
 		for col in cols:
-			if not col.begins_with("%"):
+			if not g(col + str(i)).begins_with("%"):
 				g(col + "s").push_back(g(col + str(i)))
 				# s(col + "s") = g(col + "s")
 				s(col + str(i), "%" + col + str(i))

@@ -28,7 +28,8 @@ var categories = {
 		relation = "noun",
 		place = "name",
 		inhabitant = "noun",
-		number = "adj"
+		number = "adj",
+		media = "noun"
 	}
 
 var story: Node

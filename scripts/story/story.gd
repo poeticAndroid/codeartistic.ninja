@@ -241,7 +241,7 @@ func smart_tag(tag: String) -> String:
 					assert(error == OK, expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
 					var result = expr.execute()
 					assert(not expr.has_execute_failed(), expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
-					print("$ ", JSON.stringify(out) + parts[i], " == ", result)
+					print("$ ", JSON.stringify(out) + parts[i], " == ", JSON.stringify(result))
 					if result:
 						out = parts[i + 1]
 						break
@@ -268,7 +268,7 @@ func eval_tag(tag: String) -> String:
 	_result = _expr.execute([], currentLine)
 	assert(not _expr.has_execute_failed(), _expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
 
-	print("$$ ", tag, " == ", _result)
+	print("$$ ", tag, " == ", JSON.stringify(_result))
 	if _result == null: _result = ""
 	else: _result = str(_result)
 
