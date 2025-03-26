@@ -55,4 +55,8 @@ stream = ExtResource("6_egnfs")
 one_shot = true
 autostart = true
 
+[node name="TestTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="timeout" from="GameKeyTimer" to="." method="_on_game_key_timer_timeout"]
+[connection signal="timeout" from="TestTimer" to="." method="_on_test_timer_timeout"]

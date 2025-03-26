@@ -1,5 +1,5 @@
 pre#reset.
-  {$cols|["verbed", "adj", "noun", "relation", "number", "name"]}
+  {$cols|["verbed", "adj", "noun", "relation", "number", "Name"]}
   {$verbeds|[]}
   {$verbed1|%verbed1} {$verbed1_|a verb (past tense)}
   {$verbed2|%verbed2} {$verbed2_|a verb (past tense)}
@@ -20,10 +20,10 @@ pre#reset.
   {$number1|%number1} {$number1_|a number}
   {$number2|%number2} {$number2_|a number}
   {$number3|%number3} {$number3_|a number}
-  {$names|[]}
-  {$name1|%name1} {$name1_|a name}
-  {$name2|%name2} {$name2_|a name}
-  {$name3|%name3} {$name3_|a name}
+  {$Names|[]}
+  {$Name1|%Name1} {$Name1_|a name}
+  {$Name2|%Name2} {$Name2_|a name}
+  {$Name3|%Name3} {$Name3_|a name}
 
   {$hero|%hero} {$hero_|a name}
   {$heroAdj|%heroAdj} {$heroAdj_|an adjective}
@@ -76,12 +76,12 @@ pre#reset.
   #hub
     pre {$dest|%dest} {$dest_|["archive", "stars", "home"]}
     p {$Hero} thought long and hard about where to go {|next} to solve {$Friend}'s problem. {$HeroXe} could either go to {$home}'s archive to find answers, look up at the stars for guidance or back home to do some more chores.
-    p After a lot of {$heroAdj} thoughts, {$heroXe} decided to go {$dest|=="archive"|the archive and look some stuff up|=="stars"|look at the stars in hope for a sign|=="home"|back home}.
+    p After a lot of {$heroAdj} thoughts, {$heroXe} decided to go {$dest|=="archive"|to the archive and look some stuff up|=="stars"|look at the stars in hope for a sign|=="home"|back home}.
     pre #{$dest}
   #archive
     pre {$noun1_|a type of media}
     p {$Hero} went to the archives, even though this was no place for a {$heroAdj} {$heroNoun}. {$HeroXe} went through all the {$noun1} about the famous {$homeInhab} in the history of {$home}.
-    p First there was {$name1} the {$adj1} who was {$relation1} to {$name2} the {$adj2}. Together they invented the {$noun2} which the old {$homeInhab} {$verbed1} each other with. But then came {$name1}'s {$relation2}, {$name3}, who was kinda {$adj3}. {$name3} took a {$noun3} and {$verbed2} {$name2} in the head with it. All because {$name3} was {$name2}'s {$relation3}. Oh my!
+    p First there was {$Name1} the {$adj1} who was {$relation1} to {$Name2} the {$adj2}. Together they invented the {$noun2} which the old {$homeInhab} {$verbed1} each other with. But then came {$Name1}'s {$relation2}, {$Name3}, who was kinda {$adj3}. {$Name3} took a {$noun3} and {$verbed2} {$Name2} in the head with it. All because {$Name3} was {$Name2}'s {$relation3}. Oh my!
     pre #collect ^
     pre #shift ^
     p It was a fascinating story, but {$Hero} doubted it would do anything to help {$heroXis} {$friendAdj} {$Friend}. And sure enough, when {$heroXe} got home to {$heroXis} {$heroHouse}, {$Friend} was there waiting for {$heroXim}.
@@ -106,14 +106,14 @@ pre#reset.
     p There were still a lot of stuff to be done around the {$heroHouse}. Like some {$adj1} {$noun1} to be {$verbed1}, not to mention all off {$heroXis} {$adj2} {$noun2} to be {$verbed2} and even more {$adj3} {$noun3} to be {$verbed3}.
     pre #collect ^
     pre #shift ^
-    pre {{ if_else (g("verbeds").contains(g("gemResponse")) and g("adjs").contains(g("gemAdj")) and g("nouns").contains(g("gem")), "#act3", "+") }}
+    pre {{ if_else (g("verbeds").has(g("gemResponse")) and g("adjs").has(g("gemAdj")) and g("nouns").has(g("gem")), "#act3", "+") }}
     p {$Friend} didn't even bother showing up this time and instead just sent a {{g("adjs")[0]}} {{g("nouns")[0]}} that {{g("verbeds")[0]}} in order to communicate: "This might sound silly but, do you remember that time when we {{g("verbeds")[1]}} the {{g("adjs")[1]}} {{g("nouns")[1]}} before we {{g("verbeds")[2]}} the {{g("adjs")[2]}} {{g("nouns")[2]}} and then soon after {{g("verbeds")[3]}} the {{g("adjs")[3]}} {{g("nouns")[3]}} and {{g("verbeds")[4]}} the {{g("adjs")[4]}} {{g("nouns")[4]}} by having the {{g("adjs")[5]}} {{g("nouns")[5]}} {{g("verbeds")[5]}}..? No..? Me neither..."
     p {$Hero} was getting worried about {$friendAdj} {$Friend}.
     pre #shuffle ^
     pre #hub
 #act3
   p {$place|%place} {$place_|hiding place}
-  p Suddenly the {$gem} {$gemVerbed} back at {$Hero} and a large amount of {$heroFear} appeard in front of {$heroXim}!
+  p Suddenly the {$gem} {$gemVerbed} back at {$Hero} and a large amount of {$heroFear} appeared in front of {$heroXim}!
   p {$Hero} was terrified and thought {$heroXe}'d had enough of this {$gemAdj} {$gem} and decided to put it back inside the {$place} where {$heroXe} found it!
   #isitover
     pre {{ if_else (g("place") == g("gemHidden"), "#end", "+") }}
@@ -124,7 +124,7 @@ pre#reset.
 
 
 #end
-  p At last the {$heroFear} disappeard and everything in {$home} finally went back to normal and the {$homeInhab} were happy.
+  p At last the {$heroFear} disappeared and everything in {$home} finally went back to normal and the {$homeInhab} were happy.
   p {$Hero} spent the rest of {$heroXis} days to {$heroHobby} together with {$friendAdj} {$Friend} and lived {$heroAdj} and happily ever after!
   p.center THE END
   ul

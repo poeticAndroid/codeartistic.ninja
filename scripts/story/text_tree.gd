@@ -121,6 +121,7 @@ func get_attribute(key: String):
 	var cap = key.substr(0, 1) != key.substr(0, 1).to_lower()
 	if attributes.has(key.to_lower()):
 		key = key.to_lower()
+		if attributes[key] is not String: cap = false
 		return attributes[key].substr(0, 1).to_upper() + attributes[key].substr(1) if cap else attributes[key]
 	if parent: return parent.get_attribute(key)
 	return null
@@ -154,7 +155,7 @@ func shear_cols(cols):
 	for j in range(cols.size()):
 		var col = g(cols[j] + "s")
 		for i in range(1, j + 1):
-			col.push_back(col.pop_front())
+			if col.size(): col.push_back(col.pop_front())
 
 
 func shuffle_cols(cols):

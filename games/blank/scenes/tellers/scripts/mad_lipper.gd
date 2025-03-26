@@ -1,7 +1,7 @@
 extends RichTextLabel
 
 var dict = " an the of to  ATOSCPIBFWMHRDELGNUVJKYQZX eationrslhcdumpgfybwvkxzjq"
-var dicts = {
+static var dicts = {
 		adj = preload("res://games/blank/assets/adjs.txt").text.get_slice("  ", 0) +
 			preload("res://games/blank/assets/verbs.txt").text.get_slice("  ", 0) +
 			preload("res://games/blank/assets/nouns.txt").text.get_slice("  ", 0) +
@@ -23,7 +23,7 @@ var dicts = {
 			preload("res://games/blank/assets/adjs.txt").text.get_slice("  ", 0) +
 			"  " + preload("res://games/blank/assets/names.txt").text.get_slice("  ", 1),
 	}
-var categories = {
+static var categories = {
 		hobby = "verb",
 		relation = "noun",
 		place = "name",
@@ -52,7 +52,7 @@ func _ready() -> void:
 	next_char = predict_next_char(" ")
 	if not line.strip_edges():
 		if is_instance_valid($TextEdit): $TextEdit.queue_free()
-		story.step()
+		if story: story.step()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -121,6 +121,8 @@ func set_first_name():
 		output = output.strip_edges()
 		return
 	var name = get_first_name()
+	if name.substr(0, 1) != name.substr(0, 1).to_lower():
+		val = val.substr(0, 1).to_upper() + val.substr(1)
 	if input_choices:
 		val = val.to_lower()
 		if not input_choices.has(val):
@@ -284,3 +286,35 @@ func _on_game_key_timer_timeout() -> void:
 		call_deferred("type")
 	else:
 		$GameKeyTimer.wait_time = idle_wait
+
+
+static var _tried = ["yes"]
+static var _id = 0
+var _shown = 10
+func _on_test_timer_timeout() -> void:
+	if Input.is_action_pressed("ui_select") or not story:
+		$TestTimer.one_shot = true
+		return
+	var action = "ui_accept"
+	if input_choices:
+		if _tried.has($TextEdit.text.strip_edges()):
+			action = "ui_down"
+		else:
+			_tried.push_back($TextEdit.text.strip_edges())
+		if _shown:
+			_shown += -1
+		else:
+			_tried.pop_front()
+	elif input_name:
+		_id += 1
+		$TextEdit.text = " e&" + input_name + "-" + str(_id) + "; "
+	var event = InputEventAction.new()
+	event.action = action
+	event.pressed = true
+	Input.parse_input_event(event)
+	await get_tree().create_timer(0.1).timeout
+	event = InputEventAction.new()
+	event.action = action
+	event.pressed = false
+	Input.parse_input_event(event)
+	Global.input_method = Global.GAMEPAD_INPUT
