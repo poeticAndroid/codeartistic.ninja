@@ -129,4 +129,3 @@ size = Vector2(32, 448)
 
 [node name="AuditoryCheesecakeFresh" type="AudioStreamPlayer" parent="." groups=["music"]]
 stream = ExtResource("8_sigq7")
-bus = &"Music"

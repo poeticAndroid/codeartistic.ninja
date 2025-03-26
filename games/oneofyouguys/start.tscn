@@ -97,7 +97,6 @@ uri = "http://codeartistic.ninja/"
 
 [node name="AuditoryCheesecakeFresh" type="AudioStreamPlayer" parent="." groups=["music"]]
 stream = ExtResource("8_nq5ly")
-bus = &"Music"
 
 [connection signal="pressed" from="Control/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="Control/CreditsBtn" to="." method="_on_credits_btn_pressed"]

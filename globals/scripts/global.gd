@@ -25,6 +25,7 @@ func _ready():
 		get_window().always_on_top = true
 	else:
 		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+	get_tree().node_added.connect(_on_node_added)
 	scene_name = get_tree().current_scene.scene_file_path.replace("res:/", "").replace(".tscn", "")
 	history.push_back(scene_name)
 	print("Current scene: ", scene_name)
@@ -52,9 +53,9 @@ func _input(event: InputEvent):
 	if event.is_action_pressed("toggle_fullscreen"):
 		toggle_fullscreen()
 	if event.is_action_pressed("toggle_music"):
-		toggle_music()
-	if event.is_action_pressed("toggle_audio"):
-		toggle_audio()
+		toggle_audio("Music")
+	if event.is_action_pressed("toggle_sfx"):
+		toggle_audio("SFX")
 
 
 func toggle_fullscreen():
@@ -64,12 +65,10 @@ func toggle_fullscreen():
 		get_window().mode = Window.MODE_WINDOWED
 
 
-func toggle_music():
-	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), not AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")))
-
-
-func toggle_audio(bus = "Master"):
-	AudioServer.set_bus_mute(AudioServer.get_bus_index(bus), not AudioServer.is_bus_mute(AudioServer.get_bus_index(bus)))
+func toggle_audio(bus = "Master", mute = null):
+	var is_mute = AudioServer.is_bus_mute(AudioServer.get_bus_index(bus))
+	if mute == null: AudioServer.set_bus_mute(AudioServer.get_bus_index(bus), not is_mute)
+	else: AudioServer.set_bus_mute(AudioServer.get_bus_index(bus), mute)
 
 
 func play_music(m: AudioStreamPlayer):
@@ -176,3 +175,9 @@ func _on_save_timer_timeout() -> void:
 	if persistant_json == json: return
 	persistant_json = json
 	save_persistant()
+
+
+func _on_node_added(node: Node) -> void:
+	if "bus" in node and node.bus == "Master":
+		node.bus = "SFX"
+		print(node, ".bus = ", node.bus)

@@ -30,6 +30,5 @@ text = "Menu"
 
 [node name="AuditoryCheesecakeDressForIt" type="AudioStreamPlayer" parent="." groups=["music"]]
 stream = ExtResource("4_4a648")
-bus = &"Music"
 
 [connection signal="pressed" from="MenuBtn" to="." method="_on_menu_btn_pressed"]
