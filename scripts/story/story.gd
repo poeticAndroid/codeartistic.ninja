@@ -236,7 +236,7 @@ func smart_tag(tag: String) -> String:
 		elif parts.size() > 2:
 			var expr = Expression.new()
 			for i in range(1, parts.size(), 2):
-				if i < parts.size()-1:
+				if i < parts.size() - 1:
 					var error = expr.parse(JSON.stringify(out) + parts[i])
 					assert(error == OK, expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
 					var result = expr.execute()
@@ -249,12 +249,12 @@ func smart_tag(tag: String) -> String:
 					out = parts[i]
 	elif parts[0].begins_with("~"):
 		parts = tag.substr(1).split("|")
-		out = parts[randi_range(0, parts.size()-1)]
+		out = parts[randi_range(0, parts.size() - 1)]
 	elif parts[0].begins_with("@"):
 		parts = tag.substr(1).split("|")
-		out = parts[(int(currentLine.get_attribute("_visits"))-1) % parts.size()]
+		out = parts[(int(currentLine.get_attribute("_visits")) - 1) % parts.size()]
 	else:
-		out = parts[min((int(currentLine.get_attribute("_visits"))-1), parts.size()-1)]
+		out = parts[min((int(currentLine.get_attribute("_visits")) - 1), parts.size() - 1)]
 	return str(out)
 
 
@@ -262,7 +262,6 @@ func eval_tag(tag: String) -> String:
 	var _expr = Expression.new()
 	var _result
 
-	print("Evaluating: ", tag)
 	var _error = _expr.parse(tag)
 	assert(_error == OK, _expr.get_error_text() + " (" + currentLine.get_filename() + ":" + str(currentLine.get_line_number()) + ")")
 	_result = _expr.execute([], currentLine)

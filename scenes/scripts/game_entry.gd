@@ -28,7 +28,7 @@ extends Control
 func _ready() -> void:
 	var btn: Button = %Button
 	if Engine.is_editor_hint(): return
-	await get_tree().create_timer(.8).timeout
+	await get_tree().create_timer(0.8).timeout
 
 	btn.rotation = randf_range(-PI / 90, PI / 90)
 	if Global.session.has("last_game"):

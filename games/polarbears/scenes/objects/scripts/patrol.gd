@@ -34,7 +34,7 @@ func die():
 func _on_on_screen() -> void:
 	if velocity.x == 0:
 		$AnimatedSprite2D.play()
-		velocity = Vector2(1, -.125)
+		velocity = Vector2(1, -0.125)
 		velocity = velocity.normalized() * max_velocity
 
 

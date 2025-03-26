@@ -31,6 +31,6 @@ func disable():
 func _on_body_entered(body: Node2D) -> void:
 	if body == shooter: return
 	if body.has_method("damage"):
-		body.damage(.34)
+		body.damage(0.34)
 		shooter.traitor = shooter.clan == body.clan
 		disable()

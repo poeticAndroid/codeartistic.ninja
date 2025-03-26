@@ -48,11 +48,11 @@ func _process(delta: float) -> void:
 	if abs(_speed.x) < abs(_direction.x * speed_scale.x):
 		_speed.x = _direction.x * speed_scale.x
 	else:
-		_speed.x *= .97
+		_speed.x *= 0.97
 	if abs(_speed.y) < abs(_direction.y * speed_scale.y):
 		_speed.y = _direction.y * speed_scale.y
 	else:
-		_speed.y *= .97
+		_speed.y *= 0.97
 	_current += _speed
 
 	if limit:

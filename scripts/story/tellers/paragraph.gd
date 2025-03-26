@@ -19,7 +19,7 @@ func _ready() -> void:
 			story.scroll_speed += 1
 			story.wait_for_scroll = true
 		await get_tree().create_timer(params["duration"]).timeout
-	else: await get_tree().create_timer(max(1, .08 * line.length())).timeout
+	else: await get_tree().create_timer(max(1, 0.08 * line.length())).timeout
 	if story: story.step()
 
 
