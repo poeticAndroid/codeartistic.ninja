@@ -53,6 +53,8 @@ func _input(event: InputEvent):
 		toggle_fullscreen()
 	if event.is_action_pressed("toggle_music"):
 		toggle_music()
+	if event.is_action_pressed("toggle_audio"):
+		toggle_audio()
 
 
 func toggle_fullscreen():
@@ -64,6 +66,10 @@ func toggle_fullscreen():
 
 func toggle_music():
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), not AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")))
+
+
+func toggle_audio(bus = "Master"):
+	AudioServer.set_bus_mute(AudioServer.get_bus_index(bus), not AudioServer.is_bus_mute(AudioServer.get_bus_index(bus)))
 
 
 func play_music(m: AudioStreamPlayer):
