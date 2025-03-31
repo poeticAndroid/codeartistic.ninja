@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://cf5fw04aojgkk"
+path="res://.godot/imported/pico8.png-72c97ecad8dd3099156ef148c43c94bd.fontdata"
+
+[deps]
+
+source_file="res://games/restless/assets/fonts/pico8.png"
+dest_files=["res://.godot/imported/pico8.png-72c97ecad8dd3099156ef148c43c94bd.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\' \'-\'~\'")
+kerning_pairs=PackedStringArray()
+columns=32
+rows=3
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2
