@@ -1,0 +1,680 @@
+{
+	"map": {
+		"sizex": 32.0,
+		"sizey": 32.0
+	},
+	"cam": {
+		"x": 0.0,
+		"y": 0.0
+	},
+	"player": {
+		"x": 64.0,
+		"y": 64.0,
+		"dx": 0.0,
+		"dy": 0.0,
+		"state": -1.0,
+		"sprite": 76.0,
+		"flipped": false,
+		"hover": 0.0,
+		"shake": 0.0
+	},
+	"dialog": {
+		"npcdialogdistance": 8.0,
+		"script": null,
+		"pos": 0.0,
+		"col": 0.0
+	},
+	"currentlevel": 1.0,
+	"drawnumber": 1.0,
+	"levels": [
+		{
+			"help": "use arrows to move",
+			"chars": {}
+		},
+		{
+			"help": "press x to listen in",
+			"chars": {
+				"richard": {
+					"x": 14.5,
+					"y": 13.5,
+					"sprite": 64.0,
+					"script": [
+						"richard: when should i tell the others that he's gone?",
+						"richard: his body is still being examined, maybe i should just wait until his cause of death is known.",
+						"richard: no matter what, it was too early for peter.",
+						"richard: ...",
+						"richard: at least now, i can be sure he won't tell anyone."
+					]
+				},
+				"paul": {
+					"x": 7.0,
+					"y": 20.0,
+					"sprite": 65.0,
+					"script": [
+						"paul: there is such an odd breeze out tonight.",
+						"paul: i should have stayed home.",
+						"paul: i get the feeling that something bad has happened."
+					]
+				},
+				"tim": {
+					"x": 9.0,
+					"y": 6.0,
+					"sprite": 68.0,
+					"script": [
+						"tim: they say that after you die you're rooted to a place.",
+						"tim: like a leaf caught in a spiderweb."
+					]
+				},
+				"animal": {
+					"x": 5.75,
+					"y": 8.0,
+					"sprite": 88.0,
+					"firstsprite": 88.0,
+					"maxsprite": 92.0,
+					"repititionnumber": 4.0,
+					"talkedto": true,
+					"script": [
+						"rabbit: ...!"
+					]
+				}
+			}
+		},
+		{
+			"chars": {
+				"john": {
+					"x": 1.375,
+					"y": 6.625,
+					"sprite": 66.0,
+					"script": [
+						"john: ...and then i totally punched him in the face!",
+						"john: yeah!",
+						"john: dude thought he could tell me what's what... hah!",
+						"john: can't wait to tell the guys about that idiot."
+					]
+				},
+				"dave": {
+					"x": 13.875,
+					"y": 6.625,
+					"sprite": 67.0,
+					"script": [
+						"dave: preacher richard said he had a woodworking job for me.",
+						"dave: no matter what, i'll deliver.",
+						"dave: maybe a new pew for the church? hmm. it has to match the others..."
+					]
+				},
+				"richard": {
+					"x": 7.5,
+					"y": 19.5,
+					"sprite": 64.0,
+					"script": [
+						"richard: maybe she isn't home?",
+						"richard: i can always say i was just here to spread the word of god.",
+						"richard: sharon has such nice feet, i want to worship them.",
+						"richard: ...",
+						"richard: i swear... on the bible... this is the last time i do this!"
+					]
+				},
+				"tim": {
+					"x": 28.0,
+					"y": 4.0,
+					"sprite": 68.0,
+					"script": [
+						"tim: maybe if i eat it here.",
+						"tim: no one will see me if i freak out again.",
+						"tim: is someone watching me?"
+					]
+				},
+				"animal": {
+					"x": 14.5,
+					"y": 3.75,
+					"sprite": 100.0,
+					"firstsprite": 100.0,
+					"maxsprite": 104.0,
+					"repititionnumber": 4.0,
+					"talkedto": true,
+					"script": [
+						"dog: woof!",
+						"dog: bark!"
+					]
+				}
+			}
+		},
+		{
+			"chars": {
+				"sharon": {
+					"x": 18.0,
+					"y": 6.0,
+					"sprite": 82.0,
+					"script": [
+						"sharon: richard is so disgusting... ugh!",
+						"sharon: he's so nice to me though.",
+						"sharon: where is fluffy? he's such a cute rabbit."
+					]
+				},
+				"john": {
+					"x": 15.0,
+					"y": 6.0,
+					"sprite": 66.0,
+					"script": [
+						"john: sharon is so pretty.",
+						"john: if i was some other kind of guy, i would romance her.",
+						"john: ...",
+						"john: not that i give a shit about her and her stupid rabbit."
+					]
+				},
+				"dave": {
+					"x": 13.0,
+					"y": 17.0,
+					"sprite": 67.0,
+					"script": [
+						"dave: maybe preacher richard is finally going to tell me about that woodworking project.",
+						"dave: i can't do a proper job with all that secrecy.",
+						"dave: i need to get my tools ready, dammit! what's so important?"
+					]
+				},
+				"richard": {
+					"x": 23.5,
+					"y": 12.0,
+					"sprite": 64.0,
+					"script": [
+						"richard: i can't say that i miss peter, but i have to be graceous.",
+						"richard: ... in the name of the lord.... of course.",
+						"richard: forgive my sins.",
+						"richard: ...",
+						"richard: i think this will be a good spot for peter."
+					]
+				},
+				"animal": {
+					"x": 5.75,
+					"y": 8.0,
+					"sprite": 96.0,
+					"firstsprite": 96.0,
+					"maxsprite": 100.0,
+					"repititionnumber": 4.0,
+					"talkedto": true,
+					"script": [
+						"chicken: cluck!",
+						"chicken: bwaark!",
+						"chicken: uaark!",
+						"chicken: donald trump!"
+					]
+				}
+			}
+		},
+		{
+			"chars": {
+				"sharon": {
+					"x": 12.5,
+					"y": 15.0,
+					"sprite": 82.0,
+					"script": [
+						"sharon: oh noooo! fluffy!",
+						"sharon: poor little fluffy...",
+						"sharon: *sobs*"
+					]
+				},
+				"john": {
+					"x": 10.0,
+					"y": 15.0,
+					"sprite": 66.0,
+					"script": [
+						"john: the rabbit is dead.",
+						"john: oh, bohooo - someone killed it.",
+						"john: we're all gonna die anyway."
+					]
+				},
+				"dave": {
+					"x": 11.0,
+					"y": 15.0,
+					"sprite": 67.0,
+					"script": [
+						"dave: they say death is the road to glory.",
+						"dave: ... but there is no glory in a dead rabbit."
+					]
+				},
+				"richard": {
+					"x": 10.0,
+					"y": 13.0,
+					"sprite": 64.0,
+					"script": [
+						"richard: the lord giveth, and the lord taketh away....",
+						"richard: ... i need to get rid of my sinful thoughts.",
+						"richard: how can i look at sharon this way, even now?",
+						"richard: ...",
+						"richard: only the lord can judge the person who did this."
+					]
+				},
+				"tim": {
+					"x": 12.0,
+					"y": 12.0,
+					"sprite": 68.0,
+					"script": [
+						"tim: we're all prone to see intent behind cruel accidents.",
+						"tim: i wish i could look away.",
+						"tim: but all i see is my own paranoia."
+					]
+				},
+				"paul": {
+					"x": 11.0,
+					"y": 12.0,
+					"sprite": 65.0,
+					"script": [
+						"paul: it wasn't my fault, it wasn't my fault, it wasn't my fault...",
+						"paul: ... was it?"
+					]
+				},
+				"animal": {
+					"x": 8.0,
+					"y": 16.0,
+					"sprite": 96.0,
+					"firstsprite": 96.0,
+					"maxsprite": 100.0,
+					"repititionnumber": 4.0,
+					"talkedto": true,
+					"script": [
+						"chicken: cluck!"
+					]
+				},
+				"animal2": {
+					"x": 8.0,
+					"y": 8.0,
+					"sprite": 100.0,
+					"firstsprite": 100.0,
+					"maxsprite": 104.0,
+					"repititionnumber": 4.0,
+					"talkedto": true,
+					"script": [
+						"dog: woof!"
+					]
+				},
+				"deadanimal": {
+					"x": 12.0,
+					"y": 14.0,
+					"sprite": 92.0,
+					"talkedto": false,
+					"dead": true,
+					"script": [
+						"fluffy the rabbit is dead, but the cause of death is uncertain."
+					]
+				}
+			}
+		},
+		{
+			"help": "the following night...",
+			"chars": {
+				"deadanimal": {
+					"x": 20.0,
+					"y": 20.0,
+					"sprite": 92.0,
+					"talkedto": false,
+					"dead": true,
+					"script": [
+						"the rabbit has recently been dug up, and is missing a foot."
+					]
+				},
+				"paul": {
+					"x": 20.5,
+					"y": 20.0,
+					"sprite": 65.0,
+					"script": [
+						"paul looks at a bloody rabbits foot in his hand.",
+						"paul: ... this better be worth it!",
+						"paul pushes the rabbit back into its grave."
+					]
+				}
+			}
+		},
+		{
+			"chars": {
+				"sharon": {
+					"x": 4.5,
+					"y": 12.0,
+					"sprite": 82.0,
+					"script": [
+						"sharon: i miss fluffy so much...  i wish peter was here.",
+						"sharon: he's the only one who can cheer me up, and motivate me.",
+						"sharon: i'm so ugly..."
+					]
+				},
+				"john": {
+					"x": 18.0,
+					"y": 1.0,
+					"sprite": 66.0,
+					"script": [
+						"john: if peter was here right now,",
+						"john: i'd kick his ass once for being here,",
+						"john: twice for insinuating that i'm too sensitive.",
+						"john: heh... the boys would get a kick out of that."
+					]
+				},
+				"dave": {
+					"x": 24.0,
+					"y": 6.0,
+					"sprite": 67.0,
+					"script": [
+						"dave: *sigh*... the coffin will never be good enough.",
+						"dave: not even if it was for fluffy...",
+						"dave: i suck at this. i'm a one-armed freak."
+					]
+				},
+				"richard": {
+					"x": 20.0,
+					"y": 14.0,
+					"sprite": 64.0,
+					"script": [
+						"richard: peter... the apostle? no... peter...",
+						"richard: he has been in my thoughts a lot lately.",
+						"richard: i can still feel his presence in my church sometimes."
+					]
+				},
+				"tim": {
+					"x": 15.0,
+					"y": 23.0,
+					"sprite": 68.0,
+					"script": [
+						"tim: you never know what you've lost until it's gone.",
+						"tim: ...",
+						"tim: what a cliche this is."
+					]
+				},
+				"paul": {
+					"x": 11.0,
+					"y": 12.0,
+					"sprite": 65.0,
+					"script": [
+						"paul: sharon is going to find out about the rabbit, she is going to find out.",
+						"paul: oh no! i just know it! she'll see that the grave was disturbed..."
+					]
+				},
+				"animal": {
+					"x": 8.0,
+					"y": 16.0,
+					"sprite": 96.0,
+					"firstsprite": 96.0,
+					"maxsprite": 100.0,
+					"repititionnumber": 4.0,
+					"talkedto": true,
+					"script": [
+						"chicken: cluck!"
+					]
+				},
+				"animal2": {
+					"x": 8.0,
+					"y": 8.0,
+					"sprite": 100.0,
+					"firstsprite": 100.0,
+					"maxsprite": 104.0,
+					"repititionnumber": 4.0,
+					"talkedto": true,
+					"script": [
+						"dog: woof!"
+					]
+				}
+			}
+		},
+		{
+			"chars": {
+				"sharon": {
+					"x": 12.5,
+					"y": 15.0,
+					"sprite": 82.0,
+					"script": [
+						"sharon: poor peter.",
+						"sharon: he was always seemed so happy.",
+						"sharon: *sobs*"
+					]
+				},
+				"john": {
+					"x": 9.0,
+					"y": 15.0,
+					"sprite": 66.0,
+					"script": [
+						"john: so uhm... i went to peter's house... but he wasn't home...",
+						"john: but i found this note on the table...",
+						"john: \"goodbye cruel world\"",
+						"john: way to be a downer, peter. i was just gonna punch you a little..."
+					]
+				},
+				"dave": {
+					"x": 10.5,
+					"y": 16.0,
+					"sprite": 67.0,
+					"script": [
+						"dave: what... so now i have to make another coffins...?",
+						"dave: oh... i guess it wasn't for fluffy in the first place...",
+						"dave: would be kinda unusual to bury pets in a coffin."
+					]
+				},
+				"richard": {
+					"x": 9.0,
+					"y": 13.0,
+					"sprite": 64.0,
+					"script": [
+						"richard: i'm so sorry i didn't tell you this earlier..",
+						"richard: i guess now we know why he died.",
+						"richard: i never knew he was in such a hurry to die."
+					]
+				},
+				"tim": {
+					"x": 12.0,
+					"y": 13.0,
+					"sprite": 68.0,
+					"script": [
+						"tim: fuck... i thought it was just a dream...",
+						"tim: i guess it's always the good ones who go first...",
+						"tim: ...",
+						"tim: how much did i take..?"
+					]
+				},
+				"paul": {
+					"x": 11.0,
+					"y": 12.0,
+					"sprite": 65.0,
+					"script": [
+						"paul: i knew it! i knew something bad had happened.",
+						"paul: something bad always happens when i'm around..."
+					]
+				}
+			}
+		},
+		{
+			"chars": {
+				"john": {
+					"x": 1.375,
+					"y": 6.625,
+					"sprite": 66.0,
+					"script": [
+						"john: i can't focus.",
+						"john: fucking peter keeps getting back on my mind... why? he was such a freak.",
+						"john: he would always put on that pretense, telling me he \"worried about me\".",
+						"john: as if i was one of those nutcases bottling up their feelings or some shit.",
+						"john: peter... if you hear me right now... you were such an idiot."
+					]
+				},
+				"dave": {
+					"x": 13.875,
+					"y": 6.625,
+					"sprite": 67.0,
+					"script": [
+						"dave: i can't measure while hammering, i can't hold the fucking saw and the...",
+						"dave: *sigh*... do i set impossible standards for myself?",
+						"dave: what would peter say if he was here?",
+						"dave: ...",
+						"dave: \"you're too hard on yourself, dave!\", thats what he'd say... heh..."
+					]
+				},
+				"richard": {
+					"x": 16.0,
+					"y": 14.5,
+					"sprite": 64.0,
+					"script": [
+						"richard: when the coroner arrives... when peter arrives...",
+						"richard: can i look in his face again?",
+						"richard: can i see him as god would, and not as his friend? his...",
+						"richard: honestly, he was more strong than i. suicide...",
+						"richard: maybe... maybe i can honor him by striving even harder to be a better person."
+					]
+				},
+				"tim": {
+					"x": 28.0,
+					"y": 4.0,
+					"sprite": 68.0,
+					"script": [
+						"tim: when i was a child i stood above a pond.",
+						"tim: i looked into it, and saw my own reflection.",
+						"tim: but then i lost my watch, and it plopped into it, destroying me with the ripples.",
+						"tim: who am i now? has time taken me away?",
+						"tim: how can i stay grounded now? without peter?"
+					]
+				},
+				"paul": {
+					"x": 7.0,
+					"y": 20.0,
+					"sprite": 65.0,
+					"script": [
+						"paul: peter used to say that, all i was in control of, was my own actions.",
+						"paul: ... he told me to believe in myself.",
+						"paul: what is belief? and who am i? a sicko who cuts off the limbs of dead pets.",
+						"paul: dear beloved pets... and for what?"
+					]
+				},
+				"sharon": {
+					"x": 18.0,
+					"y": 6.0,
+					"sprite": 82.0,
+					"script": [
+						"sharon: i can't believe any of this is happening.",
+						"sharon: i will never get over this.",
+						"sharon: my make-up is running, but i don't even care at this point.",
+						"sharon: .... that's a lie, i do care - and i hate myself for it!"
+					]
+				},
+				"animal": {
+					"x": 14.5,
+					"y": 3.75,
+					"sprite": 100.0,
+					"firstsprite": 100.0,
+					"maxsprite": 104.0,
+					"repititionnumber": 4.0,
+					"talkedto": true,
+					"script": [
+						"dog: what are you talking to me for?"
+					]
+				},
+				"animal2": {
+					"x": 8.0,
+					"y": 16.0,
+					"sprite": 96.0,
+					"firstsprite": 96.0,
+					"maxsprite": 100.0,
+					"repititionnumber": 4.0,
+					"talkedto": true,
+					"script": [
+						"chicken: cuck!"
+					]
+				}
+			}
+		},
+		{
+			"help": "after peters funeral...",
+			"chars": {
+				"grave": {
+					"x": 24.5,
+					"y": 11.5,
+					"sprite": 119.0,
+					"talkedto": true,
+					"dead": true,
+					"script": [
+						"\"here lies peter\""
+					]
+				},
+				"john": {
+					"x": 1.375,
+					"y": 6.625,
+					"sprite": 66.0,
+					"script": [
+						"john: man... that guy, peter... i guess he wasn't such an oddball after all...",
+						"john: i mean, if it wasn't for him, i never would have told sharon how i feel about her...",
+						"john: and now we're getting married! who would have thought she was a sucker for emotional guys...",
+						"john: heh... thanks, peter... you idiot..."
+					]
+				},
+				"dave": {
+					"x": 13.875,
+					"y": 6.625,
+					"sprite": 67.0,
+					"script": [
+						"dave: i've gotten more work done in the last couple of days, than i have in forever!",
+						"dave: ... not always great work, but... the customers seems happy...",
+						"dave: and, boy, do i feel better about myself!",
+						"dave: ...",
+						"dave: peter... wherever you are... i owe you one..."
+					]
+				},
+				"tim": {
+					"x": 28.0,
+					"y": 4.0,
+					"sprite": 68.0,
+					"script": [
+						"tim: dear peter... am i still crazy for talking to a dead guy..?",
+						"tim: i swear i haven't touched the stuff for several days now!",
+						"tim: the others may not admit it, but... i think you are the best martyr the village has ever had.",
+						"tim: ...",
+						"tim: let's hope paul doesn't cut off your foot."
+					]
+				},
+				"paul": {
+					"x": 7.0,
+					"y": 20.0,
+					"sprite": 65.0,
+					"script": [
+						"paul: i am in control of my own life... me and no one else..!",
+						"paul: not the stars or a rabbit's foot or any of that nonsense...",
+						"paul: besides... i gave fluffy's foot to sharon as something to remember him by...",
+						"paul: thanks for believing in me, peter... when i couldn't do so myself..."
+					]
+				},
+				"sharon": {
+					"x": 18.0,
+					"y": 6.0,
+					"sprite": 82.0,
+					"script": [
+						"sharon: i am beautiful... i know that now...",
+						"sharon: not just because johnny tells me every day... but because peter taught me how to love myself...",
+						"sharon: i never thought my johnny could be such a sweetheart. once you get to know him.",
+						"sharon: ...",
+						"sharon: peter was such a sweet guy... i'm surprised he was still single when he died..."
+					]
+				},
+				"richard": {
+					"x": 23.5,
+					"y": 12.5,
+					"sprite": 64.0,
+					"script": [
+						"richard is tending to peter's grave.",
+						"richard: your funeral was great.",
+						"richard: ...",
+						"richard: if you're listening, i still have those thoughts peter.",
+						"richard: ... but you'll be happy to know that i haven't acted on them.",
+						"richard: i guess you did help me after all, huh?"
+					]
+				}
+			}
+		},
+		{
+			"help": "hold x to let go",
+			"chars": {
+				"grave": {
+					"x": 24.5,
+					"y": 11.5,
+					"sprite": 119.0,
+					"talkedto": true,
+					"dead": true,
+					"script": [
+						"\"here lies peter\""
+					]
+				}
+			}
+		}
+	]
+}

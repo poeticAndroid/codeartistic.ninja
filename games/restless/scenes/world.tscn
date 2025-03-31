@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=4 uid="uid://c0m4snfxxhl8x"]
+[gd_scene load_steps=5 format=4 uid="uid://c0m4snfxxhl8x"]
 
 [ext_resource type="Script" uid="uid://b3d0wkwtj7gbh" path="res://games/restless/scenes/scripts/world.gd" id="1_e37s2"]
 [ext_resource type="TileSet" uid="uid://bvhbjcuje8u8m" path="res://games/restless/assets/gfx/tileset.tres" id="2_gfsut"]
+[ext_resource type="JSON" path="res://games/restless/assets/story.json" id="2_ugtnn"]
 [ext_resource type="LabelSettings" uid="uid://d0hiog8qtya38" path="res://games/restless/assets/fonts/label.tres" id="3_yaf0b"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_e37s2")
+story = ExtResource("2_ugtnn")
 
 [node name="Map" type="Parallax2D" parent="."]
 unique_name_in_owner = true
