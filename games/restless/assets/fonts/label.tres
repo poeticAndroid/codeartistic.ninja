@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d0hiog8qtya38"]
+
+[ext_resource type="FontFile" uid="uid://cf5fw04aojgkk" path="res://games/restless/assets/fonts/pico8.png" id="1_ri10x"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_ri10x")
+font_size = 24
