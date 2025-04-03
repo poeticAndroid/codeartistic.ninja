@@ -848,4 +848,21 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rysv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eundi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5kil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm1wy")
+}],
+"loop": true,
+"name": &"float",
+"speed": 30.0
 }]

@@ -18,8 +18,6 @@ extends AnimatedSprite2D
 @export var talkedto: bool
 @export var lines = []
 
-var drawnumber: int = 0
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,12 +26,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	drawnumber += 1
-	if (drawnumber % 30) == 1:
+	if (Global.session.drawnumber % 30) == 1:
 		if (randf() * 5) < 2:
 			if not dead: flip_h = not flip_h
 	if name == "animal":
-		if drawnumber % 20 == 1:
+		if Global.session.drawnumber % 20 == 1:
 			frame += 1
 			if frame >= maxsprite:
 				repititionnumber -= 1

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://6ohi85qmh7ic"]
+
+[ext_resource type="SpriteFrames" uid="uid://cfm4ckn5birl3" path="res://games/restless/assets/gfx/spritesheet.tres" id="1_xcegk"]
+[ext_resource type="Script" uid="uid://bwovyp55iptcx" path="res://games/restless/scenes/objects/scripts/ghost.gd" id="2_1txbe"]
+
+[node name="Ghost" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_xcegk")
+animation = &"float"
+autoplay = "float"
+frame_progress = 0.606569
+script = ExtResource("2_1txbe")
