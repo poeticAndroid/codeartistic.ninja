@@ -49,7 +49,8 @@ func pixel_snap(v: Vector2):
 func _on_area_2d_area_entered(node: Node2D) -> void:
 	while not "lines" in node:
 		node = node.get_parent()
-	listening_to = node
+	if node.visible:
+		listening_to = node
 
 
 func _on_area_2d_area_exited(node: Node2D) -> void:

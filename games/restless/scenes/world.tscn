@@ -219,6 +219,24 @@ unique_name_in_owner = true
 position = Vector2(-4096, -4096)
 metadata/_edit_group_ = true
 
+[node name="HelpBox" type="ColorRect" parent="Camera"]
+unique_name_in_owner = true
+visible = false
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = -232.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Camera/HelpBox"]
+modulate = Color(1, 0.945098, 0.909804, 1)
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 24.0
+text = "help!"
+label_settings = ExtResource("6_wmi15")
+horizontal_alignment = 1
+
 [node name="DialogBox" type="ColorRect" parent="Camera"]
 unique_name_in_owner = true
 visible = false
@@ -234,10 +252,6 @@ layout_mode = 0
 offset_top = 12.0
 offset_right = 512.0
 offset_bottom = 180.0
-text = "richard: his body is still 
-being examined, maybe i should 
-just wait until his cause of 
-death is known."
 label_settings = ExtResource("6_wmi15")
 
 [node name="CharLabel" type="Label" parent="Camera/DialogBox"]
@@ -246,8 +260,8 @@ layout_mode = 0
 offset_top = 12.0
 offset_right = 512.0
 offset_bottom = 180.0
-text = "richard:"
 label_settings = ExtResource("6_wmi15")
+visible_characters = 0
 
 [node name="ColorRect" type="ColorRect" parent="Camera"]
 offset_left = -480.0

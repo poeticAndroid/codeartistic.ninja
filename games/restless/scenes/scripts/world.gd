@@ -57,6 +57,11 @@ func _process(delta: float) -> void:
 
 func show_level(lvl: int):
 	if lvl >= story.data.size(): return
+	if story.data[lvl].has("help"):
+		%HelpBox.visible = true
+		%HelpBox/Label.text = story.data[lvl].help
+	else:
+		%HelpBox.visible = false
 	for char in %Characters.get_children():
 		char.visible = false
 		char.dead = false
