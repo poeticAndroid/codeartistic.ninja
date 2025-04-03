@@ -38,15 +38,33 @@ func _process(delta: float) -> void:
 
 
 func show_level(lvl: int):
-	if lvl >= story.data.levels.size(): return
+	if lvl >= story.data.size(): return
 	for char in %Characters.get_children():
 		char.visible = false
 		char.dead = false
 		char.talkedto = false
 		char.flip_h = false
-		var char_data = story.data.levels[lvl].chars
+		var char_data = story.data[lvl].chars
 		if char_data.has(char.name):
 			char_data = char_data[char.name]
 			for prop in char_data:
 				char[prop] = char_data[prop]
 			char.visible = true
+
+
+func wordwrap(txt: String, w: int):
+	var p = 0
+	var word = ""
+	var out = ""
+	for i in range(0, txt.length()):
+		var c = txt.substr(i, 1)
+		p += 1
+		word = word + c
+		if p > w:
+			out = out + "\n"
+			p = word.length()
+		if c == " ":
+			out = out + word
+			word = ""
+	out = out + word
+	return out

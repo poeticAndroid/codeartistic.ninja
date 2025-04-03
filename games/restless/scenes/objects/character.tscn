@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxvhby122md7t"]
+[gd_scene load_steps=4 format=3 uid="uid://bxvhby122md7t"]
 
 [ext_resource type="SpriteFrames" uid="uid://cfm4ckn5birl3" path="res://games/restless/assets/gfx/spritesheet.tres" id="1_h53t7"]
 [ext_resource type="Script" uid="uid://cjp0rw8rshcsi" path="res://games/restless/scenes/objects/scripts/character.gd" id="2_h53t7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h53t7"]
+size = Vector2(32, 32)
 
 [node name="animal" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_h53t7")
 frame = 65
 script = ExtResource("2_h53t7")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_h53t7")

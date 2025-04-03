@@ -1,5 +1,7 @@
 extends AnimatedSprite2D
 
+var listening_to: Node
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,3 +44,16 @@ func pixel_snap(v: Vector2):
 	v.y = int(v.y + 1024) % 1024
 	v = floor(v / 4) * 4
 	return v
+
+
+func _on_area_2d_area_entered(node: Node2D) -> void:
+	while not "lines" in node:
+		node = node.get_parent()
+	listening_to = node
+
+
+func _on_area_2d_area_exited(node: Node2D) -> void:
+	while not "lines" in node:
+		node = node.get_parent()
+	if listening_to == node:
+		listening_to = null

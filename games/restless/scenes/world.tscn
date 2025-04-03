@@ -214,7 +214,7 @@ unique_name_in_owner = true
 
 [node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(256, 256)
+position = Vector2(-4096, -4096)
 metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Camera"]
