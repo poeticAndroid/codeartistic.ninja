@@ -15,7 +15,7 @@ extends AnimatedSprite2D
 
 @export var dead: bool
 
-@export var talkedto: bool
+@export var talkedto: bool = true
 @export var lines = []
 
 
