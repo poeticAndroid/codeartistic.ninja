@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://c0m4snfxxhl8x"]
+[gd_scene load_steps=10 format=4 uid="uid://c0m4snfxxhl8x"]
 
 [ext_resource type="Script" uid="uid://b3d0wkwtj7gbh" path="res://games/restless/scenes/scripts/world.gd" id="1_e37s2"]
 [ext_resource type="JSON" path="res://games/restless/assets/story.json" id="2_ugtnn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bxvhby122md7t" path="res://games/restless/scenes/objects/character.tscn" id="4_lv1l1"]
 [ext_resource type="PackedScene" uid="uid://6ohi85qmh7ic" path="res://games/restless/scenes/objects/ghost.tscn" id="4_wmi15"]
 [ext_resource type="LabelSettings" uid="uid://d0hiog8qtya38" path="res://games/restless/assets/fonts/label.tres" id="6_wmi15"]
+[ext_resource type="AudioStream" uid="uid://bymiipctnki68" path="res://games/restless/assets/sfx/snd.wav" id="7_fre6s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lv1l1"]
 texture = ExtResource("3_ugtnn")
@@ -262,6 +263,9 @@ offset_right = 512.0
 offset_bottom = 180.0
 label_settings = ExtResource("6_wmi15")
 visible_characters = 0
+
+[node name="Snd" type="AudioStreamPlayer2D" parent="Camera/DialogBox"]
+stream = ExtResource("7_fre6s")
 
 [node name="ColorRect" type="ColorRect" parent="Camera"]
 offset_left = -480.0

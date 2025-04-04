@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf6j5gk2xebjx"]
+
+[ext_resource type="LabelSettings" uid="uid://d0hiog8qtya38" path="res://games/restless/assets/fonts/label.tres" id="1_lq53b"]
+
+[node name="End" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.160784, 0.678431, 1, 1)
+offset_top = 110.0
+offset_right = 960.0
+offset_bottom = 134.0
+text = "rest in peace"
+label_settings = ExtResource("1_lq53b")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(0.760784, 0.764706, 0.780392, 1)
+offset_top = 182.0
+offset_right = 960.0
+offset_bottom = 206.0
+text = "ldjam game made by"
+label_settings = ExtResource("1_lq53b")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+modulate = Color(0.372549, 0.341176, 0.309804, 1)
+offset_top = 230.0
+offset_right = 960.0
+offset_bottom = 374.0
+text = "poeticandroid
+and
+fennesz
+
+
+thank you for playing!"
+label_settings = ExtResource("1_lq53b")
+horizontal_alignment = 1

@@ -6,7 +6,7 @@
 		}
 	},
 	{
-		"help": "press x to listen in",
+		"help": "press a or x to listen in",
 		"chars": {
 			"richard": {
 				"x": 14.5,

@@ -42,10 +42,10 @@ func _process(delta: float) -> void:
 			if closure: offset.x -= 4
 			else: offset.y -= 4
 
-	if closure and (Input.is_action_pressed("ui_accept") or Input.is_action_pressed("ui_select")):
+	if closure and Input.is_action_pressed("ui_accept"):
 		offset.y -= 2
 		if offset.y < -320:
-			Global.replace_scene("./end")
+			Global.replace_scene("./end", true)
 
 	position = pixel_snap(position)
 

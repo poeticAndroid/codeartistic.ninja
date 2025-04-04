@@ -9,8 +9,8 @@ var lines = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.session.drawnumber = 0
 	Engine.max_fps = 30
+	Global.session.drawnumber = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,10 +21,10 @@ func _process(delta: float) -> void:
 		%Camera.position = %Ghost.position
 		if %DialogBox/LineLabel.visible_characters < 4096:
 			%DialogBox/LineLabel.visible_characters += 2
-		if current_line < 0 or Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_select"):
-			#if Input.is_action_pressed("ui_select"):
-				#current_line = lines.size() - 1
-			#else:
+		if current_line < 0 or Input.is_action_just_pressed("ui_accept") or Input.is_action_pressed("ui_select"):
+			if Input.is_action_pressed("ui_select"):
+				current_line = lines.size() - 1
+			else:
 			current_line += 1
 			%DialogBox/LineLabel.visible_characters = 0
 			if current_line < lines.size():
@@ -44,13 +44,14 @@ func _process(delta: float) -> void:
 		if Input.is_action_pressed("ui_down"): %Camera.position.y += 4
 		elif Input.is_action_pressed("ui_up"): %Camera.position.y += -4
 
-		if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_select")) and %Ghost.listening_to:
+		if Input.is_action_just_pressed("ui_accept") and %Ghost.listening_to:
 			%Ghost.offset = Vector2.ZERO
 			%Ghost.listening_to[0].talkedto = true
 			set_dialog_colors(%Ghost.listening_to[0].frame)
 			lines = %Ghost.listening_to[0].lines
 			current_line = -1
 			%DialogBox.visible = true
+			%DialogBox/Snd.play()
 			%Map.process_mode = Node.PROCESS_MODE_DISABLED
 
 	%DialogBox/CharLabel.visible_characters = min(%DialogBox/LineLabel.visible_characters, (%DialogBox/LineLabel.text + ":").find(":") + 1)
@@ -58,7 +59,9 @@ func _process(delta: float) -> void:
 
 func show_level(lvl: int):
 	if lvl >= story.data.size(): return
-	if lvl == story.data.size() - 1: %Ghost.closure = true
+	if lvl == story.data.size() - 1:
+		%Ghost.closure = true
+		Global.fadeout_music()
 	if story.data[lvl].has("help"):
 		%HelpBox.visible = true
 		%HelpBox/Label.text = story.data[lvl].help
@@ -131,6 +134,7 @@ const PicoColors = [
 		Color("#1d2b53"),
 		Color("#7e2553"),
 		Color("#008751"),
+
 		Color("#ab5236"),
 		Color("#5f574f"),
 		Color("#c2c3c7"),
@@ -140,6 +144,7 @@ const PicoColors = [
 		Color("#ffa300"),
 		Color("#ffec27"),
 		Color("#00e436"),
+
 		Color("#29adff"),
 		Color("#83769c"),
 		Color("#ff77a8"),
