@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 			if Input.is_action_pressed("ui_select"):
 				current_line = lines.size() - 1
 			else:
-			current_line += 1
+				current_line += 1
 			%DialogBox/LineLabel.visible_characters = 0
 			if current_line < lines.size():
 				%DialogBox/LineLabel.text = wordwrap(lines[current_line])

@@ -28,7 +28,7 @@ modulate = Color(0.372549, 0.341176, 0.309804, 1)
 offset_top = 374.0
 offset_right = 960.0
 offset_bottom = 398.0
-text = "press x to start"
+text = "press a or x to start"
 label_settings = ExtResource("2_j7sgi")
 horizontal_alignment = 1
 
