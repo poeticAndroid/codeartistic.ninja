@@ -1,6 +1,8 @@
 extends AnimatedSprite2D
 
-var listening_to: Node
+var listening_to: Array[Node] = []
+
+var closure: bool
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,30 +13,39 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var moved = false
-	if Input.is_action_pressed("ui_left"):
-		moved = true
-		flip_h = true
-		position.x += -4
 	if Input.is_action_pressed("ui_right"):
 		moved = true
 		flip_h = false
 		position.x += 4
-	if Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("ui_left"):
 		moved = true
-		position.y += -4
+		flip_h = true
+		position.x += -4
 	if Input.is_action_pressed("ui_down"):
 		moved = true
 		position.y += 4
+	elif Input.is_action_pressed("ui_up"):
+		moved = true
+		position.y += -4
 
 	if moved:
 		if not is_playing(): play()
 		offset = Vector2.ZERO
 	else:
-		if is_playing(): pause()
+		if is_playing():
+			listening_to.sort_custom(func(a, b): return position.distance_to(a.position) < position.distance_to(b.position))
+			pause()
 		if (Global.session.drawnumber % 30 == 1) or (Global.session.drawnumber % 30 == 7):
-			offset.y += 4
+			if closure: offset.x += 4
+			else: offset.y += 4
 		elif (Global.session.drawnumber % 30 == 15) or (Global.session.drawnumber % 30 == 22):
-			offset.y -= 4
+			if closure: offset.x -= 4
+			else: offset.y -= 4
+
+	if closure and (Input.is_action_pressed("ui_accept") or Input.is_action_pressed("ui_select")):
+		offset.y -= 2
+		if offset.y < -320:
+			Global.replace_scene("./end")
 
 	position = pixel_snap(position)
 
@@ -50,11 +61,11 @@ func _on_area_2d_area_entered(node: Node2D) -> void:
 	while not "lines" in node:
 		node = node.get_parent()
 	if node.visible:
-		listening_to = node
+		listening_to.erase(node)
+		listening_to.push_back(node)
 
 
 func _on_area_2d_area_exited(node: Node2D) -> void:
 	while not "lines" in node:
 		node = node.get_parent()
-	if listening_to == node:
-		listening_to = null
+	listening_to.erase(node)

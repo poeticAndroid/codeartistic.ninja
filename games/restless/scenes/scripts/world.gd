@@ -21,11 +21,11 @@ func _process(delta: float) -> void:
 		%Camera.position = %Ghost.position
 		if %DialogBox/LineLabel.visible_characters < 4096:
 			%DialogBox/LineLabel.visible_characters += 2
-		if current_line < 0 or Input.is_action_just_pressed("ui_accept") or Input.is_action_pressed("ui_select"):
-			if Input.is_action_pressed("ui_select"):
-				current_line = lines.size() - 1
-			else:
-				current_line += 1
+		if current_line < 0 or Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_select"):
+			#if Input.is_action_pressed("ui_select"):
+				#current_line = lines.size() - 1
+			#else:
+			current_line += 1
 			%DialogBox/LineLabel.visible_characters = 0
 			if current_line < lines.size():
 				%DialogBox/LineLabel.text = wordwrap(lines[current_line])
@@ -39,15 +39,16 @@ func _process(delta: float) -> void:
 			current_level += 1
 			show_level(current_level)
 
-		if Input.is_action_pressed("ui_left"): %Camera.position.x += -4
 		if Input.is_action_pressed("ui_right"): %Camera.position.x += 4
-		if Input.is_action_pressed("ui_up"): %Camera.position.y += -4
+		elif Input.is_action_pressed("ui_left"): %Camera.position.x += -4
 		if Input.is_action_pressed("ui_down"): %Camera.position.y += 4
+		elif Input.is_action_pressed("ui_up"): %Camera.position.y += -4
 
-		if Input.is_action_just_pressed("ui_accept") and %Ghost.listening_to:
-			%Ghost.listening_to.talkedto = true
-			set_dialog_colors(%Ghost.listening_to.frame)
-			lines = %Ghost.listening_to.lines
+		if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_select")) and %Ghost.listening_to:
+			%Ghost.offset = Vector2.ZERO
+			%Ghost.listening_to[0].talkedto = true
+			set_dialog_colors(%Ghost.listening_to[0].frame)
+			lines = %Ghost.listening_to[0].lines
 			current_line = -1
 			%DialogBox.visible = true
 			%Map.process_mode = Node.PROCESS_MODE_DISABLED
@@ -57,6 +58,7 @@ func _process(delta: float) -> void:
 
 func show_level(lvl: int):
 	if lvl >= story.data.size(): return
+	if lvl == story.data.size() - 1: %Ghost.closure = true
 	if story.data[lvl].has("help"):
 		%HelpBox.visible = true
 		%HelpBox/Label.text = story.data[lvl].help
