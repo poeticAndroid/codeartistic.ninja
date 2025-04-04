@@ -197,13 +197,11 @@ game_name = "blank"
 game_description = "It's the ___ game where you play the role of ___ and help ___ in order to ___."
 
 [node name="RestlessGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
-modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("9_8tby2")
 game_title = "Restless in a small world"
 game_name = "restless"
 game_description = "A pico-8 game about the afterlife, made for Ludum Dare 38."
-wip = true
 
 [node name="KillerappGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)

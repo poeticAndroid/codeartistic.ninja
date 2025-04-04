@@ -594,7 +594,7 @@
 		}
 	},
 	{
-		"help": "hold x to let go",
+		"help": "hold a or x to let go",
 		"chars": {
 			"grave": {
 				"x": 24.5,
