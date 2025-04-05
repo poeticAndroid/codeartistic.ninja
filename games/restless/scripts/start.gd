@@ -16,5 +16,10 @@ func _process(delta: float) -> void:
 	elif (Global.session.drawnumber % 30 == 15) or (Global.session.drawnumber % 30 == 22):
 		%Ghost.offset.y -= 4
 
-	if Input.is_action_just_pressed("ui_accept"):
-		Global.goto_scene("./scenes/world")
+
+func _on_play_btn_pressed() -> void:
+	Global.goto_scene("./scenes/world")
+
+
+func _on_credits_btn_pressed() -> void:
+	Global.goto_scene("./credits")

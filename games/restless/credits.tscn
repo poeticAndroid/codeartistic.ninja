@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0nwscv7ionre"]
+
+[ext_resource type="FontFile" uid="uid://dvifi2ds3w245" path="res://games/someday/assets/fonts/PressStart2P-Regular.ttf" id="1_4q8wu"]
+[ext_resource type="Script" uid="uid://ds38ki6id504i" path="res://games/restless/scripts/credits.gd" id="1_5mggo"]
+[ext_resource type="FontVariation" uid="uid://dfel4oqxq7ti1" path="res://games/someday/assets/fonts/PressStart2P_italics.tres" id="2_5mggo"]
+[ext_resource type="FontVariation" uid="uid://kkrjpq5l1mon" path="res://games/someday/assets/fonts/PressStart2P_bold_italics.tres" id="3_uhrmj"]
+[ext_resource type="FontVariation" uid="uid://cj5ys585nndy4" path="res://games/someday/assets/fonts/PressStart2P_bold.tres" id="4_y5p7b"]
+
+[node name="Credits" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5mggo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 320)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8, 0.8, 0.8, 1)
+theme_override_fonts/normal_font = ExtResource("1_4q8wu")
+theme_override_fonts/italics_font = ExtResource("2_5mggo")
+theme_override_fonts/bold_italics_font = ExtResource("3_uhrmj")
+theme_override_fonts/bold_font = ExtResource("4_y5p7b")
+bbcode_enabled = true
+text = "[b][font_size=32][color=#29adff]Restless in a small world[/color][/font_size][/b]
+
+A pico-8 game about the afterlife, made for [url=https://ldjam.com/events/ludum-dare/38]Ludum Dare 38[/url].
+
+[b][font_size=20][color=#29adff]Credits[/color][/font_size][/b]
+
+Originally made in pico-8 by [url=http://one.poeticandroid.online/]poeticAndroid[/url] and [url=http://ldjam.com/users/fennesz]fennesz[/url]
+
+\"Press Start 2P\" font by [url=https://fonts.google.com/specimen/Press+Start+2P]CodeMan38[/url].
+"
+
+[node name="Button" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_y5p7b")
+text = " < Back "
+
+[connection signal="meta_clicked" from="VBoxContainer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
