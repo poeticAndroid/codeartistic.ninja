@@ -1,10 +1,42 @@
-[gd_scene format=3 uid="uid://cy3n3aqyclnel"]
+[gd_scene load_steps=3 format=3 uid="uid://ciewf6ugaimc0"]
 
-[node name="Start" type="Node2D"]
+[ext_resource type="Script" uid="uid://dya0rexj24wap" path="res://games/killerapp/scripts/start.gd" id="1_0qwjd"]
+[ext_resource type="Texture2D" uid="uid://bwuowxoti4ij5" path="res://games/killerapp/assets/gfx/sunburst.png" id="1_3a2km"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 156.0
-offset_top = 76.0
-offset_right = 264.0
-offset_bottom = 99.0
-text = "Coming soon?"
+[node name="Start" type="CenterContainer"]
+offset_right = 1.0
+script = ExtResource("1_0qwjd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
+color = Color(1, 1, 0.933333, 1)
+
+[node name="Sunburst" type="Sprite2D" parent="."]
+position = Vector2(480, 480)
+texture = ExtResource("1_3a2km")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CreditsLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 270)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.133333, 0.2, 0.266667, 1)
+bbcode_enabled = true
+text = "[center][b][font_size=32]KILLER APP 2017[/font_size][/b][/center]
+
+This is what the kids are into these days! Hours of fun! Totally gonna win Game Of The Year 2017! ;)
+
+[font_size=24]CREDITS[/font_size]
+
+Made by [url=http://one.poeticandroid.online/]poeticAndroid[/url]"
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = " Take it for a spin! "
+
+[connection signal="meta_clicked" from="VBoxContainer/CreditsLabel" to="." method="_on_credits_label_meta_clicked"]
+[connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]

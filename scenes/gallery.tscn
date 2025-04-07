@@ -204,13 +204,11 @@ game_name = "restless"
 game_description = "A pico-8 game about the afterlife, made for Ludum Dare 38."
 
 [node name="KillerappGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
-modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("10_umsnr")
 game_title = "Killer App 2017"
 game_name = "killerapp"
 game_description = "This is what the kids are into these days! Hours of fun! Totally gonna win Game Of The Year 2017! ;)"
-wip = true
 
 [node name="DangerGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)

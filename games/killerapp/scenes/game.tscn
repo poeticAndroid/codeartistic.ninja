@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy3n3aqyclnel"]
+
+[ext_resource type="Texture2D" uid="uid://bwuowxoti4ij5" path="res://games/killerapp/assets/gfx/sunburst.png" id="1_3a2km"]
+[ext_resource type="Script" uid="uid://osqct1ft7lvv" path="res://games/killerapp/scenes/scripts/game.gd" id="1_w4ocm"]
+[ext_resource type="Texture2D" uid="uid://w1kr6kkr7yhl" path="res://games/killerapp/assets/gfx/spinner.png" id="2_0qwjd"]
+[ext_resource type="Texture2D" uid="uid://d4etckuqmwge0" path="res://games/killerapp/assets/gfx/cap.png" id="3_h0aep"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w4ocm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tijbp"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_w4ocm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 960.0
+offset_bottom = 540.0
+color = Color(1, 1, 0.933333, 1)
+
+[node name="Sunburst" type="Sprite2D" parent="."]
+position = Vector2(480, 480)
+texture = ExtResource("1_3a2km")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(480, 270)
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../Spinner")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(480, 270)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_w4ocm")
+
+[node name="Spinner" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(480, 270)
+angular_damp_mode = 1
+angular_damp = 0.12
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spinner"]
+shape = SubResource("CircleShape2D_tijbp")
+
+[node name="Spinner" type="Sprite2D" parent="Spinner/CollisionShape2D"]
+texture = ExtResource("2_0qwjd")
+
+[node name="Cap" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("3_h0aep")
+
+[node name="SpinBtn" type="Button" parent="." groups=["autofocus"]]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(512, 512)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 224.0
+offset_top = 14.0
+offset_right = 736.0
+offset_bottom = 526.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="SpinBtn" to="." method="spin"]
