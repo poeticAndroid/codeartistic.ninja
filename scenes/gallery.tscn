@@ -211,13 +211,11 @@ game_name = "killerapp"
 game_description = "This is what the kids are into these days! Hours of fun! Totally gonna win Game Of The Year 2017! ;)"
 
 [node name="DangerGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
-modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("11_wutrm")
 game_title = "Danger everywhere"
 game_name = "danger"
 game_description = "Something about anxiety and not being able to rest anywhere.."
-wip = true
 
 [node name="FineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)

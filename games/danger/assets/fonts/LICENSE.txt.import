@@ -1,0 +1,14 @@
+[remap]
+
+importer="online.poeticandroid.text_resource_importer"
+type="TextResource"
+uid="uid://cgorl37u8hvks"
+path="res://.godot/imported/LICENSE.txt-611bd140798af7d4d27308425234245b.tres"
+
+[deps]
+
+source_file="res://games/danger/assets/fonts/LICENSE.txt"
+dest_files=["res://.godot/imported/LICENSE.txt-611bd140798af7d4d27308425234245b.tres"]
+
+[params]
+
