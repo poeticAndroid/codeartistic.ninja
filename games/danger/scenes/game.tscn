@@ -68,10 +68,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jt74t"]
-atlas = ExtResource("2_ptud3")
-region = Rect2(0, 256, 256, 256)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xwyhi"]
 atlas = ExtResource("2_ptud3")
 region = Rect2(0, 0, 256, 256)
@@ -80,20 +76,16 @@ region = Rect2(0, 0, 256, 256)
 atlas = ExtResource("2_ptud3")
 region = Rect2(256, 0, 256, 256)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt74t"]
+atlas = ExtResource("2_ptud3")
+region = Rect2(0, 256, 256, 256)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxbxi"]
 atlas = ExtResource("2_ptud3")
 region = Rect2(256, 256, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_igb4c"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jt74t")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 12.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xwyhi")
@@ -119,11 +111,10 @@ script = ExtResource("1_2er3f")
 unique_name_in_owner = true
 position = Vector2(480, 270)
 sprite_frames = SubResource("SpriteFrames_wwgq0")
-autoplay = "default"
-frame_progress = 0.0631253
+frame = 7
 
 [node name="Anx" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(480, 270)
 sprite_frames = SubResource("SpriteFrames_igb4c")
-animation = &"idle"
+animation = &"walk"
