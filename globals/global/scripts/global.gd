@@ -25,6 +25,7 @@ func _ready():
 		get_window().always_on_top = true
 	else:
 		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+	get_tree().get_root().go_back_requested.connect(go_back)
 	get_tree().node_added.connect(_on_node_added)
 	scene_name = get_tree().current_scene.scene_file_path.replace("res:/", "").replace(".tscn", "")
 	history.push_back(scene_name)
