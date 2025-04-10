@@ -274,6 +274,7 @@ wip = true
 [node name="ManifestoTxt" type="RichTextLabel" parent="ScrollContainer/CenterContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("19_q283d")
 theme_override_fonts/italics_font = ExtResource("20_kk4fg")
 theme_override_fonts/bold_font = ExtResource("21_n7qvi")
