@@ -17,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
 script = ExtResource("1_m1io6")
 story_file = ExtResource("2_efyhq")
 passage = ExtResource("3_kik8i")
@@ -38,6 +39,6 @@ texture = ExtResource("7_q3k4m")
 
 [node name="StatusBar" parent="." instance=ExtResource("8_cddxm")]
 unique_name_in_owner = true
-position = Vector2(140, 512)
+position = Vector2(140, 540)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["music"]]

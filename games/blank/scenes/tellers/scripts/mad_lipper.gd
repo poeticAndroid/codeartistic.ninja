@@ -175,10 +175,7 @@ func set_status(status = ""):
 						status += get_suffix(input_name).to_lower()
 					else:
 						status += "something"
-			if output.ends_with("%"):
 				status += ", then press enter."
-			else:
-				status += "."
 		else:
 			if line.substr(output.length(), 1) == "%":
 				status = "Press enter."
@@ -231,13 +228,13 @@ func predict_next_char(word: String):
 
 func _input(event: InputEvent) -> void:
 	if not story: return
+
+	if Global.input_method != Global.DESKTOP_INPUT: return _on_game_key_timer_timeout()
+	if not event is InputEventKey: return
 	$TextEdit.grab_click_focus()
 	$TextEdit.grab_focus()
 	$TextEdit.set_caret_line($TextEdit.text.length())
 	$TextEdit.set_caret_column($TextEdit.text.length())
-
-	if Global.input_method != Global.DESKTOP_INPUT: return _on_game_key_timer_timeout()
-	if not event is InputEventKey: return
 	if event.physical_keycode == KEY_BACKSPACE: event.unicode = 8
 	if event.physical_keycode == KEY_TAB: event.unicode = 9
 	if event.physical_keycode == KEY_ENTER: event.unicode = 10

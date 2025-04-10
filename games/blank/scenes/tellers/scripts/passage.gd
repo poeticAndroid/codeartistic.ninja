@@ -13,7 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if DisplayServer.is_touchscreen_available():
+		get_theme_stylebox("panel").content_margin_bottom = clamp(DisplayServer.virtual_keyboard_get_height(), 64, 400)
 
 
 func add_teller(node: Node):

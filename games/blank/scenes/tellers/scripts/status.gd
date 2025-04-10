@@ -14,4 +14,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if DisplayServer.is_touchscreen_available():
+		position.y = max(62, 540 - DisplayServer.virtual_keyboard_get_height())

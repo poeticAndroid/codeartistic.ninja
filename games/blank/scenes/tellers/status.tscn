@@ -66,20 +66,21 @@ _data = {
 script = ExtResource("1_inpn2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -28.0
 offset_right = 680.0
-offset_bottom = 28.0
 color = Color(0.752941, 0.780392, 0.811765, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-offset_top = -1.0
+offset_top = -29.0
 offset_right = 680.0
+offset_bottom = -28.0
 color = Color(0, 0, 0, 1)
 
 [node name="StatusBar" type="Label" parent="."]
 unique_name_in_owner = true
 offset_left = 20.0
-offset_right = 75.0
-offset_bottom = 28.0
+offset_top = -28.0
+offset_right = 216.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "You can start typing now."
 vertical_alignment = 1
