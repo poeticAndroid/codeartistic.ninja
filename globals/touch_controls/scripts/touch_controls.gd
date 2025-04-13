@@ -150,7 +150,7 @@ func send_axis(axis: JoyAxis, value: float):
 	Input.parse_input_event(e)
 
 
-func engage(rc: bool) -> void:
+func engage(rc: bool = rc_mode) -> void:
 	rc_mode = rc
 	if is_engaged: return
 	ProjectSettings.set_setting("input_devices/pointing/emulate_mouse_from_touch", false)
