@@ -57,6 +57,8 @@ func _input(event: InputEvent):
 		toggle_audio("Music")
 	if event.is_action_pressed("toggle_sfx"):
 		toggle_audio("SFX")
+	if event.is_action_pressed("toggle_touch"):
+		toggle_touch()
 
 
 func toggle_fullscreen():
@@ -99,7 +101,7 @@ func fadeout_music():
 func go_back(fade: bool = true):
 	if loading:
 		return false
-	if "TouchControls" in Global:
+	if get_tree().get_node_count_in_group("touch_controller"):
 		TouchControls.disengage()
 	history.pop_back()
 	if history.size():
@@ -167,6 +169,11 @@ func play_sound(node: AudioStreamPlayer):
 	node.play()
 	await node.finished
 	node.queue_free()
+
+
+func toggle_touch():
+	ProjectSettings.set_setting("input_devices/pointing/emulate_touch_from_mouse",
+			not ProjectSettings.get_setting("input_devices/pointing/emulate_touch_from_mouse"))
 
 
 func _on_reload_timer_timeout() -> void:

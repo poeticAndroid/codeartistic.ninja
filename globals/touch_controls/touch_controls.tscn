@@ -249,7 +249,7 @@ _data = {
 &"engage": SubResource("Animation_f3ij2")
 }
 
-[node name="TouchControls" type="CanvasLayer"]
+[node name="TouchControls" type="CanvasLayer" groups=["touch_controller"]]
 script = ExtResource("1_sf2qm")
 
 [node name="ToggleTouch" type="TouchScreenButton" parent="."]
