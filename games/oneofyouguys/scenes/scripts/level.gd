@@ -8,6 +8,7 @@ var bullet_pool = []
 func _ready() -> void:
 	Engine.max_fps = 60
 	if Global.scene_name.get_file() != "start":
+		TouchControls.engage(true)
 		Global.persistant["oneofyouguys_checkpoint"] = Global.scene_name.get_file()
 
 

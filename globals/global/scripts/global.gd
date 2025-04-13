@@ -99,6 +99,8 @@ func fadeout_music():
 func go_back(fade: bool = true):
 	if loading:
 		return false
+	if "TouchControls" in Global:
+		TouchControls.disengage()
 	history.pop_back()
 	if history.size():
 		goto_scene(history.pop_back(), fade)

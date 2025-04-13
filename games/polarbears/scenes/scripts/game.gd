@@ -8,6 +8,7 @@ var player: Area2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Engine.max_fps = 60
+	TouchControls.engage(false)
 	var recordings = Global.session.get_or_add("polarbears_recordings", [])
 	var num = 0
 	for recording in recordings:
