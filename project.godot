@@ -127,9 +127,6 @@ toggle_touch={
 ]
 }
 
-
-
-
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"

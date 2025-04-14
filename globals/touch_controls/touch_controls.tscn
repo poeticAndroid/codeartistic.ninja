@@ -14,7 +14,7 @@
 size = Vector2(200, 540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qtu33"]
-size = Vector2(380, 540)
+size = Vector2(480, 540)
 
 [sub_resource type="Animation" id="Animation_40yw8"]
 length = 0.001
@@ -40,7 +40,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(190, 270)]
+"values": [Vector2(240, 270)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -52,7 +52,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(770, 270)]
+"values": [Vector2(720, 270)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -91,81 +91,6 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 0.25)]
 }
 
-[sub_resource type="Animation" id="Animation_a7c80"]
-resource_name = "disengage"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ToggleTouch:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(480, 270), Vector2(480, 810)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LeftTouch:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(190, 270), Vector2(-90, 710)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RightTouch:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(770, 270), Vector2(1050, 710)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("LeftTouch/LeftSlider:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.25), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("RightTouch/RightSlider:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.25), Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("RightTouch/Fire:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.25), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_f3ij2"]
 resource_name = "engage"
 length = 12.0
@@ -191,7 +116,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-90, 710), Vector2(190, 270)]
+"values": [Vector2(-90, 710), Vector2(240, 270)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -203,7 +128,83 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1050, 710), Vector2(770, 270)]
+"values": [Vector2(1050, 710), Vector2(720, 270)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftTouch/LeftSlider:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.25)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightTouch/RightSlider:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.25)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RightTouch/Fire:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4, 12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.25)]
+}
+
+[sub_resource type="Animation" id="Animation_726kd"]
+resource_name = "disengage"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ToggleTouch:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, 270), Vector2(480, 810)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftTouch:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(240, 270), Vector2(-90, 710)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightTouch:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(720, 270), Vector2(1050, 710)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -245,7 +246,7 @@ tracks/5/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_40yw8"]
 _data = {
 &"RESET": SubResource("Animation_40yw8"),
-&"disengage": SubResource("Animation_a7c80"),
+&"disengage": SubResource("Animation_726kd"),
 &"engage": SubResource("Animation_f3ij2")
 }
 
@@ -253,6 +254,7 @@ _data = {
 script = ExtResource("1_sf2qm")
 
 [node name="ToggleTouch" type="TouchScreenButton" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.5)
 position = Vector2(480, 270)
 shape = SubResource("RectangleShape2D_a7c80")
@@ -293,7 +295,7 @@ texture = ExtResource("5_726kd")
 
 [node name="LeftTouch" type="TouchScreenButton" parent="."]
 modulate = Color(1, 1, 1, 0.5)
-position = Vector2(190, 270)
+position = Vector2(240, 270)
 shape = SubResource("RectangleShape2D_qtu33")
 
 [node name="LeftSlider" type="Sprite2D" parent="LeftTouch"]
@@ -315,7 +317,7 @@ texture = ExtResource("6_siwea")
 
 [node name="RightTouch" type="TouchScreenButton" parent="."]
 modulate = Color(1, 1, 1, 0.5)
-position = Vector2(770, 270)
+position = Vector2(720, 270)
 shape = SubResource("RectangleShape2D_qtu33")
 
 [node name="Fire" type="Sprite2D" parent="RightTouch"]
@@ -351,5 +353,3 @@ libraries = {
 
 [connection signal="pressed" from="ToggleTouch" to="." method="disengage"]
 [connection signal="released" from="ToggleTouch" to="." method="disengage"]
-[connection signal="released" from="LeftTouch" to="." method="engage"]
-[connection signal="released" from="RightTouch" to="." method="engage"]

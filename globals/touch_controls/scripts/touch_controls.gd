@@ -171,6 +171,10 @@ func disengage() -> void:
 	ProjectSettings.set_setting("input_devices/pointing/emulate_mouse_from_touch", true)
 	leftThumb.center -= %LeftSlider.position
 	rightThumb.center -= %RightSlider.position
+	leftThumb.dir = Vector2.ZERO
+	rightThumb.dir = Vector2.ZERO
+	leftThumb.btn = false
+	rightThumb.btn = false
 	for axis in [JOY_AXIS_LEFT_X, JOY_AXIS_LEFT_Y, JOY_AXIS_RIGHT_X, JOY_AXIS_RIGHT_Y]:
 		send_axis(axis, 0.0)
 	for action in ["ui_left", "ui_right", "ui_up", "ui_down", "ui_accept", "ui_select"]:
@@ -179,6 +183,7 @@ func disengage() -> void:
 	create_tween().tween_property(%LeftSlider, "position", Vector2(110, -190), 1)
 	create_tween().tween_property(%RightSlider, "position", Vector2(-110, -190), 1)
 	create_tween().tween_property(%Fire, "position", Vector2(-142, -222), 1)
+	hide()
 
 
 func show_arrows():
