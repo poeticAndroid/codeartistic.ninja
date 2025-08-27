@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3forku44dj40"]
+
+[ext_resource type="Script" uid="uid://dm6rbjcxefiml" path="res://games/fine/scenes/scripts/bedroom.gd" id="1_4kyej"]
+[ext_resource type="Texture2D" uid="uid://b2du7tx2cb0g4" path="res://games/fine/assets/backgrounds/bedroom.png" id="2_6oelb"]
+[ext_resource type="PackedScene" uid="uid://dvoycd6gl1181" path="res://games/fine/scenes/objects/aye.tscn" id="3_f11sf"]
+[ext_resource type="PackedScene" uid="uid://n3t7ell5snjg" path="res://games/fine/scenes/objects/dialog.tscn" id="4_5sdw1"]
+[ext_resource type="PackedScene" uid="uid://bnqfewl3rmtcw" path="res://games/fine/scenes/objects/point_click.tscn" id="5_vkgft"]
+[ext_resource type="PackedScene" uid="uid://omqnbkl41wbp" path="res://games/fine/scenes/objects/bed.tscn" id="6_638es"]
+[ext_resource type="PackedScene" uid="uid://bphds7o1i4gf7" path="res://games/fine/scenes/objects/computer.tscn" id="7_pi0wa"]
+[ext_resource type="PackedScene" uid="uid://drle8hpi0gus5" path="res://games/fine/scenes/objects/fridge.tscn" id="8_du0js"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f11sf"]
+
+[node name="Bedroom" type="Node2D"]
+script = ExtResource("1_4kyej")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["music"]]
+
+[node name="Bedroom" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("2_6oelb")
+
+[node name="Bed" parent="." instance=ExtResource("6_638es")]
+unique_name_in_owner = true
+position = Vector2(156, 339)
+
+[node name="Computer" parent="." instance=ExtResource("7_pi0wa")]
+position = Vector2(441, 339)
+
+[node name="Fridge" parent="." instance=ExtResource("8_du0js")]
+position = Vector2(771, 339)
+
+[node name="Aye" parent="." instance=ExtResource("3_f11sf")]
+unique_name_in_owner = true
+position = Vector2(156, 420)
+dark = false
+state = "sleep"
+
+[node name="Dialog" parent="." instance=ExtResource("4_5sdw1")]
+unique_name_in_owner = true
+
+[node name="PointClick" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_vkgft")]
+player = NodePath("../Aye")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(480, 435)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_f11sf")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(480, 404)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_f11sf")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(60, 270)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_f11sf")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(900, 270)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_f11sf")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://omqnbkl41wbp"]
+
+[ext_resource type="Script" uid="uid://bxtks1mjbt6er" path="res://games/fine/scenes/objects/scripts/bed.gd" id="1_5b2fa"]
+[ext_resource type="Texture2D" uid="uid://daqv7gwdty7p8" path="res://games/fine/assets/sprites/things.png" id="1_64o4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie1dn"]
+size = Vector2(192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b2fa"]
+atlas = ExtResource("1_64o4x")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smn0j"]
+atlas = ExtResource("1_64o4x")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64o4x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5b2fa")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smn0j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Bed" type="Area2D"]
+script = ExtResource("1_5b2fa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ie1dn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_64o4x")
+animation = &"active"
+autoplay = "idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

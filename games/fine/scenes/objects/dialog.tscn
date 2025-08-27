@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://n3t7ell5snjg"]
+
+[ext_resource type="FontFile" uid="uid://c5i33a0n30koh" path="res://games/fine/assets/fonts/ComingSoon-Regular.ttf" id="1_tfeax"]
+[ext_resource type="Script" uid="uid://d3ak1ejuynpy0" path="res://games/fine/scenes/objects/scripts/dialog.gd" id="2_4dd67"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w7tl5"]
+font = ExtResource("1_tfeax")
+font_size = 32
+font_color = Color(0.733333, 0.933333, 1, 1)
+
+[node name="Dialog" type="Label"]
+offset_top = 464.0
+offset_right = 960.0
+offset_bottom = 513.0
+label_settings = SubResource("LabelSettings_w7tl5")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("2_4dd67")

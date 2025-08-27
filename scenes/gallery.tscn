@@ -218,13 +218,11 @@ game_name = "danger"
 game_description = "Something about anxiety and not being able to rest anywhere.."
 
 [node name="FineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
-modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("12_puv5g")
 game_title = "This is fine"
 game_name = "fine"
 game_description = "Yet another pretentious anti-game.. *You* figure out what it means.."
-wip = true
 
 [node name="SertralineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)

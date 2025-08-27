@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://drle8hpi0gus5"]
+
+[ext_resource type="Script" uid="uid://4sqpwu1gmui3" path="res://games/fine/scenes/objects/scripts/fridge.gd" id="1_s3hfg"]
+[ext_resource type="Texture2D" uid="uid://daqv7gwdty7p8" path="res://games/fine/assets/sprites/things.png" id="2_yimiv"]
+[ext_resource type="AudioStream" uid="uid://243hnhn38pjm" path="res://games/fine/assets/sounds/fridge.wav" id="3_yimiv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ie1dn"]
+size = Vector2(192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3hfg"]
+atlas = ExtResource("2_yimiv")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yimiv"]
+atlas = ExtResource("2_yimiv")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64o4x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3hfg")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yimiv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Fridge" type="Area2D"]
+script = ExtResource("1_s3hfg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ie1dn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_64o4x")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Sfx" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_yimiv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

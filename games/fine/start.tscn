@@ -1,10 +1,54 @@
-[gd_scene format=3 uid="uid://dsx6yg75fnvv"]
+[gd_scene load_steps=6 format=3 uid="uid://dsx6yg75fnvv"]
 
-[node name="Start" type="Node2D"]
+[ext_resource type="Script" uid="uid://bjtm2mkq1qnyd" path="res://games/fine/scripts/start.gd" id="1_lpsog"]
+[ext_resource type="Texture2D" uid="uid://cpx71v68vy1ny" path="res://games/fine/assets/backgrounds/dream.png" id="1_u8i2w"]
+[ext_resource type="FontFile" uid="uid://c5i33a0n30koh" path="res://games/fine/assets/fonts/ComingSoon-Regular.ttf" id="2_xhte3"]
+[ext_resource type="FontVariation" uid="uid://dijhi4rxb1uhd" path="res://games/fine/assets/fonts/PermanentMarker-Regular.tres" id="4_lpsog"]
+[ext_resource type="AudioStream" uid="uid://ccnie8sppsynw" path="res://games/fine/assets/sounds/water.mp3" id="5_lr2ga"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 162.0
-offset_top = 80.0
-offset_right = 270.0
-offset_bottom = 103.0
-text = "Coming soon?"
+[node name="Start" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lpsog")
+
+[node name="Dream" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("1_u8i2w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CreditsLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_xhte3")
+theme_override_fonts/bold_font = ExtResource("4_lpsog")
+bbcode_enabled = true
+text = "[center][b][font_size=32]This is fine[/font_size][/b][/center]
+
+Yet another pretentious anti-game.. You figure out what it means..
+
+[b][font_size=24]Credits[/font_size][/b]
+
+Made by [url=http://one.poeticandroid.online/]poeticAndroid[/url]
+
+Water stream sound by [url=https://freesound.org/people/InspectorJ/]InspectorJ[/url]
+
+Fonts from [url=https://fonts.google.com/share?selection.family=Coming+Soon|Permanent+Marker]Google Fonts[/url]
+
+"
+fit_content = true
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Begin"
+
+[node name="Water" type="AudioStreamPlayer" parent="." groups=["music"]]
+stream = ExtResource("5_lr2ga")
+
+[connection signal="meta_clicked" from="VBoxContainer/CreditsLabel" to="." method="_on_credits_label_meta_clicked"]
+[connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
