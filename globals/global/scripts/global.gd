@@ -21,10 +21,7 @@ func _ready():
 	$TransitionAnimations.play_backwards("fade_to_black")
 	if FileAccess.file_exists("user://persistant.json"):
 		persistant = JSON.parse_string(FileAccess.get_file_as_string("user://persistant.json"))
-	if OS.is_debug_build():
-		get_window().always_on_top = true
-	else:
-		get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
+	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN
 	get_tree().get_root().go_back_requested.connect(go_back)
 	get_tree().node_added.connect(_on_node_added)
 	scene_name = get_tree().current_scene.scene_file_path.replace("res:/", "").replace(".tscn", "")
@@ -132,7 +129,7 @@ func goto_scene(name: String, fade: bool = true):
 		name = name.simplify_path()
 	else:
 		name = scene_name.get_base_dir().path_join(name).simplify_path()
-	assert(FileAccess.file_exists("res:/" + name + ".tscn"), "Scene not found " + name)
+	assert(ResourceLoader.exists("res:/" + name + ".tscn"), "Scene not found " + name)
 	print("Loading scene '" + name + "'")
 	scene_name = name
 	history.push_back(name)
