@@ -1,0 +1,14 @@
+[remap]
+
+importer="online.poeticandroid.text_resource_importer"
+type="TextResource"
+uid="uid://d1o7pm7g6p5dm"
+path="res://.godot/imported/LICENSE.txt-e9e700290e35e76d0fb0f8c837d47d9a.tres"
+
+[deps]
+
+source_file="res://games/sertraline/assets/fonts/LICENSE.txt"
+dest_files=["res://.godot/imported/LICENSE.txt-e9e700290e35e76d0fb0f8c837d47d9a.tres"]
+
+[params]
+

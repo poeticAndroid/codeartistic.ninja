@@ -1,10 +1,48 @@
-[gd_scene format=3 uid="uid://dbuumaceqc384"]
+[gd_scene load_steps=5 format=3 uid="uid://dbuumaceqc384"]
 
-[node name="Start" type="Node2D"]
+[ext_resource type="Script" uid="uid://gh4l4vprg28c" path="res://games/sertraline/scripts/start.gd" id="1_ag6oa"]
+[ext_resource type="Texture2D" uid="uid://x6v2kmgqmhm0" path="res://games/sertraline/assets/backgrounds/dream.png" id="1_s1qk8"]
+[ext_resource type="FontFile" uid="uid://bcoqu2vx7xxf8" path="res://games/sertraline/assets/fonts/ComingSoon-Regular.ttf" id="2_1f4n8"]
+[ext_resource type="FontVariation" uid="uid://cp6i3ilqftabs" path="res://games/sertraline/assets/fonts/PermanentMarker-Regular.tres" id="3_ag6oa"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 405.0
-offset_top = 179.0
-offset_right = 513.0
-offset_bottom = 202.0
-text = "Coming soon?"
+[node name="Start" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ag6oa")
+
+[node name="Dream" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("1_s1qk8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CreditsLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_1f4n8")
+theme_override_fonts/bold_font = ExtResource("3_ag6oa")
+bbcode_enabled = true
+text = "[center][b][font_size=48]Sertraline[/font_size][/b][/center]
+
+Gimme them calming drugs.. so that I may feel nothing..
+
+[b][font_size=24]Credits[/font_size][/b]
+
+Made by [url=http://one.poeticandroid.online/]poeticAndroid[/url]
+
+Fonts from [url=https://fonts.google.com/share?selection.family=Coming+Soon|Permanent+Marker]Google Fonts[/url]
+
+"
+fit_content = true
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Begin"
+
+[connection signal="meta_clicked" from="VBoxContainer/CreditsLabel" to="." method="_on_credits_label_meta_clicked"]
+[connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]

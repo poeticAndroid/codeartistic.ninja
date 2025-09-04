@@ -225,13 +225,11 @@ game_name = "fine"
 game_description = "Yet another pretentious anti-game.. *You* figure out what it means.."
 
 [node name="SertralineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
-modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("13_voiff")
 game_title = "Sertraline"
 game_name = "sertraline"
 game_description = "Gimme them calming drugs.. so that I may feel nothing.."
-wip = true
 
 [node name="EmotionsGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)
