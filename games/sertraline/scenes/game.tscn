@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://pvwvibne5fog"]
+
+[ext_resource type="Script" uid="uid://cb7ceejqwog78" path="res://games/sertraline/scenes/scripts/game.gd" id="1_0g478"]
+[ext_resource type="Texture2D" uid="uid://b1p574c3digf3" path="res://games/sertraline/assets/backgrounds/neuron-map.jpg" id="2_r36d6"]
+[ext_resource type="PackedScene" uid="uid://ccbh6o1r6cgbg" path="res://games/sertraline/scenes/objects/ship.tscn" id="3_hpnv1"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_0g478")
+
+[node name="Neuron-map" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("2_r36d6")
+
+[node name="Ship" parent="." instance=ExtResource("3_hpnv1")]
+position = Vector2(480, 540)

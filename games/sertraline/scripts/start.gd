@@ -16,4 +16,4 @@ func _on_credits_label_meta_clicked(meta: Variant) -> void:
 
 
 func _on_play_btn_pressed() -> void:
-	Global.goto_scene("./scenes/dream")
+	Global.goto_scene("./scenes/game")
