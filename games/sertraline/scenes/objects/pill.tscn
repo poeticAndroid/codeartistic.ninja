@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://cvnceyyy2u5ra"]
+
+[ext_resource type="Shape2D" uid="uid://bqmepqmu1xa3s" path="res://games/sertraline/scenes/objects/circle.tres" id="1_jaepy"]
+[ext_resource type="Script" uid="uid://dmhdeqfxrl8bv" path="res://games/sertraline/scenes/objects/scripts/pill.gd" id="1_nnpcc"]
+[ext_resource type="Texture2D" uid="uid://bf4yg01l1xaxy" path="res://games/sertraline/assets/sprites/pill.png" id="2_nnpcc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6dv6"]
+atlas = ExtResource("2_nnpcc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0qo0"]
+atlas = ExtResource("2_nnpcc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8claw"]
+atlas = ExtResource("2_nnpcc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2m5a"]
+atlas = ExtResource("2_nnpcc")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tin3x"]
+atlas = ExtResource("2_nnpcc")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_box7q"]
+atlas = ExtResource("2_nnpcc")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxigr"]
+atlas = ExtResource("2_nnpcc")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0jjk"]
+atlas = ExtResource("2_nnpcc")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yl7ox"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6dv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0qo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8claw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2m5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tin3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_box7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxigr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0jjk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Pill" type="Area2D" groups=["pill"]]
+script = ExtResource("1_nnpcc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("1_jaepy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_yl7ox")
+autoplay = "default"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

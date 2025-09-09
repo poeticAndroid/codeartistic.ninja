@@ -1,6 +1,8 @@
 extends Area2D
 
 var velocity = Vector2(0, -4)
+var ammo: Array = []
+var taken = true
 
 
 # Called when the node enters the scene tree for the first time.
@@ -21,3 +23,22 @@ func _process(delta: float) -> void:
 
 	position += velocity
 	velocity *= 0.99
+
+
+func _on_area_entered(thing: Area2D) -> void:
+	if thing.is_in_group("pill") and not thing.taken:
+		thing.follow = self
+		if not ammo.has(thing):
+			var next = ammo.back()
+			ammo.push_back(thing)
+			await get_tree().create_timer(10).timeout
+			if not is_instance_valid(thing): return
+			if not ammo.has(thing): return
+			if next:
+				if not is_instance_valid(next): return
+				if not ammo.has(next): return
+				next.follow = thing
+				if next.first: thing.first = next.first
+				next.first = false
+			else:
+				thing.first = true
