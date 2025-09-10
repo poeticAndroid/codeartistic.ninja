@@ -4,12 +4,15 @@ extends Node2D
 
 var pill_scene = preload("res://games/sertraline/scenes/objects/pill.tscn")
 var joy_scene = preload("res://games/sertraline/scenes/objects/joy.tscn")
+var anx_scene = preload("res://games/sertraline/scenes/objects/anx.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Engine.max_fps = 12
 	TouchControls.engage(true)
+	await get_tree().create_timer(1).timeout
+	_on_challenge_timer_timeout()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,17 +35,18 @@ func spawn_pill():
 
 
 func spawn_joy():
-	var joy = joy_scene.instantiate()
-	joy.position = ship.position
-	joy.rotation = ship.rotation
-	add_child(joy)
+	add_child(joy_scene.instantiate())
+
+
+func spawn_anx():
+	add_child(anx_scene.instantiate())
 
 
 func _on_challenge_timer_timeout() -> void:
 	if get_child_count() < 1024:
 		spawn_pill()
-		#if (this.ammo.length === 0)this.spawn("Anx");
+		if ship.ammo.size() == 0: spawn_anx()
 		%ChallengeTimer.wait_time = 10
 	else:
-		#this.actorsByType["Ship"][0].shoot();
+		ship.fire()
 		%ChallengeTimer.wait_time = 1

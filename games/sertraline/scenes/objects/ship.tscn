@@ -80,3 +80,4 @@ autoplay = "default"
 frame_progress = 0.822343
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

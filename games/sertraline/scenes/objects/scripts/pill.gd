@@ -14,11 +14,11 @@ var taken:
 			get_tree().create_tween().tween_property(self, "scale", Vector2(1, 1), 1)
 var follow: Area2D
 var clingy = 128.0
-var first:
-	set(val):
-		first = val
-		if first: modulate = Color.RED
-		else: modulate = Color.WHITE
+var first: bool
+	#set(val):
+		#first = val
+		#if first: modulate = Color.RED
+		#else: modulate = Color.WHITE
 
 
 # Called when the node enters the scene tree for the first time.
@@ -50,7 +50,9 @@ func consume():
 
 
 func _on_area_entered(thing: Area2D) -> void:
-	if not taken: return
+	if not taken:
+		if thing.is_in_group("anx"): consume()
+		return
 	if not first: return
 	if thing.is_in_group("pill") and thing.taken and thing.follow == get_parent().ship:
 		follow = thing

@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://cx72467u683d4"]
+
+[ext_resource type="Script" uid="uid://bbhc718s6hjac" path="res://games/sertraline/scenes/objects/scripts/anx.gd" id="1_onays"]
+[ext_resource type="Shape2D" uid="uid://bqmepqmu1xa3s" path="res://games/sertraline/scenes/objects/circle.tres" id="2_3mb1q"]
+[ext_resource type="Texture2D" uid="uid://vh1cx0brqw75" path="res://games/sertraline/assets/sprites/anx.png" id="3_1kceu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri6jf"]
+atlas = ExtResource("3_1kceu")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iqy7"]
+atlas = ExtResource("3_1kceu")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyv4m"]
+atlas = ExtResource("3_1kceu")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnwbe"]
+atlas = ExtResource("3_1kceu")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcxc8"]
+atlas = ExtResource("3_1kceu")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iksf2"]
+atlas = ExtResource("3_1kceu")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgmcg"]
+atlas = ExtResource("3_1kceu")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_417bo"]
+atlas = ExtResource("3_1kceu")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_llmwc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri6jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iqy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyv4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnwbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcxc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iksf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgmcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_417bo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Anx" type="Area2D" groups=["anx"]]
+script = ExtResource("1_onays")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_3mb1q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_llmwc")
+autoplay = "default"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

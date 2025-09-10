@@ -5,6 +5,8 @@ var velocity = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	position = get_parent().ship.position
+	rotation = get_parent().ship.rotation
 	velocity = Vector2(sin(rotation) * 16, -cos(rotation) * 16)
 
 
@@ -15,3 +17,8 @@ func _process(delta: float) -> void:
 		queue_free()
 
 	position += velocity
+
+
+func _on_area_entered(thing: Area2D) -> void:
+	if thing.is_in_group("anx"):
+		queue_free()

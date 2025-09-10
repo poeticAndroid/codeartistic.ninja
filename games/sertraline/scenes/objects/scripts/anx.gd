@@ -1,0 +1,46 @@
+extends Area2D
+
+var velocity = Vector2(randf_range(-4, 4), randf_range(-4, 4))
+var angular_velocity = randf_range(-0.4, 0.4)
+
+var taken = false
+var growing = false
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	position = Vector2(-32, randf_range(0, 540))
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if growing:
+		scale += Vector2(0.1, 0.1)
+		if scale.x > 32: explode()
+
+	position += velocity
+	rotation += angular_velocity
+
+
+func explode():
+	if taken: return
+	taken = true
+	get_tree().create_tween().tween_property(self, "modulate:a", 0, 0.5)
+	await get_tree().create_tween().tween_property(self, "scale", Vector2(2, 2), 0.5).finished
+	queue_free()
+
+
+func _on_area_entered(thing: Area2D) -> void:
+	if taken: return
+	if thing.is_in_group("ship"):
+		growing = true
+	if thing.is_in_group("joy"):
+		explode()
+	if thing.is_in_group("anx"):
+		if thing.scale.x > scale.x:
+			explode()
+
+
+func _on_area_exited(thing: Area2D) -> void:
+	if thing.is_in_group("ship"):
+		growing = false
