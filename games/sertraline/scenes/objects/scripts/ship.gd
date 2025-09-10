@@ -21,8 +21,19 @@ func _process(delta: float) -> void:
 	elif velocity.length():
 		velocity *= (velocity.length() - dir.y) / velocity.length()
 
+	if Input.is_action_just_pressed("ui_accept"): fire()
+
 	position += velocity
 	velocity *= 0.99
+
+
+func fire():
+	if ammo.size():
+		var pill = ammo.pop_back()
+		if ammo.back():
+			ammo.back().follow = self
+		pill.consume()
+		get_parent().spawn_joy()
 
 
 func _on_area_entered(thing: Area2D) -> void:
@@ -40,5 +51,6 @@ func _on_area_entered(thing: Area2D) -> void:
 				next.follow = thing
 				if next.first: thing.first = next.first
 				next.first = false
-			else:
-				thing.first = true
+			for pill in ammo:
+				if pill.first: return
+			ammo.back().first = true

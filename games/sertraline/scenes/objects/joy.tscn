@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://dks1n0dsh4jl2"]
+
+[ext_resource type="Script" uid="uid://b1ri2b8ij6w73" path="res://games/sertraline/scenes/objects/scripts/joy.gd" id="1_ajw26"]
+[ext_resource type="Shape2D" uid="uid://bqmepqmu1xa3s" path="res://games/sertraline/scenes/objects/circle.tres" id="2_4g1hw"]
+[ext_resource type="Texture2D" uid="uid://cpu7iqst4jm4c" path="res://games/sertraline/assets/sprites/joy.png" id="3_liqdt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5uyo"]
+atlas = ExtResource("3_liqdt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfyaw"]
+atlas = ExtResource("3_liqdt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ldf0"]
+atlas = ExtResource("3_liqdt")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe7m5"]
+atlas = ExtResource("3_liqdt")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ganh"]
+atlas = ExtResource("3_liqdt")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljpeg"]
+atlas = ExtResource("3_liqdt")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp3x5"]
+atlas = ExtResource("3_liqdt")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm680"]
+atlas = ExtResource("3_liqdt")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cce7h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5uyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfyaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ldf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xe7m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ganh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljpeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jp3x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm680")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Joy" type="Area2D"]
+script = ExtResource("1_ajw26")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_4g1hw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_cce7h")
+autoplay = "default"
+frame_progress = 0.274083

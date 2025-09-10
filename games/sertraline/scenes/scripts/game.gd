@@ -3,6 +3,7 @@ extends Node2D
 @onready var ship: Area2D = %Ship
 
 var pill_scene = preload("res://games/sertraline/scenes/objects/pill.tscn")
+var joy_scene = preload("res://games/sertraline/scenes/objects/joy.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +29,13 @@ func warp():
 
 func spawn_pill():
 	add_child(pill_scene.instantiate())
+
+
+func spawn_joy():
+	var joy = joy_scene.instantiate()
+	joy.position = ship.position
+	joy.rotation = ship.rotation
+	add_child(joy)
 
 
 func _on_challenge_timer_timeout() -> void:

@@ -8,12 +8,12 @@ var taken:
 		if taken == val: return
 		taken = val
 		if taken:
-			get_tree().create_tween().tween_property(self, "scale", Vector2(0.5, 0.5), 1)
+			get_tree().create_tween().tween_property(self, "scale", Vector2(0.5, 0.5), 0.5)
 		else:
 			follow = null
 			get_tree().create_tween().tween_property(self, "scale", Vector2(1, 1), 1)
 var follow: Area2D
-var clingy = 64.0
+var clingy = 128.0
 var first:
 	set(val):
 		first = val
@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 		velocity = follow.position - position
 		if velocity.length() > 0 and velocity.length() <= clingy:
 			velocity *= (velocity.length() - scale.x * 32 - follow.scale.x * 32) / velocity.length()
-			if clingy > 64: clingy -= 1
+			if clingy > 128: clingy -= 1
 		elif velocity.length() > clingy:
 			velocity = follow.velocity
 			clingy += 1
@@ -43,10 +43,10 @@ func _process(delta: float) -> void:
 	rotation += angular_velocity
 
 
-func reset():
-	follow = null
-	taken = false
+func consume():
 	first = false
+	await get_tree().create_tween().tween_property(self, "scale", Vector2(0, 0), 0.5).finished
+	queue_free()
 
 
 func _on_area_entered(thing: Area2D) -> void:
