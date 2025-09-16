@@ -14,11 +14,16 @@ var taken:
 			get_tree().create_tween().tween_property(self, "scale", Vector2(1, 1), 1)
 var follow: Area2D
 var clingy = 128.0
-var first: bool
-	#set(val):
-		#first = val
-		#if first: modulate = Color.RED
-		#else: modulate = Color.WHITE
+var first:
+	set(val):
+		first = val
+		if first: modulate = Color.RED
+		else: modulate = Color.WHITE
+
+var consuming = false
+
+var overlapping_pills = []
+var overlapping_anx = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,8 +33,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if taken and not is_instance_valid(follow):
+		follow = get_parent().ship
+	if follow: taken = follow.taken
+	else: taken = false
 	if follow:
-		taken = follow.taken
 		process_priority = follow.process_priority + 1
 		velocity = follow.position - position
 		if velocity.length() > 0 and velocity.length() <= clingy:
@@ -39,22 +47,32 @@ func _process(delta: float) -> void:
 			velocity = follow.velocity
 			clingy += 1
 
+		for pill in overlapping_pills:
+			if follow == pill.follow:
+				follow = pill
+	else:
+		for anx in overlapping_anx:
+			consume()
+
 	position += velocity
 	rotation += angular_velocity
 
 
 func consume():
+	if consuming: return
+	consuming = true
 	first = false
 	await get_tree().create_tween().tween_property(self, "scale", Vector2(0, 0), 0.5).finished
 	queue_free()
 
 
 func _on_area_entered(thing: Area2D) -> void:
-	if not taken:
-		if thing.is_in_group("anx"): consume()
-		return
-	if not first: return
-	if thing.is_in_group("pill") and thing.taken and thing.follow == get_parent().ship:
-		follow = thing
-		thing.first = first
-		first = false
+	if thing.is_in_group("pill") and not overlapping_pills.has(thing):
+		overlapping_pills.push_back(thing)
+	if thing.is_in_group("anx") and not overlapping_anx.has(thing):
+		overlapping_anx.push_back(thing)
+
+
+func _on_area_exited(thing: Area2D) -> void:
+	overlapping_pills.erase(thing)
+	overlapping_anx.erase(thing)

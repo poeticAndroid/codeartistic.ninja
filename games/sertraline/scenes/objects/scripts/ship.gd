@@ -4,7 +4,8 @@ var velocity = Vector2(0, -4)
 var ammo: Array = []
 var taken = true
 
-var pain = false
+var overlapping_pills = []
+var overlapping_anx = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,10 +24,19 @@ func _process(delta: float) -> void:
 	elif velocity.length():
 		velocity *= (velocity.length() - dir.y) / velocity.length()
 
+	while ammo.back() and not is_instance_valid(ammo.back()): ammo.pop_back()
 	if Input.is_action_just_pressed("ui_accept"): fire()
 
-	if pain and pain.scale.x > 2.2:
-		if ammo.size(): ammo.pop_back().taken = false
+	for pill in overlapping_pills:
+		pill.taken = true
+		if not ammo.has(pill):
+			ammo.push_back(pill)
+			if ammo.size() < 14:
+				get_parent().spawn_anx()
+
+	for anx in overlapping_anx:
+		if anx.scale.x > 2.2:
+			if ammo.size(): ammo.pop_back().taken = false
 
 	position += velocity
 	velocity *= 0.99
@@ -34,37 +44,17 @@ func _process(delta: float) -> void:
 
 func fire():
 	if ammo.size():
-		var pill = ammo.pop_back()
-		if ammo.back():
-			ammo.back().follow = self
-		pill.consume()
+		ammo.pop_back().consume()
 		get_parent().spawn_joy()
 
 
 func _on_area_entered(thing: Area2D) -> void:
-	if thing.is_in_group("anx") and not thing.taken:
-		pain = thing
-	if thing.is_in_group("pill") and not thing.taken:
-		thing.follow = self
-		if not ammo.has(thing):
-			var next = ammo.back()
-			ammo.push_back(thing)
-			if ammo.size() < 14:
-				get_parent().spawn_anx()
-			await get_tree().create_timer(10).timeout
-			if not is_instance_valid(thing): return
-			if not ammo.has(thing): return
-			if next:
-				if not is_instance_valid(next): return
-				if not ammo.has(next): return
-				next.follow = thing
-				if next.first: thing.first = next.first
-				next.first = false
-			for pill in ammo:
-				if not is_instance_valid(pill): return
-				if pill.first: return
-			ammo.back().first = true
+	if thing.is_in_group("pill") and not overlapping_pills.has(thing):
+		overlapping_pills.push_back(thing)
+	if thing.is_in_group("anx") and not overlapping_anx.has(thing):
+		overlapping_anx.push_back(thing)
 
 
-func _on_area_exited(area: Area2D) -> void:
-	pass  # Replace with function body.
+func _on_area_exited(thing: Area2D) -> void:
+	overlapping_pills.erase(thing)
+	overlapping_anx.erase(thing)

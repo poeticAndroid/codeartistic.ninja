@@ -21,4 +21,5 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(thing: Area2D) -> void:
 	if thing.is_in_group("anx"):
+		if get_parent().ship.ammo.size() < 128: get_parent().spawn_pill()
 		queue_free()
