@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv3rdavpxxsm4"]
+[gd_scene load_steps=6 format=3 uid="uid://cv3rdavpxxsm4"]
 
 [ext_resource type="Script" uid="uid://g1vthplhvpmp" path="res://games/emotions/scripts/start.gd" id="1_drcxl"]
 [ext_resource type="Texture2D" uid="uid://mubkvo02plxo" path="res://games/emotions/assets/backgrounds/paper.png" id="1_pc2ib"]
 [ext_resource type="FontFile" uid="uid://bcoqu2vx7xxf8" path="res://games/sertraline/assets/fonts/ComingSoon-Regular.ttf" id="2_f5id2"]
 [ext_resource type="FontVariation" uid="uid://cp6i3ilqftabs" path="res://games/sertraline/assets/fonts/PermanentMarker-Regular.tres" id="3_drcxl"]
+[ext_resource type="AudioStream" uid="uid://gede2y1bllss" path="res://games/emotions/assets/music/AuditoryCheesecake_Avalon.mp3" id="5_hr3q5"]
 
 [node name="Start" type="CenterContainer"]
 anchors_preset = 15
@@ -46,6 +47,9 @@ fit_content = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Begin"
+
+[node name="AuditoryCheesecakeAvalon" type="AudioStreamPlayer" parent="." groups=["music"]]
+stream = ExtResource("5_hr3q5")
 
 [connection signal="meta_clicked" from="VBoxContainer/CreditsLabel" to="." method="_on_credits_label_meta_clicked"]
 [connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
