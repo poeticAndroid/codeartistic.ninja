@@ -53,18 +53,19 @@ func _process(delta: float) -> void:
 				follow = pill
 	else:
 		for anx in overlapping_anx:
-			consume()
+			consume(true)
 
 	position += velocity
 	rotation += angular_velocity
 
 
-func consume():
+func consume(sound = false):
 	if consuming: return
 	consuming = true
 	first = false
-	%ConsumeSnd.play()
+	if sound: %ConsumeSnd.play()
 	await get_tree().create_tween().tween_property(self, "scale", Vector2(0, 0), 0.5).finished
+	if %ConsumeSnd.playing: await %ConsumeSnd.finished
 	queue_free()
 
 

@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	elif velocity.length():
 		velocity *= (velocity.length() - dir.y) / velocity.length()
 
-	while ammo.back() and not is_instance_valid(ammo.back()): ammo.pop_back()
+	while ammo.size() > 0 and not is_instance_valid(ammo.back()): ammo.pop_back()
 	if Input.is_action_just_pressed("ui_accept"): fire()
 
 	for pill in overlapping_pills:
@@ -36,7 +36,9 @@ func _process(delta: float) -> void:
 
 	for anx in overlapping_anx:
 		if anx.scale.x > 2.2:
-			if ammo.size(): ammo.pop_back().taken = false
+			if ammo.size():
+				var pill = ammo.pop_back()
+				if is_instance_valid(pill): pill.taken = false
 
 	position += velocity
 	velocity *= 0.99
@@ -44,7 +46,8 @@ func _process(delta: float) -> void:
 
 func fire():
 	if ammo.size():
-		ammo.pop_back().consume()
+		var pill = ammo.pop_back()
+		if is_instance_valid(pill): pill.consume()
 		get_parent().spawn_joy()
 	else:
 		%ClickSnd.play()
