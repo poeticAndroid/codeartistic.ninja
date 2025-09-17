@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cx72467u683d4"]
+[gd_scene load_steps=14 format=3 uid="uid://cx72467u683d4"]
 
 [ext_resource type="Script" uid="uid://bbhc718s6hjac" path="res://games/sertraline/scenes/objects/scripts/anx.gd" id="1_onays"]
 [ext_resource type="Shape2D" uid="uid://bqmepqmu1xa3s" path="res://games/sertraline/scenes/objects/circle.tres" id="2_3mb1q"]
 [ext_resource type="Texture2D" uid="uid://vh1cx0brqw75" path="res://games/sertraline/assets/sprites/anx.png" id="3_1kceu"]
+[ext_resource type="AudioStream" uid="uid://dtulyiw1e5e0t" path="res://games/sertraline/assets/sounds/explosion.wav" id="4_3mb1q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ri6jf"]
 atlas = ExtResource("3_1kceu")
@@ -77,6 +78,10 @@ shape = ExtResource("2_3mb1q")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 sprite_frames = SubResource("SpriteFrames_llmwc")
 autoplay = "default"
+
+[node name="ExplosionSnd" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_3mb1q")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

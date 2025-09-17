@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 func explode():
 	if taken: return
 	taken = true
+	%ExplosionSnd.play()
 	get_tree().create_tween().tween_property(self, "modulate:a", 0, 0.5)
 	await get_tree().create_tween().tween_property(self, "scale", Vector2(2, 2), 0.5).finished
 	queue_free()

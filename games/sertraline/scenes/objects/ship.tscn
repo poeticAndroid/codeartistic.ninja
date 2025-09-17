@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://ccbh6o1r6cgbg"]
+[gd_scene load_steps=14 format=3 uid="uid://ccbh6o1r6cgbg"]
 
 [ext_resource type="Texture2D" uid="uid://dybcfvxwovspa" path="res://games/sertraline/assets/sprites/ship.png" id="1_hv0y4"]
 [ext_resource type="Script" uid="uid://b20fr3es8y0mw" path="res://games/sertraline/scenes/objects/scripts/ship.gd" id="1_puqhs"]
 [ext_resource type="Shape2D" uid="uid://bqmepqmu1xa3s" path="res://games/sertraline/scenes/objects/circle.tres" id="2_04xop"]
+[ext_resource type="AudioStream" uid="uid://8kc6i7636f8i" path="res://games/sertraline/assets/sounds/click.wav" id="4_ax287"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_puqhs"]
 atlas = ExtResource("1_hv0y4")
@@ -78,6 +79,10 @@ shape = ExtResource("2_04xop")
 sprite_frames = SubResource("SpriteFrames_i51n6")
 autoplay = "default"
 frame_progress = 0.822343
+
+[node name="ClickSnd" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_ax287")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

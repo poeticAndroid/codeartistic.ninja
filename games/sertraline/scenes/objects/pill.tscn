@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cvnceyyy2u5ra"]
+[gd_scene load_steps=15 format=3 uid="uid://cvnceyyy2u5ra"]
 
 [ext_resource type="Shape2D" uid="uid://bqmepqmu1xa3s" path="res://games/sertraline/scenes/objects/circle.tres" id="1_jaepy"]
 [ext_resource type="Script" uid="uid://dmhdeqfxrl8bv" path="res://games/sertraline/scenes/objects/scripts/pill.gd" id="1_nnpcc"]
 [ext_resource type="Texture2D" uid="uid://bf4yg01l1xaxy" path="res://games/sertraline/assets/sprites/pill.png" id="2_nnpcc"]
+[ext_resource type="AudioStream" uid="uid://dxxm6k8iayvm0" path="res://games/sertraline/assets/sounds/consume.wav" id="4_p0qo0"]
+[ext_resource type="AudioStream" uid="uid://runkgsxgl7cg" path="res://games/sertraline/assets/sounds/pickup.wav" id="5_8claw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p6dv6"]
 atlas = ExtResource("2_nnpcc")
@@ -77,6 +79,14 @@ shape = ExtResource("1_jaepy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 sprite_frames = SubResource("SpriteFrames_yl7ox")
 autoplay = "default"
+
+[node name="ConsumeSnd" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_p0qo0")
+
+[node name="PickupSnd" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_8claw")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

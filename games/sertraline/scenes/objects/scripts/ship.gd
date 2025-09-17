@@ -46,6 +46,8 @@ func fire():
 	if ammo.size():
 		ammo.pop_back().consume()
 		get_parent().spawn_joy()
+	else:
+		%ClickSnd.play()
 
 
 func _on_area_entered(thing: Area2D) -> void:

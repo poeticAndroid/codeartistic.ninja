@@ -8,6 +8,7 @@ var taken:
 		if taken == val: return
 		taken = val
 		if taken:
+			%PickupSnd.play()
 			get_tree().create_tween().tween_property(self, "scale", Vector2(0.5, 0.5), 0.5)
 		else:
 			follow = null
@@ -62,6 +63,7 @@ func consume():
 	if consuming: return
 	consuming = true
 	first = false
+	%ConsumeSnd.play()
 	await get_tree().create_tween().tween_property(self, "scale", Vector2(0, 0), 0.5).finished
 	queue_free()
 
