@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=3 uid="uid://bsv8r2sqyewkw"]
+
+[ext_resource type="Texture2D" uid="uid://cxs4uq8id2xao" path="res://games/emotions/assets/backgrounds/chaos.png" id="1_0ym3i"]
+[ext_resource type="Script" uid="uid://cm4tmxh751ijn" path="res://games/emotions/scenes/scripts/game.gd" id="1_b1nfc"]
+[ext_resource type="PackedScene" uid="uid://bnqfewl3rmtcw" path="res://globals/point_click/point_click.tscn" id="2_ymlbp"]
+[ext_resource type="PackedScene" uid="uid://bf4mrt20xgcvs" path="res://games/emotions/scenes/objects/aye.tscn" id="3_vgq6b"]
+[ext_resource type="AudioStream" uid="uid://gede2y1bllss" path="res://games/emotions/assets/music/AuditoryCheesecake_Avalon.mp3" id="5_fxjig"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1nfc"]
+atlas = ExtResource("1_0ym3i")
+region = Rect2(0, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgq6b"]
+atlas = ExtResource("1_0ym3i")
+region = Rect2(960, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymlbp"]
+atlas = ExtResource("1_0ym3i")
+region = Rect2(1920, 0, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxjig"]
+atlas = ExtResource("1_0ym3i")
+region = Rect2(0, 540, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18s6l"]
+atlas = ExtResource("1_0ym3i")
+region = Rect2(960, 540, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p07ci"]
+atlas = ExtResource("1_0ym3i")
+region = Rect2(1920, 540, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmwdi"]
+atlas = ExtResource("1_0ym3i")
+region = Rect2(0, 1080, 960, 540)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7hlk"]
+atlas = ExtResource("1_0ym3i")
+region = Rect2(960, 1080, 960, 540)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkke0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1nfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgq6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymlbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxjig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18s6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p07ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmwdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7hlk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_b1nfc")
+
+[node name="PointClick" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_ymlbp")]
+player = NodePath("../Aye")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(480, 270)
+sprite_frames = SubResource("SpriteFrames_xkke0")
+autoplay = "default"
+frame_progress = 0.053410787
+
+[node name="Aye" parent="." instance=ExtResource("3_vgq6b")]
+unique_name_in_owner = true
+position = Vector2(480, 270)
+
+[node name="PillTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="AuditoryCheesecakeAvalon" type="AudioStreamPlayer" parent="." groups=["music"]]
+stream = ExtResource("5_fxjig")
+
+[connection signal="timeout" from="PillTimer" to="." method="dispencePill"]

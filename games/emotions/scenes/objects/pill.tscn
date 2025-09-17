@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://bopwjb4t572nd"]
+
+[ext_resource type="Texture2D" uid="uid://hp5swp1rokkr" path="res://games/emotions/assets/sprites/pill.png" id="1_0mj0r"]
+[ext_resource type="Script" uid="uid://kufff2ny00a6" path="res://games/emotions/scenes/objects/scripts/pill.gd" id="1_1hmak"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1hmak"]
+radius = 32.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvh15"]
+atlas = ExtResource("1_0mj0r")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lql88"]
+atlas = ExtResource("1_0mj0r")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1418"]
+atlas = ExtResource("1_0mj0r")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_633hf"]
+atlas = ExtResource("1_0mj0r")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnxef"]
+atlas = ExtResource("1_0mj0r")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd6oc"]
+atlas = ExtResource("1_0mj0r")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71um3"]
+atlas = ExtResource("1_0mj0r")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evsk0"]
+atlas = ExtResource("1_0mj0r")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38p26"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvh15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lql88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1418")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_633hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnxef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd6oc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71um3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evsk0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Pill" type="Area2D" groups=["pill"]]
+script = ExtResource("1_1hmak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1hmak")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_38p26")
+autoplay = "default"
+frame_progress = 0.8761159
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -232,13 +232,11 @@ game_name = "sertraline"
 game_description = "Gimme them calming drugs.. so that I may feel nothing.."
 
 [node name="EmotionsGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
-modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("14_wxqpj")
 game_title = "It's just emotions"
 game_name = "emotions"
 game_description = "What am I supposed to do with these..?"
-wip = true
 
 [node name="MachineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)
@@ -272,13 +270,13 @@ unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("19_q283d")
-theme_override_fonts/italics_font = ExtResource("20_kk4fg")
 theme_override_fonts/bold_font = ExtResource("21_n7qvi")
+theme_override_fonts/italics_font = ExtResource("20_kk4fg")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
 theme_override_font_sizes/bold_italics_font_size = 20
 theme_override_font_sizes/italics_font_size = 20
 theme_override_font_sizes/mono_font_size = 20
-theme_override_font_sizes/normal_font_size = 20
-theme_override_font_sizes/bold_font_size = 20
 bbcode_enabled = true
 text = "I've always been pretty fascinated with what computers can produce in the hands of creative minds.. Growing up with early home computers like the Commodore 64, ZX Spectrum and Amiga, I quickly gained insight to what makes them tick.. And even with that knowledge, it didn't take away from the magic of grabbing the joystick and stepping into an [b][color=#ffff99]interactive world of graphics and sound[/color][/b] and turn it into a [b][color=#ffff99]digital playground[/color][/b].. It wasn't just some advanced calculator or business machine.. Each computer had its own charm and personality.. 
 
