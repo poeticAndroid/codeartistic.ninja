@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2du7tx2cb0g4" path="res://games/fine/assets/backgrounds/bedroom.png" id="2_6oelb"]
 [ext_resource type="PackedScene" uid="uid://dvoycd6gl1181" path="res://games/fine/scenes/objects/aye.tscn" id="3_f11sf"]
 [ext_resource type="PackedScene" uid="uid://n3t7ell5snjg" path="res://games/fine/scenes/objects/dialog.tscn" id="4_5sdw1"]
-[ext_resource type="PackedScene" uid="uid://bnqfewl3rmtcw" path="res://games/fine/scenes/objects/point_click.tscn" id="5_vkgft"]
+[ext_resource type="PackedScene" uid="uid://bnqfewl3rmtcw" path="res://globals/point_click/point_click.tscn" id="5_vkgft"]
 [ext_resource type="PackedScene" uid="uid://omqnbkl41wbp" path="res://games/fine/scenes/objects/bed.tscn" id="6_638es"]
 [ext_resource type="PackedScene" uid="uid://bphds7o1i4gf7" path="res://games/fine/scenes/objects/computer.tscn" id="7_pi0wa"]
 [ext_resource type="PackedScene" uid="uid://drle8hpi0gus5" path="res://games/fine/scenes/objects/fridge.tscn" id="8_du0js"]
