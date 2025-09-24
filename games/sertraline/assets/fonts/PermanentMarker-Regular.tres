@@ -4,5 +4,4 @@
 
 [resource]
 base_font = ExtResource("1_16yc5")
-variation_embolden = 1.0
-spacing_glyph = 10
+variation_embolden = 0.5

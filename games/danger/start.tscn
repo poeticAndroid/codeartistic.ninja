@@ -21,18 +21,22 @@ custom_minimum_size = Vector2(480, 400)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_k6637")
 theme_override_fonts/bold_font = ExtResource("2_tqdqs")
+theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
-text = "[center][b][font_size=32]Danger everywhere[/font_size][/b][/center]
+text = "[center][b][font_size=36]Danger everywhere[/font_size][/b][/center]
 
 Something about anxiety and not being able to rest anywhere..
 
-[b][font_size=24]Credits[/font_size][/b]
+[b][font_size=32]Credits[/font_size][/b]
 
 Made by [url=http://one.poeticandroid.online/]poeticAndroid[/url]
 
 Music by [url=https://soundcloud.com/auditory_cheesecake]Auditory Cheesecake[/url]
 
-Fonts from [url=https://fonts.google.com/share?selection.family=Coming+Soon%7CRock+Salt]Google Fonts[/url]"
+Fonts from [url=https://fonts.google.com/share?selection.family=Coming+Soon%7CRock+Salt]Google Fonts[/url]
+
+"
+fit_content = true
 
 [node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
 layout_mode = 2

@@ -22,19 +22,20 @@ custom_minimum_size = Vector2(512, 320)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.8, 0.8, 0.8, 1)
 theme_override_fonts/normal_font = ExtResource("1_4q8wu")
-theme_override_fonts/italics_font = ExtResource("2_5mggo")
-theme_override_fonts/bold_italics_font = ExtResource("3_uhrmj")
 theme_override_fonts/bold_font = ExtResource("4_y5p7b")
+theme_override_fonts/bold_italics_font = ExtResource("3_uhrmj")
+theme_override_fonts/italics_font = ExtResource("2_5mggo")
 bbcode_enabled = true
 text = "[b][font_size=32][color=#29adff]Restless in a small world[/color][/font_size][/b]
 
 A pico-8 game about the afterlife, made for [url=https://ldjam.com/events/ludum-dare/38]Ludum Dare 38[/url].
 
-[b][font_size=20][color=#29adff]Credits[/color][/font_size][/b]
+[b][font_size=24][color=#29adff]Credits[/color][/font_size][/b]
 
 Originally made in pico-8 by [url=http://one.poeticandroid.online/]poeticAndroid[/url] and [url=http://ldjam.com/users/fennesz]fennesz[/url]
 
 \"Press Start 2P\" font by [url=https://fonts.google.com/specimen/Press+Start+2P]CodeMan38[/url].
+
 "
 
 [node name="Button" type="Button" parent="VBoxContainer" groups=["autofocus"]]

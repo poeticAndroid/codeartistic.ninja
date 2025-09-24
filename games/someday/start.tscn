@@ -24,15 +24,10 @@ layout_mode = 2
 custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_tch31")
-theme_override_fonts/mono_font = SubResource("SystemFont_syfhx")
-theme_override_fonts/italics_font = ExtResource("3_n17m3")
-theme_override_fonts/bold_italics_font = ExtResource("4_36ivb")
 theme_override_fonts/bold_font = ExtResource("5_qht03")
-theme_override_font_sizes/bold_italics_font_size = 16
-theme_override_font_sizes/italics_font_size = 16
-theme_override_font_sizes/mono_font_size = 16
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
+theme_override_fonts/bold_italics_font = ExtResource("4_36ivb")
+theme_override_fonts/italics_font = ExtResource("3_n17m3")
+theme_override_fonts/mono_font = SubResource("SystemFont_syfhx")
 bbcode_enabled = true
 text = "[b][font_size=32]Some day[/font_size][/b]
 

@@ -25,47 +25,44 @@ position = Vector2(480, 270)
 texture = ExtResource("3_m80ql")
 
 [node name="CreditsLabel" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(480, 0)
+custom_minimum_size = Vector2(720, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -240.0
+offset_left = -360.0
 offset_top = -252.0
-offset_right = 240.0
-offset_bottom = 252.0
+offset_right = 360.0
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_blbp3")
 bbcode_enabled = true
-text = "[b][font_size=32]Polar bears..?[/font_size][/b]
-[b][font_size=24]The world ends in 2 minutes![/font_size][/b]
+text = "[b][font_size=40]Polar bears..?[/font_size][/b]
+[b][font_size=25]The world ends in 2 minutes![/font_size][/b]
 A fight against the polar bear invasion with timeloop ship!
 
 The controls are pretty simple: Use WASD/arrow keys, D-pad/analog stick or swipe to move the spaceship around..
 
 This game was made in two days together with a couple of friends..
 
-[b][font_size=24]Credits[/font_size][/b]
+[b][font_size=25]Credits[/font_size][/b]
 Code by [url=http://one.poeticandroid.online/]poeticAndroid[/url], Fedthund and friend.
-
 Graphics by [url=http://one.poeticandroid.online/]poeticAndroid[/url].
-
 Music by [url=https://soundcloud.com/auditory_cheesecake]Auditory Cheesecake[/url].
-
 Moon background based on [url=https://www.flickr.com/photos/donkeyhotey/6143892887]photo by DonkeyHotey[/url].
-
 Nokia font by [url=https://www.dafont.com/nokia-cellphone.font]Zeh Fernando[/url]."
 fit_content = true
 
 [node name="BackBtn" type="Button" parent="." groups=["autofocus"]]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 128.0
-offset_bottom = 64.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 48.0
 focus_next = NodePath("../CreditsBtn")
 theme = ExtResource("4_fjvfk")
 text = "<Back"
