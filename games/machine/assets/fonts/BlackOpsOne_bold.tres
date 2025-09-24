@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cxt4ejwwtdwew"]
+
+[ext_resource type="FontFile" uid="uid://bda155ggumpiq" path="res://games/machine/assets/fonts/BlackOpsOne-Regular.ttf" id="1_7bhye"]
+
+[resource]
+base_font = ExtResource("1_7bhye")
+variation_embolden = 0.5
