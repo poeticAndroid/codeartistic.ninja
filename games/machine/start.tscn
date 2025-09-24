@@ -1,10 +1,56 @@
-[gd_scene format=3 uid="uid://byv2ol50ssked"]
+[gd_scene load_steps=5 format=3 uid="uid://byv2ol50ssked"]
 
-[node name="Start" type="Node2D"]
+[ext_resource type="Script" uid="uid://bex7kiytjqjpn" path="res://games/machine/scripts/start.gd" id="1_0b4vm"]
+[ext_resource type="Texture2D" uid="uid://ctmvwchbbxc6u" path="res://games/machine/assets/backgrounds/blueprint.png" id="1_wx8br"]
+[ext_resource type="FontFile" uid="uid://c1ai51h3tmjkt" path="res://games/machine/assets/fonts/SpecialElite-Regular.ttf" id="3_c43i3"]
+[ext_resource type="FontVariation" uid="uid://cxt4ejwwtdwew" path="res://games/machine/assets/fonts/BlackOpsOne_bold.tres" id="4_ibox1"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 276.0
-offset_top = 138.0
-offset_right = 384.0
-offset_bottom = 161.0
-text = "Coming soon?"
+[node name="Start" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0b4vm")
+
+[node name="Blueprint" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("1_wx8br")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CreditsLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.13333334, 0.2, 0.26666668, 1)
+theme_override_fonts/normal_font = ExtResource("3_c43i3")
+theme_override_fonts/bold_font = ExtResource("4_ibox1")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+theme_override_font_sizes/bold_italics_font_size = 20
+theme_override_font_sizes/italics_font_size = 20
+theme_override_font_sizes/mono_font_size = 20
+bbcode_enabled = true
+text = "[center][b][font_size=48]THE MACHINE[/font_size][/b][/center]
+
+We built it over centuries.. Now it's everywhere.. Now there is no going back..
+
+Made by [url=http://one.poeticandroid.online/]poeticAndroid[/url]
+
+Background by [url=https://unsplash.com/photos/TgWWeaTAXCM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText]Leo Fosdal[/url] on [url=https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText]Unsplash[/url]
+
+Music by [url=https://soundcloud.com/auditory_cheesecake]Auditory Cheesecake[/url]
+
+Fonts from [url=https://fonts.google.com/share?selection.family=Black+Ops+One%7CSpecial+Elite]Google Fonts[/url]
+
+"
+fit_content = true
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Begin"
+
+[connection signal="meta_clicked" from="VBoxContainer/CreditsLabel" to="." method="_on_credits_label_meta_clicked"]
+[connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]

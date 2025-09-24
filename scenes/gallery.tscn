@@ -239,13 +239,11 @@ game_name = "emotions"
 game_description = "What am I supposed to do with these..?"
 
 [node name="MachineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
-modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("15_08qmf")
 game_title = "The Machine"
 game_name = "machine"
 game_description = "We built it over centuries.. Now it's everywhere.. Now there is no going back.."
-wip = true
 
 [node name="Cost Of CreationGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)
