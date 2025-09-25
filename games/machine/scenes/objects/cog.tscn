@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://cig3b7iliq4nx"]
+
+[ext_resource type="Script" uid="uid://dktbieay44lb2" path="res://games/machine/scenes/objects/scripts/cog.gd" id="1_ssas5"]
+[ext_resource type="Texture2D" uid="uid://chr22cp68l05j" path="res://games/machine/assets/sprites/cog3.png" id="2_m03hs"]
+[ext_resource type="Texture2D" uid="uid://cv2pxp4k0yn56" path="res://games/machine/assets/sprites/cog5.png" id="3_ofxt3"]
+[ext_resource type="Texture2D" uid="uid://c1i4f2idm60ih" path="res://games/machine/assets/sprites/cog7.png" id="4_gaidj"]
+[ext_resource type="Texture2D" uid="uid://4ok0pihq3m2u" path="res://games/machine/assets/sprites/cog9.png" id="5_o7i4s"]
+[ext_resource type="Texture2D" uid="uid://i4tn0qys5njy" path="res://games/machine/assets/sprites/cog11.png" id="6_u252e"]
+[ext_resource type="Texture2D" uid="uid://dij6eeqxscnc5" path="res://games/machine/assets/sprites/cog13.png" id="7_111s7"]
+[ext_resource type="Texture2D" uid="uid://c81occ5uuwl61" path="res://games/machine/assets/sprites/cog15.png" id="8_okocx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b4l4n"]
+resource_local_to_scene = true
+radius = 34.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dq0h0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m03hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ofxt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gaidj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_o7i4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u252e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_111s7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_okocx")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cog" type="Area2D" groups=["cog"]]
+script = ExtResource("1_ssas5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_b4l4n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_dq0h0")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

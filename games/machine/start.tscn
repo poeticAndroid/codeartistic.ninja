@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://byv2ol50ssked"]
+[gd_scene load_steps=6 format=3 uid="uid://byv2ol50ssked"]
 
 [ext_resource type="Script" uid="uid://bex7kiytjqjpn" path="res://games/machine/scripts/start.gd" id="1_0b4vm"]
 [ext_resource type="Texture2D" uid="uid://ctmvwchbbxc6u" path="res://games/machine/assets/backgrounds/blueprint.png" id="1_wx8br"]
 [ext_resource type="FontFile" uid="uid://c1ai51h3tmjkt" path="res://games/machine/assets/fonts/SpecialElite-Regular.ttf" id="3_c43i3"]
 [ext_resource type="FontVariation" uid="uid://cxt4ejwwtdwew" path="res://games/machine/assets/fonts/BlackOpsOne_bold.tres" id="4_ibox1"]
+[ext_resource type="AudioStream" uid="uid://b3fnuc6bt7eu0" path="res://games/machine/assets/music/AuditoryCheesecake_Drainage.mp3" id="5_86fux"]
 
 [node name="Start" type="CenterContainer"]
 anchors_preset = 15
@@ -47,6 +48,9 @@ fit_content = true
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Begin"
+
+[node name="AuditoryCheesecakeDrainage" type="AudioStreamPlayer" parent="." groups=["music"]]
+stream = ExtResource("5_86fux")
 
 [connection signal="meta_clicked" from="VBoxContainer/CreditsLabel" to="." method="_on_credits_label_meta_clicked"]
 [connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]

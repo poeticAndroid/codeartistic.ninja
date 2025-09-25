@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://ca75r7g8bh00p"]
+
+[ext_resource type="Texture2D" uid="uid://c7l3p4fkyxmie" path="res://games/machine/assets/sprites/guts.png" id="1_kq6uu"]
+[ext_resource type="Script" uid="uid://dec4ypw60kr8j" path="res://games/machine/scenes/objects/scripts/gut.gd" id="1_tktde"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tktde"]
+atlas = ExtResource("1_kq6uu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1kg0"]
+atlas = ExtResource("1_kq6uu")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_122tx"]
+atlas = ExtResource("1_kq6uu")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axulw"]
+atlas = ExtResource("1_kq6uu")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbhxm"]
+atlas = ExtResource("1_kq6uu")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjudg"]
+atlas = ExtResource("1_kq6uu")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yutfo"]
+atlas = ExtResource("1_kq6uu")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_envla"]
+atlas = ExtResource("1_kq6uu")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lttxr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tktde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1kg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_122tx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axulw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbhxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjudg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yutfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_envla")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Gut" type="Node2D"]
+z_index = 640
+script = ExtResource("1_tktde")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lttxr")
+autoplay = "default"
+frame_progress = 0.68835884
