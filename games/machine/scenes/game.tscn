@@ -23,4 +23,4 @@ texture = ExtResource("2_jx3u1")
 
 [node name="Aye" parent="." instance=ExtResource("4_3glsa")]
 unique_name_in_owner = true
-position = Vector2(578, 86)
+position = Vector2(1440, 1440)

@@ -18,9 +18,9 @@ func _process(delta: float) -> void:
 	for i in range(counts.size()):
 		if counts[i]:
 			var cog = cog_scene.instantiate()
+			cog.type = i
 			cog.position.x = randf_range(0, 2880)
 			cog.position.y = randf_range(0, 2880)
-			cog.type = randi_range(0, 6)
 			add_child(cog)
 			counts[i] -= 1
 

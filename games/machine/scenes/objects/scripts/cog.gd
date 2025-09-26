@@ -7,13 +7,13 @@ extends Area2D
 		if not %AnimatedSprite2D: await ready
 		%AnimatedSprite2D.frame = type
 		match type:
-			0: radius = 92 / 2 - 12
-			1: radius = 138 / 2 - 12
-			2: radius = 184 / 2 - 12
-			3: radius = 230 / 2 - 12
-			4: radius = 276 / 2 - 12
-			5: radius = 321 / 2 - 12
-			6: radius = 367 / 2 - 12
+			0: radius = 92.0 / 2 - 12
+			1: radius = 138.0 / 2 - 12
+			2: radius = 184.0 / 2 - 12
+			3: radius = 230.0 / 2 - 12
+			4: radius = 276.0 / 2 - 12
+			5: radius = 321.0 / 2 - 12
+			6: radius = 367.0 / 2 - 12
 
 var angular_velocity = 0.1
 
@@ -40,9 +40,12 @@ var rotation_speed:
 	get():
 		angular_velocity = angle_difference(0, angular_velocity)
 		if angular_velocity: return angular_velocity
-		remove_leader_loops()
 		if leader:
-			return -leader.rotation_speed * (leader.teeth / teeth)
+			if not has_leader_loop():
+				return -leader.rotation_speed * (leader.teeth / teeth)
+			else:
+				inactive = 8
+				return 0
 		return 0
 
 var edge_speed:
@@ -74,7 +77,6 @@ func _process(delta: float) -> void:
 
 	rotation += angular_velocity
 
-	remove_leader_loops()
 	if leader:
 		radius = _size / 2
 		if rotation_speed == 0:
@@ -120,18 +122,19 @@ func snap_to_edge(obstruction: Node, overlap = 0):
 	position = obstruction.position + Vector2(x, y)
 
 
-func remove_leader_loops():
+func has_leader_loop():
 	var chain = []
 	var cog = self
 	while cog:
 		if chain.has(cog):
+			return true
 			while cog:
 				cog.leader = null
 				cog.inactive = 8
 				cog = chain.pop_back()
-			return
 		chain.push_back(cog)
 		cog = cog.leader
+	return false
 
 
 func _on_area_entered(area: Area2D) -> void:
