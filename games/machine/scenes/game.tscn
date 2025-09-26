@@ -18,7 +18,7 @@ repeat_size = Vector2(4592, 3448)
 repeat_times = 2
 
 [node name="LeoFosdal113874" type="Sprite2D" parent="Parallax2D"]
-position = Vector2(480, 270)
+position = Vector2(960, 540)
 texture = ExtResource("2_jx3u1")
 
 [node name="Aye" parent="." instance=ExtResource("4_3glsa")]
