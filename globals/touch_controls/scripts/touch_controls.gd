@@ -16,13 +16,13 @@ var rc_mode: bool = false:
 
 var stickRadius = 32.0
 var leftThumb = {
-		id = -1,
+		id = 0,
 		center = Vector2.ZERO,
 		dir = Vector2.ZERO,
 		btn = false
 	}
 var rightThumb = {
-		id = -1,
+		id = 0,
 		center = Vector2.ZERO,
 		dir = Vector2.ZERO,
 		btn = false
@@ -64,10 +64,12 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		show()
 		if event.position.x < get_viewport().get_visible_rect().size.x / 2:
+			leftThumb.id += 1
 			leftThumb.center = event.position
 			leftThumb.dir = Vector2.ZERO
 			leftThumb.btn = event.pressed
 		else:
+			rightThumb.id += 1
 			rightThumb.center = event.position
 			rightThumb.dir = Vector2.ZERO
 			fire(rightThumb.btn)
@@ -118,8 +120,10 @@ func fire(down = true):
 
 
 func alt():
+	var id = rightThumb.id
 	send_action("ui_select", false)
 	await get_tree().create_timer(0.5).timeout
+	if id != rightThumb.id: return
 	send_action("ui_select", rightThumb.btn)
 	if not rightThumb.btn: return
 	await get_tree().create_timer(0.25).timeout
@@ -132,7 +136,7 @@ func send_action(action, strength):
 	if not(action in strengths): strengths[action] = -1
 	if strengths[action] == strength: return
 	strengths[action] = strength
-	print(action, ": ", strength)
+	#print(action, ": ", strength)
 	var e = InputEventAction.new()
 	e.action = action
 	e.strength = strength
