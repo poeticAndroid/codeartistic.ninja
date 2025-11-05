@@ -1,10 +1,58 @@
-[gd_scene format=3 uid="uid://cd501s0aplg5g"]
+[gd_scene load_steps=7 format=3 uid="uid://cd501s0aplg5g"]
 
-[node name="Start" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://b06mdusptkyxg" path="res://games/cost_of_creation/assets/backgrounds/cover_paper.png" id="1_j60k2"]
+[ext_resource type="Script" uid="uid://dgiojp78gpl6l" path="res://games/cost_of_creation/scripts/start.gd" id="1_ullo0"]
+[ext_resource type="FontFile" uid="uid://b2wao71iuc47c" path="res://games/cost_of_creation/assets/fonts/Pangolin-Regular.ttf" id="3_xfme8"]
+[ext_resource type="FontFile" uid="uid://tmqsb4u7g3yc" path="res://games/cost_of_creation/assets/fonts/GloriaHallelujah-Regular.ttf" id="4_grwf6"]
+[ext_resource type="AudioStream" uid="uid://cj1l5for8l0bx" path="res://games/cost_of_creation/assets/music/Dewdrop Fantasy.mp3" id="5_uyvn6"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 284.0
-offset_top = 147.0
-offset_right = 392.0
-offset_bottom = 170.0
-text = "Coming soon?"
+[sub_resource type="FontVariation" id="FontVariation_grwf6"]
+base_font = ExtResource("4_grwf6")
+variation_embolden = 1.0
+
+[node name="Start" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ullo0")
+
+[node name="Paper" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("1_j60k2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CreditsLabel" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.13333334, 0.2, 0.26666668, 1)
+theme_override_fonts/normal_font = ExtResource("3_xfme8")
+theme_override_fonts/bold_font = SubResource("FontVariation_grwf6")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][b][font_size=48]THE COST OF CREATION[/font_size][/b][/center]
+
+This is a multiplayer/collaborative canvas.. Suck up ink from the ink puddles to draw with.. Tap yourself to deposit your ink..
+
+Made by [url=http://one.poeticandroid.online/]poeticAndroid[/url]
+
+Music by [url=http://incompetech.com/]Kevin MacLeod[/url]
+
+Fonts from [url=https://fonts.google.com/share?selection.family=Gloria+Hallelujah|Pangolin]Google Fonts[/url]
+
+"
+fit_content = true
+
+[node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Begin"
+
+[node name="DewdropFantasy" type="AudioStreamPlayer" parent="." groups=["music"]]
+stream = ExtResource("5_uyvn6")
+
+[connection signal="meta_clicked" from="VBoxContainer/CreditsLabel" to="." method="_on_credits_label_meta_clicked"]
+[connection signal="pressed" from="VBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]

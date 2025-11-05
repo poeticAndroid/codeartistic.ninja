@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cj1l5for8l0bx"
+path="res://.godot/imported/Dewdrop Fantasy.mp3-2305ee3fb0dc013b1497838e7eea31b8.mp3str"
+
+[deps]
+
+source_file="res://games/cost_of_creation/assets/music/Dewdrop Fantasy.mp3"
+dest_files=["res://.godot/imported/Dewdrop Fantasy.mp3-2305ee3fb0dc013b1497838e7eea31b8.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

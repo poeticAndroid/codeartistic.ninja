@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1gyiqktge5se"]
+
+[ext_resource type="Texture2D" uid="uid://b06mdusptkyxg" path="res://games/cost_of_creation/assets/backgrounds/cover_paper.png" id="1_c54qj"]
+[ext_resource type="Script" uid="uid://bdcjqx6i5t2rf" path="res://games/cost_of_creation/scenes/scripts/browser.gd" id="1_uamvw"]
+
+[node name="Browser" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uamvw")
+
+[node name="Paper" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+texture = ExtResource("1_c54qj")
+
+[node name="PlayBtn" type="Button" parent="." groups=["autofocus"]]
+layout_mode = 2
+text = "New world"
+
+[connection signal="pressed" from="PlayBtn" to="." method="_on_play_btn_pressed"]
