@@ -4,12 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://dcq46kalbvp3p" path="res://games/cost_of_creation/assets/backgrounds/world_paper.png" id="2_ql6q4"]
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_bft0m")
+
+[node name="CoinFeeder" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 repeat_size = Vector2(100, 100)
-repeat_times = 10
+repeat_times = 11
 
 [node name="WorldPaper" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(480, 270)
 texture = ExtResource("2_ql6q4")
+
+[node name="Camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
