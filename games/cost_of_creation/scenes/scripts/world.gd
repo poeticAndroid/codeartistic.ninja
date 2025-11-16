@@ -9,7 +9,10 @@ var outbox = []
 
 var user
 var room
+var cameraFollow
 var lastPos = Vector2.ZERO
+var lastMouseDown = Vector2.ZERO
+var drawing = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,21 +25,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var inp_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if inp_dir.length() > 0.5: cameraFollow = false
+	%Camera.position += inp_dir * 128 * delta
+
 	if user and user.has("node"):
 		var dir = user.node.position - lastPos
-		%Camera.position += dir + dir
+		if cameraFollow: %Camera.position += dir + dir
+		var b4 = %Camera.position
 		%Camera.position = %Camera.position.clamp(
 			user.node.position - Vector2(224, 78),
 			user.node.position + Vector2(224, 78)
 		)
+		if b4 != %Camera.position: cameraFollow = true
 		lastPos = user.node.position
 
 	ws.poll()
 	var state = ws.get_ready_state()
-
-	if lastState != state:
-		print("state is ", state)
-		lastState = state
 
 	while ws.get_available_packet_count():
 		var msg = JSON.parse_string(ws.get_packet().get_string_from_utf8())
@@ -44,7 +49,6 @@ func _process(delta: float) -> void:
 		match msg.type:
 			"user":
 				user = msg
-				user._id = 0
 				send({ type = "topic", key = NetConfig.get_key(user) })
 
 			"topic":
@@ -54,7 +58,7 @@ func _process(delta: float) -> void:
 			"room":
 				if not room:
 					room = msg
-					send({ type = "obj", obj = "Aye", x = 0, y = 0 })
+					send({ type = "obj", obj = "Aye", id = user.id, x = 0, y = 0 })
 				for aye in room.users.values():
 					if not aye.has("node"): continue
 					if msg.users.has(aye.id):
@@ -72,7 +76,6 @@ func _process(delta: float) -> void:
 								aye.node = aye_scene.instantiate()
 								add_child(aye.node)
 							if msg.from == user.id:
-								user._id = msg.id
 								user.node = aye.node
 							aye.node.goto(Vector2(msg.x, msg.y))
 
@@ -92,11 +95,26 @@ func _process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and not event.is_pressed():
-		if not room: return
-		send({ type = "obj", obj = "Aye", id = user._id,
-				x = %Camera.position.x + event.position.x - 960 / 2,
-				y = %Camera.position.y + event.position.y - 540 / 2 })
+	if not user: return
+	if not user.has("node"): return
+
+	var mouse_pos = Vector2.ZERO
+	if event is InputEventMouse:
+		mouse_pos = round(%Camera.position + event.position - Vector2(480, 270))
+
+	if event is InputEventMouseButton:
+		if event.button_mask:
+			user.node.stop()
+			lastMouseDown = mouse_pos
+			drawing = false
+		elif not drawing:
+			send({ type = "obj", obj = "Aye", id = user.id,
+				x = mouse_pos.x,
+				y = mouse_pos.y })
+
+	if event is InputEventMouseMotion:
+		if (mouse_pos - lastMouseDown).length() > 8:
+			drawing = true
 
 
 func send(msg):
