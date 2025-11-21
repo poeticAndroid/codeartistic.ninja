@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 			"room":
 				if not room:
 					room = msg
-					send({ type = "obj", obj = "Aye", id = user.id, x = 0, y = 0 })
+					send({ type = "obj", obj = "Aye", id = "Aye", x = 0, y = 0 })
 				for aye in room.users.values():
 					if not aye.has("node"): continue
 					if msg.users.has(aye.id):
@@ -101,16 +101,19 @@ func _input(event: InputEvent) -> void:
 	var mouse_pos = Vector2.ZERO
 	if event is InputEventMouse:
 		mouse_pos = round(%Camera.position + event.position - Vector2(480, 270))
+		%IdleTimer.start()
 
 	if event is InputEventMouseButton:
-		if event.button_mask:
+		Input.set_default_cursor_shape(Input.CURSOR_CROSS)
+		if event.button_mask == 1:
 			user.node.stop()
+			%Canvas.position = %Camera.position
+			%Canvas.clear()
 			lastMouseDown = mouse_pos
 			drawing = false
 		elif not drawing:
-			send({ type = "obj", obj = "Aye", id = user.id,
-				x = mouse_pos.x,
-				y = mouse_pos.y })
+			send({ type = "obj", obj = "Aye", id = "Aye",
+				x = mouse_pos.x, y = mouse_pos.y })
 
 	if event is InputEventMouseMotion:
 		if (mouse_pos - lastMouseDown).length() > 8:
@@ -120,3 +123,7 @@ func _input(event: InputEvent) -> void:
 func send(msg):
 	if ws.get_ready_state() != WebSocketPeer.STATE_OPEN: return
 	outbox.push_back(msg)
+
+
+func _on_idle_timer_timeout() -> void:
+	Global.go_back()
