@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://hnhu0xc3dain"]
+[gd_scene load_steps=5 format=3 uid="uid://hnhu0xc3dain"]
 
 [ext_resource type="Script" uid="uid://hxfa7mrw1bf7" path="res://games/cost_of_creation/scenes/scripts/world.gd" id="1_bft0m"]
 [ext_resource type="Texture2D" uid="uid://dcq46kalbvp3p" path="res://games/cost_of_creation/assets/backgrounds/world_paper.png" id="2_ql6q4"]
 [ext_resource type="PackedScene" uid="uid://sxp715dkxj26" path="res://games/cost_of_creation/scenes/objects/canvas.tscn" id="3_opyjd"]
+[ext_resource type="PackedScene" uid="uid://dek6n8q6pm5l0" path="res://games/cost_of_creation/scenes/objects/tile.tscn" id="4_bf8kl"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -18,6 +19,7 @@ autostart = true
 unique_name_in_owner = true
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+z_index = -2
 repeat_size = Vector2(100, 100)
 repeat_times = 11
 
@@ -27,6 +29,49 @@ texture = ExtResource("2_ql6q4")
 
 [node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
+
+[node name="Tiles" type="Node2D" parent="."]
+unique_name_in_owner = true
+z_index = -1
+
+[node name="Tile1" parent="Tiles" instance=ExtResource("4_bf8kl")]
+position = Vector2(144, 117)
+col = -1
+row = -1
+
+[node name="Tile2" parent="Tiles" instance=ExtResource("4_bf8kl")]
+position = Vector2(306, 117)
+row = -1
+
+[node name="Tile3" parent="Tiles" instance=ExtResource("4_bf8kl")]
+position = Vector2(467, 132)
+col = 1
+row = -1
+
+[node name="Tile4" parent="Tiles" instance=ExtResource("4_bf8kl")]
+position = Vector2(125, 244)
+col = -1
+
+[node name="Tile5" parent="Tiles" instance=ExtResource("4_bf8kl")]
+position = Vector2(300, 238)
+
+[node name="Tile6" parent="Tiles" instance=ExtResource("4_bf8kl")]
+position = Vector2(470, 246)
+col = 1
+
+[node name="Tile7" parent="Tiles" instance=ExtResource("4_bf8kl")]
+position = Vector2(122, 374)
+col = -1
+row = 1
+
+[node name="Tile8" parent="Tiles" instance=ExtResource("4_bf8kl")]
+position = Vector2(282, 362)
+row = 1
+
+[node name="Tile9" parent="Tiles" instance=ExtResource("4_bf8kl")]
+position = Vector2(463, 348)
+col = 1
+row = 1
 
 [node name="Canvas" parent="." instance=ExtResource("3_opyjd")]
 unique_name_in_owner = true

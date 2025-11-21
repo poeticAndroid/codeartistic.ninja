@@ -37,8 +37,24 @@ func _process(delta: float) -> void:
 			user.node.position - Vector2(224, 78),
 			user.node.position + Vector2(224, 78)
 		)
-		if b4 != %Camera.position: cameraFollow = true
+		if b4 != %Camera.position:
+			cameraFollow = true
+			if not user.node.target:
+				user.node.goto(user.node.position + inp_dir * 64)
+				send({ type = "obj", obj = "Aye", id = "Aye",
+					x = user.node.target.x,
+					y = user.node.target.y })
 		lastPos = user.node.position
+
+	for tile in %Tiles.get_children():
+		if tile.position.x < %Camera.position.x - 768:
+			tile.goto(tile.col + 3, tile.row)
+		if tile.position.x > %Camera.position.x + 768:
+			tile.goto(tile.col - 3, tile.row)
+		if tile.position.y < %Camera.position.y - 768:
+			tile.goto(tile.col, tile.row + 3)
+		if tile.position.y > %Camera.position.y + 768:
+			tile.goto(tile.col, tile.row - 3)
 
 	ws.poll()
 	var state = ws.get_ready_state()
@@ -118,6 +134,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if (mouse_pos - lastMouseDown).length() > 8:
 			drawing = true
+			if event.button_mask == 1:
+				cameraFollow = false
 
 
 func send(msg):
