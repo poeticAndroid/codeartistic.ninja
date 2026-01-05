@@ -93,7 +93,10 @@ func _process(delta: float) -> void:
 								add_child(aye.node)
 							if msg.from == user.id:
 								user.node = aye.node
-							aye.node.goto(Vector2(msg.x, msg.y))
+							if msg.has("x") and msg.has("y"):
+								aye.node.goto(Vector2(msg.x, msg.y))
+							#if msg.has("ink_color"):
+								#aye.node.set_ink_color(Color.from_ok_hsl())
 
 			"feedme":
 				%CoinFeeder.request(msg.url)
