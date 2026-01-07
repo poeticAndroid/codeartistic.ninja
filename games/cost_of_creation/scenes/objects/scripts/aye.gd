@@ -1,6 +1,10 @@
 extends Area2D
 
-var target
+var target = Vector2.ZERO
+var paused
+
+var ink_color = Color.AQUA
+var ink_fill = 0.5
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,13 +17,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if target:
+	if target and not paused:
 		animate("walk")
 		var dir = target - position
 		if dir.length() > 96 * delta:
 			dir = dir.normalized() * 96 * delta
 		else:
-			target = null
+			paused = true
 		position += dir
 	else:
 		animate("idle")
@@ -38,21 +42,35 @@ func animate(anim):
 
 
 func set_ink_color(c):
-	%InkMask.modulate = c
+	ink_color = c
+	%InkMask.modulate = ink_color
 
 
 func set_ink_fill(p):
-	%InkMask.position.y = 128 * (1 - p)
+	ink_fill = p
+	%InkMask.position.y = 128 * (1 - ink_fill)
 
 
 func goto(pos):
+	paused = false
 	target = pos
 
 
 func stop():
-	target = null
+	paused = true
 
 
 func leave():
 	await get_tree().create_tween().tween_property(self, "modulate:a", 0, 60).finished
 	queue_free()
+
+
+func to_obj():
+	return {
+			type = "obj", obj = "Aye", id = "from",
+			x = target.x, y = target.y,
+			ink_fill = ink_fill,
+			h = ink_color.ok_hsl_h,
+			s = ink_color.ok_hsl_s,
+			l = ink_color.ok_hsl_l,
+		}

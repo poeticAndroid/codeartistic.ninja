@@ -74,7 +74,7 @@ func _process(delta: float) -> void:
 			"room":
 				if not room:
 					room = msg
-					send({ type = "obj", obj = "Aye", id = "Aye", x = 0, y = 0 })
+					send({ type = "obj", obj = "Aye", id = "from" })
 				for aye in room.users.values():
 					if not aye.has("node"): continue
 					if msg.users.has(aye.id):
@@ -95,8 +95,10 @@ func _process(delta: float) -> void:
 								user.node = aye.node
 							if msg.has("x") and msg.has("y"):
 								aye.node.goto(Vector2(msg.x, msg.y))
-							#if msg.has("ink_color"):
-								#aye.node.set_ink_color(Color.from_ok_hsl())
+							if msg.has("ink_fill"):
+								aye.node.set_ink_fill(msg.ink_fill)
+							if msg.has("ink_color"):
+								aye.node.set_ink_color(Color.from_ok_hsl(msg.h, msg.s, msg.l))
 
 			"feedme":
 				%CoinFeeder.request(msg.url)
@@ -131,8 +133,8 @@ func _input(event: InputEvent) -> void:
 			lastMouseDown = mouse_pos
 			drawing = false
 		elif not drawing:
-			send({ type = "obj", obj = "Aye", id = "Aye",
-				x = mouse_pos.x, y = mouse_pos.y })
+			user.node.goto(mouse_pos)
+			send(user.node.to_obj())
 
 	if event is InputEventMouseMotion:
 		if (mouse_pos - lastMouseDown).length() > 8:

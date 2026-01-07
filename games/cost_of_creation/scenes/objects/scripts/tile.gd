@@ -26,7 +26,6 @@ func goto(_col, _row):
 
 	position.x = 256 + col * 512
 	position.y = 256 + row * 512
-	var png = FileAccess.get_file_as_bytes("user://creation/tiles/" + str(col) + "_" + str(row) + ".png")
+	var png = FileSystem.get_file_as_bytes("user://creation/tiles/" + str(col) + "_" + str(row))
 	img.load_png_from_buffer(png)
 	texture.update(img)
-	print("user://creation/tiles/" + str(col) + "_" + str(row) + ".png")
