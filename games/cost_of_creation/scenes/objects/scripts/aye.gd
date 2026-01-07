@@ -3,16 +3,16 @@ extends Area2D
 var target = Vector2.ZERO
 var paused
 
-var ink_color = Color.AQUA
-var ink_fill = 0.5
+var ink_color = HSL.new()
+var ink_fill = 0.25
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	set_ink_color(ink_color.hue, ink_color.saturation, ink_color.lightness)
+	set_ink_fill(ink_fill)
 	modulate.a = 0
-	await get_tree().create_tween().tween_property(self, "modulate:a", 1, 2).finished
-	get_tree().create_tween().tween_method(set_ink_color, Color.REBECCA_PURPLE, Color.SEA_GREEN, 8)
-	get_tree().create_tween().tween_method(set_ink_fill, 0.0, 1.0, 8)
+	get_tree().create_tween().tween_property(self, "modulate:a", 1, 2)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,9 +41,11 @@ func animate(anim):
 			%FillSprite.flip_h = false
 
 
-func set_ink_color(c):
-	ink_color = c
-	%InkMask.modulate = ink_color
+func set_ink_color(h, s, l):
+	ink_color.hue = h
+	ink_color.saturation = s
+	ink_color.lightness = l
+	%InkMask.modulate = Color.from_ok_hsl(ink_color.hue, ink_color.saturation, ink_color.lightness)
 
 
 func set_ink_fill(p):
@@ -70,7 +72,7 @@ func to_obj():
 			type = "obj", obj = "Aye", id = "from",
 			x = target.x, y = target.y,
 			ink_fill = ink_fill,
-			h = ink_color.ok_hsl_h,
-			s = ink_color.ok_hsl_s,
-			l = ink_color.ok_hsl_l,
+			h = ink_color.hue,
+			s = ink_color.saturation,
+			l = ink_color.lightness,
 		}

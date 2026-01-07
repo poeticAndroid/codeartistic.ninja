@@ -98,7 +98,7 @@ func _process(delta: float) -> void:
 							if msg.has("ink_fill"):
 								aye.node.set_ink_fill(msg.ink_fill)
 							if msg.has("ink_color"):
-								aye.node.set_ink_color(Color.from_ok_hsl(msg.h, msg.s, msg.l))
+								aye.node.set_ink_color(msg.h, msg.s, msg.l)
 
 			"feedme":
 				%CoinFeeder.request(msg.url)
