@@ -39,11 +39,9 @@ func _process(delta: float) -> void:
 		)
 		if b4 != %Camera.position:
 			cameraFollow = true
-			if not user.node.target:
+			if user.node.paused:
 				user.node.goto(user.node.position + inp_dir * 64)
-				send({ type = "obj", obj = "Aye", id = "Aye",
-					x = user.node.target.x,
-					y = user.node.target.y })
+				send(user.node.to_obj())
 		lastPos = user.node.position
 
 	for tile in %Tiles.get_children():
@@ -129,12 +127,18 @@ func _input(event: InputEvent) -> void:
 		if event.button_mask == 1:
 			user.node.stop()
 			%Canvas.position = %Camera.position
+			%Canvas.set_color(Color.from_ok_hsl(
+					user.node.ink_color.hue,
+					user.node.ink_color.saturation,
+					user.node.ink_color.lightness))
 			%Canvas.clear()
 			lastMouseDown = mouse_pos
 			drawing = false
 		elif not drawing:
 			user.node.goto(mouse_pos)
 			send(user.node.to_obj())
+		else:
+			user.node.paused = false
 
 	if event is InputEventMouseMotion:
 		if (mouse_pos - lastMouseDown).length() > 8:

@@ -1,5 +1,9 @@
 class_name HSL
 
+var hue = 0.0
+var saturation = 0.0
+var lightness = 0.0
+
 
 func _init(_hue = 0.0, _saturation = 0.0, _lightness = 0.0):
 	self.set_to(_hue, _saturation, _lightness)

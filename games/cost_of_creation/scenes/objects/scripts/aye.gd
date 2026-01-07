@@ -1,7 +1,7 @@
 extends Area2D
 
 var target = Vector2.ZERO
-var paused
+var paused = true
 
 var ink_color = HSL.new()
 var ink_fill = 0.25
