@@ -3,6 +3,8 @@ extends Sprite2D
 @export var col = 0
 @export var row = 0
 
+var world_dir = "user://creation/"
+
 var img: Image
 
 
@@ -26,6 +28,6 @@ func goto(_col, _row):
 
 	position.x = 256 + col * 512
 	position.y = 256 + row * 512
-	var png = FileSystem.get_file_as_bytes("user://creation/tiles/" + str(col) + "_" + str(row))
-	img.load_png_from_buffer(png)
+	img.load_png_from_buffer(FileAccess.get_file_as_bytes(world_dir + str(col) + "_" + str(row) + ".png"))
+	img.load_png_from_buffer(FileSystem.get_file_as_bytes(world_dir + "tile_" + str(col) + "_" + str(row)))
 	texture.update(img)

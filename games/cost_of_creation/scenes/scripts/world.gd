@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var aye_scene = preload("res://games/cost_of_creation/scenes/objects/Aye.tscn")
 
+var world_dir = "user://creation/"
+
 var ws = WebSocketPeer.new()
 var lastState
 var reconnecting
@@ -13,6 +15,9 @@ var cameraFollow
 var lastPos = Vector2.ZERO
 var lastMouseDown = Vector2.ZERO
 var drawing = false
+
+var _img = Image.create_empty(960, 540, false, Image.FORMAT_RGBA8)
+var _tile = Image.create_empty(512, 512, false, Image.FORMAT_RGBA8)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -36,7 +41,7 @@ func _process(delta: float) -> void:
 		%Camera.position = %Camera.position.clamp(
 			user.node.position - Vector2(224, 78),
 			user.node.position + Vector2(224, 78)
-		)
+		).round()
 		if b4 != %Camera.position:
 			cameraFollow = true
 			if user.node.paused:
@@ -91,12 +96,15 @@ func _process(delta: float) -> void:
 								add_child(aye.node)
 							if msg.from == user.id:
 								user.node = aye.node
+								%Canvas.aye = user.node
 							if msg.has("x") and msg.has("y"):
 								aye.node.goto(Vector2(msg.x, msg.y))
 							if msg.has("ink_fill"):
 								aye.node.set_ink_fill(msg.ink_fill)
 							if msg.has("ink_color"):
 								aye.node.set_ink_color(msg.h, msg.s, msg.l)
+						"Canvas":
+							apply_canvas(msg)
 
 			"feedme":
 				%CoinFeeder.request(msg.url)
@@ -127,10 +135,6 @@ func _input(event: InputEvent) -> void:
 		if event.button_mask == 1:
 			user.node.stop()
 			%Canvas.position = %Camera.position
-			%Canvas.set_color(Color.from_ok_hsl(
-					user.node.ink_color.hue,
-					user.node.ink_color.saturation,
-					user.node.ink_color.lightness))
 			%Canvas.clear()
 			lastMouseDown = mouse_pos
 			drawing = false
@@ -139,6 +143,7 @@ func _input(event: InputEvent) -> void:
 			send(user.node.to_obj())
 		else:
 			user.node.paused = false
+			send(%Canvas.to_obj())
 
 	if event is InputEventMouseMotion:
 		if (mouse_pos - lastMouseDown).length() > 8:
@@ -150,6 +155,25 @@ func _input(event: InputEvent) -> void:
 func send(msg):
 	if ws.get_ready_state() != WebSocketPeer.STATE_OPEN: return
 	outbox.push_back(msg)
+
+
+func apply_canvas(msg):
+	if not msg.has("png"): return
+	if not msg.has("left"): return
+	if not msg.has("top"): return
+	_img.fill(Color.TRANSPARENT)
+	_img.load_png_from_buffer(msg.png.hex_decode())
+
+	for row in range(floor(msg.top / 512), ceil((msg.top + _img.get_size().y) / 512)):
+		for col in range(floor(msg.left / 512), ceil((msg.left + _img.get_size().x) / 512)):
+			_tile.fill(Color.TRANSPARENT)
+			_tile.load_png_from_buffer(FileAccess.get_file_as_bytes(world_dir + str(col) + "_" + str(row) + ".png"))
+			_tile.load_png_from_buffer(FileSystem.get_file_as_bytes(world_dir + "tile_" + str(col) + "_" + str(row)))
+			_tile.blend_rect(_img, _img.get_used_rect(), Vector2i(col * -512 + msg.left, row * -512 + msg.top))
+			FileSystem.put_file_as_bytes(world_dir + "tile_" + str(col) + "_" + str(row), _tile.save_png_to_buffer())
+
+	for tile in %Tiles.get_children():
+		tile.goto(tile.col, tile.row)
 
 
 func _on_idle_timer_timeout() -> void:
