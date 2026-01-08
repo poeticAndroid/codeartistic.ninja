@@ -1,6 +1,9 @@
 class_name NetConfig
 
-static var servers = ["ws://127.0.0.1:9001/ws/chat"]
+static var servers = [
+		"wss://hotater-eu.onrender.com/ws/chat",
+		"ws://127.0.0.1:9001/ws/chat",
+	]
 
 static func get_key(user):
-	return "ItXbqOd6UqUTxk7Xg185zA_" + user.name
+	return (user.id + "@Creation_9oaoK3A8Av4u5Sc6RaGQAUtUuxQONbCy").sha256_text()

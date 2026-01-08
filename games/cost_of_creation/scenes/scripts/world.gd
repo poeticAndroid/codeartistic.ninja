@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 	if user and user.has("node"):
 		var dir = user.node.position - lastPos
 		if cameraFollow: %Camera.position += dir + dir
-		var b4 = %Camera.position
+		var b4 = %Camera.position.round()
 		%Camera.position = %Camera.position.clamp(
 			user.node.position - Vector2(224, 78),
 			user.node.position + Vector2(224, 78)
@@ -140,10 +140,10 @@ func _input(event: InputEvent) -> void:
 			drawing = false
 		elif not drawing:
 			user.node.goto(mouse_pos)
-			send(user.node.to_obj())
 		else:
-			user.node.paused = false
 			send(%Canvas.to_obj())
+		if event.button_mask != 1:
+			send(user.node.to_obj())
 
 	if event is InputEventMouseMotion:
 		if (mouse_pos - lastMouseDown).length() > 8:

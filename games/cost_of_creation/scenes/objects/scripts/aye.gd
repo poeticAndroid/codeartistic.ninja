@@ -13,6 +13,13 @@ func _ready() -> void:
 	set_ink_fill(ink_fill)
 	modulate.a = 0
 	get_tree().create_tween().tween_property(self, "modulate:a", 1, 2)
+	if Global.persistant.has("creation_aye"):
+		set_ink_fill(Global.persistant.creation_aye.ink_fill)
+		set_ink_color(
+				Global.persistant.creation_aye.h,
+				Global.persistant.creation_aye.s,
+				Global.persistant.creation_aye.l
+			)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,7 +75,7 @@ func leave():
 
 
 func to_obj():
-	return {
+	var obj = {
 			type = "obj", obj = "Aye", id = "from",
 			x = target.x, y = target.y,
 			ink_fill = ink_fill,
@@ -76,3 +83,5 @@ func to_obj():
 			s = ink_color.saturation,
 			l = ink_color.lightness,
 		}
+	Global.persistant.creation_aye = obj
+	return obj
