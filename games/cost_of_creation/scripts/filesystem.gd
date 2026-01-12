@@ -32,3 +32,9 @@ static func put_file_as_bytes(path: String, bytes: PackedByteArray):
 	var file = FileAccess.open_encrypted(path, FileAccess.WRITE, FileSystem.key)
 	file.store_buffer(bytes)
 	file.close()
+
+static func get_file_as_json(path: String):
+	return JSON.parse_string(FileSystem.get_file_as_bytes(path).get_string_from_utf8())
+
+static func put_file_as_json(path: String, obj):
+	return FileSystem.put_file_as_bytes(path, JSON.stringify(obj).to_utf8_buffer())

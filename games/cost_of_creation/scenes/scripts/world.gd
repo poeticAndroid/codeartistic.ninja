@@ -77,7 +77,13 @@ func _process(delta: float) -> void:
 			"room":
 				if not room:
 					room = msg
+					if not room.has("meta"): room.meta = { }
+					if not room.meta.has("inheritance"): room.meta.inheritance = []
+					if not room.meta.inheritance.has(room.id): room.meta.inheritance.push_back(room.id)
+					FileSystem.put_file_as_json(world_dir + "room", room)
 					send({ type = "obj", obj = "Aye", id = "from" })
+				if room.host != msg.host:
+					introduce("others")
 				for aye in room.users.values():
 					if not aye.has("node"): continue
 					if msg.users.has(aye.id):
@@ -94,6 +100,7 @@ func _process(delta: float) -> void:
 							if not aye.has("node"):
 								aye.node = aye_scene.instantiate()
 								add_child(aye.node)
+								introduce(aye.id)
 							if msg.from == user.id:
 								user.node = aye.node
 								%Canvas.aye = user.node
@@ -101,10 +108,13 @@ func _process(delta: float) -> void:
 								aye.node.goto(Vector2(msg.x, msg.y))
 							if msg.has("ink_fill"):
 								aye.node.set_ink_fill(msg.ink_fill)
-							if msg.has("ink_color"):
+							if msg.has("h") and msg.has("s") and msg.has("l"):
 								aye.node.set_ink_color(msg.h, msg.s, msg.l)
 						"Canvas":
 							apply_canvas(msg)
+						"Tile":
+							if msg.has("data"):
+								FileSystem.put_file_as_bytes(world_dir + msg.id, msg.data.hex_decode())
 
 			"feedme":
 				%CoinFeeder.request(msg.url)
@@ -117,7 +127,7 @@ func _process(delta: float) -> void:
 			print("Disconnected because ", ws.get_close_code(), " ", ws.get_close_reason())
 			Global.go_back()
 		WebSocketPeer.STATE_OPEN:
-			while outbox.size():
+			if outbox.size():
 				ws.send_text(JSON.stringify(outbox.pop_front()))
 
 
@@ -155,6 +165,19 @@ func _input(event: InputEvent) -> void:
 func send(msg):
 	if ws.get_ready_state() != WebSocketPeer.STATE_OPEN: return
 	outbox.push_back(msg)
+
+
+func introduce(user_id):
+	if not user: return
+	if not room: return
+	if room.host != user.id: return
+	if user_id == user.id: return
+	for file in DirAccess.get_files_at(world_dir):
+		if file.begins_with("tile_"):
+			await get_tree().create_timer(1).timeout
+			var data = FileSystem.get_file_as_bytes(world_dir + file).hex_encode()
+			if data:
+				send({ type = "obj", obj = "Tile", id = file, to = user_id, data = data })
 
 
 func apply_canvas(msg):
