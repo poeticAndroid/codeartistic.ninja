@@ -20,6 +20,9 @@ func _ready() -> void:
 				Global.persistant.creation_aye.s,
 				Global.persistant.creation_aye.l
 			)
+	if OS.is_debug_build():
+		set_ink_fill(1)
+		set_ink_color(0.5, 0.5, 0.75)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
