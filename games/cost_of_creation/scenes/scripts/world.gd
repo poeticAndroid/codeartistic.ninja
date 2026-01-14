@@ -17,7 +17,7 @@ var lastMouseDown = Vector2.ZERO
 var drawing = false
 
 var _img = Image.create_empty(960, 540, false, Image.FORMAT_RGBA8)
-var _tile = Image.create_empty(512, 512, false, Image.FORMAT_RGBA8)
+var _tile = Image.create_empty(256, 256, false, Image.FORMAT_RGBA8)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -50,21 +50,21 @@ func _process(delta: float) -> void:
 		lastPos = user.node.position
 
 	for tile in %Tiles.get_children():
-		if tile.position.x < %Camera.position.x - 768:
-			tile.goto(tile.col + 3, tile.row)
-		if tile.position.x > %Camera.position.x + 768:
-			tile.goto(tile.col - 3, tile.row)
-		if tile.position.y < %Camera.position.y - 768:
-			tile.goto(tile.col, tile.row + 3)
-		if tile.position.y > %Camera.position.y + 768:
-			tile.goto(tile.col, tile.row - 3)
+		if tile.position.x < %Camera.position.x - 640:
+			tile.goto(tile.col + 5, tile.row)
+		if tile.position.x > %Camera.position.x + 640:
+			tile.goto(tile.col - 5, tile.row)
+		if tile.position.y < %Camera.position.y - 640:
+			tile.goto(tile.col, tile.row + 5)
+		if tile.position.y > %Camera.position.y + 640:
+			tile.goto(tile.col, tile.row - 5)
 
 	ws.poll()
 	var state = ws.get_ready_state()
 
 	while ws.get_available_packet_count():
 		var msg = JSON.parse_string(ws.get_packet().get_string_from_utf8())
-		print("Server: ", JSON.stringify(msg))
+		#print("Server: ", JSON.stringify(msg))
 		match msg.type:
 			"user":
 				user = msg
@@ -80,6 +80,7 @@ func _process(delta: float) -> void:
 					if not room.has("meta"): room.meta = { }
 					if not room.meta.has("inheritance"): room.meta.inheritance = []
 					if not room.meta.inheritance.has(room.id): room.meta.inheritance.push_back(room.id)
+					if room.host == user.id: send(room)
 					FileSystem.put_file_as_json(world_dir + "room", room)
 					send({ type = "obj", obj = "Aye", id = "from" })
 				if room.host != msg.host:
@@ -113,8 +114,10 @@ func _process(delta: float) -> void:
 						"Canvas":
 							apply_canvas(msg)
 						"Tile":
-							if msg.has("data"):
-								FileSystem.put_file_as_bytes(world_dir + msg.id, msg.data.hex_decode())
+							if msg.has("col") and msg.has("row") and msg.has("data"):
+								print("receiving tile ", msg.col, ", ", msg.row)
+								FileSystem.put_file_as_bytes(world_dir + "tile_" + str(int(msg.col)) + "_" + str(int(msg.row)), msg.data.hex_decode())
+								refresh_tile(msg.col, msg.row)
 
 			"feedme":
 				%CoinFeeder.request(msg.url)
@@ -168,16 +171,67 @@ func send(msg):
 
 
 func introduce(user_id):
+	await get_tree().create_timer(0.1).timeout
 	if not user: return
 	if not room: return
 	if room.host != user.id: return
-	if user_id == user.id: return
+	# if user_id == user.id: return
+
+	var max = 1
+
 	for file in DirAccess.get_files_at(world_dir):
-		if file.begins_with("tile_"):
-			await get_tree().create_timer(1).timeout
-			var data = FileSystem.get_file_as_bytes(world_dir + file).hex_encode()
-			if data:
-				send({ type = "obj", obj = "Tile", id = file, to = user_id, data = data })
+		if file.begins_with("tile_") or file.begins_with("puddle_"):
+			var parts = file.split("_")
+			max = max(max, abs(parts[1].to_int()))
+			max = max(max, abs(parts[2].to_int()))
+
+	max *= 3
+	var col = 0
+	var row = 0
+
+	await send_tile(col, row, user_id)
+	var len = 1
+	while len <= max:
+		for i in range(0, len):
+			col -= 1
+			await send_tile(col, row, user_id)
+		for i in range(0, len):
+			row -= 1
+			await send_tile(col, row, user_id)
+		len += 1
+		for i in range(0, len):
+			col += 1
+			await send_tile(col, row, user_id)
+		for i in range(0, len):
+			row += 1
+			await send_tile(col, row, user_id)
+		len += 1
+
+
+func send_tile(col, row, user_id):
+	var file = "tile_" + str(col) + "_" + str(row)
+	var data = FileSystem.get_file_as_bytes(world_dir + file).hex_encode()
+
+	#if OS.is_debug_build():
+		#%IdleTimer.start()
+		#send({ type = "obj", obj = "Aye", id = "from", x = col * 256 + 128, y = row * 256 + 128 })
+		#await get_tree().create_timer(2).timeout
+		#file = str(int(floor(col / 2.0))) + "_" + str(int(floor(row / 2.0))) + ".png"
+		#_img.fill(Color.TRANSPARENT)
+		##if FileAccess.file_exists(world_dir + file):
+		#_img.load_png_from_buffer(FileAccess.get_file_as_bytes(world_dir + file))
+		#data = _img.get_region(Rect2i(256 * abs(col % 2), 256 * abs(row % 2), 256, 256)).save_png_to_buffer().hex_encode()
+
+	if data:
+		await get_tree().create_timer(0.1).timeout
+		print("sending ", file)
+		send({ type = "obj", obj = "Tile", id = file, to = user_id, col = col, row = row, data = data })
+	file = file.replace("tile_", "puddle_") + "_"
+	for f in DirAccess.get_files_at(world_dir):
+		if f.begins_with(file):
+			var puddle = FileSystem.get_file_as_json(world_dir + f)
+			puddle.to = user_id
+			send(puddle)
 
 
 func apply_canvas(msg):
@@ -187,16 +241,25 @@ func apply_canvas(msg):
 	_img.fill(Color.TRANSPARENT)
 	_img.load_png_from_buffer(msg.png.hex_decode())
 
-	for row in range(floor(msg.top / 512), ceil((msg.top + _img.get_size().y) / 512)):
-		for col in range(floor(msg.left / 512), ceil((msg.left + _img.get_size().x) / 512)):
+	for row in range(floor(msg.top / 256), ceil((msg.top + _img.get_size().y) / 256)):
+		for col in range(floor(msg.left / 256), ceil((msg.left + _img.get_size().x) / 256)):
+			var file = "tile_" + str(col) + "_" + str(row)
 			_tile.fill(Color.TRANSPARENT)
-			_tile.load_png_from_buffer(FileAccess.get_file_as_bytes(world_dir + str(col) + "_" + str(row) + ".png"))
-			_tile.load_png_from_buffer(FileSystem.get_file_as_bytes(world_dir + "tile_" + str(col) + "_" + str(row)))
-			_tile.blend_rect(_img, _img.get_used_rect(), Vector2i(col * -512 + msg.left, row * -512 + msg.top))
-			FileSystem.put_file_as_bytes(world_dir + "tile_" + str(col) + "_" + str(row), _tile.save_png_to_buffer())
+			if FileSystem.file_exists(world_dir + file):
+				_tile.load_png_from_buffer(FileSystem.get_file_as_bytes(world_dir + file))
+			elif room.host == user.id and col % 2 and row % 2:
+				send({ type = "obj", obj = "Puddle", id = file.replace("tile_", "puddle_") + "_" + str(Time.get_unix_time_from_system()),
+						x = col * 256 + randi_range(0, 256), y = row * 256 + randi_range(0, 256),
+						ink_fill = randi_range(1, 4), h = randi_range(0, 6) / 6, s = 1, l = randi_range(0, 2) / 2, })
+			_tile.blend_rect(_img, _img.get_used_rect(), Vector2i(col * -256 + msg.left, row * -256 + msg.top))
+			FileSystem.put_file_as_bytes(world_dir + file, _tile.save_png_to_buffer())
+			refresh_tile(col, row)
 
+
+func refresh_tile(col, row):
 	for tile in %Tiles.get_children():
-		tile.goto(tile.col, tile.row)
+		if tile.col == col and tile.row == row:
+			tile.goto(tile.col, tile.row)
 
 
 func _on_idle_timer_timeout() -> void:
