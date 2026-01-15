@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qppww"]
 radius = 128.0
 
-[node name="Puddle" type="Area2D"]
+[node name="Puddle" type="Area2D" groups=["puddle"]]
 script = ExtResource("1_udh77")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

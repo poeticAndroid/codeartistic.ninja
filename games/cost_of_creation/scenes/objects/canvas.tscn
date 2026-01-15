@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://bcpmq34bqwb73" path="res://games/cost_of_creation/scenes/objects/scripts/canvas.gd" id="1_myw88"]
 
-[node name="Canvas" type="Sprite2D"]
+[node name="Canvas" type="Sprite2D" groups=["canvas"]]
 script = ExtResource("1_myw88")

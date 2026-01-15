@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var aye_scene = preload("res://games/cost_of_creation/scenes/objects/Aye.tscn")
+@onready var puddle_scene = preload("res://games/cost_of_creation/scenes/objects/puddle.tscn")
 
 var world_dir = "user://creation/"
 
@@ -52,12 +53,16 @@ func _process(delta: float) -> void:
 	for tile in %Tiles.get_children():
 		if tile.position.x < %Camera.position.x - 640:
 			tile.goto(tile.col + 5, tile.row)
+			refresh_puddles(tile.col, tile.row)
 		if tile.position.x > %Camera.position.x + 640:
 			tile.goto(tile.col - 5, tile.row)
+			refresh_puddles(tile.col, tile.row)
 		if tile.position.y < %Camera.position.y - 640:
 			tile.goto(tile.col, tile.row + 5)
+			refresh_puddles(tile.col, tile.row)
 		if tile.position.y > %Camera.position.y + 640:
 			tile.goto(tile.col, tile.row - 5)
+			refresh_puddles(tile.col, tile.row)
 
 	ws.poll()
 	var state = ws.get_ready_state()
@@ -100,7 +105,7 @@ func _process(delta: float) -> void:
 							var aye = room.users[msg.from]
 							if not aye.has("node"):
 								aye.node = aye_scene.instantiate()
-								add_child(aye.node)
+								%Players.add_child(aye.node)
 								introduce(aye.id)
 							if msg.from == user.id:
 								user.node = aye.node
@@ -115,9 +120,23 @@ func _process(delta: float) -> void:
 							apply_canvas(msg)
 						"Tile":
 							if msg.has("col") and msg.has("row") and msg.has("data"):
-								print("receiving tile ", msg.col, ", ", msg.row)
 								FileSystem.put_file_as_bytes(world_dir + "tile_" + str(int(msg.col)) + "_" + str(int(msg.row)), msg.data.hex_decode())
 								refresh_tile(msg.col, msg.row)
+						"Puddle":
+							if msg.id.contains("."):
+								msg.id = msg.id.replace(".", "")
+							FileSystem.put_file_as_json(world_dir + msg.id, msg)
+							var node = %Puddles.get_node(msg.id)
+							if not node:
+								node = puddle_scene.instantiate()
+								node.name = msg.id
+								%Puddles.add_child(node)
+							if msg.has("x") and msg.has("y"):
+								node.position = Vector2(msg.x, msg.y)
+							if msg.has("ink_fill"):
+								node.set_ink_fill(msg.ink_fill)
+							if msg.has("h") and msg.has("s") and msg.has("l"):
+								node.set_ink_color(msg.h, msg.s, msg.l)
 
 			"feedme":
 				%CoinFeeder.request(msg.url)
@@ -224,7 +243,6 @@ func send_tile(col, row, user_id):
 
 	if data:
 		await get_tree().create_timer(0.1).timeout
-		print("sending ", file)
 		send({ type = "obj", obj = "Tile", id = file, to = user_id, col = col, row = row, data = data })
 	file = file.replace("tile_", "puddle_") + "_"
 	for f in DirAccess.get_files_at(world_dir):
@@ -248,9 +266,10 @@ func apply_canvas(msg):
 			if FileSystem.file_exists(world_dir + file):
 				_tile.load_png_from_buffer(FileSystem.get_file_as_bytes(world_dir + file))
 			elif room.host == user.id and col % 2 and row % 2:
-				send({ type = "obj", obj = "Puddle", id = file.replace("tile_", "puddle_") + "_" + str(Time.get_unix_time_from_system()),
+				send({ type = "obj", obj = "Puddle",
+						id = file.replace("tile_", "puddle_") + "_" + str(Time.get_unix_time_from_system()).replace(".", ""),
 						x = col * 256 + randi_range(0, 256), y = row * 256 + randi_range(0, 256),
-						ink_fill = randi_range(1, 4), h = randi_range(0, 6) / 6, s = 1, l = randi_range(0, 2) / 2, })
+						ink_fill = randi_range(1, 4), h = randi_range(0, 6) / 6.0, s = 1, l = randi_range(0, 2) / 2.0, })
 			_tile.blend_rect(_img, _img.get_used_rect(), Vector2i(col * -256 + msg.left, row * -256 + msg.top))
 			FileSystem.put_file_as_bytes(world_dir + file, _tile.save_png_to_buffer())
 			refresh_tile(col, row)
@@ -262,5 +281,29 @@ func refresh_tile(col, row):
 			tile.goto(tile.col, tile.row)
 
 
+func refresh_puddles(col, row):
+	var file = "puddle_" + str(col) + "_" + str(row) + "_"
+	for f in DirAccess.get_files_at(world_dir):
+		if f.begins_with(file):
+			var puddle = FileSystem.get_file_as_json(world_dir + f)
+			var node = %Puddles.get_node(puddle.id)
+			if not node:
+				node = puddle_scene.instantiate()
+				node.name = puddle.id
+				%Puddles.add_child(node)
+			node.position.x = puddle.x
+			node.position.y = puddle.y
+			node.set_ink_fill(puddle.ink_fill)
+			node.set_ink_color(puddle.h, puddle.s, puddle.l)
+
+
 func _on_idle_timer_timeout() -> void:
 	Global.go_back()
+
+
+func _on_on_screen_area_entered(area: Area2D) -> void:
+	if area.is_in_group("puddle"): area.staying = true
+
+
+func _on_on_screen_area_exited(area: Area2D) -> void:
+	if area.is_in_group("puddle"): area.queue_free()

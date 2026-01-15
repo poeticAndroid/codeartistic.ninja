@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://hnhu0xc3dain"]
+[gd_scene load_steps=6 format=3 uid="uid://hnhu0xc3dain"]
 
 [ext_resource type="Script" uid="uid://hxfa7mrw1bf7" path="res://games/cost_of_creation/scenes/scripts/world.gd" id="1_bft0m"]
 [ext_resource type="Texture2D" uid="uid://dcq46kalbvp3p" path="res://games/cost_of_creation/assets/backgrounds/world_paper.png" id="2_ql6q4"]
 [ext_resource type="PackedScene" uid="uid://sxp715dkxj26" path="res://games/cost_of_creation/scenes/objects/canvas.tscn" id="3_opyjd"]
 [ext_resource type="PackedScene" uid="uid://dek6n8q6pm5l0" path="res://games/cost_of_creation/scenes/objects/tile.tscn" id="4_bf8kl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bf8kl"]
+size = Vector2(2048, 2048)
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -29,6 +32,11 @@ texture = ExtResource("2_ql6q4")
 
 [node name="Camera" type="Camera2D" parent="."]
 unique_name_in_owner = true
+
+[node name="OnScreen" type="Area2D" parent="Camera"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/OnScreen"]
+shape = SubResource("RectangleShape2D_bf8kl")
 
 [node name="Tiles" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -159,7 +167,17 @@ position = Vector2(720, 647)
 col = 5
 row = 5
 
+[node name="Puddles" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Players" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
 [node name="Canvas" parent="." instance=ExtResource("3_opyjd")]
 unique_name_in_owner = true
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="area_entered" from="Camera/OnScreen" to="." method="_on_on_screen_area_entered"]
+[connection signal="area_exited" from="Camera/OnScreen" to="." method="_on_on_screen_area_exited"]

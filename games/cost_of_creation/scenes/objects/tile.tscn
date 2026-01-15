@@ -4,8 +4,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_ev1of"]
 font_color = Color(0.2, 0.2, 0.2, 1)
+outline_size = 2
 
-[node name="Tile" type="Sprite2D"]
+[node name="Tile" type="Sprite2D" groups=["tile"]]
 script = ExtResource("1_ev1of")
 
 [node name="ColorRect1" type="ColorRect" parent="."]
@@ -37,7 +38,10 @@ offset_right = 129.0
 offset_bottom = 128.0
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+visible = false
+offset_left = -120.0
+offset_top = -121.0
+offset_right = -59.0
+offset_bottom = -98.0
 text = "col, row"
 label_settings = SubResource("LabelSettings_ev1of")
