@@ -3,7 +3,7 @@ extends Sprite2D
 @export var col = 0
 @export var row = 0
 
-var world_dir = "user://creation/"
+var world_dir
 
 var img: Image
 
@@ -32,6 +32,8 @@ func goto(_col, _row):
 	img.fill(Color.TRANSPARENT)
 	texture.update(img)
 
+	world_dir = get_parent().get_parent().world_dir
+
 	position.x = 128 + col * 256
 	position.y = 128 + row * 256
 	var file = "tile_" + str(col) + "_" + str(row)
@@ -39,6 +41,6 @@ func goto(_col, _row):
 		img.load_png_from_buffer(FileSystem.get_file_as_bytes(world_dir + file))
 	texture.update(img)
 
-	if not img.get_used_rect().has_area():
-		FileSystem.remove_absolute(world_dir + file)
-		$Label.text += "\ndeleted!"
+	#if not img.get_used_rect().has_area():
+		#FileSystem.remove_absolute(world_dir + file)
+		#$Label.text += "\ndeleted!"

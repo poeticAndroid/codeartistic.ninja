@@ -6,6 +6,9 @@ var paused = true
 var ink_color = HSL.new()
 var ink_fill = 0.25
 
+var in_puddle = false
+var spill = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,7 +24,7 @@ func _ready() -> void:
 				Global.persistant.creation_aye.l
 			)
 	if OS.is_debug_build():
-		set_ink_fill(1)
+		set_ink_fill(0.5)
 		set_ink_color(0.5, 0.5, 0.75)
 
 
@@ -38,6 +41,22 @@ func _process(delta: float) -> void:
 	else:
 		animate("idle")
 
+	if in_puddle and paused:
+		in_puddle.ink_color.blend(in_puddle.ink_color, ink_color,
+				ink_fill / (ink_fill + in_puddle.ink_fill))
+		ink_color.copy_from(in_puddle.ink_color)
+		in_puddle.set_ink_color()
+		set_ink_color()
+
+		if spill:
+			if ink_fill > 0:
+				in_puddle.set_ink_fill(in_puddle.ink_fill + 0.12 * delta)
+				set_ink_fill(ink_fill - 0.12 * delta)
+		else:
+			if in_puddle.ink_fill > 0 and ink_fill < 1:
+				in_puddle.set_ink_fill(in_puddle.ink_fill - 0.12 * delta)
+				set_ink_fill(ink_fill + 0.12 * delta)
+
 
 func animate(anim):
 	%StrokeSprite.play(anim)
@@ -51,7 +70,7 @@ func animate(anim):
 			%FillSprite.flip_h = false
 
 
-func set_ink_color(h, s, l):
+func set_ink_color(h = ink_color.hue, s = ink_color.saturation, l = ink_color.lightness):
 	ink_color.hue = h
 	ink_color.saturation = s
 	ink_color.lightness = l
@@ -65,6 +84,7 @@ func set_ink_fill(p):
 
 func goto(pos):
 	paused = false
+	spill = false
 	target = pos
 
 
@@ -88,3 +108,13 @@ func to_obj():
 		}
 	Global.persistant.creation_aye = obj
 	return obj
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("puddle"):
+		in_puddle = area
+
+
+func _on_area_exited(area: Area2D) -> void:
+	if area.is_in_group("puddle"):
+		in_puddle = null

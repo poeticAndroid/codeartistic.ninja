@@ -3,7 +3,7 @@ extends Node2D
 @onready var aye_scene = preload("res://games/cost_of_creation/scenes/objects/Aye.tscn")
 @onready var puddle_scene = preload("res://games/cost_of_creation/scenes/objects/puddle.tscn")
 
-var world_dir = "user://creation/"
+var world_dir = "user://cost_of_creation/blank/"
 
 var ws = WebSocketPeer.new()
 var lastState
@@ -11,7 +11,7 @@ var reconnecting
 var outbox = []
 
 var user
-var room
+var room = { }
 var cameraFollow
 var lastPos = Vector2.ZERO
 var lastMouseDown = Vector2.ZERO
@@ -24,6 +24,11 @@ var _tile = Image.create_empty(256, 256, false, Image.FORMAT_RGBA8)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Engine.max_fps = 12
+	if Global.session.has("room_id"):
+		world_dir = "user://cost_of_creation/" + Global.session.room_id + "/"
+	DirAccess.make_dir_recursive_absolute(world_dir)
+	if FileSystem.file_exists(world_dir + "room"):
+		room = FileSystem.get_file_as_json(world_dir + "room")
 	print("Connecting to server...")
 	ws.connect_to_url(NetConfig.servers[0])
 	outbox = [{ type = "user", name = "Aye" }]
@@ -76,26 +81,36 @@ func _process(delta: float) -> void:
 				send({ type = "topic", key = NetConfig.get_key(user) })
 
 			"topic":
-				if msg.rooms.is_empty(): send({ type = "room", name = "Creation" })
+				if room: send(room)
+				elif msg.rooms.is_empty(): send({ type = "room", name = "Creation" })
 				else: send({ type = "room", id = msg.rooms.keys()[0] })
 
 			"room":
-				if not room:
-					room = msg
-					if not room.has("meta"): room.meta = { }
-					if not room.meta.has("inheritance"): room.meta.inheritance = []
-					if not room.meta.inheritance.has(room.id): room.meta.inheritance.push_back(room.id)
-					if room.host == user.id: send(room)
-					FileSystem.put_file_as_json(world_dir + "room", room)
-					send({ type = "obj", obj = "Aye", id = "from" })
-				if room.host != msg.host:
+				if not world_dir.contains(msg.id):
+					print("Joined room ", msg.name)
+					if DirAccess.dir_exists_absolute(world_dir):
+						DirAccess.rename_absolute(world_dir, "user://cost_of_creation/" + msg.id)
+					world_dir = "user://cost_of_creation/" + msg.id + "/"
+					DirAccess.make_dir_recursive_absolute(world_dir)
+					refresh_visible()
+				FileSystem.put_file_as_json(world_dir + "room", msg)
+				if not user.has("node"):
+					send({ type = "obj", obj = "Aye", id = "from", x = 0, y = 1 })
+				if room.has("host") and room.host != msg.host:
 					introduce("others")
-				for aye in room.users.values():
-					if not aye.has("node"): continue
-					if msg.users.has(aye.id):
-						msg.users[aye.id].node = aye.node
-					else:
-						aye.node.leave()
+				if msg.host == user.id:
+					if not msg.has("meta"): msg.meta = { }
+					if not msg.meta.has("inheritance"): msg.meta.inheritance = []
+					if not msg.meta.inheritance.has(msg.id):
+						msg.meta.inheritance.push_back(msg.id)
+						send(msg)
+				if room.has("users"):
+					for aye in room.users.values():
+						if not aye.has("node"): continue
+						if msg.users.has(aye.id):
+							msg.users[aye.id].node = aye.node
+						else:
+							aye.node.leave()
 				room = msg
 
 			"obj":
@@ -110,6 +125,7 @@ func _process(delta: float) -> void:
 							if msg.from == user.id:
 								user.node = aye.node
 								%Canvas.aye = user.node
+								user.node.connect("area_exited", _on_aye_area_exited)
 							if msg.has("x") and msg.has("y"):
 								aye.node.goto(Vector2(msg.x, msg.y))
 							if msg.has("ink_fill"):
@@ -147,7 +163,13 @@ func _process(delta: float) -> void:
 	match state:
 		WebSocketPeer.STATE_CLOSED:
 			print("Disconnected because ", ws.get_close_code(), " ", ws.get_close_reason())
-			Global.go_back()
+			if ws.get_close_reason() == "bad room" and room.has("id"):
+				room.erase("id")
+				outbox = [{ type = "user", name = "Aye" }]
+			else:
+				Global.go_back()
+			print("Reconnecting to server...")
+			ws.connect_to_url(NetConfig.servers[0])
 		WebSocketPeer.STATE_OPEN:
 			if outbox.size():
 				ws.send_text(JSON.stringify(outbox.pop_front()))
@@ -194,7 +216,8 @@ func introduce(user_id):
 	if not user: return
 	if not room: return
 	if room.host != user.id: return
-	# if user_id == user.id: return
+	if user_id == user.id: return
+	print("Introducing ", user_id, " to the world...")
 
 	var max = 1
 
@@ -275,6 +298,15 @@ func apply_canvas(msg):
 			refresh_tile(col, row)
 
 
+func refresh_visible():
+	for puddle in %Puddles.get_children():
+		puddle.queue_free()
+	await get_tree().create_timer(0.1).timeout
+	for tile in %Tiles.get_children():
+		tile.goto(tile.col, tile.row)
+		refresh_puddles(tile.col, tile.row)
+
+
 func refresh_tile(col, row):
 	for tile in %Tiles.get_children():
 		if tile.col == col and tile.row == row:
@@ -307,3 +339,8 @@ func _on_on_screen_area_entered(area: Area2D) -> void:
 
 func _on_on_screen_area_exited(area: Area2D) -> void:
 	if area.is_in_group("puddle"): area.queue_free()
+
+
+func _on_aye_area_exited(area: Area2D) -> void:
+	if area.is_in_group("puddle"):
+		send(area.to_obj())

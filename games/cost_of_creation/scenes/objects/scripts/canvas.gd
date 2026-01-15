@@ -6,8 +6,8 @@ var color: Image
 var brush: Image
 
 var img: Image
-var line_start = Vector2i.ZERO
-var line_end = Vector2i.ZERO
+var line_start = Vector2.ZERO
+var line_end = Vector2.ZERO
 
 
 # Called when the node enters the scene tree for the first time.

@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	scale.y += cos(_pulse) * 0.01
 
 
-func set_ink_color(h, s, l):
+func set_ink_color(h = ink_color.hue, s = ink_color.saturation, l = ink_color.lightness):
 	ink_color.hue = h
 	ink_color.saturation = s
 	ink_color.lightness = l

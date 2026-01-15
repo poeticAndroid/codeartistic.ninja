@@ -16,11 +16,11 @@ func set_to(_hue = self._hue, _saturation = self._saturation, _lightness = self.
 	return self.normalize()
 
 
-func copyFrom(a: HSL):
+func copy_from(a: HSL):
 	return self.set_to(a.hue, a.saturation, a.lightness)
 
 
-func copyTo(a: HSL):
+func copy_to(a: HSL):
 	return a.set_to(self.hue, self.saturation, self.lightness)
 
 
