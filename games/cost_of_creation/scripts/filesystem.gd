@@ -2,6 +2,7 @@ class_name FileSystem
 
 static var crypto = Crypto.new()
 static var key
+static var lock
 
 static func make_key():
 	if not FileSystem.key:
@@ -26,6 +27,13 @@ static func get_file_as_bytes(path: String):
 	return bytes
 
 static func put_file_as_bytes(path: String, bytes: PackedByteArray):
+	if path.get_file() != "lock":
+		if FileSystem.lock and FileSystem.file_exists("user://lock"):
+			if FileSystem.get_file_as_json("user://lock") != FileSystem.lock:
+				return Global.go_back()
+		else:
+			FileSystem.lock = Time.get_unix_time_from_system()
+			FileSystem.put_file_as_json("user://lock", FileSystem.lock)
 	FileSystem.make_key()
 	var file = FileAccess.open_encrypted(path, FileAccess.WRITE, FileSystem.key)
 	file.store_buffer(bytes)
@@ -38,4 +46,5 @@ static func put_file_as_json(path: String, obj):
 	return FileSystem.put_file_as_bytes(path, JSON.stringify(obj).to_utf8_buffer())
 
 static func remove_absolute(path):
+	if FileSystem.get_file_as_json("user://lock") != FileSystem.lock: return
 	DirAccess.remove_absolute(path)
