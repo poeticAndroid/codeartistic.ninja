@@ -12,9 +12,9 @@ var line_end = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	color = Image.load_from_file("res://games/cost_of_creation/assets/sprites/circle8px.png")
+	color = preload("res://games/cost_of_creation/assets/sprites/circle8px.png").get_image()
 	color.convert(Image.FORMAT_RGBA8)
-	brush = Image.load_from_file("res://games/cost_of_creation/assets/sprites/circle8px.png")
+	brush = preload("res://games/cost_of_creation/assets/sprites/circle8px.png").get_image()
 	brush.convert(Image.FORMAT_RGBA8)
 	img = Image.create_empty(960, 540, false, Image.FORMAT_RGBA8)
 	texture = ImageTexture.create_from_image(img)
