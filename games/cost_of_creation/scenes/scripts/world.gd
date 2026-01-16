@@ -36,6 +36,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_cancel"): _on_idle_timer_timeout()
 	var inp_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if inp_dir.length() > 0.5: cameraFollow = false
 	%Camera.position += inp_dir * 128 * delta
@@ -94,6 +95,7 @@ func _process(delta: float) -> void:
 					DirAccess.make_dir_recursive_absolute(world_dir)
 					refresh_visible()
 				FileSystem.put_file_as_json(world_dir + "room", msg)
+				Global.session.room_id = msg.id
 				if not user.has("node"):
 					send({ type = "obj", obj = "Aye", id = "from", x = 0, y = 1 })
 				if room.has("host") and room.host != msg.host:
@@ -220,35 +222,35 @@ func introduce(user_id):
 	if user_id == user.id: return
 	print("Introducing ", user_id, " to the world...")
 
-	var max = 1
+	var map_size = 1
 
 	for file in DirAccess.get_files_at(world_dir):
 		if file.begins_with("tile_") or file.begins_with("puddle_"):
 			var parts = file.split("_")
-			max = max(max, abs(parts[1].to_int()))
-			max = max(max, abs(parts[2].to_int()))
+			map_size = max(map_size, abs(parts[1].to_int()))
+			map_size = max(map_size, abs(parts[2].to_int()))
 
-	max *= 3
+	map_size *= 3
 	var col = 0
 	var row = 0
 
 	await send_tile(col, row, user_id)
-	var len = 1
-	while len <= max:
-		for i in range(0, len):
+	var side = 1
+	while side <= map_size:
+		for i in range(0, side):
 			col -= 1
 			await send_tile(col, row, user_id)
-		for i in range(0, len):
+		for i in range(0, side):
 			row -= 1
 			await send_tile(col, row, user_id)
-		len += 1
-		for i in range(0, len):
+		side += 1
+		for i in range(0, side):
 			col += 1
 			await send_tile(col, row, user_id)
-		for i in range(0, len):
+		for i in range(0, side):
 			row += 1
 			await send_tile(col, row, user_id)
-		len += 1
+		side += 1
 
 
 func send_tile(col, row, user_id):
@@ -331,6 +333,11 @@ func refresh_puddles(col, row):
 
 
 func _on_idle_timer_timeout() -> void:
+	if user and user.has("node"):
+		if user.node.in_puddle:
+			send(user.node.in_puddle.to_obj())
+		user.node.goto(Vector2.DOWN)
+		send(user.node.to_obj())
 	Global.go_back()
 
 
