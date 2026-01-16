@@ -10,8 +10,8 @@ var lastState
 var reconnecting
 var outbox = []
 
-var user
-var room = { }
+var user = { type = "user", name = "Aye" }
+var room = { type = "room", id = "blank", name = "untitled" }
 var cameraFollow
 var lastPos = Vector2.ZERO
 var lastMouseDown = Vector2.ZERO
@@ -24,14 +24,17 @@ var _tile = Image.create_empty(256, 256, false, Image.FORMAT_RGBA8)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Engine.max_fps = 12
+	if Global.persistant.has("creation_user"):
+		user = Global.persistant.creation_user
 	if Global.session.has("room_id"):
-		world_dir = "user://cost_of_creation/" + Global.session.room_id + "/"
+		room.id = Global.session.room_id
+	world_dir = "user://cost_of_creation/" + room.id + "/"
 	DirAccess.make_dir_recursive_absolute(world_dir)
 	if FileSystem.file_exists(world_dir + "room"):
 		room = FileSystem.get_file_as_json(world_dir + "room")
 	print("Connecting to server...")
 	ws.connect_to_url(NetConfig.servers[0])
-	outbox = [{ type = "user", name = "Aye" }]
+	outbox = [user]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -79,16 +82,18 @@ func _process(delta: float) -> void:
 		match msg.type:
 			"user":
 				user = msg
+				Global.persistant.creation_user = JSON.parse_string(JSON.stringify(user))
 				send({ type = "topic", key = NetConfig.get_key(user) })
 
 			"topic":
-				if room: send(room)
-				elif msg.rooms.is_empty(): send({ type = "room", name = "Creation" })
-				else: send({ type = "room", id = msg.rooms.keys()[0] })
+				if room.id == "blank" and not msg.rooms.is_empty():
+					room.id = msg.rooms.keys()[0]
+				if not msg.rooms.has(room.id):
+					room.erase("id")
+				send(room)
 
 			"room":
 				if not world_dir.contains(msg.id):
-					print("Joined room ", msg.name)
 					if DirAccess.dir_exists_absolute(world_dir):
 						DirAccess.rename_absolute(world_dir, "user://cost_of_creation/" + msg.id)
 					world_dir = "user://cost_of_creation/" + msg.id + "/"
@@ -166,13 +171,7 @@ func _process(delta: float) -> void:
 	match state:
 		WebSocketPeer.STATE_CLOSED:
 			print("Disconnected because ", ws.get_close_code(), " ", ws.get_close_reason())
-			if ws.get_close_reason() == "bad room" and room.has("id"):
-				room.erase("id")
-				outbox = [{ type = "user", name = "Aye" }]
-			else:
-				Global.go_back()
-			print("Reconnecting to server...")
-			ws.connect_to_url(NetConfig.servers[0])
+			Global.go_back()
 		WebSocketPeer.STATE_OPEN:
 			while outbox.size():
 				ws.send_text(JSON.stringify(outbox.pop_front()))

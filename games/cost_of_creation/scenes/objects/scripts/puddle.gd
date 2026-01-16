@@ -19,7 +19,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if _one.x < 1:
-		_one += Vector2(0.01, 0.01)
+		_one += Vector2(0.015625, 0.015625)
 	_pulse += 2.4 * delta
 	scale = _one * (ink_fill / 8)
 	scale.x += sin(_pulse) * 0.01
