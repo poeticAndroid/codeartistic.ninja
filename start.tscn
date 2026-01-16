@@ -355,6 +355,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xosbf")
 
+[node name="WakeUpCall" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
 

@@ -18,6 +18,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ullo0")
 
+[node name="WakeUpCall" type="HTTPRequest" parent="."]
+unique_name_in_owner = true
+
 [node name="Paper" type="Sprite2D" parent="."]
 position = Vector2(480, 270)
 texture = ExtResource("1_j60k2")

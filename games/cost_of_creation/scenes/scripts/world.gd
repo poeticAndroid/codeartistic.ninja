@@ -126,6 +126,7 @@ func _process(delta: float) -> void:
 								user.node = aye.node
 								%Canvas.aye = user.node
 								user.node.connect("area_exited", _on_aye_area_exited)
+								%Connecting.visible = false
 							if msg.has("x") and msg.has("y"):
 								aye.node.goto(Vector2(msg.x, msg.y))
 							if msg.has("ink_fill"):

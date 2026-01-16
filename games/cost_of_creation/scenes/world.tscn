@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://hnhu0xc3dain"]
+[gd_scene load_steps=7 format=3 uid="uid://hnhu0xc3dain"]
 
 [ext_resource type="Script" uid="uid://hxfa7mrw1bf7" path="res://games/cost_of_creation/scenes/scripts/world.gd" id="1_bft0m"]
 [ext_resource type="Texture2D" uid="uid://dcq46kalbvp3p" path="res://games/cost_of_creation/assets/backgrounds/world_paper.png" id="2_ql6q4"]
@@ -8,8 +8,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bf8kl"]
 size = Vector2(2048, 2048)
 
+[sub_resource type="LabelSettings" id="LabelSettings_bf8kl"]
+font_color = Color(0, 0, 0, 1)
+outline_size = 4
+
 [node name="World" type="Node2D"]
-y_sort_enabled = true
 script = ExtResource("1_bft0m")
 
 [node name="IdleTimer" type="Timer" parent="."]
@@ -37,6 +40,24 @@ unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/OnScreen"]
 shape = SubResource("RectangleShape2D_bf8kl")
+
+[node name="Connecting" type="Label" parent="Camera"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -11.5
+offset_right = 50.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Connecting..."
+label_settings = SubResource("LabelSettings_bf8kl")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Tiles" type="Node2D" parent="."]
 unique_name_in_owner = true
