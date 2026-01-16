@@ -28,14 +28,17 @@ func _process(delta: float) -> void:
 func goto(_col, _row):
 	col = int(_col)
 	row = int(_row)
+	position.x = 128 + col * 256
+	position.y = 128 + row * 256
 	$Label.text = str(col) + ", " + str(row)
+	await get_tree().create_timer(randf()).timeout
+	if col != int(_col): return
+	if row != int(_row): return
 	img.fill(Color.TRANSPARENT)
 	texture.update(img)
 
 	world_dir = get_parent().get_parent().world_dir
 
-	position.x = 128 + col * 256
-	position.y = 128 + row * 256
 	var file = "tile_" + str(col) + "_" + str(row)
 	if FileSystem.file_exists(world_dir + file):
 		img.load_png_from_buffer(FileSystem.get_file_as_bytes(world_dir + file))
