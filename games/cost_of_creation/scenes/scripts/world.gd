@@ -124,7 +124,7 @@ func _process(delta: float) -> void:
 								aye.node = aye_scene.instantiate()
 								%Players.add_child(aye.node)
 								introduce(aye.id)
-							if msg.from == user.id:
+							if msg.from == user.id and not user.has("node"):
 								user.node = aye.node
 								%Canvas.aye = user.node
 								user.node.connect("area_exited", _on_aye_area_exited)
@@ -174,7 +174,7 @@ func _process(delta: float) -> void:
 			print("Reconnecting to server...")
 			ws.connect_to_url(NetConfig.servers[0])
 		WebSocketPeer.STATE_OPEN:
-			if outbox.size():
+			while outbox.size():
 				ws.send_text(JSON.stringify(outbox.pop_front()))
 
 
