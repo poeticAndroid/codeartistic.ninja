@@ -10,35 +10,30 @@ outline_size = 2
 script = ExtResource("1_ev1of")
 
 [node name="ColorRect1" type="ColorRect" parent="."]
-visible = false
 offset_left = -128.0
 offset_top = -128.0
 offset_right = 128.0
 offset_bottom = -127.0
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-visible = false
 offset_left = -128.0
 offset_top = 128.0
 offset_right = 128.0
 offset_bottom = 129.0
 
 [node name="ColorRect3" type="ColorRect" parent="."]
-visible = false
 offset_left = -128.0
 offset_top = -128.0
 offset_right = -127.0
 offset_bottom = 128.0
 
 [node name="ColorRect4" type="ColorRect" parent="."]
-visible = false
 offset_left = 128.0
 offset_top = -128.0
 offset_right = 129.0
 offset_bottom = 128.0
 
 [node name="Label" type="Label" parent="."]
-visible = false
 offset_left = -120.0
 offset_top = -121.0
 offset_right = -59.0

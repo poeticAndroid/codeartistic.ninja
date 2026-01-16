@@ -31,11 +31,11 @@ func goto(_col, _row):
 	position.x = 128 + col * 256
 	position.y = 128 + row * 256
 	$Label.text = str(col) + ", " + str(row)
+	img.fill(Color.TRANSPARENT)
+	texture.update(img)
 	await get_tree().create_timer(randf()).timeout
 	if col != int(_col): return
 	if row != int(_row): return
-	img.fill(Color.TRANSPARENT)
-	texture.update(img)
 
 	world_dir = get_parent().get_parent().world_dir
 
