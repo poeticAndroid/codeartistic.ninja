@@ -127,15 +127,19 @@ func _process(delta: float) -> void:
 							var aye = room.users[msg.from]
 							if not aye.has("node"):
 								aye.node = aye_scene.instantiate()
+								aye.node.set_username(aye.name)
 								%Players.add_child(aye.node)
 								introduce(aye.id)
 							if msg.from == user.id and not user.has("node"):
 								user.node = aye.node
 								%Canvas.aye = user.node
 								user.node.connect("area_exited", _on_aye_area_exited)
+								user.node.connect("pressed", _on_aye_pressed)
 								%Connecting.visible = false
 							if msg.has("x") and msg.has("y"):
 								aye.node.goto(Vector2(msg.x, msg.y))
+							if msg.has("spill"):
+								aye.node.spill = msg.spill
 							if msg.has("ink_fill"):
 								aye.node.set_ink_fill(msg.ink_fill)
 							if msg.has("h") and msg.has("s") and msg.has("l"):
@@ -226,6 +230,7 @@ func introduce(user_id):
 	for file in DirAccess.get_files_at(world_dir):
 		if file.begins_with("tile_") or file.begins_with("puddle_"):
 			var parts = file.split("_")
+			if parts[0] == "puddle" and parts.size() < 4: FileSystem.remove_absolute(world_dir + file)
 			map_size = max(map_size, abs(parts[1].to_int()))
 			map_size = max(map_size, abs(parts[2].to_int()))
 
@@ -292,7 +297,7 @@ func apply_canvas(msg):
 				_tile.load_png_from_buffer(FileSystem.get_file_as_bytes(world_dir + file))
 			elif room.host == user.id and col % 2 and row % 2:
 				send({ type = "obj", obj = "Puddle",
-						id = file.replace("tile_", "puddle_") + "_" + str(Time.get_unix_time_from_system()).replace(".", ""),
+						id = file.replace("tile_", "puddle_") + "_" + str(Time.get_ticks_msec()),
 						x = col * 256 + randi_range(0, 256), y = row * 256 + randi_range(0, 256),
 						ink_fill = randi_range(1, 4), h = randi_range(0, 6) / 6.0, s = 1, l = randi_range(0, 2) / 2.0, })
 			_tile.blend_rect(_img, _img.get_used_rect(), Vector2i(col * -256 + msg.left, row * -256 + msg.top))
@@ -351,3 +356,23 @@ func _on_on_screen_area_exited(area: Area2D) -> void:
 func _on_aye_area_exited(area: Area2D) -> void:
 	if area.is_in_group("puddle"):
 		send(area.to_obj())
+
+
+func _on_aye_pressed():
+	user.node.paused = true
+	user.node.target = user.node.position
+	user.node.spill = not user.node.spill
+	send(user.node.to_obj())
+	if not user.node.in_puddle:
+		var id = "puddle_" + str(int(floor(user.node.position.x / 256))) + \
+				"_" + str(int(floor(user.node.position.y / 256))) + \
+				"_" + str(Time.get_ticks_msec())
+		send({
+			type = "obj", obj = "Puddle", id = id,
+			x = user.node.position.x, y = user.node.position.y,
+			ink_fill = 0.1,
+			h = user.node.ink_color.hue,
+			s = user.node.ink_color.saturation,
+			l = user.node.ink_color.lightness,
+		})
+	drawing = true

@@ -36,8 +36,9 @@ static func put_file_as_bytes(path: String, bytes: PackedByteArray):
 			FileSystem.put_file_as_json("user://lock", FileSystem.lock)
 	FileSystem.make_key()
 	var file = FileAccess.open_encrypted(path, FileAccess.WRITE, FileSystem.key)
-	file.store_buffer(bytes)
-	file.close()
+	if file:
+		file.store_buffer(bytes)
+		file.close()
 
 static func get_file_as_json(path: String):
 	return JSON.parse_string(FileSystem.get_file_as_bytes(path).get_string_from_utf8())

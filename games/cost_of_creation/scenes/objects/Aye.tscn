@@ -348,5 +348,21 @@ sprite_frames = SubResource("SpriteFrames_80ds6")
 animation = &"idle"
 frame_progress = 0.2315141
 
+[node name="SuckBtn" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -112.0
+offset_right = 45.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "[no_username]"
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="pressed" from="SuckBtn" to="." method="_on_suck_btn_pressed"]

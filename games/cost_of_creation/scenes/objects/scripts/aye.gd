@@ -1,5 +1,7 @@
 extends Area2D
 
+signal pressed
+
 var target = Vector2.ZERO
 var paused = true
 
@@ -82,6 +84,10 @@ func set_ink_fill(p):
 	%InkMask.position.y = 128 * (1 - ink_fill)
 
 
+func set_username(name):
+	$SuckBtn.tooltip_text = name
+
+
 func goto(pos):
 	paused = false
 	spill = false
@@ -101,6 +107,7 @@ func to_obj():
 	var obj = {
 			type = "obj", obj = "Aye", id = "from",
 			x = target.x, y = target.y,
+			spill = spill,
 			ink_fill = ink_fill,
 			h = ink_color.hue,
 			s = ink_color.saturation,
@@ -118,3 +125,7 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group("puddle"):
 		in_puddle = null
+
+
+func _on_suck_btn_pressed() -> void:
+	emit_signal("pressed")
