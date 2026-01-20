@@ -151,14 +151,13 @@ func _process(delta: float) -> void:
 								FileSystem.put_file_as_bytes(world_dir + "tile_" + str(int(msg.col)) + "_" + str(int(msg.row)), msg.data.hex_decode())
 								refresh_tile(msg.col, msg.row)
 						"Puddle":
-							if msg.id.contains("."):
-								msg.id = msg.id.replace(".", "")
 							FileSystem.put_file_as_json(world_dir + msg.id, msg)
 							var node = %Puddles.get_node(msg.id)
 							if not node:
 								node = puddle_scene.instantiate()
 								node.name = msg.id
 								%Puddles.add_child(node)
+								node.connect("absorbed", _on_puddle_absorbed)
 							if msg.has("x") and msg.has("y"):
 								node.position = Vector2(msg.x, msg.y)
 							if msg.has("ink_fill"):
@@ -376,3 +375,9 @@ func _on_aye_pressed():
 			l = user.node.ink_color.lightness,
 		})
 	drawing = true
+
+
+func _on_puddle_absorbed(puddle):
+	if puddle.in_puddle:
+		send(puddle.in_puddle.to_obj())
+	send(puddle.to_obj())

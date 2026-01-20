@@ -12,7 +12,6 @@ var img: Image
 func _ready() -> void:
 	img = Image.create_empty(256, 256, false, Image.FORMAT_RGBA8)
 	texture = ImageTexture.create_from_image(img)
-	goto(col, row)
 	$ColorRect1.visible = OS.is_debug_build()
 	$ColorRect2.visible = OS.is_debug_build()
 	$ColorRect3.visible = OS.is_debug_build()
