@@ -9,6 +9,7 @@ var ws = WebSocketPeer.new()
 var lastState
 var reconnecting
 var outbox = []
+var joined = false
 
 var user = { type = "user", name = "Aye" }
 var room = { type = "room", id = "blank", name = "untitled" }
@@ -119,6 +120,7 @@ func _process(delta: float) -> void:
 						else:
 							aye.node.leave()
 				room = msg
+				joined = room
 
 			"obj":
 				if msg.has("obj"):
@@ -213,6 +215,8 @@ func _input(event: InputEvent) -> void:
 
 func send(msg):
 	if ws.get_ready_state() != WebSocketPeer.STATE_OPEN: return
+	if msg.type == "obj" and not joined: return
+	if msg.type == "msg" and not joined: return
 	outbox.push_back(msg)
 
 
@@ -329,6 +333,7 @@ func refresh_puddles(col, row):
 				node = puddle_scene.instantiate()
 				node.name = puddle.id
 				%Puddles.add_child(node)
+				node.connect("absorbed", _on_puddle_absorbed)
 			node.position.x = puddle.x
 			node.position.y = puddle.y
 			node.set_ink_fill(puddle.ink_fill)

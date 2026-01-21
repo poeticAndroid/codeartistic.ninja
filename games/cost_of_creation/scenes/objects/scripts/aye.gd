@@ -8,7 +8,7 @@ var paused = true
 var ink_color = HSL.new()
 var ink_fill = 0.25
 
-var in_puddle = false
+var in_puddle = null
 var spill = false
 
 
@@ -123,8 +123,7 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_area_exited(area: Area2D) -> void:
-	if area.is_in_group("puddle"):
-		in_puddle = null
+	if area == in_puddle: in_puddle = null
 
 
 func _on_suck_btn_pressed() -> void:

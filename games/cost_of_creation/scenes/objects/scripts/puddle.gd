@@ -10,7 +10,7 @@ var staying
 var _pulse = 0
 var _one = Vector2.ZERO
 
-var in_puddle = false
+var in_puddle = null
 
 
 # Called when the node enters the scene tree for the first time.
@@ -58,7 +58,7 @@ func to_obj():
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("puddle") and area.ink_fill >= 0.1:
-		if ink_fill <= area.ink_fill and ink_fill > 0:
+		if ink_fill <= area.ink_fill and ink_fill:
 			in_puddle = area
 			in_puddle.ink_color.blend(in_puddle.ink_color, ink_color,
 					ink_fill / (ink_fill + in_puddle.ink_fill))
@@ -72,5 +72,5 @@ func _on_area_entered(area: Area2D) -> void:
 
 
 func _on_area_exited(area: Area2D) -> void:
-	if area.is_in_group("puddle"):
+	if area == in_puddle:
 		in_puddle = null
