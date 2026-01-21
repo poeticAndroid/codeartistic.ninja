@@ -54,10 +54,19 @@ func _process(delta: float) -> void:
 			if ink_fill > 0:
 				in_puddle.set_ink_fill(in_puddle.ink_fill + 0.12 * delta)
 				set_ink_fill(ink_fill - 0.12 * delta)
+			elif ink_fill < 0:
+				in_puddle.set_ink_fill(in_puddle.ink_fill + ink_fill)
+				set_ink_fill(0)
 		else:
-			if in_puddle.ink_fill > 0 and ink_fill < 1:
+			if ink_fill < 1 and in_puddle.ink_fill > 0:
 				in_puddle.set_ink_fill(in_puddle.ink_fill - 0.12 * delta)
 				set_ink_fill(ink_fill + 0.12 * delta)
+			elif ink_fill > 1:
+				in_puddle.set_ink_fill(in_puddle.ink_fill + ink_fill - 1)
+				set_ink_fill(1)
+			elif in_puddle.ink_fill < 0:
+				set_ink_fill(in_puddle.ink_fill + ink_fill)
+				in_puddle.set_ink_fill(0)
 
 
 func animate(anim):

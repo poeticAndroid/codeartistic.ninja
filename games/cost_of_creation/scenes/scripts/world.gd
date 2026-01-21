@@ -374,7 +374,7 @@ func _on_aye_pressed():
 		send({
 			type = "obj", obj = "Puddle", id = id,
 			x = user.node.position.x, y = user.node.position.y,
-			ink_fill = 0.1,
+			ink_fill = 0,
 			h = user.node.ink_color.hue,
 			s = user.node.ink_color.saturation,
 			l = user.node.ink_color.lightness,

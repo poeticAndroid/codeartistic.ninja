@@ -18,7 +18,7 @@ func _ready() -> void:
 	scale = Vector2.ZERO
 	await get_tree().create_timer(1).timeout
 	if not staying: queue_free()
-	if ink_fill < 0.1: queue_free()
+	if ink_fill <= 0: queue_free()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	if _one.x < 1:
 		_one += Vector2(0.015625, 0.015625)
 	_pulse += 2.4 * delta
-	scale = _one * (ink_fill / 8)
+	scale = _one * (sqrt(ink_fill / PI) * 0.75)
 	scale.x += sin(_pulse) * 0.01
 	scale.y += cos(_pulse) * 0.01
 
@@ -51,13 +51,13 @@ func to_obj():
 			s = ink_color.saturation,
 			l = ink_color.lightness,
 		}
-	if ink_fill < 0.1:
+	if ink_fill <= 0:
 		queue_free()
 	return obj
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("puddle") and area.ink_fill >= 0.1:
+	if area.is_in_group("puddle") and area.ink_fill:
 		if ink_fill <= area.ink_fill and ink_fill:
 			in_puddle = area
 			in_puddle.ink_color.blend(in_puddle.ink_color, ink_color,
