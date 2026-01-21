@@ -155,17 +155,20 @@ func _process(delta: float) -> void:
 						"Puddle":
 							FileSystem.put_file_as_json(world_dir + msg.id, msg)
 							var node = %Puddles.get_node(msg.id)
-							if not node:
+							if msg.ink_fill and not node:
 								node = puddle_scene.instantiate()
 								node.name = msg.id
 								%Puddles.add_child(node)
 								node.connect("absorbed", _on_puddle_absorbed)
-							if msg.has("x") and msg.has("y"):
-								node.position = Vector2(msg.x, msg.y)
-							if msg.has("ink_fill"):
-								node.set_ink_fill(msg.ink_fill)
-							if msg.has("h") and msg.has("s") and msg.has("l"):
-								node.set_ink_color(msg.h, msg.s, msg.l)
+								if msg.has("x") and msg.has("y"):
+									node.position = Vector2(msg.x, msg.y)
+								else:
+									node.set_ink_fill()
+							if node:
+								if msg.has("ink_fill"):
+									node.set_ink_fill(msg.ink_fill)
+								if msg.has("h") and msg.has("s") and msg.has("l"):
+									node.set_ink_color(msg.h, msg.s, msg.l)
 
 			"feedme":
 				%CoinFeeder.request(msg.url)
@@ -366,15 +369,18 @@ func _on_aye_pressed():
 	user.node.paused = true
 	user.node.target = user.node.position
 	user.node.spill = not user.node.spill
+	user.node.ink_fill -= 0.015625
 	send(user.node.to_obj())
-	if not user.node.in_puddle:
+	if user.node.in_puddle:
+		user.node.in_puddle.ink_fill += 0.015625
+	else:
 		var id = "puddle_" + str(int(floor(user.node.position.x / 256))) + \
 				"_" + str(int(floor(user.node.position.y / 256))) + \
 				"_" + str(Time.get_ticks_msec())
 		send({
 			type = "obj", obj = "Puddle", id = id,
 			x = user.node.position.x, y = user.node.position.y,
-			ink_fill = 0,
+			ink_fill = 0.015625,
 			h = user.node.ink_color.hue,
 			s = user.node.ink_color.saturation,
 			l = user.node.ink_color.lightness,
