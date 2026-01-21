@@ -94,6 +94,7 @@ func _process(delta: float) -> void:
 				send(room)
 
 			"room":
+				joined = msg
 				if not world_dir.contains(msg.id):
 					if DirAccess.dir_exists_absolute(world_dir):
 						DirAccess.rename_absolute(world_dir, "user://cost_of_creation/" + msg.id)
@@ -120,7 +121,6 @@ func _process(delta: float) -> void:
 						else:
 							aye.node.leave()
 				room = msg
-				joined = room
 
 			"obj":
 				if msg.has("obj"):
@@ -327,10 +327,10 @@ func refresh_tile(col, row):
 
 
 func refresh_puddles(col, row):
-	var file = "puddle_" + str(col) + "_" + str(row) + "_"
-	for f in DirAccess.get_files_at(world_dir):
-		if f.begins_with(file):
-			var puddle = FileSystem.get_file_as_json(world_dir + f)
+	var prefix = "puddle_" + str(col) + "_" + str(row) + "_"
+	for file in DirAccess.get_files_at(world_dir):
+		if file.begins_with(prefix):
+			var puddle = FileSystem.get_file_as_json(world_dir + file)
 			var node = %Puddles.get_node(puddle.id)
 			if not node:
 				node = puddle_scene.instantiate()
