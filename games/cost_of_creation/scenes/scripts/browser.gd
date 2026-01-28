@@ -27,6 +27,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		_on_play_btn_pressed()
+
 	ws.poll()
 	var state = ws.get_ready_state()
 
@@ -60,22 +63,22 @@ func apply_rooms(rooms):
 		var room = rooms[id]
 		room.dir = id
 		if not room.has("meta"): room.meta = { }
-		if not room.meta.has("inheritance"): room.meta.inheritance = []
-		if not room.meta.inheritance.has(room.id):
-			room.meta.inheritance.push_back(room.id)
-		room.path = "/".join(PackedStringArray(room.meta.inheritance))
+		if not room.meta.has("history"): room.meta.history = []
+		if not room.meta.history.has(room.id):
+			room.meta.history.push_back(room.id)
+		room.path = "/".join(PackedStringArray(room.meta.history))
 		_entries[room.path] = id
 	var paths = _entries.keys()
 	paths.sort()
 	for path in paths:
 		var room = rooms[_entries[path]]
 		if not entries.has(path):
-			var inheritance = path.split("/")
-			while inheritance.size() and not entries.has("/".join(inheritance)):
-				inheritance.remove_at(inheritance.size() - 1)
+			var history = path.split("/")
+			while history.size() and not entries.has("/".join(history)):
+				history.remove_at(history.size() - 1)
 			var parent = %Tree.get_root()
-			if inheritance.size():
-				parent = entries["/".join(inheritance)]
+			if history.size():
+				parent = entries["/".join(history)]
 			entries[path] = parent.create_child()
 		entries[path].set_metadata(0, room)
 		entries[path].set_text(0, room.name)

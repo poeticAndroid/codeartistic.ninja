@@ -92,8 +92,8 @@ func _process(delta: float) -> void:
 						for _dir in DirAccess.get_directories_at("user://cost_of_creation/"):
 							if FileSystem.file_exists("user://cost_of_creation/" + _dir + "/room"):
 								var _room = FileSystem.get_file_as_json("user://cost_of_creation/" + _dir + "/room")
-								if _room.has("meta") and _room.meta.has("inheritance") and best < _room.meta.inheritance.size():
-									best = _room.meta.inheritance.size()
+								if _room.has("meta") and _room.meta.has("history") and best < _room.meta.history.size():
+									best = _room.meta.history.size()
 									world_dir = "user://cost_of_creation/" + _dir + "/"
 									room = _room
 					else:
@@ -119,11 +119,11 @@ func _process(delta: float) -> void:
 					send({ type = "obj", obj = "Aye", id = "from", x = 0, y = 1 })
 				if room.has("host") and room.host != msg.host:
 					introduce("others")
-				if msg.host == user.id:
+				if msg.host == user.id and msg.users.size() > 1:
 					if not msg.has("meta"): msg.meta = { }
-					if not msg.meta.has("inheritance"): msg.meta.inheritance = []
-					if not msg.meta.inheritance.has(msg.id):
-						msg.meta.inheritance.push_back(msg.id)
+					if not msg.meta.has("history"): msg.meta.history = []
+					if not msg.meta.history.has(msg.id):
+						msg.meta.history.push_back(msg.id)
 						send(msg)
 				if room.has("users"):
 					for aye in room.users.values():
@@ -369,7 +369,7 @@ func _on_idle_timer_timeout() -> void:
 		user.node.goto(Vector2.DOWN)
 		send(user.node.to_obj())
 	await get_tree().create_timer(0.25).timeout
-	#ws.close()
+	ws.close()
 
 
 func _on_on_screen_area_entered(area: Area2D) -> void:
