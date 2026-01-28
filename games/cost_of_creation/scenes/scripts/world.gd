@@ -7,12 +7,11 @@ var world_dir = "user://cost_of_creation/blank/"
 
 var ws = WebSocketPeer.new()
 var lastState
-var reconnecting
 var outbox = []
 var joined = false
 
-var user = { type = "user", name = "Aye" }
-var room = { type = "room", id = "blank", name = "untitled" }
+var user = { type = "user", name = genrate_random_name().to_camel_case() }
+var room = { type = "room", id = "auto", name = "The " + genrate_random_name().capitalize() }
 var cameraFollow
 var lastPos = Vector2.ZERO
 var lastMouseDown = Vector2.ZERO
@@ -87,9 +86,22 @@ func _process(delta: float) -> void:
 				send({ type = "topic", key = NetConfig.get_key(user) })
 
 			"topic":
-				if room.id == "blank" and not msg.rooms.is_empty():
-					room.id = msg.rooms.keys()[0]
-				if not msg.rooms.has(room.id):
+				if room.has("id") and room.id == "auto":
+					var best = 0
+					if msg.rooms.is_empty():
+						for _dir in DirAccess.get_directories_at("user://cost_of_creation/"):
+							if FileSystem.file_exists("user://cost_of_creation/" + _dir + "/room"):
+								var _room = FileSystem.get_file_as_json("user://cost_of_creation/" + _dir + "/room")
+								if _room.has("meta") and _room.meta.has("inheritance") and best < _room.meta.inheritance.size():
+									best = _room.meta.inheritance.size()
+									world_dir = "user://cost_of_creation/" + _dir + "/"
+									room = _room
+					else:
+						for _room in msg.rooms.values():
+							if best < _room.users.keys().size():
+								best = _room.users.keys().size()
+								room = _room
+				if room.has("id") and not msg.rooms.has(room.id):
 					room.erase("id")
 				send(room)
 
@@ -121,6 +133,7 @@ func _process(delta: float) -> void:
 						else:
 							aye.node.leave()
 				room = msg
+				%Title.text = room.name
 
 			"obj":
 				if msg.has("obj"):
@@ -137,7 +150,6 @@ func _process(delta: float) -> void:
 								%Canvas.aye = user.node
 								user.node.connect("area_exited", _on_aye_area_exited)
 								user.node.connect("pressed", _on_aye_pressed)
-								%Connecting.visible = false
 							if msg.has("x") and msg.has("y"):
 								aye.node.goto(Vector2(msg.x, msg.y))
 							if msg.has("spill"):
@@ -176,13 +188,14 @@ func _process(delta: float) -> void:
 			_:
 				print("Don't know what to do with ", msg.type)
 
-	match state:
-		WebSocketPeer.STATE_CLOSED:
+	if state == WebSocketPeer.STATE_OPEN:
+		while outbox.size():
+			ws.send_text(JSON.stringify(outbox.pop_front()))
+	if lastState != state:
+		if state == WebSocketPeer.STATE_CLOSED:
 			print("Disconnected because ", ws.get_close_code(), " ", ws.get_close_reason())
 			Global.go_back()
-		WebSocketPeer.STATE_OPEN:
-			while outbox.size():
-				ws.send_text(JSON.stringify(outbox.pop_front()))
+		lastState = state
 
 
 func _input(event: InputEvent) -> void:
@@ -343,13 +356,20 @@ func refresh_puddles(col, row):
 			node.set_ink_color(puddle.h, puddle.s, puddle.l)
 
 
+func genrate_random_name():
+	var adjs = preload("res://games/blank/assets/adjs.txt").text.get_slice("  ", 0).strip_edges().split(" ")
+	var nouns = preload("res://games/blank/assets/nouns.txt").text.get_slice("  ", 0).strip_edges().split(" ")
+	return Array(adjs).pick_random() + "_" + Array(nouns).pick_random()
+
+
 func _on_idle_timer_timeout() -> void:
 	if user and user.has("node"):
 		if user.node.in_puddle:
 			send(user.node.in_puddle.to_obj())
 		user.node.goto(Vector2.DOWN)
 		send(user.node.to_obj())
-	Global.go_back()
+	await get_tree().create_timer(0.25).timeout
+	ws.close()
 
 
 func _on_on_screen_area_entered(area: Area2D) -> void:

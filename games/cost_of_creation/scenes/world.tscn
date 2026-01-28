@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://hnhu0xc3dain"]
+[gd_scene format=3 uid="uid://hnhu0xc3dain"]
 
 [ext_resource type="Script" uid="uid://hxfa7mrw1bf7" path="res://games/cost_of_creation/scenes/scripts/world.gd" id="1_bft0m"]
 [ext_resource type="Texture2D" uid="uid://dcq46kalbvp3p" path="res://games/cost_of_creation/assets/backgrounds/world_paper.png" id="2_ql6q4"]
@@ -12,187 +12,180 @@ size = Vector2(2048, 2048)
 font_color = Color(0, 0, 0, 1)
 outline_size = 4
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" unique_id=1962400444]
 script = ExtResource("1_bft0m")
 
-[node name="IdleTimer" type="Timer" parent="."]
+[node name="IdleTimer" type="Timer" parent="." unique_id=1263179962]
 unique_name_in_owner = true
 wait_time = 600.0
 one_shot = true
 autostart = true
 
-[node name="CoinFeeder" type="HTTPRequest" parent="."]
+[node name="CoinFeeder" type="HTTPRequest" parent="." unique_id=294681935]
 unique_name_in_owner = true
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=676582172]
 z_index = -2
 repeat_size = Vector2(100, 100)
 repeat_times = 11
 
-[node name="WorldPaper" type="Sprite2D" parent="Parallax2D"]
+[node name="WorldPaper" type="Sprite2D" parent="Parallax2D" unique_id=1542888136]
 position = Vector2(480, 270)
 texture = ExtResource("2_ql6q4")
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="." unique_id=2004101399]
 unique_name_in_owner = true
 
-[node name="OnScreen" type="Area2D" parent="Camera"]
+[node name="OnScreen" type="Area2D" parent="Camera" unique_id=1993966339]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/OnScreen"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/OnScreen" unique_id=1588323109]
 shape = SubResource("RectangleShape2D_bf8kl")
 
-[node name="Connecting" type="Label" parent="Camera"]
+[node name="Title" type="Label" parent="Camera" unique_id=18624571]
 unique_name_in_owner = true
 z_index = 256
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.5
-offset_top = -11.5
-offset_right = 50.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -472.0
+offset_top = -262.0
+offset_right = -371.0
+offset_bottom = -239.0
 text = "Connecting..."
 label_settings = SubResource("LabelSettings_bf8kl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tiles" type="Node2D" parent="."]
+[node name="Tiles" type="Node2D" parent="." unique_id=1108297304]
 unique_name_in_owner = true
 z_index = -1
 
-[node name="Tile1" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile1" parent="Tiles" unique_id=1054574382 instance=ExtResource("4_bf8kl")]
 position = Vector2(1920, -640)
 col = 7
 row = -3
 
-[node name="Tile2" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile2" parent="Tiles" unique_id=1140364546 instance=ExtResource("4_bf8kl")]
 position = Vector2(2176, -640)
 col = 8
 row = -3
 
-[node name="Tile3" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile3" parent="Tiles" unique_id=382309728 instance=ExtResource("4_bf8kl")]
 position = Vector2(2432, -640)
 col = 9
 row = -3
 
-[node name="Tile4" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile4" parent="Tiles" unique_id=1513292327 instance=ExtResource("4_bf8kl")]
 position = Vector2(2688, -640)
 col = 10
 row = -3
 
-[node name="Tile5" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile5" parent="Tiles" unique_id=1385609915 instance=ExtResource("4_bf8kl")]
 position = Vector2(2944, -640)
 col = 11
 row = -3
 
-[node name="Tile6" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile6" parent="Tiles" unique_id=473465283 instance=ExtResource("4_bf8kl")]
 position = Vector2(1920, -384)
 col = 7
 row = -2
 
-[node name="Tile7" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile7" parent="Tiles" unique_id=1170224644 instance=ExtResource("4_bf8kl")]
 position = Vector2(2176, -384)
 col = 8
 row = -2
 
-[node name="Tile8" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile8" parent="Tiles" unique_id=394503111 instance=ExtResource("4_bf8kl")]
 position = Vector2(2432, -384)
 col = 9
 row = -2
 
-[node name="Tile9" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile9" parent="Tiles" unique_id=691559824 instance=ExtResource("4_bf8kl")]
 position = Vector2(2688, -384)
 col = 10
 row = -2
 
-[node name="Tile10" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile10" parent="Tiles" unique_id=51699473 instance=ExtResource("4_bf8kl")]
 position = Vector2(2944, -384)
 col = 11
 row = -2
 
-[node name="Tile11" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile11" parent="Tiles" unique_id=2086531362 instance=ExtResource("4_bf8kl")]
 position = Vector2(1920, -128)
 col = 7
 row = -1
 
-[node name="Tile12" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile12" parent="Tiles" unique_id=935598346 instance=ExtResource("4_bf8kl")]
 position = Vector2(2176, -128)
 col = 8
 row = -1
 
-[node name="Tile13" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile13" parent="Tiles" unique_id=465586407 instance=ExtResource("4_bf8kl")]
 position = Vector2(2432, -128)
 col = 9
 row = -1
 
-[node name="Tile14" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile14" parent="Tiles" unique_id=2061587469 instance=ExtResource("4_bf8kl")]
 position = Vector2(2688, -128)
 col = 10
 row = -1
 
-[node name="Tile15" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile15" parent="Tiles" unique_id=936021318 instance=ExtResource("4_bf8kl")]
 position = Vector2(2944, -128)
 col = 11
 row = -1
 
-[node name="Tile16" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile16" parent="Tiles" unique_id=647592236 instance=ExtResource("4_bf8kl")]
 position = Vector2(1920, 128)
 col = 7
 
-[node name="Tile17" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile17" parent="Tiles" unique_id=554036988 instance=ExtResource("4_bf8kl")]
 position = Vector2(2176, 128)
 col = 8
 
-[node name="Tile18" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile18" parent="Tiles" unique_id=2115164719 instance=ExtResource("4_bf8kl")]
 position = Vector2(2432, 128)
 col = 9
 
-[node name="Tile19" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile19" parent="Tiles" unique_id=1795928053 instance=ExtResource("4_bf8kl")]
 position = Vector2(2688, 128)
 col = 10
 
-[node name="Tile20" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile20" parent="Tiles" unique_id=49882140 instance=ExtResource("4_bf8kl")]
 position = Vector2(2944, 128)
 col = 11
 
-[node name="Tile21" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile21" parent="Tiles" unique_id=1810976765 instance=ExtResource("4_bf8kl")]
 position = Vector2(1920, 384)
 col = 7
 row = 1
 
-[node name="Tile22" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile22" parent="Tiles" unique_id=381105771 instance=ExtResource("4_bf8kl")]
 position = Vector2(2176, 384)
 col = 8
 row = 1
 
-[node name="Tile23" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile23" parent="Tiles" unique_id=803278614 instance=ExtResource("4_bf8kl")]
 position = Vector2(2432, 384)
 col = 9
 row = 1
 
-[node name="Tile24" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile24" parent="Tiles" unique_id=19447950 instance=ExtResource("4_bf8kl")]
 position = Vector2(2688, 384)
 col = 10
 row = 1
 
-[node name="Tile25" parent="Tiles" instance=ExtResource("4_bf8kl")]
+[node name="Tile25" parent="Tiles" unique_id=1633243090 instance=ExtResource("4_bf8kl")]
 position = Vector2(2944, 384)
 col = 11
 row = 1
 
-[node name="Puddles" type="Node2D" parent="."]
+[node name="Puddles" type="Node2D" parent="." unique_id=550243902]
 unique_name_in_owner = true
 y_sort_enabled = true
 
-[node name="Players" type="Node2D" parent="."]
+[node name="Players" type="Node2D" parent="." unique_id=568979363]
 unique_name_in_owner = true
 y_sort_enabled = true
 
-[node name="Canvas" parent="." instance=ExtResource("3_opyjd")]
+[node name="Canvas" parent="." unique_id=998199788 instance=ExtResource("3_opyjd")]
 unique_name_in_owner = true
 
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
