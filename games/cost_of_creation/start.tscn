@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd501s0aplg5g"]
+[gd_scene format=3 uid="uid://cd501s0aplg5g"]
 
 [ext_resource type="Texture2D" uid="uid://b06mdusptkyxg" path="res://games/cost_of_creation/assets/backgrounds/cover_paper.png" id="1_j60k2"]
 [ext_resource type="Script" uid="uid://dgiojp78gpl6l" path="res://games/cost_of_creation/scripts/start.gd" id="1_ullo0"]
@@ -10,7 +10,7 @@
 base_font = ExtResource("4_grwf6")
 variation_embolden = 1.0
 
-[node name="Start" type="CenterContainer"]
+[node name="Start" type="CenterContainer" unique_id=348484733]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,17 +18,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ullo0")
 
-[node name="WakeUpCall" type="HTTPRequest" parent="."]
+[node name="WakeUpCall" type="HTTPRequest" parent="." unique_id=1915724816]
 unique_name_in_owner = true
 
-[node name="Paper" type="Sprite2D" parent="."]
+[node name="Paper" type="Sprite2D" parent="." unique_id=1130390845]
 position = Vector2(480, 270)
 texture = ExtResource("1_j60k2")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2045966235]
 layout_mode = 2
 
-[node name="CreditsLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="CreditsLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1518447297]
 custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(0.13333334, 0.2, 0.26666668, 1)
@@ -49,12 +49,12 @@ Fonts from [url=https://fonts.google.com/share?selection.family=Gloria+Halleluja
 "
 fit_content = true
 
-[node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+[node name="PlayBtn" type="Button" parent="VBoxContainer" unique_id=732198558 groups=["autofocus"]]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Begin"
 
-[node name="DewdropFantasy" type="AudioStreamPlayer" parent="." groups=["music"]]
+[node name="DewdropFantasy" type="AudioStreamPlayer" parent="." unique_id=1684558174 groups=["music"]]
 stream = ExtResource("5_uyvn6")
 
 [connection signal="meta_clicked" from="VBoxContainer/CreditsLabel" to="." method="_on_credits_label_meta_clicked"]

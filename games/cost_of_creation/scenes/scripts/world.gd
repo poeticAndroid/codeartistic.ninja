@@ -133,7 +133,7 @@ func _process(delta: float) -> void:
 						else:
 							aye.node.leave()
 				room = msg
-				%Title.text = room.name
+				%Title.text = room.name + " (" + str(room.users.size()) + " users)"
 
 			"obj":
 				if msg.has("obj"):
@@ -369,7 +369,7 @@ func _on_idle_timer_timeout() -> void:
 		user.node.goto(Vector2.DOWN)
 		send(user.node.to_obj())
 	await get_tree().create_timer(0.25).timeout
-	ws.close()
+	#ws.close()
 
 
 func _on_on_screen_area_entered(area: Area2D) -> void:
