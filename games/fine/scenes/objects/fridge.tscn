@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://drle8hpi0gus5"]
+[gd_scene format=3 uid="uid://drle8hpi0gus5"]
 
 [ext_resource type="Script" uid="uid://4sqpwu1gmui3" path="res://games/fine/scenes/objects/scripts/fridge.gd" id="1_s3hfg"]
 [ext_resource type="Texture2D" uid="uid://daqv7gwdty7p8" path="res://games/fine/assets/sprites/things.png" id="2_yimiv"]
@@ -34,19 +34,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Fridge" type="Area2D"]
+[node name="Fridge" type="Area2D" unique_id=1068664961]
 script = ExtResource("1_s3hfg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1699155127]
 shape = SubResource("RectangleShape2D_ie1dn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1354153182]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_64o4x")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Sfx" type="AudioStreamPlayer2D" parent="."]
+[node name="Sfx" type="AudioStreamPlayer2D" parent="." unique_id=1374744908]
 unique_name_in_owner = true
 stream = ExtResource("3_yimiv")
 

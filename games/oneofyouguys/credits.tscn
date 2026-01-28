@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://uhrgh11mrgvw"]
+[gd_scene format=3 uid="uid://uhrgh11mrgvw"]
 
 [ext_resource type="Script" uid="uid://bmeevyde3b8b5" path="res://games/oneofyouguys/scripts/credits.gd" id="1_y6ccw"]
 [ext_resource type="Theme" uid="uid://caaq1vn7ayumq" path="res://games/oneofyouguys/scenes/theme.tres" id="2_0kpgt"]
@@ -6,7 +6,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kfeh3"]
 bg_color = Color(0, 0, 0, 0.74902)
 
-[node name="Credits" type="CenterContainer"]
+[node name="Credits" type="CenterContainer" unique_id=1789064659]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,10 +14,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y6ccw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=467447518]
 layout_mode = 2
 
-[node name="CreditsLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="CreditsLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1292996235]
 custom_minimum_size = Vector2(720, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 20
@@ -41,7 +41,7 @@ Music by [url=https://soundcloud.com/auditory_cheesecake]Auditory Cheesecake[/ur
 "
 fit_content = true
 
-[node name="BackBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+[node name="BackBtn" type="Button" parent="VBoxContainer" unique_id=1607880669 groups=["autofocus"]]
 custom_minimum_size = Vector2(96, 32)
 layout_mode = 2
 size_flags_horizontal = 4

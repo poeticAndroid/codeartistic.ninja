@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://nlkosk1apb50"]
+[gd_scene format=3 uid="uid://nlkosk1apb50"]
 
 [ext_resource type="Script" uid="uid://nfinygqhtdm7" path="res://games/restless/scripts/start.gd" id="1_bxxnj"]
 [ext_resource type="LabelSettings" uid="uid://d0hiog8qtya38" path="res://games/restless/assets/fonts/label.tres" id="2_j7sgi"]
@@ -8,10 +8,10 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl14n"]
 
-[node name="Start" type="Node2D"]
+[node name="Start" type="Node2D" unique_id=1227461645]
 script = ExtResource("1_bxxnj")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1425006051]
 modulate = Color(0.160784, 0.678431, 1, 1)
 offset_top = 158.0
 offset_right = 960.0
@@ -20,42 +20,42 @@ text = "restless in a small world"
 label_settings = ExtResource("2_j7sgi")
 horizontal_alignment = 1
 
-[node name="Ghost" type="AnimatedSprite2D" parent="."]
+[node name="Ghost" type="AnimatedSprite2D" parent="." unique_id=2144446113]
 unique_name_in_owner = true
 position = Vector2(480, 270)
 sprite_frames = ExtResource("3_ba8oh")
 frame = 76
 
-[node name="Menu" type="VBoxContainer" parent="."]
+[node name="Menu" type="VBoxContainer" parent="." unique_id=1384251897]
 offset_top = 374.0
 offset_right = 960.0
 offset_bottom = 398.0
 
-[node name="PlayBtn" type="Button" parent="Menu" groups=["autofocus"]]
+[node name="PlayBtn" type="Button" parent="Menu" unique_id=574932186 groups=["autofocus"]]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(1, 0.92549, 0.152941, 1)
 theme_override_colors/font_color = Color(0.372549, 0.341176, 0.309804, 1)
 theme_override_colors/font_focus_color = Color(1, 0.92549, 0.152941, 1)
+theme_override_colors/font_hover_color = Color(1, 0.92549, 0.152941, 1)
 theme_override_fonts/font = ExtResource("4_sl14n")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sl14n")
 text = " start "
 flat = true
 
-[node name="CreditsBtn" type="Button" parent="Menu"]
+[node name="CreditsBtn" type="Button" parent="Menu" unique_id=1540714634]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_hover_color = Color(1, 0.92549, 0.152941, 1)
 theme_override_colors/font_color = Color(0.372549, 0.341176, 0.309804, 1)
 theme_override_colors/font_focus_color = Color(1, 0.92549, 0.152941, 1)
+theme_override_colors/font_hover_color = Color(1, 0.92549, 0.152941, 1)
 theme_override_fonts/font = ExtResource("4_sl14n")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sl14n")
 text = " credits "
 flat = true
 
-[node name="Restless" type="AudioStreamPlayer" parent="." groups=["music"]]
+[node name="Restless" type="AudioStreamPlayer" parent="." unique_id=426045155 groups=["music"]]
 stream = ExtResource("3_t4eup")
 
 [connection signal="pressed" from="Menu/PlayBtn" to="." method="_on_play_btn_pressed"]

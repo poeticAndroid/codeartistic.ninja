@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://ddvs10e3ely8e"]
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://ddvs10e3ely8e"]
 
 [ext_resource type="AudioStream" uid="uid://dtdafs86p4y08" path="res://games/polarbears/assets/sounds/explosion1.wav" id="1_gso85"]
 [ext_resource type="AudioStream" uid="uid://b0a1dssb0dope" path="res://games/polarbears/assets/sounds/explosion2.wav" id="2_5ucih"]

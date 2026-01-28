@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cig3b7iliq4nx"]
+[gd_scene format=3 uid="uid://cig3b7iliq4nx"]
 
 [ext_resource type="Script" uid="uid://dktbieay44lb2" path="res://games/machine/scenes/objects/scripts/cog.gd" id="1_ssas5"]
 [ext_resource type="Texture2D" uid="uid://chr22cp68l05j" path="res://games/machine/assets/sprites/cog3.png" id="2_m03hs"]
@@ -42,14 +42,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Cog" type="Area2D" groups=["cog"]]
+[node name="Cog" type="Area2D" unique_id=520237614 groups=["cog"]]
 script = ExtResource("1_ssas5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1284676727]
 unique_name_in_owner = true
 shape = SubResource("CircleShape2D_b4l4n")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=910122055]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_dq0h0")
 

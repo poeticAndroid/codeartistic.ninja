@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2ajnp57heq3o"]
+[gd_scene format=3 uid="uid://b2ajnp57heq3o"]
 
 [ext_resource type="Script" uid="uid://rhtckivp7jg3" path="res://games/oneofyouguys/scenes/objects/scripts/door.gd" id="1_k85qc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0v4km"]
 
-[node name="Door" type="StaticBody2D"]
+[node name="Door" type="StaticBody2D" unique_id=277833440]
 script = ExtResource("1_k85qc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=765070839]
 shape = SubResource("RectangleShape2D_0v4km")
 
-[node name="ColorRect" type="ColorRect" parent="CollisionShape2D"]
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=2105235891]
 unique_name_in_owner = true

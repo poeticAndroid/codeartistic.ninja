@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://db30sqcggy3nt"]
+[gd_scene format=3 uid="uid://db30sqcggy3nt"]
 
 [ext_resource type="Script" uid="uid://ctgmnahgkqwoc" path="res://scripts/story/story.gd" id="1_rawxw"]
 [ext_resource type="Resource" uid="uid://c2foujmriu5jr" path="res://games/someday/assets/story/someday.txt" id="2_rawxw"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cqmf0c6si4uaa" path="res://games/someday/scenes/tellers/image.tscn" id="8_our2g"]
 [ext_resource type="AudioStream" uid="uid://8jnnh30t6qr8" path="res://games/someday/assets/music/cats_in_cradle.mp3" id="9_xlbcu"]
 
-[node name="Story" type="ScrollContainer"]
+[node name="Story" type="ScrollContainer" unique_id=2105192203]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,11 +30,11 @@ tellers = Dictionary[String, PackedScene]({
 "ul": ExtResource("7_pwa0c")
 })
 
-[node name="StoryContainer" type="VBoxContainer" parent="."]
+[node name="StoryContainer" type="VBoxContainer" parent="." unique_id=1707237559]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="CatsInCradle" type="AudioStreamPlayer" parent="." groups=["music"]]
+[node name="CatsInCradle" type="AudioStreamPlayer" parent="." unique_id=1868008818 groups=["music"]]
 stream = ExtResource("9_xlbcu")

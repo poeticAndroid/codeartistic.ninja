@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cah4ceseurcrj"]
+[gd_scene format=3 uid="uid://cah4ceseurcrj"]
 
 [ext_resource type="Script" uid="uid://b5bwg0tmm1lc7" path="res://games/cost_of_creation/scenes/objects/scripts/puddle.gd" id="1_udh77"]
 [ext_resource type="Texture2D" uid="uid://d04tyxdveg3t" path="res://games/cost_of_creation/assets/sprites/puddle.png" id="2_qppww"]
@@ -6,13 +6,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qppww"]
 radius = 128.0
 
-[node name="Puddle" type="Area2D" groups=["puddle"]]
+[node name="Puddle" type="Area2D" unique_id=728091550 groups=["puddle"]]
 script = ExtResource("1_udh77")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1366054614]
 shape = SubResource("CircleShape2D_qppww")
 
-[node name="Puddle" type="Sprite2D" parent="."]
+[node name="Puddle" type="Sprite2D" parent="." unique_id=1595808942]
 texture = ExtResource("2_qppww")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

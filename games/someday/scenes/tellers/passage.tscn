@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cygvf1nhe6flh"]
+[gd_scene format=3 uid="uid://cygvf1nhe6flh"]
 
 [ext_resource type="Script" uid="uid://c76wdulc1e8et" path="res://scripts/story/tellers/passage.gd" id="1_80qru"]
 [ext_resource type="Texture2D" uid="uid://duoh5uddka0n2" path="res://games/someday/assets/backgrounds/static.png" id="2_pjrq7"]
 
-[node name="Passage" type="MarginContainer"]
+[node name="Passage" type="MarginContainer" unique_id=1318457917]
 clip_contents = true
 custom_minimum_size = Vector2(960, 540)
 anchors_preset = 10
@@ -17,14 +17,14 @@ theme_override_constants/margin_right = 160
 theme_override_constants/margin_bottom = 32
 script = ExtResource("1_80qru")
 
-[node name="Backgrounds" type="Node2D" parent="."]
+[node name="Backgrounds" type="Node2D" parent="." unique_id=221580856]
 unique_name_in_owner = true
 
-[node name="Static" type="Sprite2D" parent="Backgrounds"]
+[node name="Static" type="Sprite2D" parent="Backgrounds" unique_id=374813989]
 visible = false
 texture = ExtResource("2_pjrq7")
 
-[node name="StoryContainer" type="VBoxContainer" parent="."]
+[node name="StoryContainer" type="VBoxContainer" parent="." unique_id=1296149978]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 16

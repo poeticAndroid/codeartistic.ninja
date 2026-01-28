@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://byicthjvtmllv"]
+[gd_scene format=3 uid="uid://byicthjvtmllv"]
 
 [ext_resource type="Script" uid="uid://cc1816dh5txlk" path="res://games/polarbears/scripts/credits.gd" id="1_t5apx"]
 [ext_resource type="Texture2D" uid="uid://wypa0e4k12os" path="res://games/polarbears/assets/gfx/moon.png" id="3_m80ql"]
@@ -11,7 +11,7 @@ content_margin_right = 8.0
 content_margin_bottom = 8.0
 bg_color = Color(0, 0, 0, 0.498039)
 
-[node name="Credits" type="Control"]
+[node name="Credits" type="Control" unique_id=1953675836]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,11 +20,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t5apx")
 
-[node name="Moon" type="Sprite2D" parent="."]
+[node name="Moon" type="Sprite2D" parent="." unique_id=57387616]
 position = Vector2(480, 270)
 texture = ExtResource("3_m80ql")
 
-[node name="CreditsLabel" type="RichTextLabel" parent="."]
+[node name="CreditsLabel" type="RichTextLabel" parent="." unique_id=1915940876]
 custom_minimum_size = Vector2(720, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -57,7 +57,7 @@ Moon background based on [url=https://www.flickr.com/photos/donkeyhotey/61438928
 Nokia font by [url=https://www.dafont.com/nokia-cellphone.font]Zeh Fernando[/url]."
 fit_content = true
 
-[node name="BackBtn" type="Button" parent="." groups=["autofocus"]]
+[node name="BackBtn" type="Button" parent="." unique_id=561218342 groups=["autofocus"]]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0

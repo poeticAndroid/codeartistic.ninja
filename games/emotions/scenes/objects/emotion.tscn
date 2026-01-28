@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://rtm3ktabpai0"]
+[gd_scene format=3 uid="uid://rtm3ktabpai0"]
 
 [ext_resource type="Script" uid="uid://fplygwsqqahi" path="res://games/emotions/scenes/objects/scripts/emotion.gd" id="1_o4d7x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o4d7x"]
 font_size = 32
 
-[node name="Emotion" type="Node2D"]
+[node name="Emotion" type="Node2D" unique_id=1285369746]
 script = ExtResource("1_o4d7x")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1695939732]
 unique_name_in_owner = true
 offset_left = -11.0
 offset_top = -11.0

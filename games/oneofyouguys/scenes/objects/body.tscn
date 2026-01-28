@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://djqlsg7if4btu"]
+[gd_scene format=3 uid="uid://djqlsg7if4btu"]
 
 [ext_resource type="Script" uid="uid://bw7l3imueo0nl" path="res://games/oneofyouguys/scenes/objects/scripts/body.gd" id="1_yqfak"]
 [ext_resource type="Texture2D" uid="uid://ba7i73hlrkx23" path="res://games/oneofyouguys/assets/sprites/body_64x64.png" id="2_r0pmk"]
@@ -174,55 +174,55 @@ size = Vector2(48, 16)
 a = Vector2(-400, 0)
 b = Vector2(400, 0)
 
-[node name="Body" type="CharacterBody2D"]
+[node name="Body" type="CharacterBody2D" unique_id=1876450780]
 collision_layer = 2
 script = ExtResource("1_yqfak")
 alive_shape = SubResource("RectangleShape2D_f022g")
 dead_shape = SubResource("RectangleShape2D_phxmw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1436054058]
 shape = SubResource("RectangleShape2D_m3b8u")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1664510923]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_koqia")
 animation = &"idle"
 autoplay = "idle"
 flip_h = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1941618954]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1333047699]
 position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_v2p6n")
 
-[node name="TraitorDetector" type="Area2D" parent="."]
+[node name="TraitorDetector" type="Area2D" parent="." unique_id=1348875148]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TraitorDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TraitorDetector" unique_id=1701231417]
 shape = SubResource("SegmentShape2D_dg25x")
 
-[node name="SightRight" type="RayCast2D" parent="."]
+[node name="SightRight" type="RayCast2D" parent="." unique_id=1036001428]
 target_position = Vector2(200, 0)
 collision_mask = 2
 
-[node name="SightLeft" type="RayCast2D" parent="."]
+[node name="SightLeft" type="RayCast2D" parent="." unique_id=514809301]
 target_position = Vector2(-200, 0)
 collision_mask = 2
 
-[node name="Sfx" type="Node2D" parent="."]
+[node name="Sfx" type="Node2D" parent="." unique_id=2023135332]
 
-[node name="Jump" type="AudioStreamPlayer2D" parent="Sfx"]
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sfx" unique_id=87994682]
 stream = ExtResource("3_qwcrb")
 
-[node name="Shoot" type="AudioStreamPlayer2D" parent="Sfx"]
+[node name="Shoot" type="AudioStreamPlayer2D" parent="Sfx" unique_id=55755691]
 stream = ExtResource("4_tk8fb")
 
-[node name="Damage" type="AudioStreamPlayer2D" parent="Sfx"]
+[node name="Damage" type="AudioStreamPlayer2D" parent="Sfx" unique_id=496437995]
 stream = ExtResource("5_jtsah")
 
-[node name="Possess" type="AudioStreamPlayer2D" parent="Sfx"]
+[node name="Possess" type="AudioStreamPlayer2D" parent="Sfx" unique_id=1258844721]
 stream = ExtResource("6_x7jfa")
 
 [connection signal="on_screen" from="." to="." method="_on_on_screen"]

@@ -1,26 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwaamb10vae1l"]
+[gd_scene format=3 uid="uid://bwaamb10vae1l"]
 
 [ext_resource type="Script" uid="uid://dsk3l1h1agyyx" path="res://games/machine/scenes/scripts/game.gd" id="1_ryu87"]
 [ext_resource type="Texture2D" uid="uid://vpgxq577mi5v" path="res://games/machine/assets/backgrounds/leo-fosdal-113874.jpg" id="2_jx3u1"]
 [ext_resource type="PackedScene" uid="uid://umpdl67pmkwv" path="res://games/machine/scenes/objects/aye.tscn" id="4_3glsa"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=887090271]
 script = ExtResource("1_ryu87")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2032385479]
 unique_name_in_owner = true
 position = Vector2(480, 270)
 ignore_rotation = false
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1858399532]
 scroll_scale = Vector2(0.333, 0.333)
 repeat_size = Vector2(4592, 3448)
 repeat_times = 2
 
-[node name="LeoFosdal113874" type="Sprite2D" parent="Parallax2D"]
+[node name="LeoFosdal113874" type="Sprite2D" parent="Parallax2D" unique_id=750334374]
 position = Vector2(960, 540)
 texture = ExtResource("2_jx3u1")
 
-[node name="Aye" parent="." instance=ExtResource("4_3glsa")]
+[node name="Aye" parent="." unique_id=153813381 instance=ExtResource("4_3glsa")]
 unique_name_in_owner = true
 position = Vector2(1440, 1440)

@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://muad71khcrxh"]
+[gd_scene format=3 uid="uid://muad71khcrxh"]
 
 [ext_resource type="Script" uid="uid://dwskvvjrwdu6o" path="res://games/oneofyouguys/scripts/start.gd" id="1_bmd07"]
 [ext_resource type="Theme" uid="uid://caaq1vn7ayumq" path="res://games/oneofyouguys/scenes/theme.tres" id="3_h22rx"]
 [ext_resource type="PackedScene" uid="uid://cnd6r5xajtriu" path="res://games/oneofyouguys/scenes/objects/text.tscn" id="gamesoneofyouguysscenesobjectstext"]
 
-[node name="lose" type="Node2D"]
+[node name="lose" type="Node2D" unique_id=1736048277]
 script = ExtResource("1_bmd07")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=47041535]
 offset_right = 960.0
 offset_bottom = 544.0
 color = Color(0.933333, 0.933333, 0.933333, 1)
 
-[node name="You died..." parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="You died..." parent="." unique_id=420292398 instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(112, 64)
 cols = 12
 size = 2.0
@@ -20,7 +20,7 @@ center = true
 text = "You died and became a
 restless soul."
 
-[node name="RetryBtn" type="Button" parent="." groups=["autofocus"]]
+[node name="RetryBtn" type="Button" parent="." unique_id=1973480966 groups=["autofocus"]]
 offset_left = 384.0
 offset_top = 384.0
 offset_right = 576.0
@@ -28,6 +28,6 @@ offset_bottom = 448.0
 theme = ExtResource("3_h22rx")
 text = "Retry"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["music"]]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=587591500 groups=["music"]]
 
 [connection signal="pressed" from="RetryBtn" to="." method="_on_retry_btn_pressed"]

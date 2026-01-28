@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsu0snyteywt3"]
+[gd_scene format=3 uid="uid://dsu0snyteywt3"]
 
 [ext_resource type="Texture2D" uid="uid://fkf1d6g13ewr" path="res://games/polarbears/assets/gfx/win_screen.png" id="1_25u24"]
 [ext_resource type="Script" uid="uid://d1nma82gggin8" path="res://games/polarbears/scenes/scripts/win.gd" id="1_nlcq2"]
@@ -16,14 +16,14 @@ font = ExtResource("3_58tke")
 font_size = 24
 font_color = Color(0, 0, 0, 1)
 
-[node name="Win" type="Node2D"]
+[node name="Win" type="Node2D" unique_id=191788080]
 script = ExtResource("1_nlcq2")
 
-[node name="WinScreen" type="Sprite2D" parent="."]
+[node name="WinScreen" type="Sprite2D" parent="." unique_id=1065064528]
 position = Vector2(480, 270)
 texture = ExtResource("1_25u24")
 
-[node name="YouWin" type="Label" parent="."]
+[node name="YouWin" type="Label" parent="." unique_id=2010893105]
 unique_name_in_owner = true
 offset_left = 16.0
 offset_top = 16.0
@@ -32,7 +32,7 @@ offset_bottom = 36.0
 text = "YOU WIN, HOMBRE!"
 label_settings = SubResource("LabelSettings_8uf8v")
 
-[node name="YouDied" type="Label" parent="."]
+[node name="YouDied" type="Label" parent="." unique_id=1734969119]
 unique_name_in_owner = true
 offset_left = 16.0
 offset_top = 96.0
@@ -41,7 +41,7 @@ offset_bottom = 126.0
 text = "You died a few times tho.."
 label_settings = SubResource("LabelSettings_7pvcl")
 
-[node name="NewRecord" type="Label" parent="."]
+[node name="NewRecord" type="Label" parent="." unique_id=350993290]
 unique_name_in_owner = true
 visible = false
 offset_left = 16.0

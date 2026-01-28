@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://6ohi85qmh7ic"]
+[gd_scene format=3 uid="uid://6ohi85qmh7ic"]
 
 [ext_resource type="SpriteFrames" uid="uid://cfm4ckn5birl3" path="res://games/restless/assets/gfx/spritesheet.tres" id="1_xcegk"]
 [ext_resource type="Script" uid="uid://bwovyp55iptcx" path="res://games/restless/scenes/objects/scripts/ghost.gd" id="2_1txbe"]
@@ -6,17 +6,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1txbe"]
 size = Vector2(32, 32)
 
-[node name="Ghost" type="AnimatedSprite2D"]
+[node name="Ghost" type="AnimatedSprite2D" unique_id=1593715774]
 sprite_frames = ExtResource("1_xcegk")
 animation = &"float"
 autoplay = "float"
 frame_progress = 0.606569
 script = ExtResource("2_1txbe")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=952780846]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1118461048]
 shape = SubResource("RectangleShape2D_1txbe")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

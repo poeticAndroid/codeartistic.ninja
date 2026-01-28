@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://qs2lovdtsj78"]
+[gd_scene format=4 uid="uid://qs2lovdtsj78"]
 
 [ext_resource type="Script" uid="uid://v6h5uyrcuw76" path="res://games/oneofyouguys/scenes/scripts/level.gd" id="1_balrm"]
 [ext_resource type="TileSet" uid="uid://buktleburdafy" path="res://games/oneofyouguys/scenes/tileset.tres" id="1_byolv"]
@@ -8,280 +8,280 @@
 [ext_resource type="PackedScene" uid="uid://6mpo0x3vsl7m" path="res://games/oneofyouguys/scenes/objects/goal.tscn" id="gamesoneofyouguysscenesobjectsgoal"]
 [ext_resource type="PackedScene" uid="uid://cnd6r5xajtriu" path="res://games/oneofyouguys/scenes/objects/text.tscn" id="gamesoneofyouguysscenesobjectstext"]
 
-[node name="test" type="Node2D"]
+[node name="test" type="Node2D" unique_id=122147323]
 script = ExtResource("1_balrm")
 
-[node name="LeadingCamera" parent="." node_paths=PackedStringArray("limit") instance=ExtResource("1_y7dkn")]
+[node name="LeadingCamera" parent="." unique_id=2027579842 node_paths=PackedStringArray("limit") instance=ExtResource("1_y7dkn")]
 position = Vector2(-1024, -1024)
 sight = Vector2(160, 0)
 limit = NodePath("../ColorRect")
 follow_group = "possessed"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1596845939]
 offset_right = 3200.0
 offset_bottom = 2240.0
 
-[node name="tiles" type="TileMapLayer" parent="."]
+[node name="tiles" type="TileMapLayer" parent="." unique_id=1586289181]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAA8AAAAAAACAAMAAABAAAAAAAACAAMAAABRAAAAAAACAAMAAABVAAAAAAACAAMAAAA8AAEAAAACAAMAAAA9AAEAAAACAAMAAAA+AAEAAAACAAMAAAA/AAEAAAACAAMAAABAAAEAAAACAAMAAABBAAEAAAACAAMAAABCAAEAAAACAAMAAABDAAEAAAACAAMAAABEAAEAAAACAAMAAABFAAEAAAACAAMAAABGAAEAAAACAAMAAABHAAEAAAACAAMAAABIAAEAAAACAAMAAABJAAEAAAACAAMAAABKAAEAAAACAAMAAABLAAEAAAACAAMAAABMAAEAAAACAAMAAABNAAEAAAACAAMAAABOAAEAAAACAAMAAABPAAEAAAACAAMAAABQAAEAAAACAAMAAABRAAEAAAACAAMAAABSAAEAAAACAAMAAABVAAEAAAACAAMAAAA8AAIAAAACAAMAAABVAAIAAAACAAMAAAA8AAMAAAACAAMAAABVAAMAAAACAAMAAAA8AAQAAAACAAMAAABUAAQAAAACAAIAAABVAAQAAAACAAMAAAA8AAUAAAACAAMAAABVAAUAAAACAAMAAAA8AAYAAAACAAMAAABAAAYAAAACAAIAAABRAAYAAAACAAIAAABVAAYAAAACAAMAAAA8AAcAAAACAAMAAAA/AAcAAAACAAMAAABAAAcAAAACAAMAAABBAAcAAAACAAMAAABCAAcAAAACAAMAAABDAAcAAAACAAMAAABEAAcAAAACAAMAAABFAAcAAAACAAMAAABGAAcAAAACAAMAAABHAAcAAAACAAMAAABIAAcAAAACAAMAAABJAAcAAAACAAMAAABKAAcAAAACAAMAAABLAAcAAAACAAMAAABMAAcAAAACAAMAAABNAAcAAAACAAMAAABOAAcAAAACAAMAAABPAAcAAAACAAMAAABQAAcAAAACAAMAAABRAAcAAAACAAMAAABSAAcAAAACAAMAAABTAAcAAAACAAMAAABUAAcAAAACAAMAAABVAAcAAAACAAMAAAA8AAgAAAACAAMAAABVAAgAAAACAAMAAAA8AAkAAAACAAMAAABVAAkAAAACAAMAAAA8AAoAAAACAAMAAAA9AAoAAAACAAIAAABVAAoAAAACAAMAAAA8AAsAAAACAAMAAABVAAsAAAACAAMAAAA8AAwAAAACAAMAAABAAAwAAAACAAIAAABRAAwAAAACAAIAAABVAAwAAAACAAMAAAA8AA0AAAACAAMAAAA9AA0AAAACAAMAAAA+AA0AAAACAAMAAAA/AA0AAAACAAMAAABAAA0AAAACAAMAAABBAA0AAAACAAMAAABCAA0AAAACAAMAAABDAA0AAAACAAMAAABEAA0AAAACAAMAAABFAA0AAAACAAMAAABGAA0AAAACAAMAAABHAA0AAAACAAMAAABIAA0AAAACAAMAAABJAA0AAAACAAMAAABKAA0AAAACAAMAAABLAA0AAAACAAMAAABMAA0AAAACAAMAAABNAA0AAAACAAMAAABOAA0AAAACAAMAAABPAA0AAAACAAMAAABQAA0AAAACAAMAAABRAA0AAAACAAMAAABSAA0AAAACAAMAAABVAA0AAAACAAMAAAA8AA4AAAACAAMAAABVAA4AAAACAAMAAAA8AA8AAAACAAMAAABVAA8AAAACAAMAAAA8ABAAAAACAAMAAABUABAAAAACAAIAAABVABAAAAACAAMAAAA8ABEAAAACAAMAAABVABEAAAACAAMAAAA8ABIAAAACAAMAAABAABIAAAACAAIAAABRABIAAAACAAIAAABVABIAAAACAAMAAAA8ABMAAAACAAMAAAA/ABMAAAACAAMAAABAABMAAAACAAMAAABBABMAAAACAAMAAABCABMAAAACAAMAAABDABMAAAACAAMAAABEABMAAAACAAMAAABFABMAAAACAAMAAABGABMAAAACAAMAAABHABMAAAACAAMAAABIABMAAAACAAMAAABJABMAAAACAAMAAABKABMAAAACAAMAAABLABMAAAACAAMAAABMABMAAAACAAMAAABNABMAAAACAAMAAABOABMAAAACAAMAAABPABMAAAACAAMAAABQABMAAAACAAMAAABRABMAAAACAAMAAABSABMAAAACAAMAAABTABMAAAACAAMAAABUABMAAAACAAMAAABVABMAAAACAAMAAAA8ABQAAAACAAMAAABVABQAAAACAAMAAAA8ABUAAAACAAMAAABVABUAAAACAAMAAAA8ABYAAAACAAMAAAA9ABYAAAACAAIAAABVABYAAAACAAMAAAA8ABcAAAACAAMAAABVABcAAAACAAMAAAA8ABgAAAACAAMAAABAABgAAAACAAIAAABRABgAAAACAAIAAABVABgAAAACAAMAAAA8ABkAAAACAAMAAAA9ABkAAAACAAMAAAA+ABkAAAACAAMAAAA/ABkAAAACAAMAAABAABkAAAACAAMAAABBABkAAAACAAMAAABCABkAAAACAAMAAABDABkAAAACAAMAAABEABkAAAACAAMAAABFABkAAAACAAMAAABGABkAAAACAAMAAABHABkAAAACAAMAAABIABkAAAACAAMAAABJABkAAAACAAMAAABKABkAAAACAAMAAABLABkAAAACAAMAAABMABkAAAACAAMAAABNABkAAAACAAMAAABOABkAAAACAAMAAABPABkAAAACAAMAAABQABkAAAACAAMAAABRABkAAAACAAMAAABSABkAAAACAAMAAABVABkAAAACAAMAAAA8ABoAAAACAAMAAABVABoAAAACAAMAAAA8ABsAAAACAAMAAABVABsAAAACAAMAAAA8ABwAAAACAAMAAABUABwAAAACAAIAAABVABwAAAACAAMAAAA8AB0AAAACAAMAAABVAB0AAAACAAMAAAA8AB4AAAACAAMAAABAAB4AAAACAAIAAABRAB4AAAACAAIAAABVAB4AAAACAAMAAAA8AB8AAAACAAMAAAA/AB8AAAACAAMAAABAAB8AAAACAAMAAABBAB8AAAACAAMAAABCAB8AAAACAAMAAABDAB8AAAACAAMAAABEAB8AAAACAAMAAABFAB8AAAACAAMAAABGAB8AAAACAAMAAABHAB8AAAACAAMAAABIAB8AAAACAAMAAABJAB8AAAACAAMAAABKAB8AAAACAAMAAABLAB8AAAACAAMAAABMAB8AAAACAAMAAABNAB8AAAACAAMAAABOAB8AAAACAAMAAABPAB8AAAACAAMAAABQAB8AAAACAAMAAABRAB8AAAACAAMAAABSAB8AAAACAAMAAABTAB8AAAACAAMAAABUAB8AAAACAAMAAABVAB8AAAACAAMAAAA8ACAAAAACAAMAAABVACAAAAACAAMAAAA8ACEAAAACAAMAAABVACEAAAACAAMAAAA8ACIAAAACAAMAAAA9ACIAAAACAAIAAABVACIAAAACAAMAAAA8ACMAAAACAAMAAABVACMAAAACAAMAAAA8ACQAAAACAAMAAABAACQAAAACAAIAAABRACQAAAACAAIAAABVACQAAAACAAMAAAA8ACUAAAACAAMAAAA9ACUAAAACAAMAAAA+ACUAAAACAAMAAAA/ACUAAAACAAMAAABAACUAAAACAAMAAABBACUAAAACAAMAAABCACUAAAACAAMAAABDACUAAAACAAMAAABEACUAAAACAAMAAABFACUAAAACAAMAAABGACUAAAACAAMAAABHACUAAAACAAMAAABIACUAAAACAAMAAABJACUAAAACAAMAAABKACUAAAACAAMAAABLACUAAAACAAMAAABMACUAAAACAAMAAABNACUAAAACAAMAAABOACUAAAACAAMAAABPACUAAAACAAMAAABQACUAAAACAAMAAABRACUAAAACAAMAAABSACUAAAACAAMAAABVACUAAAACAAMAAAA8ACYAAAACAAMAAABVACYAAAACAAMAAAA8ACcAAAACAAMAAABVACcAAAACAAMAAAA8ACgAAAACAAMAAABUACgAAAACAAIAAABVACgAAAACAAMAAAA8ACkAAAACAAMAAABVACkAAAACAAMAAAA8ACoAAAACAAMAAABAACoAAAACAAIAAABRACoAAAACAAIAAABVACoAAAACAAMAAAA8ACsAAAACAAMAAAA/ACsAAAACAAMAAABAACsAAAACAAMAAABBACsAAAACAAMAAABCACsAAAACAAMAAABDACsAAAACAAMAAABEACsAAAACAAMAAABFACsAAAACAAMAAABGACsAAAACAAMAAABHACsAAAACAAMAAABIACsAAAACAAMAAABJACsAAAACAAMAAABKACsAAAACAAMAAABLACsAAAACAAMAAABMACsAAAACAAMAAABNACsAAAACAAMAAABOACsAAAACAAMAAABPACsAAAACAAMAAABQACsAAAACAAMAAABRACsAAAACAAMAAABSACsAAAACAAMAAABTACsAAAACAAMAAABUACsAAAACAAMAAABVACsAAAACAAMAAAA8ACwAAAACAAMAAABVACwAAAACAAMAAAA8AC0AAAACAAMAAABVAC0AAAACAAMAAAA8AC4AAAACAAMAAAA9AC4AAAACAAIAAABVAC4AAAACAAMAAAA8AC8AAAACAAMAAABVAC8AAAACAAMAAAA8ADAAAAACAAMAAABAADAAAAACAAIAAABRADAAAAACAAIAAABVADAAAAACAAMAAAA8ADEAAAACAAMAAAA9ADEAAAACAAMAAAA+ADEAAAACAAMAAAA/ADEAAAACAAMAAABAADEAAAACAAMAAABBADEAAAACAAMAAABCADEAAAACAAMAAABDADEAAAACAAMAAABEADEAAAACAAMAAABFADEAAAACAAMAAABGADEAAAACAAMAAABHADEAAAACAAMAAABIADEAAAACAAMAAABJADEAAAACAAMAAABKADEAAAACAAMAAABLADEAAAACAAMAAABMADEAAAACAAMAAABNADEAAAACAAMAAABOADEAAAACAAMAAABPADEAAAACAAMAAABQADEAAAACAAMAAABRADEAAAACAAMAAABSADEAAAACAAMAAABVADEAAAACAAMAAAA8ADIAAAACAAMAAABVADIAAAACAAMAAAA8ADMAAAACAAMAAABVADMAAAACAAMAAAA8ADQAAAACAAMAAABUADQAAAACAAIAAABVADQAAAACAAMAAAA8ADUAAAACAAMAAABVADUAAAACAAMAAAA8ADYAAAACAAMAAABAADYAAAACAAIAAABRADYAAAACAAIAAABVADYAAAACAAMAAAA8ADcAAAACAAMAAAA/ADcAAAACAAMAAABAADcAAAACAAMAAABBADcAAAACAAMAAABCADcAAAACAAMAAABDADcAAAACAAMAAABEADcAAAACAAMAAABFADcAAAACAAMAAABGADcAAAACAAMAAABHADcAAAACAAMAAABIADcAAAACAAMAAABJADcAAAACAAMAAABKADcAAAACAAMAAABLADcAAAACAAMAAABMADcAAAACAAMAAABNADcAAAACAAMAAABOADcAAAACAAMAAABPADcAAAACAAMAAABQADcAAAACAAMAAABRADcAAAACAAMAAABSADcAAAACAAMAAABTADcAAAACAAMAAABUADcAAAACAAMAAABVADcAAAACAAMAAAAAADgAAAACAAMAAAAYADgAAAACAAMAAAA8ADgAAAACAAMAAABVADgAAAACAAMAAAAAADkAAAACAAMAAAA8ADkAAAACAAMAAABVADkAAAACAAMAAAAAADoAAAACAAMAAAALADoAAAACAAMAAAA8ADoAAAACAAMAAAA9ADoAAAACAAIAAABVADoAAAACAAMAAAAAADsAAAACAAMAAAALADsAAAACAAMAAAATADsAAAACAAMAAAAZADsAAAACAAMAAAA8ADsAAAACAAMAAABVADsAAAACAAMAAAAAADwAAAACAAMAAAALADwAAAACAAMAAAA8ADwAAAACAAMAAABAADwAAAACAAIAAABRADwAAAACAAIAAABVADwAAAACAAMAAAAAAD0AAAACAAMAAAAGAD0AAAACAAMAAAAHAD0AAAACAAMAAAAIAD0AAAACAAMAAAAJAD0AAAACAAMAAAAKAD0AAAACAAMAAAALAD0AAAACAAMAAAAPAD0AAAACAAMAAAA8AD0AAAACAAMAAAA9AD0AAAACAAMAAAA+AD0AAAACAAMAAAA/AD0AAAACAAMAAABAAD0AAAACAAMAAABBAD0AAAACAAMAAABCAD0AAAACAAMAAABDAD0AAAACAAMAAABEAD0AAAACAAMAAABFAD0AAAACAAMAAABGAD0AAAACAAMAAABHAD0AAAACAAMAAABIAD0AAAACAAMAAABJAD0AAAACAAMAAABKAD0AAAACAAMAAABLAD0AAAACAAMAAABMAD0AAAACAAMAAABNAD0AAAACAAMAAABOAD0AAAACAAMAAABPAD0AAAACAAMAAABQAD0AAAACAAMAAABRAD0AAAACAAMAAABSAD0AAAACAAMAAABVAD0AAAACAAMAAAAAAD4AAAACAAMAAAAGAD4AAAACAAMAAAALAD4AAAACAAMAAAAiAD4AAAABAAEAAAAlAD4AAAABAAEAAAAoAD4AAAABAAEAAAArAD4AAAABAAEAAAA8AD4AAAACAAMAAABVAD4AAAACAAMAAAAAAD8AAAACAAMAAAAGAD8AAAACAAMAAAAWAD8AAAACAAMAAAA8AD8AAAACAAMAAABVAD8AAAACAAMAAAAAAEAAAAACAAMAAAA8AEAAAAACAAMAAABUAEAAAAACAAIAAABVAEAAAAACAAMAAAAAAEEAAAACAAMAAAAiAEEAAAACAAMAAAAkAEEAAAACAAMAAAAlAEEAAAACAAMAAAAnAEEAAAACAAMAAAAoAEEAAAACAAMAAAAqAEEAAAACAAMAAAArAEEAAAACAAMAAAAtAEEAAAACAAMAAAAuAEEAAAACAAMAAABVAEEAAAACAAMAAAAAAEIAAAACAAMAAAALAEIAAAACAAMAAAAiAEIAAAACAAMAAAAlAEIAAAACAAMAAAAoAEIAAAACAAMAAAArAEIAAAACAAMAAAAuAEIAAAACAAMAAABAAEIAAAACAAIAAABRAEIAAAACAAIAAABVAEIAAAACAAMAAAAAAEMAAAADAAIAAAABAEMAAAADAAIAAAACAEMAAAADAAIAAAADAEMAAAADAAIAAAAEAEMAAAADAAIAAAAFAEMAAAADAAIAAAAGAEMAAAADAAIAAAAHAEMAAAADAAIAAAAIAEMAAAADAAIAAAAJAEMAAAADAAIAAAAKAEMAAAADAAIAAAALAEMAAAADAAIAAAAMAEMAAAADAAIAAAANAEMAAAADAAIAAAAOAEMAAAADAAIAAAAPAEMAAAADAAIAAAAQAEMAAAADAAIAAAARAEMAAAADAAIAAAASAEMAAAADAAIAAAATAEMAAAADAAIAAAAUAEMAAAADAAIAAAAVAEMAAAADAAIAAAAWAEMAAAADAAIAAAAXAEMAAAADAAIAAAAYAEMAAAADAAIAAAAZAEMAAAADAAIAAAAaAEMAAAADAAIAAAAbAEMAAAADAAIAAAAcAEMAAAADAAIAAAAdAEMAAAADAAIAAAAeAEMAAAADAAIAAAAfAEMAAAADAAIAAAAgAEMAAAADAAIAAAAhAEMAAAADAAIAAAAiAEMAAAADAAIAAAAjAEMAAAADAAIAAAAkAEMAAAADAAIAAAAlAEMAAAADAAIAAAAmAEMAAAADAAIAAAAnAEMAAAADAAIAAAAoAEMAAAADAAIAAAApAEMAAAADAAIAAAAqAEMAAAADAAIAAAArAEMAAAADAAIAAAAsAEMAAAADAAIAAAAtAEMAAAADAAIAAAAuAEMAAAADAAIAAAAvAEMAAAADAAIAAAAwAEMAAAADAAIAAAAxAEMAAAADAAIAAAAyAEMAAAADAAIAAAAzAEMAAAADAAIAAAA0AEMAAAADAAIAAAA1AEMAAAADAAIAAAA2AEMAAAADAAIAAAA3AEMAAAADAAIAAAA4AEMAAAADAAIAAAA5AEMAAAADAAIAAAA6AEMAAAADAAIAAAA7AEMAAAADAAIAAAA8AEMAAAADAAIAAAA9AEMAAAADAAIAAAA+AEMAAAADAAIAAAA/AEMAAAADAAIAAABAAEMAAAADAAIAAABBAEMAAAADAAIAAABCAEMAAAADAAIAAABDAEMAAAADAAIAAABEAEMAAAADAAIAAABFAEMAAAADAAIAAABGAEMAAAADAAIAAABHAEMAAAADAAIAAABIAEMAAAADAAIAAABJAEMAAAADAAIAAABKAEMAAAADAAIAAABLAEMAAAADAAIAAABMAEMAAAADAAIAAABNAEMAAAADAAIAAABOAEMAAAADAAIAAABPAEMAAAADAAIAAABQAEMAAAADAAIAAABRAEMAAAADAAIAAABSAEMAAAADAAIAAABTAEMAAAADAAIAAABUAEMAAAADAAIAAABVAEMAAAADAAIAAABWAEMAAAADAAIAAABXAEMAAAADAAIAAABYAEMAAAADAAIAAABZAEMAAAADAAIAAABaAEMAAAADAAIAAABbAEMAAAADAAIAAABcAEMAAAADAAIAAABdAEMAAAADAAIAAABeAEMAAAADAAIAAABfAEMAAAADAAIAAABgAEMAAAADAAIAAABhAEMAAAADAAIAAABiAEMAAAADAAIAAABjAEMAAAADAAIAAAAAAEQAAAADAAIAAAABAEQAAAADAAIAAAACAEQAAAADAAIAAAADAEQAAAADAAIAAAAEAEQAAAADAAIAAAAFAEQAAAADAAIAAAAGAEQAAAADAAIAAAAHAEQAAAADAAIAAAAIAEQAAAADAAIAAAAJAEQAAAADAAIAAAAKAEQAAAADAAIAAAALAEQAAAADAAIAAAAMAEQAAAADAAIAAAANAEQAAAADAAIAAAAOAEQAAAADAAIAAAAPAEQAAAADAAIAAAAQAEQAAAADAAIAAAARAEQAAAADAAIAAAASAEQAAAADAAIAAAATAEQAAAADAAIAAAAUAEQAAAADAAIAAAAVAEQAAAADAAIAAAAWAEQAAAADAAIAAAAXAEQAAAADAAIAAAAYAEQAAAADAAIAAAAZAEQAAAADAAIAAAAaAEQAAAADAAIAAAAbAEQAAAADAAIAAAAcAEQAAAADAAIAAAAdAEQAAAADAAIAAAAeAEQAAAADAAIAAAAfAEQAAAADAAIAAAAgAEQAAAADAAIAAAAhAEQAAAADAAIAAAAiAEQAAAADAAIAAAAjAEQAAAADAAIAAAAkAEQAAAADAAIAAAAlAEQAAAADAAIAAAAmAEQAAAADAAIAAAAnAEQAAAADAAIAAAAoAEQAAAADAAIAAAApAEQAAAADAAIAAAAqAEQAAAADAAIAAAArAEQAAAADAAIAAAAsAEQAAAADAAIAAAAtAEQAAAADAAIAAAAuAEQAAAADAAIAAAAvAEQAAAADAAIAAAAwAEQAAAADAAIAAAAxAEQAAAADAAIAAAAyAEQAAAADAAIAAAAzAEQAAAADAAIAAAA0AEQAAAADAAIAAAA1AEQAAAADAAIAAAA2AEQAAAADAAIAAAA3AEQAAAADAAIAAAA4AEQAAAADAAIAAAA5AEQAAAADAAIAAAA6AEQAAAADAAIAAAA7AEQAAAADAAIAAAA8AEQAAAADAAIAAAA9AEQAAAADAAIAAAA+AEQAAAADAAIAAAA/AEQAAAADAAIAAABAAEQAAAADAAIAAABBAEQAAAADAAIAAABCAEQAAAADAAIAAABDAEQAAAADAAIAAABEAEQAAAADAAIAAABFAEQAAAADAAIAAABGAEQAAAADAAIAAABHAEQAAAADAAIAAABIAEQAAAADAAIAAABJAEQAAAADAAIAAABKAEQAAAADAAIAAABLAEQAAAADAAIAAABMAEQAAAADAAIAAABNAEQAAAADAAIAAABOAEQAAAADAAIAAABPAEQAAAADAAIAAABQAEQAAAADAAIAAABRAEQAAAADAAIAAABSAEQAAAADAAIAAABTAEQAAAADAAIAAABUAEQAAAADAAIAAABVAEQAAAADAAIAAABWAEQAAAADAAIAAABXAEQAAAADAAIAAABYAEQAAAADAAIAAABZAEQAAAADAAIAAABaAEQAAAADAAIAAABbAEQAAAADAAIAAABcAEQAAAADAAIAAABdAEQAAAADAAIAAABeAEQAAAADAAIAAABfAEQAAAADAAIAAABgAEQAAAADAAIAAABhAEQAAAADAAIAAABiAEQAAAADAAIAAABjAEQAAAADAAIAAAAAAEUAAAADAAIAAAABAEUAAAADAAIAAAACAEUAAAADAAIAAAADAEUAAAADAAIAAAAEAEUAAAADAAIAAAAFAEUAAAADAAIAAAAGAEUAAAADAAIAAAAHAEUAAAADAAIAAAAIAEUAAAADAAIAAAAJAEUAAAADAAIAAAAKAEUAAAADAAIAAAALAEUAAAADAAIAAAAMAEUAAAADAAIAAAANAEUAAAADAAIAAAAOAEUAAAADAAIAAAAPAEUAAAADAAIAAAAQAEUAAAADAAIAAAARAEUAAAADAAIAAAASAEUAAAADAAIAAAATAEUAAAADAAIAAAAUAEUAAAADAAIAAAAVAEUAAAADAAIAAAAWAEUAAAADAAIAAAAXAEUAAAADAAIAAAAYAEUAAAADAAIAAAAZAEUAAAADAAIAAAAaAEUAAAADAAIAAAAbAEUAAAADAAIAAAAcAEUAAAADAAIAAAAdAEUAAAADAAIAAAAeAEUAAAADAAIAAAAfAEUAAAADAAIAAAAgAEUAAAADAAIAAAAhAEUAAAADAAIAAAAiAEUAAAADAAIAAAAjAEUAAAADAAIAAAAkAEUAAAADAAIAAAAlAEUAAAADAAIAAAAmAEUAAAADAAIAAAAnAEUAAAADAAIAAAAoAEUAAAADAAIAAAApAEUAAAADAAIAAAAqAEUAAAADAAIAAAArAEUAAAADAAIAAAAsAEUAAAADAAIAAAAtAEUAAAADAAIAAAAuAEUAAAADAAIAAAAvAEUAAAADAAIAAAAwAEUAAAADAAIAAAAxAEUAAAADAAIAAAAyAEUAAAADAAIAAAAzAEUAAAADAAIAAAA0AEUAAAADAAIAAAA1AEUAAAADAAIAAAA2AEUAAAADAAIAAAA3AEUAAAADAAIAAAA4AEUAAAADAAIAAAA5AEUAAAADAAIAAAA6AEUAAAADAAIAAAA7AEUAAAADAAIAAAA8AEUAAAADAAIAAAA9AEUAAAADAAIAAAA+AEUAAAADAAIAAAA/AEUAAAADAAIAAABAAEUAAAADAAIAAABBAEUAAAADAAIAAABCAEUAAAADAAIAAABDAEUAAAADAAIAAABEAEUAAAADAAIAAABFAEUAAAADAAIAAABGAEUAAAADAAIAAABHAEUAAAADAAIAAABIAEUAAAADAAIAAABJAEUAAAADAAIAAABKAEUAAAADAAIAAABLAEUAAAADAAIAAABMAEUAAAADAAIAAABNAEUAAAADAAIAAABOAEUAAAADAAIAAABPAEUAAAADAAIAAABQAEUAAAADAAIAAABRAEUAAAADAAIAAABSAEUAAAADAAIAAABTAEUAAAADAAIAAABUAEUAAAADAAIAAABVAEUAAAADAAIAAABWAEUAAAADAAIAAABXAEUAAAADAAIAAABYAEUAAAADAAIAAABZAEUAAAADAAIAAABaAEUAAAADAAIAAABbAEUAAAADAAIAAABcAEUAAAADAAIAAABdAEUAAAADAAIAAABeAEUAAAADAAIAAABfAEUAAAADAAIAAABgAEUAAAADAAIAAABhAEUAAAADAAIAAABiAEUAAAADAAIAAABjAEUAAAADAAIAAAA=")
 tile_set = ExtResource("1_byolv")
 
-[node name="Object113" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object113" parent="." unique_id=196591286 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(1744, 48)
 possessed = true
 
-[node name="Object114" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
+[node name="Object114" parent="." unique_id=1423417362 instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
 position = Vector2(1056, 2128)
 destination = "win"
 size = Vector2(64, 32)
 
-[node name="Object116" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object116" parent="." unique_id=1007666183 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(968, 1968)
 
-[node name="Object139" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object139" parent="." unique_id=1586539557 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(960, 1856)
 
-[node name="Object140" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object140" parent="." unique_id=18613356 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(576, 1944)
 
-[node name="Object141" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object141" parent="." unique_id=888597300 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(424, 1944)
 
-[node name="Object142" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object142" parent="." unique_id=1066406668 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(424, 1832)
 
-[node name="Object143" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object143" parent="." unique_id=1417447922 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(744, 1992)
 
-[node name="Object144" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object144" parent="." unique_id=1267717231 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(904, 1976)
 
-[node name="Object145" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object145" parent="." unique_id=1971229240 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(672, 1968)
 
-[node name="Object146" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object146" parent="." unique_id=1620155463 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(504, 1864)
 
-[node name="Object147" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object147" parent="." unique_id=882946961 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(736, 1832)
 
-[node name="Object148" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object148" parent="." unique_id=973349967 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(744, 1936)
 
-[node name="Object149" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object149" parent="." unique_id=1279510909 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(608, 1816)
 
-[node name="Object150" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object150" parent="." unique_id=2064621633 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(656, 1816)
 
-[node name="Object151" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object151" parent="." unique_id=1570770222 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(688, 1872)
 
-[node name="Welcome to my game!" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="Welcome to my game!" parent="." unique_id=712039771 instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(80, 1840)
 text = "Welcome to my game!"
 
-[node name="device" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="device" parent="." unique_id=729020594 instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(48, 2128)
 text = "[ctrl]"
 desktop_text = "typewriter"
 touch_text = "stroker"
 gamepad_text = "basher"
 
-[node name="Tut" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="Tut" parent="." unique_id=1011548030 instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(1120, 2032)
 cols = 12
 text = "Tut"
 
-[node name="Oh sh...." parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="Oh sh...." parent="." unique_id=498169021 instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(80, 48)
 text = "Oh shit..!"
 
-[node name="Going down..?" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="Going down..?" parent="." unique_id=1800059216 instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(144, 944)
 cols = 8
 text = "Going down..?"
 
-[node name="Object159" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object159" parent="." unique_id=1241307533 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2224, 1928)
 
-[node name="Object160" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object160" parent="." unique_id=1625238283 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2384, 1864)
 
-[node name="Object161" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object161" parent="." unique_id=1293726395 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2288, 1920)
 
-[node name="Object162" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object162" parent="." unique_id=1541672148 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2408, 1656)
 
-[node name="Object163" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object163" parent="." unique_id=1803566891 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2248, 1712)
 
-[node name="Object164" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object164" parent="." unique_id=235675997 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2312, 1704)
 
-[node name="Object165" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object165" parent="." unique_id=984595183 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2408, 1448)
 
-[node name="Object166" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object166" parent="." unique_id=1453462039 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2248, 1512)
 
-[node name="Object167" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object167" parent="." unique_id=1038166383 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2312, 1504)
 
-[node name="Object168" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object168" parent="." unique_id=656681809 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2408, 1264)
 
-[node name="Object169" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object169" parent="." unique_id=272776786 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2248, 1328)
 
-[node name="Object170" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object170" parent="." unique_id=1298871152 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2312, 1320)
 
-[node name="Object171" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object171" parent="." unique_id=1742433698 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2400, 1056)
 
-[node name="Object172" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object172" parent="." unique_id=1632093187 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2240, 1120)
 
-[node name="Object173" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object173" parent="." unique_id=311021807 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2304, 1112)
 
-[node name="Object174" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object174" parent="." unique_id=38227767 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2424, 880)
 
-[node name="Object175" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object175" parent="." unique_id=1469200991 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2264, 944)
 
-[node name="Object176" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object176" parent="." unique_id=1399087423 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2328, 936)
 
-[node name="Object177" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object177" parent="." unique_id=1731286162 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2384, 680)
 
-[node name="Object178" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object178" parent="." unique_id=1058419968 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2224, 744)
 
-[node name="Object179" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object179" parent="." unique_id=933581490 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2288, 736)
 
-[node name="Object180" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object180" parent="." unique_id=2147138397 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2416, 480)
 
-[node name="Object181" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object181" parent="." unique_id=203484569 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2256, 544)
 
-[node name="Object182" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object182" parent="." unique_id=2034372504 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2320, 536)
 
-[node name="Object183" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object183" parent="." unique_id=368923318 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2416, 304)
 
-[node name="Object184" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object184" parent="." unique_id=294651628 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2256, 368)
 
-[node name="Object185" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object185" parent="." unique_id=1867858183 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2320, 360)
 
-[node name="Object186" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object186" parent="." unique_id=640059810 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2432, 104)
 
-[node name="Object187" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object187" parent="." unique_id=877059409 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2272, 168)
 
-[node name="Object188" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object188" parent="." unique_id=852688453 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2336, 160)
 
-[node name="Object189" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+[node name="Object189" parent="." unique_id=544562710 instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2608, 2048)
 size = Vector2(32, 128)
 
-[node name="Object190" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+[node name="Object190" parent="." unique_id=105423037 instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2064, 1856)
 size = Vector2(32, 128)
 
-[node name="Object191" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+[node name="Object191" parent="." unique_id=1072144400 instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2608, 1664)
 size = Vector2(32, 128)
 
-[node name="Object192" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+[node name="Object192" parent="." unique_id=1877236009 instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2064, 1472)
 size = Vector2(32, 128)
 
-[node name="Object193" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+[node name="Object193" parent="." unique_id=1299946012 instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2608, 1280)
 size = Vector2(32, 128)
 
-[node name="Object194" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+[node name="Object194" parent="." unique_id=1774599154 instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2064, 1088)
 size = Vector2(32, 128)
 
-[node name="Object195" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+[node name="Object195" parent="." unique_id=646068214 instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2608, 896)
 size = Vector2(32, 128)
 
-[node name="Object196" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+[node name="Object196" parent="." unique_id=1842501710 instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2064, 704)
 size = Vector2(32, 128)
 
-[node name="Object197" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+[node name="Object197" parent="." unique_id=804335049 instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2608, 512)
 size = Vector2(32, 128)
 
-[node name="Object198" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+[node name="Object198" parent="." unique_id=2006952536 instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2064, 320)
 size = Vector2(32, 128)
 
-[node name="Object199" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
+[node name="Object199" parent="." unique_id=1868702233 instance=ExtResource("gamesoneofyouguysscenesobjectsdoor")]
 position = Vector2(2608, 128)
 size = Vector2(32, 128)
 
-[node name="Object200" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object200" parent="." unique_id=1995154246 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2424, 2024)
 collision_mask = 177
 clan = 2
 
-[node name="Object201" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object201" parent="." unique_id=856892279 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2264, 2088)
 collision_mask = 209
 clan = 1
 
-[node name="Object202" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object202" parent="." unique_id=1491013114 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(2328, 2080)
 collision_mask = 113
 clan = 3
 
-[node name="Frns" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="Frns" parent="." unique_id=1044996143 instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(1200, 2000)
 cols = 12
 text = "Frns"
 
-[node name="Sps" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="Sps" parent="." unique_id=1474402543 instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(1312, 2032)
 cols = 12
 text = "Sps"
 
-[node name="Twr" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="Twr" parent="." unique_id=1700426425 instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(1408, 2000)
 cols = 12
 text = "Twr"
 
-[node name="Object206" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
+[node name="Object206" parent="." unique_id=551001606 instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
 position = Vector2(1152, 2128)
 destination = "tutorial"
 size = Vector2(64, 32)
 
-[node name="Object207" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
+[node name="Object207" parent="." unique_id=2096552769 instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
 position = Vector2(1248, 2128)
 destination = "friends"
 size = Vector2(64, 32)
 
-[node name="Object208" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
+[node name="Object208" parent="." unique_id=229032899 instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
 position = Vector2(1344, 2128)
 destination = "spies"
 size = Vector2(64, 32)
 
-[node name="Object209" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
+[node name="Object209" parent="." unique_id=1370888285 instance=ExtResource("gamesoneofyouguysscenesobjectsgoal")]
 position = Vector2(1440, 2128)
 destination = "tower"
 size = Vector2(64, 32)

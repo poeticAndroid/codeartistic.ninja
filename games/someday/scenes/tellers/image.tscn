@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqmf0c6si4uaa"]
+[gd_scene format=3 uid="uid://cqmf0c6si4uaa"]
 
 [ext_resource type="Script" uid="uid://c1v536hqgpdqu" path="res://scripts/story/tellers/image.gd" id="1_gfgkf"]
 [ext_resource type="Texture2D" uid="uid://1ghes1hbowfc" path="res://games/someday/assets/gfx/beChild.png" id="3_iyhwy"]
@@ -44,7 +44,7 @@ _data = {
 &"reveal": SubResource("Animation_obqov")
 }
 
-[node name="Image" type="CenterContainer"]
+[node name="Image" type="CenterContainer" unique_id=1833330290]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,37 +53,35 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gfgkf")
 
-[node name="BeChild" type="TextureRect" parent="."]
+[node name="BeChild" type="TextureRect" parent="." unique_id=671440152]
 visible = false
 layout_mode = 2
 texture = ExtResource("3_iyhwy")
 
-[node name="BeKid" type="TextureRect" parent="."]
+[node name="BeKid" type="TextureRect" parent="." unique_id=1724083417]
 visible = false
 layout_mode = 2
 texture = ExtResource("4_dk1xa")
 
-[node name="BeTeen" type="TextureRect" parent="."]
+[node name="BeTeen" type="TextureRect" parent="." unique_id=1995768700]
 visible = false
 layout_mode = 2
 texture = ExtResource("5_103uq")
 
-[node name="GetChild" type="TextureRect" parent="."]
+[node name="GetChild" type="TextureRect" parent="." unique_id=745090687]
 visible = false
 layout_mode = 2
 texture = ExtResource("7_5px1m")
 
-[node name="GetKid" type="TextureRect" parent="."]
+[node name="GetKid" type="TextureRect" parent="." unique_id=1305312490]
 visible = false
 layout_mode = 2
 texture = ExtResource("8_x8ung")
 
-[node name="GetTeen" type="TextureRect" parent="."]
+[node name="GetTeen" type="TextureRect" parent="." unique_id=1531905001]
 visible = false
 layout_mode = 2
 texture = ExtResource("9_xcarx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_nhmyy")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1074693069]
+libraries/ = SubResource("AnimationLibrary_nhmyy")

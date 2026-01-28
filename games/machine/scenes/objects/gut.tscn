@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ca75r7g8bh00p"]
+[gd_scene format=3 uid="uid://ca75r7g8bh00p"]
 
 [ext_resource type="Texture2D" uid="uid://c7l3p4fkyxmie" path="res://games/machine/assets/sprites/guts.png" id="1_kq6uu"]
 [ext_resource type="Script" uid="uid://dec4ypw60kr8j" path="res://games/machine/scenes/objects/scripts/gut.gd" id="1_tktde"]
@@ -67,11 +67,11 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Gut" type="Node2D"]
+[node name="Gut" type="Node2D" unique_id=1381721462]
 z_index = 640
 script = ExtResource("1_tktde")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2121447875]
 sprite_frames = SubResource("SpriteFrames_lttxr")
 autoplay = "default"
 frame_progress = 0.68835884

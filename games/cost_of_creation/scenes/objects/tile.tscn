@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dek6n8q6pm5l0"]
+[gd_scene format=3 uid="uid://dek6n8q6pm5l0"]
 
 [ext_resource type="Script" uid="uid://dcy3ybnlmfcy5" path="res://games/cost_of_creation/scenes/objects/scripts/tile.gd" id="1_ev1of"]
 
@@ -6,34 +6,34 @@
 font_color = Color(0.2, 0.2, 0.2, 1)
 outline_size = 2
 
-[node name="Tile" type="Sprite2D" groups=["tile"]]
+[node name="Tile" type="Sprite2D" unique_id=918818203 groups=["tile"]]
 script = ExtResource("1_ev1of")
 
-[node name="ColorRect1" type="ColorRect" parent="."]
+[node name="ColorRect1" type="ColorRect" parent="." unique_id=986021014]
 offset_left = -128.0
 offset_top = -128.0
 offset_right = 128.0
 offset_bottom = -127.0
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1422559982]
 offset_left = -128.0
 offset_top = 128.0
 offset_right = 128.0
 offset_bottom = 129.0
 
-[node name="ColorRect3" type="ColorRect" parent="."]
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=944324070]
 offset_left = -128.0
 offset_top = -128.0
 offset_right = -127.0
 offset_bottom = 128.0
 
-[node name="ColorRect4" type="ColorRect" parent="."]
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=325295275]
 offset_left = 128.0
 offset_top = -128.0
 offset_right = 129.0
 offset_bottom = 128.0
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1612374372]
 offset_left = -120.0
 offset_top = -121.0
 offset_right = -59.0

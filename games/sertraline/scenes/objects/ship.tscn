@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ccbh6o1r6cgbg"]
+[gd_scene format=3 uid="uid://ccbh6o1r6cgbg"]
 
 [ext_resource type="Texture2D" uid="uid://dybcfvxwovspa" path="res://games/sertraline/assets/sprites/ship.png" id="1_hv0y4"]
 [ext_resource type="Script" uid="uid://b20fr3es8y0mw" path="res://games/sertraline/scenes/objects/scripts/ship.gd" id="1_puqhs"]
@@ -69,18 +69,18 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Ship" type="Area2D" groups=["ship"]]
+[node name="Ship" type="Area2D" unique_id=2093315002 groups=["ship"]]
 script = ExtResource("1_puqhs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=860771161]
 shape = ExtResource("2_04xop")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1162718162]
 sprite_frames = SubResource("SpriteFrames_i51n6")
 autoplay = "default"
 frame_progress = 0.822343
 
-[node name="ClickSnd" type="AudioStreamPlayer2D" parent="."]
+[node name="ClickSnd" type="AudioStreamPlayer2D" parent="." unique_id=1415706688]
 unique_name_in_owner = true
 stream = ExtResource("4_ax287")
 

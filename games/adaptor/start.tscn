@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dmkonasctsmx5"]
+[gd_scene format=3 uid="uid://dmkonasctsmx5"]
 
 [ext_resource type="Script" uid="uid://cx1ydfrg2l287" path="res://games/adaptor/scripts/start.gd" id="1_1ftp1"]
 [ext_resource type="FontFile" uid="uid://n4ljjryc8g6x" path="res://games/adaptor/assets/fonts/Georgia.ttf" id="2_4d4v3"]
@@ -9,7 +9,7 @@
 [sub_resource type="SystemFont" id="SystemFont_syfhx"]
 font_names = PackedStringArray("Monospace", "Courier New")
 
-[node name="Start" type="CenterContainer"]
+[node name="Start" type="CenterContainer" unique_id=1416417297]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,10 +17,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1ftp1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=630787321]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1061410438]
 custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_4d4v3")
@@ -45,7 +45,7 @@ Georgia font from [url=https://www.freefonts.io/georgia-font/]freefonts.io[/url]
 "
 fit_content = true
 
-[node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+[node name="PlayBtn" type="Button" parent="VBoxContainer" unique_id=1525650878 groups=["autofocus"]]
 layout_mode = 2
 size_flags_horizontal = 4
 text = " Begin "

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkjprqp714mly"]
+[gd_scene format=3 uid="uid://dkjprqp714mly"]
 
 [ext_resource type="Script" uid="uid://ctgmnahgkqwoc" path="res://scripts/story/story.gd" id="1_m1io6"]
 [ext_resource type="Resource" uid="uid://bhrcy31r00kum" path="res://games/blank/assets/story/blank.txt" id="2_efyhq"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://6lll1gupk4pe" path="res://games/blank/scenes/tellers/status.tscn" id="8_cddxm"]
 [ext_resource type="PackedScene" uid="uid://k7lb2osbucc5" path="res://games/blank/scenes/tellers/chooser.tscn" id="8_ew6mv"]
 
-[node name="Story" type="ScrollContainer"]
+[node name="Story" type="ScrollContainer" unique_id=1588182810]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,18 +27,18 @@ tellers = Dictionary[String, PackedScene]({
 "ul": ExtResource("8_ew6mv")
 })
 
-[node name="StoryContainer" type="VBoxContainer" parent="."]
+[node name="StoryContainer" type="VBoxContainer" parent="." unique_id=630341170]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="Wintop" type="Sprite2D" parent="."]
+[node name="Wintop" type="Sprite2D" parent="." unique_id=1977246458]
 position = Vector2(480, 32)
 texture = ExtResource("7_q3k4m")
 
-[node name="StatusBar" parent="." instance=ExtResource("8_cddxm")]
+[node name="StatusBar" parent="." unique_id=2042452009 instance=ExtResource("8_cddxm")]
 unique_name_in_owner = true
 position = Vector2(140, 540)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["music"]]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=387150135 groups=["music"]]

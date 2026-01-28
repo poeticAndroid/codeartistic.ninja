@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://lxkijtux7740"]
+[gd_scene format=3 uid="uid://lxkijtux7740"]
 
 [ext_resource type="Script" uid="uid://bi611uuvf415o" path="res://games/polarbears/scenes/scripts/game.gd" id="1_exhrb"]
 [ext_resource type="Texture2D" uid="uid://br2wvn7pd4jnk" path="res://games/polarbears/assets/gfx/starfield_far.png" id="2_4a3j7"]
@@ -283,2166 +283,2166 @@ size = Vector2(960, 540)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bct1u"]
 normal = Vector2(0, 1)
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" unique_id=117634973]
 script = ExtResource("1_exhrb")
 
-[node name="BackgroundFar" type="Parallax2D" parent="."]
+[node name="BackgroundFar" type="Parallax2D" parent="." unique_id=1764067636]
 scroll_scale = Vector2(0.1, 0.1)
 repeat_size = Vector2(960, 960)
 
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundFar"]
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundFar" unique_id=1126270731]
 position = Vector2(480, 480)
 texture = ExtResource("2_4a3j7")
 
-[node name="BackgroundMiddle" type="Parallax2D" parent="."]
+[node name="BackgroundMiddle" type="Parallax2D" parent="." unique_id=1895014161]
 scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(960, 960)
 
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundMiddle"]
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundMiddle" unique_id=2000159009]
 position = Vector2(480, 480)
 texture = ExtResource("3_uv5sd")
 
-[node name="BackgroundNear" type="Parallax2D" parent="."]
+[node name="BackgroundNear" type="Parallax2D" parent="." unique_id=771069064]
 scroll_scale = Vector2(0.9, 0.9)
 repeat_size = Vector2(960, 960)
 
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundNear"]
+[node name="Sprite2D" type="Sprite2D" parent="BackgroundNear" unique_id=346387738]
 position = Vector2(480, 480)
 texture = ExtResource("4_d326v")
 
-[node name="Swirl" type="AnimatedSprite2D" parent="."]
+[node name="Swirl" type="AnimatedSprite2D" parent="." unique_id=1511414531]
 visible = false
 sprite_frames = SubResource("SpriteFrames_7h6bu")
 autoplay = "default"
 frame_progress = 0.432735
 
-[node name="Landmarks" type="Node2D" parent="."]
+[node name="Landmarks" type="Node2D" parent="." unique_id=1141075681]
 
-[node name="Object393" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object393" parent="Landmarks" unique_id=1275599926 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(776, 9176)
 frame = 2
 
-[node name="Object394" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object394" parent="Landmarks" unique_id=1220153975 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(80, 6160)
 frame = 2
 
-[node name="Object395" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object395" parent="Landmarks" unique_id=662899092 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(632, 7928)
 frame = 2
 
-[node name="Object396" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object396" parent="Landmarks" unique_id=1288219799 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(128, 2720)
 frame = 2
 
-[node name="Object397" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object397" parent="Landmarks" unique_id=1086195841 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(896, 2528)
 frame = 2
 
-[node name="Object398" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object398" parent="Landmarks" unique_id=410408479 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(272, 1504)
 frame = 3
 
-[node name="Object399" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object399" parent="Landmarks" unique_id=264746350 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(152, 3792)
 frame = 3
 
-[node name="Object400" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object400" parent="Landmarks" unique_id=460564374 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(816, 1120)
 
-[node name="Object401" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object401" parent="Landmarks" unique_id=874804877 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(88, 1888)
 
-[node name="Object402" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object402" parent="Landmarks" unique_id=611850212 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(288, 3448)
 frame = 1
 
-[node name="Object403" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object403" parent="Landmarks" unique_id=1564264539 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(493, 4717)
 frame = 1
 
-[node name="Object404" parent="Landmarks" instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
+[node name="Object404" parent="Landmarks" unique_id=546195692 instance=ExtResource("gamespolarbearsscenesobjectslandmark")]
 position = Vector2(104, 6928)
 frame = 1
 
-[node name="Bullets" type="Node2D" parent="."]
+[node name="Bullets" type="Node2D" parent="." unique_id=1909097138]
 unique_name_in_owner = true
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="." unique_id=2105267999]
 
-[node name="Object1047" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1047" parent="Enemies" unique_id=151008276 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(54, 8766)
 
-[node name="Object1048" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1048" parent="Enemies" unique_id=111897911 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(878, 8150)
 
-[node name="Object1049" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1049" parent="Enemies" unique_id=1791047769 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(864, 9024)
 
-[node name="Object1050" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1050" parent="Enemies" unique_id=444844775 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(204, 7994)
 
-[node name="Object1051" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1051" parent="Enemies" unique_id=1682575999 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(206, 7817)
 
-[node name="Object1052" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1052" parent="Enemies" unique_id=1899161539 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(206, 7937)
 
-[node name="Object1053" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1053" parent="Enemies" unique_id=1623782063 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(206, 7873)
 
-[node name="Object1054" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1054" parent="Enemies" unique_id=950262985 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(208, 7749)
 
-[node name="Object1055" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1055" parent="Enemies" unique_id=266677380 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(205, 7691)
 
-[node name="Object1056" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1056" parent="Enemies" unique_id=869039735 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(417, 8520)
 
-[node name="Object1057" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1057" parent="Enemies" unique_id=36598409 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(208, 7639)
 
-[node name="Object1058" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1058" parent="Enemies" unique_id=1638002076 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(203.5, 7479)
 
-[node name="Object1059" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1059" parent="Enemies" unique_id=577294290 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(206.5, 7585)
 
-[node name="Object1060" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1060" parent="Enemies" unique_id=111184490 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(206.5, 7537)
 
-[node name="Object1061" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1061" parent="Enemies" unique_id=984339278 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(206.5, 7427)
 
-[node name="Object1062" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1062" parent="Enemies" unique_id=156498058 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(497, 7198)
 
-[node name="Object1063" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1063" parent="Enemies" unique_id=197068997 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(189, 7125)
 
-[node name="Object1064" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1064" parent="Enemies" unique_id=1376409795 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(374, 7262)
 
-[node name="Object1065" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1065" parent="Enemies" unique_id=763940331 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(275.75, 6227.5)
 
-[node name="Object1066" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1066" parent="Enemies" unique_id=966459745 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(277.25, 6439.5)
 
-[node name="Object1067" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1067" parent="Enemies" unique_id=1842459123 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(278.75, 6333.5)
 
-[node name="Object1068" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1068" parent="Enemies" unique_id=1667734183 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(278.75, 6175.5)
 
-[node name="Object1069" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1069" parent="Enemies" unique_id=824726091 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(606.25, 6739.5)
 
-[node name="Object1070" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1070" parent="Enemies" unique_id=859223819 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(608.25, 6562.5)
 
-[node name="Object1071" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1071" parent="Enemies" unique_id=1650966598 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(278.75, 6285.5)
 
-[node name="Object1072" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1072" parent="Enemies" unique_id=208273530 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(610.25, 6494.5)
 
-[node name="Object1073" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1073" parent="Enemies" unique_id=1372117972 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(608.25, 6618.5)
 
-[node name="Object1074" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1074" parent="Enemies" unique_id=1742696450 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(280.25, 6387.5)
 
-[node name="Object1075" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1075" parent="Enemies" unique_id=749958148 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(608.25, 6682.5)
 
-[node name="Object1076" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1076" parent="Enemies" unique_id=1971524532 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(276.75, 6139.5)
 
-[node name="Object1077" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1077" parent="Enemies" unique_id=2069309925 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(278.25, 6351.5)
 
-[node name="Object1078" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1078" parent="Enemies" unique_id=35982897 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(279.75, 6245.5)
 
-[node name="Object1079" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1079" parent="Enemies" unique_id=1993683515 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(279.75, 6087.5)
 
-[node name="Object1080" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1080" parent="Enemies" unique_id=754155210 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(607.25, 6651.5)
 
-[node name="Object1081" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1081" parent="Enemies" unique_id=781038002 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(609.25, 6474.5)
 
-[node name="Object1082" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1082" parent="Enemies" unique_id=2072673358 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(279.75, 6197.5)
 
-[node name="Object1083" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1083" parent="Enemies" unique_id=552469617 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(281.25, 6409.5)
 
-[node name="Object1084" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1084" parent="Enemies" unique_id=103857797 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(609.25, 6530.5)
 
-[node name="Object1085" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1085" parent="Enemies" unique_id=1600613437 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(281.25, 6299.5)
 
-[node name="Object1086" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1086" parent="Enemies" unique_id=272704804 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(609.25, 6594.5)
 
-[node name="Object1087" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1087" parent="Enemies" unique_id=763029125 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(146, 5334.5)
 
-[node name="Object1088" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1088" parent="Enemies" unique_id=1551056673 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(454, 5407.5)
 
-[node name="Object1089" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1089" parent="Enemies" unique_id=2125097831 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(331, 5471.5)
 
-[node name="Object1090" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1090" parent="Enemies" unique_id=1325789046 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(404, 6407.5)
 
-[node name="Object1091" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1091" parent="Enemies" unique_id=279934327 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(403, 6495.5)
 
-[node name="Object1092" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1092" parent="Enemies" unique_id=695527628 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(402, 6528.5)
 
-[node name="Object1093" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1093" parent="Enemies" unique_id=1807684488 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(404, 6351.5)
 
-[node name="Object1094" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1094" parent="Enemies" unique_id=1955193395 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(404, 6471.5)
 
-[node name="Object1095" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1095" parent="Enemies" unique_id=1564700199 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(401, 6616.5)
 
-[node name="Object1096" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1096" parent="Enemies" unique_id=4521277 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(403, 6439.5)
 
-[node name="Object1097" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1097" parent="Enemies" unique_id=1006355962 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(403, 6559.5)
 
-[node name="Object1098" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1098" parent="Enemies" unique_id=1703121074 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(405, 6371.5)
 
-[node name="Object1099" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1099" parent="Enemies" unique_id=503887162 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(148, 6188.5)
 
-[node name="Object1100" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1100" parent="Enemies" unique_id=1439695861 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(64, 5544.5)
 
-[node name="Object1101" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1101" parent="Enemies" unique_id=620187549 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(187, 5480.5)
 
-[node name="Object1102" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1102" parent="Enemies" unique_id=1536231655 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(102, 6370.5)
 
-[node name="Object1103" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1103" parent="Enemies" unique_id=1650263090 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(287, 6507.5)
 
-[node name="Object1104" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1104" parent="Enemies" unique_id=1427545396 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(410, 6443.5)
 
-[node name="Object1105" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1105" parent="Enemies" unique_id=95397129 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(564.875, 5458)
 
-[node name="Object1106" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1106" parent="Enemies" unique_id=729766836 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(365.625, 5307)
 
-[node name="Object1107" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1107" parent="Enemies" unique_id=1363685291 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(555.625, 5116)
 
-[node name="Object1108" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1108" parent="Enemies" unique_id=387217035 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(232.375, 5003)
 
-[node name="Object1109" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1109" parent="Enemies" unique_id=2127557524 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(234.375, 5039)
 
-[node name="Object1110" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1110" parent="Enemies" unique_id=2055431913 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(234.375, 5149)
 
-[node name="Object1111" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1111" parent="Enemies" unique_id=2031557516 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(358.625, 5359)
 
-[node name="Object1112" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1112" parent="Enemies" unique_id=1409155643 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(234.375, 5197)
 
-[node name="Object1113" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1113" parent="Enemies" unique_id=1324648012 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(563.875, 5482)
 
-[node name="Object1114" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1114" parent="Enemies" unique_id=1219471422 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(678.625, 5052)
 
-[node name="Object1115" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1115" parent="Enemies" unique_id=50619296 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(563.875, 5426)
 
-[node name="Object1116" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1116" parent="Enemies" unique_id=1878931912 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(561.875, 5603)
 
-[node name="Object1117" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1117" parent="Enemies" unique_id=156687235 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(358.625, 5303)
 
-[node name="Object1118" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1118" parent="Enemies" unique_id=1403668223 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(233.875, 5215)
 
-[node name="Object1119" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1119" parent="Enemies" unique_id=1232145204 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(359.625, 5215)
 
-[node name="Object1120" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1120" parent="Enemies" unique_id=856650595 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(358.625, 5423)
 
-[node name="Object1121" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1121" parent="Enemies" unique_id=2090034495 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(563.875, 5546)
 
-[node name="Object1122" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1122" parent="Enemies" unique_id=1760870549 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(235.875, 5251)
 
-[node name="Object1123" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1123" parent="Enemies" unique_id=385920920 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(564.875, 5338)
 
-[node name="Object1124" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1124" parent="Enemies" unique_id=109287447 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(562.875, 5515)
 
-[node name="Object1125" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1125" parent="Enemies" unique_id=1764753644 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(235.375, 5061)
 
-[node name="Object1126" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1126" parent="Enemies" unique_id=990849529 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(231.375, 5091)
 
-[node name="Object1127" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1127" parent="Enemies" unique_id=1083738439 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(370.625, 4979)
 
-[node name="Object1128" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1128" parent="Enemies" unique_id=1610415787 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(565.875, 5358)
 
-[node name="Object1129" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1129" parent="Enemies" unique_id=256314428 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(564.875, 5394)
 
-[node name="Object1130" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1130" parent="Enemies" unique_id=1076927621 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(236.875, 5273)
 
-[node name="Object1131" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1131" parent="Enemies" unique_id=222469389 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(359.625, 5335)
 
-[node name="Object1132" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1132" parent="Enemies" unique_id=138679733 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(288.625, 5189)
 
-[node name="Object1133" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1133" parent="Enemies" unique_id=572204859 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(232.875, 5303)
 
-[node name="Object1134" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1134" parent="Enemies" unique_id=1853009291 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(357.625, 5392)
 
-[node name="Object1135" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1135" parent="Enemies" unique_id=675597612 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(356.625, 5480)
 
-[node name="Object1136" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1136" parent="Enemies" unique_id=245870553 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(359.625, 5271)
 
-[node name="Object1137" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1137" parent="Enemies" unique_id=73895923 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(411.625, 5125)
 
-[node name="Object1138" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1138" parent="Enemies" unique_id=404807861 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(235.375, 4951)
 
-[node name="Object1139" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1139" parent="Enemies" unique_id=1588227886 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(235.375, 5109)
 
-[node name="Object1140" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1140" parent="Enemies" unique_id=520685704 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(360.625, 5235)
 
-[node name="Object1141" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1141" parent="Enemies" unique_id=603762082 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(242.625, 5371)
 
-[node name="Object1142" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1142" parent="Enemies" unique_id=1305957914 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(236.875, 5163)
 
-[node name="Object1143" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1143" parent="Enemies" unique_id=1423569771 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(695.875, 5344)
 
-[node name="Object1144" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1144" parent="Enemies" unique_id=1394729011 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(496.625, 5193)
 
-[node name="Object1145" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1145" parent="Enemies" unique_id=1068046401 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(686.625, 5002)
 
-[node name="Object1146" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1146" parent="Enemies" unique_id=1806404601 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(363.375, 4889)
 
-[node name="Object1147" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1147" parent="Enemies" unique_id=840718880 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(365.375, 4925)
 
-[node name="Object1148" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1148" parent="Enemies" unique_id=543361878 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(365.375, 5035)
 
-[node name="Object1149" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1149" parent="Enemies" unique_id=450067823 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(489.625, 5245)
 
-[node name="Object1150" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1150" parent="Enemies" unique_id=970901269 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(365.375, 5083)
 
-[node name="Object1151" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1151" parent="Enemies" unique_id=897922434 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(694.875, 5368)
 
-[node name="Object1152" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1152" parent="Enemies" unique_id=355815531 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(809.625, 4938)
 
-[node name="Object1153" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1153" parent="Enemies" unique_id=1873196144 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(694.875, 5312)
 
-[node name="Object1154" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1154" parent="Enemies" unique_id=1125838123 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(692.875, 5489)
 
-[node name="Object1155" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1155" parent="Enemies" unique_id=229893545 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(489.625, 5189)
 
-[node name="Object1156" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1156" parent="Enemies" unique_id=1018746247 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(364.875, 5101)
 
-[node name="Object1157" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1157" parent="Enemies" unique_id=1591119019 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(490.625, 5101)
 
-[node name="Object1158" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1158" parent="Enemies" unique_id=334036090 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(489.625, 5309)
 
-[node name="Object1159" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1159" parent="Enemies" unique_id=1227146838 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(694.875, 5432)
 
-[node name="Object1160" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1160" parent="Enemies" unique_id=1696387363 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(366.875, 5137)
 
-[node name="Object1161" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1161" parent="Enemies" unique_id=609906557 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(695.875, 5224)
 
-[node name="Object1162" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1162" parent="Enemies" unique_id=1673405882 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(693.875, 5401)
 
-[node name="Object1163" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1163" parent="Enemies" unique_id=1401640037 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(366.375, 4947)
 
-[node name="Object1164" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1164" parent="Enemies" unique_id=1899892003 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(362.375, 4977)
 
-[node name="Object1165" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1165" parent="Enemies" unique_id=1956456317 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(501.625, 4865)
 
-[node name="Object1166" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1166" parent="Enemies" unique_id=433333722 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(696.875, 5244)
 
-[node name="Object1167" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1167" parent="Enemies" unique_id=704371976 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(695.875, 5280)
 
-[node name="Object1168" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1168" parent="Enemies" unique_id=2118494156 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(367.875, 5159)
 
-[node name="Object1169" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1169" parent="Enemies" unique_id=1219588784 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(490.625, 5221)
 
-[node name="Object1170" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1170" parent="Enemies" unique_id=880961768 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(419.625, 5075)
 
-[node name="Object1171" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1171" parent="Enemies" unique_id=2118878733 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(363.875, 5189)
 
-[node name="Object1172" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1172" parent="Enemies" unique_id=1912343530 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(488.625, 5278)
 
-[node name="Object1173" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1173" parent="Enemies" unique_id=1845816427 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(487.625, 5366)
 
-[node name="Object1174" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1174" parent="Enemies" unique_id=1942795049 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(490.625, 5157)
 
-[node name="Object1175" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1175" parent="Enemies" unique_id=1076115911 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(542.625, 5011)
 
-[node name="Object1176" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1176" parent="Enemies" unique_id=637859463 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(366.375, 4837)
 
-[node name="Object1177" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1177" parent="Enemies" unique_id=1724156334 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(366.375, 4995)
 
-[node name="Object1178" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1178" parent="Enemies" unique_id=1221308995 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(491.625, 5121)
 
-[node name="Object1179" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1179" parent="Enemies" unique_id=1984410780 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(373.625, 5257)
 
-[node name="Object1180" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1180" parent="Enemies" unique_id=82688543 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(367.875, 5049)
 
-[node name="Object1181" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1181" parent="Enemies" unique_id=1030611762 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(271, 5182)
 
-[node name="Object1182" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1182" parent="Enemies" unique_id=975255490 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(148, 5246)
 
-[node name="Object1183" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1183" parent="Enemies" unique_id=153843114 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(230, 5036)
 
-[node name="Object1184" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1184" parent="Enemies" unique_id=1876335466 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(415, 5173)
 
-[node name="Object1185" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1185" parent="Enemies" unique_id=1515052080 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(538, 5109)
 
-[node name="Object1186" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1186" parent="Enemies" unique_id=532594468 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(600, 5152)
 
-[node name="Object1187" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1187" parent="Enemies" unique_id=1082191092 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(477, 5216)
 
-[node name="Object1188" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1188" parent="Enemies" unique_id=1709206479 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(559, 5006)
 
-[node name="Object1189" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1189" parent="Enemies" unique_id=491895530 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(744, 5143)
 
-[node name="Object1190" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1190" parent="Enemies" unique_id=1449029648 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(867, 5079)
 
-[node name="Object1191" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1191" parent="Enemies" unique_id=1182071958 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(552, 5336)
 
-[node name="Object1192" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1192" parent="Enemies" unique_id=2011330904 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(429, 5400)
 
-[node name="Object1193" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1193" parent="Enemies" unique_id=1732747759 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(511, 5190)
 
-[node name="Object1194" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1194" parent="Enemies" unique_id=1414674884 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(696, 5327)
 
-[node name="Object1195" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1195" parent="Enemies" unique_id=1875176200 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(819, 5263)
 
-[node name="Object1196" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1196" parent="Enemies" unique_id=19247501 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(693.375, 4035)
 
-[node name="Object1197" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1197" parent="Enemies" unique_id=66750216 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(364.875, 3440)
 
-[node name="Object1198" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1198" parent="Enemies" unique_id=1786636630 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(694.375, 3947)
 
-[node name="Object1199" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1199" parent="Enemies" unique_id=609775928 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(475.5, 3819)
 
-[node name="Object1200" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1200" parent="Enemies" unique_id=1392098093 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(361.875, 3492)
 
-[node name="Object1201" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1201" parent="Enemies" unique_id=423745831 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(486.125, 3969)
 
-[node name="Object1202" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1202" parent="Enemies" unique_id=640410843 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(564.375, 3961)
 
-[node name="Object1203" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1203" parent="Enemies" unique_id=551171946 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(62.5, 4147.5)
 
-[node name="Object1204" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1204" parent="Enemies" unique_id=1041278118 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(694.375, 3883)
 
-[node name="Object1205" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1205" parent="Enemies" unique_id=1939321090 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(677.125, 3655)
 
-[node name="Object1206" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1206" parent="Enemies" unique_id=787899700 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(355.125, 4083)
 
-[node name="Object1207" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1207" parent="Enemies" unique_id=1872660269 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(231.375, 3906)
 
-[node name="Object1208" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1208" parent="Enemies" unique_id=2015444250 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(685.125, 3605)
 
-[node name="Object1209" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1209" parent="Enemies" unique_id=415401539 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(364.125, 3910)
 
-[node name="Object1210" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1210" parent="Enemies" unique_id=1719353348 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(365.375, 3740)
 
-[node name="Object1211" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1211" parent="Enemies" unique_id=2061582181 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(562.375, 4149)
 
-[node name="Object1212" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1212" parent="Enemies" unique_id=512799098 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(357.125, 4026)
 
-[node name="Object1213" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1213" parent="Enemies" unique_id=2084511145 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(232.875, 3642)
 
-[node name="Object1214" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1214" parent="Enemies" unique_id=1121331507 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(488.125, 3848)
 
-[node name="Object1215" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1215" parent="Enemies" unique_id=1060057368 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(357.125, 3962)
 
-[node name="Object1216" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1216" parent="Enemies" unique_id=1774349193 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(233.875, 3712)
 
-[node name="Object1217" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1217" parent="Enemies" unique_id=1625746617 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(489.125, 3760)
 
-[node name="Object1218" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1218" parent="Enemies" unique_id=78941663 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(452.5, 4010.5)
 
-[node name="Object1219" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1219" parent="Enemies" unique_id=1372001633 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(489.125, 3704)
 
-[node name="Object1220" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1220" parent="Enemies" unique_id=1726811360 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(229.875, 3694)
 
-[node name="Object1221" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1221" parent="Enemies" unique_id=908061232 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(562.375, 4029)
 
-[node name="Object1222" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1222" parent="Enemies" unique_id=515425095 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(693.375, 3915)
 
-[node name="Object1223" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1223" parent="Enemies" unique_id=1095191658 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(146.5, 3849)
 
-[node name="Object1224" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1224" parent="Enemies" unique_id=443333178 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(694.5, 3930)
 
-[node name="Object1225" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1225" parent="Enemies" unique_id=1648802227 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(358.125, 3938)
 
-[node name="Object1226" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1226" parent="Enemies" unique_id=418794511 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(232.875, 3752)
 
-[node name="Object1227" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1227" parent="Enemies" unique_id=511784214 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(808.125, 3541)
 
-[node name="Object1228" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1228" parent="Enemies" unique_id=1716291564 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(362.375, 3792)
 
-[node name="Object1229" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1229" parent="Enemies" unique_id=270071929 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(287.125, 3792)
 
-[node name="Object1230" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1230" parent="Enemies" unique_id=540331625 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(233.875, 3554)
 
-[node name="Object1231" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1231" parent="Enemies" unique_id=1662193860 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(561.375, 4118)
 
-[node name="Object1232" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1232" parent="Enemies" unique_id=756378410 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(500.125, 3468)
 
-[node name="Object1233" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1233" parent="Enemies" unique_id=267716855 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(488.125, 3912)
 
-[node name="Object1234" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1234" parent="Enemies" unique_id=150369149 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(557.5, 3609)
 
-[node name="Object1235" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1235" parent="Enemies" unique_id=875672939 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(563.375, 4061)
 
-[node name="Object1236" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1236" parent="Enemies" unique_id=1905127407 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(372.125, 3860)
 
-[node name="Object1237" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1237" parent="Enemies" unique_id=1614049599 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(691.375, 4092)
 
-[node name="Object1238" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1238" parent="Enemies" unique_id=430495766 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(598.5, 3755)
 
-[node name="Object1239" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1239" parent="Enemies" unique_id=848884881 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(865.5, 3682)
 
-[node name="Object1240" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1240" parent="Enemies" unique_id=1689696185 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(358.125, 3818)
 
-[node name="Object1241" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1241" parent="Enemies" unique_id=1771278749 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(487.125, 3881)
 
-[node name="Object1242" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1242" parent="Enemies" unique_id=677103139 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(536.5, 3712)
 
-[node name="Object1243" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1243" parent="Enemies" unique_id=2100989560 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(695.375, 3847)
 
-[node name="Object1244" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1244" parent="Enemies" unique_id=1153971641 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(410.125, 3728)
 
-[node name="Object1245" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1245" parent="Enemies" unique_id=842722060 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(363.875, 3528)
 
-[node name="Object1246" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1246" parent="Enemies" unique_id=408224732 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(356.125, 3995)
 
-[node name="Object1247" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1247" parent="Enemies" unique_id=13903789 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(489.125, 3824)
 
-[node name="Object1248" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1248" parent="Enemies" unique_id=1327248422 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(364.875, 3550)
 
-[node name="Object1249" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1249" parent="Enemies" unique_id=1078512362 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(366.375, 3652)
 
-[node name="Object1250" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1250" parent="Enemies" unique_id=162943766 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(232.375, 3818)
 
-[node name="Object1251" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1251" parent="Enemies" unique_id=270194187 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(363.375, 3704)
 
-[node name="Object1252" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1252" parent="Enemies" unique_id=1545562463 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(235.375, 3766)
 
-[node name="Object1253" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1253" parent="Enemies" unique_id=458558129 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(495.125, 3796)
 
-[node name="Object1254" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1254" parent="Enemies" unique_id=1840590511 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(563.375, 3941)
 
-[node name="Object1255" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1255" parent="Enemies" unique_id=1484593204 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(364.875, 3598)
 
-[node name="Object1256" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1256" parent="Enemies" unique_id=2051749797 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(427.5, 4003)
 
-[node name="Object1257" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1257" parent="Enemies" unique_id=125839769 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(144.5, 3937.5)
 
-[node name="Object1258" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1258" parent="Enemies" unique_id=1591807991 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(509.5, 3793)
 
-[node name="Object1259" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1259" parent="Enemies" unique_id=465891483 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(817.5, 3866)
 
-[node name="Object1260" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1260" parent="Enemies" unique_id=152064304 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(233.875, 3664)
 
-[node name="Object1261" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1261" parent="Enemies" unique_id=1433452152 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(363.875, 3686)
 
-[node name="Object1262" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1262" parent="Enemies" unique_id=1978887526 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(418.125, 3678)
 
-[node name="Object1263" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1263" parent="Enemies" unique_id=1174048959 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(360.875, 3580)
 
-[node name="Object1264" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1264" parent="Enemies" unique_id=747098323 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(563.375, 3997)
 
-[node name="Object1265" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1265" parent="Enemies" unique_id=1810493192 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(562.375, 4085)
 
-[node name="Object1266" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1266" parent="Enemies" unique_id=547358539 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(228.5, 3639)
 
-[node name="Object1267" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1267" parent="Enemies" unique_id=374248558 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(363.875, 3638)
 
-[node name="Object1268" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1268" parent="Enemies" unique_id=1882837302 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(235.375, 3876)
 
-[node name="Object1269" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1269" parent="Enemies" unique_id=277664624 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(369.125, 3582)
 
-[node name="Object1270" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1270" parent="Enemies" unique_id=373223593 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(694.375, 3827)
 
-[node name="Object1271" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1271" parent="Enemies" unique_id=453760578 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(241.125, 3974)
 
-[node name="Object1272" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1272" parent="Enemies" unique_id=929506864 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(488.125, 3792)
 
-[node name="Object1273" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1273" parent="Enemies" unique_id=2123961540 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(490.125, 3724)
 
-[node name="Object1274" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1274" parent="Enemies" unique_id=418617524 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(742.5, 3746)
 
-[node name="Object1275" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1275" parent="Enemies" unique_id=1092472070 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(269.5, 3785)
 
-[node name="Object1276" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1276" parent="Enemies" unique_id=1734344720 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(329.5, 4074.5)
 
-[node name="Object1277" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1277" parent="Enemies" unique_id=839224719 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(185.5, 4083.5)
 
-[node name="Object1278" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1278" parent="Enemies" unique_id=1635305661 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(554.125, 3719)
 
-[node name="Object1279" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1279" parent="Enemies" unique_id=584326724 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(693.375, 3971)
 
-[node name="Object1280" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1280" parent="Enemies" unique_id=1602113321 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(359.125, 3838)
 
-[node name="Object1281" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1281" parent="Enemies" unique_id=1057066359 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(560.375, 4206)
 
-[node name="Object1282" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1282" parent="Enemies" unique_id=1748613210 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(541.125, 3614)
 
-[node name="Object1283" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1283" parent="Enemies" unique_id=66154114 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(234.375, 3854)
 
-[node name="Object1284" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1284" parent="Enemies" unique_id=1291383085 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(232.875, 3800)
 
-[node name="Object1285" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1285" parent="Enemies" unique_id=2082357530 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(413.5, 3776)
 
-[node name="Object1286" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1286" parent="Enemies" unique_id=1293278170 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(550.5, 3939)
 
-[node name="Object1287" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1287" parent="Enemies" unique_id=943217223 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(358.125, 3874)
 
-[node name="Object1288" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1288" parent="Enemies" unique_id=1584488702 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(366.375, 3762)
 
-[node name="Object1289" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1289" parent="Enemies" unique_id=774509822 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(692.375, 4004)
 
-[node name="Object1290" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1290" parent="Enemies" unique_id=767120596 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(357.125, 3906)
 
-[node name="Object1291" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1291" parent="Enemies" unique_id=207166581 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(230.875, 3606)
 
-[node name="Object1292" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1292" parent="Enemies" unique_id=1065505954 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(664.375, 2518)
 
-[node name="Object1293" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1293" parent="Enemies" unique_id=961774453 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(335.875, 1923)
 
-[node name="Object1294" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1294" parent="Enemies" unique_id=2021168365 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(665.375, 2430)
 
-[node name="Object1295" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1295" parent="Enemies" unique_id=1530875427 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(446.5, 2302)
 
-[node name="Object1296" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1296" parent="Enemies" unique_id=20000423 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(332.875, 1975)
 
-[node name="Object1297" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1297" parent="Enemies" unique_id=1476858998 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(457.125, 2452)
 
-[node name="Object1298" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1298" parent="Enemies" unique_id=1933000642 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(535.375, 2444)
 
-[node name="Object1299" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1299" parent="Enemies" unique_id=329133828 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(33.5, 2630.5)
 
-[node name="Object1300" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1300" parent="Enemies" unique_id=2146188820 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(665.375, 2366)
 
-[node name="Object1301" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1301" parent="Enemies" unique_id=59085621 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(648.125, 2138)
 
-[node name="Object1302" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1302" parent="Enemies" unique_id=901003801 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(326.125, 2566)
 
-[node name="Object1303" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1303" parent="Enemies" unique_id=2105698318 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(202.375, 2389)
 
-[node name="Object1304" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1304" parent="Enemies" unique_id=1351037684 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(656.125, 2088)
 
-[node name="Object1305" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1305" parent="Enemies" unique_id=2076626915 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(335.125, 2393)
 
-[node name="Object1306" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1306" parent="Enemies" unique_id=647927553 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(336.375, 2223)
 
-[node name="Object1307" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1307" parent="Enemies" unique_id=1848454388 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(533.375, 2632)
 
-[node name="Object1308" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1308" parent="Enemies" unique_id=1488896673 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(328.125, 2509)
 
-[node name="Object1309" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1309" parent="Enemies" unique_id=91213795 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(203.875, 2125)
 
-[node name="Object1310" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1310" parent="Enemies" unique_id=1399717956 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(459.125, 2331)
 
-[node name="Object1311" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1311" parent="Enemies" unique_id=596729966 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(328.125, 2445)
 
-[node name="Object1312" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1312" parent="Enemies" unique_id=1322473400 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(204.875, 2195)
 
-[node name="Object1313" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1313" parent="Enemies" unique_id=76065369 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(460.125, 2243)
 
-[node name="Object1314" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1314" parent="Enemies" unique_id=1610402907 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(423.5, 2493.5)
 
-[node name="Object1315" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1315" parent="Enemies" unique_id=2061178007 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(460.125, 2187)
 
-[node name="Object1316" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1316" parent="Enemies" unique_id=2102960921 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(200.875, 2177)
 
-[node name="Object1317" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1317" parent="Enemies" unique_id=331604461 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(533.375, 2512)
 
-[node name="Object1318" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1318" parent="Enemies" unique_id=2076428977 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(664.375, 2398)
 
-[node name="Object1319" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1319" parent="Enemies" unique_id=684763488 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(117.5, 2332)
 
-[node name="Object1320" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1320" parent="Enemies" unique_id=233310932 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(665.5, 2413)
 
-[node name="Object1321" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1321" parent="Enemies" unique_id=997758393 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(329.125, 2421)
 
-[node name="Object1322" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1322" parent="Enemies" unique_id=601161227 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(203.875, 2235)
 
-[node name="Object1323" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1323" parent="Enemies" unique_id=1129042880 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(779.125, 2024)
 
-[node name="Object1324" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1324" parent="Enemies" unique_id=1786570147 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(333.375, 2275)
 
-[node name="Object1325" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1325" parent="Enemies" unique_id=1918057142 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(258.125, 2275)
 
-[node name="Object1326" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1326" parent="Enemies" unique_id=1862203965 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(204.875, 2037)
 
-[node name="Object1327" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1327" parent="Enemies" unique_id=1785035154 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(532.375, 2601)
 
-[node name="Object1328" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1328" parent="Enemies" unique_id=1579421025 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(471.125, 1951)
 
-[node name="Object1329" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1329" parent="Enemies" unique_id=761310125 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(459.125, 2395)
 
-[node name="Object1330" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1330" parent="Enemies" unique_id=1863303306 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(528.5, 2092)
 
-[node name="Object1331" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1331" parent="Enemies" unique_id=1515777371 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(534.375, 2544)
 
-[node name="Object1332" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1332" parent="Enemies" unique_id=503889628 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(343.125, 2343)
 
-[node name="Object1333" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1333" parent="Enemies" unique_id=228960399 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(662.375, 2575)
 
-[node name="Object1334" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1334" parent="Enemies" unique_id=919782312 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(569.5, 2238)
 
-[node name="Object1335" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1335" parent="Enemies" unique_id=120301102 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(836.5, 2165)
 
-[node name="Object1336" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1336" parent="Enemies" unique_id=265696535 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(329.125, 2301)
 
-[node name="Object1337" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1337" parent="Enemies" unique_id=127385743 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(458.125, 2364)
 
-[node name="Object1338" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1338" parent="Enemies" unique_id=1727587665 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(507.5, 2195)
 
-[node name="Object1339" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1339" parent="Enemies" unique_id=1316551762 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(666.375, 2330)
 
-[node name="Object1340" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1340" parent="Enemies" unique_id=1163492330 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(381.125, 2211)
 
-[node name="Object1341" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1341" parent="Enemies" unique_id=1240829141 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(334.875, 2011)
 
-[node name="Object1342" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1342" parent="Enemies" unique_id=1182469284 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(327.125, 2478)
 
-[node name="Object1343" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1343" parent="Enemies" unique_id=1300125803 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(460.125, 2307)
 
-[node name="Object1344" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1344" parent="Enemies" unique_id=1990339167 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(335.875, 2033)
 
-[node name="Object1345" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1345" parent="Enemies" unique_id=1240761947 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(337.375, 2135)
 
-[node name="Object1346" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1346" parent="Enemies" unique_id=774221937 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(203.375, 2301)
 
-[node name="Object1347" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1347" parent="Enemies" unique_id=693216685 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(334.375, 2187)
 
-[node name="Object1348" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1348" parent="Enemies" unique_id=1533128796 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(206.375, 2249)
 
-[node name="Object1349" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1349" parent="Enemies" unique_id=869436577 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(466.125, 2279)
 
-[node name="Object1350" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1350" parent="Enemies" unique_id=2084587466 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(534.375, 2424)
 
-[node name="Object1351" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1351" parent="Enemies" unique_id=1260741693 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(335.875, 2081)
 
-[node name="Object1352" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1352" parent="Enemies" unique_id=211155743 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(398.5, 2486)
 
-[node name="Object1353" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1353" parent="Enemies" unique_id=342907760 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(115.5, 2420.5)
 
-[node name="Object1354" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1354" parent="Enemies" unique_id=817158530 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(480.5, 2276)
 
-[node name="Object1355" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1355" parent="Enemies" unique_id=752371514 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(788.5, 2349)
 
-[node name="Object1356" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1356" parent="Enemies" unique_id=575234450 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(204.875, 2147)
 
-[node name="Object1357" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1357" parent="Enemies" unique_id=1345060373 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(334.875, 2169)
 
-[node name="Object1358" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1358" parent="Enemies" unique_id=931520994 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(389.125, 2161)
 
-[node name="Object1359" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1359" parent="Enemies" unique_id=749378410 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(331.875, 2063)
 
-[node name="Object1360" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1360" parent="Enemies" unique_id=1845322037 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(534.375, 2480)
 
-[node name="Object1361" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1361" parent="Enemies" unique_id=10239232 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(533.375, 2568)
 
-[node name="Object1362" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1362" parent="Enemies" unique_id=218489137 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(199.5, 2122)
 
-[node name="Object1363" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1363" parent="Enemies" unique_id=144687599 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(334.875, 2121)
 
-[node name="Object1364" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1364" parent="Enemies" unique_id=348691642 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(206.375, 2359)
 
-[node name="Object1365" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1365" parent="Enemies" unique_id=2136476579 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(340.125, 2065)
 
-[node name="Object1366" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1366" parent="Enemies" unique_id=1609702119 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(665.375, 2310)
 
-[node name="Object1367" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1367" parent="Enemies" unique_id=1502489396 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(212.125, 2457)
 
-[node name="Object1368" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1368" parent="Enemies" unique_id=763711853 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(459.125, 2275)
 
-[node name="Object1369" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1369" parent="Enemies" unique_id=802601061 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(461.125, 2207)
 
-[node name="Object1370" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1370" parent="Enemies" unique_id=2017602455 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(713.5, 2229)
 
-[node name="Object1371" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1371" parent="Enemies" unique_id=1269501136 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(240.5, 2268)
 
-[node name="Object1372" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1372" parent="Enemies" unique_id=603047661 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(300.5, 2557.5)
 
-[node name="Object1373" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1373" parent="Enemies" unique_id=747890506 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(156.5, 2566.5)
 
-[node name="Object1374" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1374" parent="Enemies" unique_id=1676722104 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(525.125, 2202)
 
-[node name="Object1375" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1375" parent="Enemies" unique_id=98606443 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(664.375, 2454)
 
-[node name="Object1376" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1376" parent="Enemies" unique_id=1561359837 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(330.125, 2321)
 
-[node name="Object1377" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1377" parent="Enemies" unique_id=1646519391 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(531.375, 2689)
 
-[node name="Object1378" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1378" parent="Enemies" unique_id=1237684259 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(512.125, 2097)
 
-[node name="Object1379" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1379" parent="Enemies" unique_id=1965808894 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(205.375, 2337)
 
-[node name="Object1380" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1380" parent="Enemies" unique_id=866425160 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(203.875, 2283)
 
-[node name="Object1381" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1381" parent="Enemies" unique_id=306550648 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(384.5, 2259)
 
-[node name="Object1382" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1382" parent="Enemies" unique_id=163689207 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(521.5, 2422)
 
-[node name="Object1383" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1383" parent="Enemies" unique_id=111634881 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(329.125, 2357)
 
-[node name="Object1384" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1384" parent="Enemies" unique_id=777849440 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(337.375, 2245)
 
-[node name="Object1385" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1385" parent="Enemies" unique_id=1413916058 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(663.375, 2487)
 
-[node name="Object1386" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1386" parent="Enemies" unique_id=1096565977 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(328.125, 2389)
 
-[node name="Object1387" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1387" parent="Enemies" unique_id=1458981096 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(201.875, 2089)
 
-[node name="Object1388" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1388" parent="Enemies" unique_id=1871610915 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(753.375, 2516)
 
-[node name="Object1389" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1389" parent="Enemies" unique_id=1308393730 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(424.875, 1921)
 
-[node name="Object1390" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1390" parent="Enemies" unique_id=1267871739 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(754.375, 2428)
 
-[node name="Object1391" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1391" parent="Enemies" unique_id=239022021 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(535.5, 2300)
 
-[node name="Object1392" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1392" parent="Enemies" unique_id=2107532194 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(421.875, 1973)
 
-[node name="Object1393" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1393" parent="Enemies" unique_id=382412435 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(546.125, 2450)
 
-[node name="Object1394" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1394" parent="Enemies" unique_id=2138820822 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(624.375, 2442)
 
-[node name="Object1395" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1395" parent="Enemies" unique_id=1210557354 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(122.5, 2628.5)
 
-[node name="Object1396" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1396" parent="Enemies" unique_id=486656731 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(754.375, 2364)
 
-[node name="Object1397" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1397" parent="Enemies" unique_id=425996713 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(737.125, 2136)
 
-[node name="Object1398" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1398" parent="Enemies" unique_id=1006736010 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(415.125, 2564)
 
-[node name="Object1399" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1399" parent="Enemies" unique_id=1594045365 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(291.375, 2387)
 
-[node name="Object1400" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1400" parent="Enemies" unique_id=61998920 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(745.125, 2086)
 
-[node name="Object1401" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1401" parent="Enemies" unique_id=1885895107 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(424.125, 2391)
 
-[node name="Object1402" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1402" parent="Enemies" unique_id=1351847655 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(425.375, 2221)
 
-[node name="Object1403" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1403" parent="Enemies" unique_id=1737158262 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(622.375, 2630)
 
-[node name="Object1404" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1404" parent="Enemies" unique_id=974575245 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(417.125, 2507)
 
-[node name="Object1405" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1405" parent="Enemies" unique_id=1558979391 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(292.875, 2123)
 
-[node name="Object1406" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1406" parent="Enemies" unique_id=1534304416 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(548.125, 2329)
 
-[node name="Object1407" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1407" parent="Enemies" unique_id=79387419 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(417.125, 2443)
 
-[node name="Object1408" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1408" parent="Enemies" unique_id=1826269411 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(293.875, 2193)
 
-[node name="Object1409" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1409" parent="Enemies" unique_id=1037007393 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(549.125, 2241)
 
-[node name="Object1410" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1410" parent="Enemies" unique_id=2125168629 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(512.5, 2491.5)
 
-[node name="Object1411" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1411" parent="Enemies" unique_id=1912199092 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(549.125, 2185)
 
-[node name="Object1412" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1412" parent="Enemies" unique_id=1651355154 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(289.875, 2175)
 
-[node name="Object1413" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1413" parent="Enemies" unique_id=502555653 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(622.375, 2510)
 
-[node name="Object1414" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1414" parent="Enemies" unique_id=636227094 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(753.375, 2396)
 
-[node name="Object1415" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1415" parent="Enemies" unique_id=937132009 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(206.5, 2330)
 
-[node name="Object1416" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1416" parent="Enemies" unique_id=479709673 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(754.5, 2411)
 
-[node name="Object1417" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1417" parent="Enemies" unique_id=1862350738 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(418.125, 2419)
 
-[node name="Object1418" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1418" parent="Enemies" unique_id=972979727 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(292.875, 2233)
 
-[node name="Object1419" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1419" parent="Enemies" unique_id=934421991 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(868.125, 2022)
 
-[node name="Object1420" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1420" parent="Enemies" unique_id=1307470440 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(422.375, 2273)
 
-[node name="Object1421" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1421" parent="Enemies" unique_id=759167643 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(347.125, 2273)
 
-[node name="Object1422" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1422" parent="Enemies" unique_id=397335668 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(293.875, 2035)
 
-[node name="Object1423" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1423" parent="Enemies" unique_id=1192068731 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(621.375, 2599)
 
-[node name="Object1424" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1424" parent="Enemies" unique_id=477420652 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(560.125, 1949)
 
-[node name="Object1425" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1425" parent="Enemies" unique_id=1916831304 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(548.125, 2393)
 
-[node name="Object1426" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1426" parent="Enemies" unique_id=316720573 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(617.5, 2090)
 
-[node name="Object1427" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1427" parent="Enemies" unique_id=1448125509 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(623.375, 2542)
 
-[node name="Object1428" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1428" parent="Enemies" unique_id=1306889775 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(432.125, 2341)
 
-[node name="Object1429" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1429" parent="Enemies" unique_id=171189281 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(751.375, 2573)
 
-[node name="Object1430" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1430" parent="Enemies" unique_id=2028381493 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(658.5, 2236)
 
-[node name="Object1431" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1431" parent="Enemies" unique_id=333884195 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(925.5, 2163)
 
-[node name="Object1432" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1432" parent="Enemies" unique_id=2015604550 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(418.125, 2299)
 
-[node name="Object1433" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1433" parent="Enemies" unique_id=210454514 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(547.125, 2362)
 
-[node name="Object1434" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1434" parent="Enemies" unique_id=1816473271 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(596.5, 2193)
 
-[node name="Object1435" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1435" parent="Enemies" unique_id=1583950146 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(755.375, 2328)
 
-[node name="Object1436" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1436" parent="Enemies" unique_id=730944721 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(470.125, 2209)
 
-[node name="Object1437" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1437" parent="Enemies" unique_id=954279928 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(423.875, 2009)
 
-[node name="Object1438" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1438" parent="Enemies" unique_id=1301679111 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(416.125, 2476)
 
-[node name="Object1439" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1439" parent="Enemies" unique_id=1004821581 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(549.125, 2305)
 
-[node name="Object1440" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1440" parent="Enemies" unique_id=1561115347 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(424.875, 2031)
 
-[node name="Object1441" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1441" parent="Enemies" unique_id=883523468 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(426.375, 2133)
 
-[node name="Object1442" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1442" parent="Enemies" unique_id=1071921683 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(292.375, 2299)
 
-[node name="Object1443" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1443" parent="Enemies" unique_id=1167979467 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(423.375, 2185)
 
-[node name="Object1444" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1444" parent="Enemies" unique_id=139090612 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(295.375, 2247)
 
-[node name="Object1445" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1445" parent="Enemies" unique_id=356429280 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(555.125, 2277)
 
-[node name="Object1446" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1446" parent="Enemies" unique_id=840919058 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(623.375, 2422)
 
-[node name="Object1447" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1447" parent="Enemies" unique_id=632299104 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(424.875, 2079)
 
-[node name="Object1448" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1448" parent="Enemies" unique_id=1521569680 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(487.5, 2484)
 
-[node name="Object1449" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1449" parent="Enemies" unique_id=414570170 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(204.5, 2418.5)
 
-[node name="Object1450" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1450" parent="Enemies" unique_id=1581292559 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(569.5, 2274)
 
-[node name="Object1451" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1451" parent="Enemies" unique_id=862793430 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(877.5, 2347)
 
-[node name="Object1452" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1452" parent="Enemies" unique_id=379590893 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(293.875, 2145)
 
-[node name="Object1453" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1453" parent="Enemies" unique_id=1585856601 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(423.875, 2167)
 
-[node name="Object1454" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1454" parent="Enemies" unique_id=946580078 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(478.125, 2159)
 
-[node name="Object1455" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1455" parent="Enemies" unique_id=2235560 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(420.875, 2061)
 
-[node name="Object1456" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1456" parent="Enemies" unique_id=837998789 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(623.375, 2478)
 
-[node name="Object1457" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1457" parent="Enemies" unique_id=1584053520 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(622.375, 2566)
 
-[node name="Object1458" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1458" parent="Enemies" unique_id=197551278 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(288.5, 2120)
 
-[node name="Object1459" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1459" parent="Enemies" unique_id=168151682 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(423.875, 2119)
 
-[node name="Object1460" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1460" parent="Enemies" unique_id=523956374 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(295.375, 2357)
 
-[node name="Object1461" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1461" parent="Enemies" unique_id=1488217320 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(429.125, 2063)
 
-[node name="Object1462" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1462" parent="Enemies" unique_id=481411006 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(754.375, 2308)
 
-[node name="Object1463" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1463" parent="Enemies" unique_id=1911402242 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(301.125, 2455)
 
-[node name="Object1464" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1464" parent="Enemies" unique_id=668621582 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(548.125, 2273)
 
-[node name="Object1465" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1465" parent="Enemies" unique_id=1838036612 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(550.125, 2205)
 
-[node name="Object1466" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1466" parent="Enemies" unique_id=1950340787 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(802.5, 2227)
 
-[node name="Object1467" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1467" parent="Enemies" unique_id=763361653 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(329.5, 2266)
 
-[node name="Object1468" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1468" parent="Enemies" unique_id=885725244 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(389.5, 2555.5)
 
-[node name="Object1469" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1469" parent="Enemies" unique_id=379788348 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(245.5, 2564.5)
 
-[node name="Object1470" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1470" parent="Enemies" unique_id=908396562 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(614.125, 2200)
 
-[node name="Object1471" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1471" parent="Enemies" unique_id=1984013406 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(753.375, 2452)
 
-[node name="Object1472" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1472" parent="Enemies" unique_id=1476384697 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(419.125, 2319)
 
-[node name="Object1473" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1473" parent="Enemies" unique_id=2131637035 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(620.375, 2687)
 
-[node name="Object1474" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1474" parent="Enemies" unique_id=1313069463 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(601.125, 2095)
 
-[node name="Object1475" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1475" parent="Enemies" unique_id=566974065 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(294.375, 2335)
 
-[node name="Object1476" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1476" parent="Enemies" unique_id=1279558393 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(292.875, 2281)
 
-[node name="Object1477" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1477" parent="Enemies" unique_id=1343392246 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(473.5, 2257)
 
-[node name="Object1478" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1478" parent="Enemies" unique_id=1610109458 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(610.5, 2420)
 
-[node name="Object1479" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1479" parent="Enemies" unique_id=1446668044 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(418.125, 2355)
 
-[node name="Object1480" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1480" parent="Enemies" unique_id=374085500 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(426.375, 2243)
 
-[node name="Object1481" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1481" parent="Enemies" unique_id=1476971111 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(752.375, 2485)
 
-[node name="Object1482" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1482" parent="Enemies" unique_id=787444331 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(417.125, 2387)
 
-[node name="Object1483" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object1483" parent="Enemies" unique_id=2001673944 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(290.875, 2087)
 
-[node name="Object1484" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1484" parent="Enemies" unique_id=211156204 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(252.125, 1896)
 
-[node name="Object1485" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1485" parent="Enemies" unique_id=836657069 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(129.125, 1960)
 
-[node name="Object1486" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1486" parent="Enemies" unique_id=1312264353 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(121.125, 2010)
 
-[node name="Object1487" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1487" parent="Enemies" unique_id=1524567605 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(69.5, 2065)
 
-[node name="Object1488" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1488" parent="Enemies" unique_id=891460365 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(275.5, 2099)
 
-[node name="Object1489" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1489" parent="Enemies" unique_id=2129665999 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(341.125, 1894)
 
-[node name="Object1490" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1490" parent="Enemies" unique_id=1513826866 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(210.125, 2008)
 
-[node name="Object1491" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1491" parent="Enemies" unique_id=1969175876 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(309.5, 2037)
 
-[node name="Object1492" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1492" parent="Enemies" unique_id=725437121 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(131.5, 2108)
 
-[node name="Object1493" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1493" parent="Enemies" unique_id=2006677163 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(398.5, 2035)
 
-[node name="Object1494" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1494" parent="Enemies" unique_id=44189806 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(90.5, 1962)
 
-[node name="Object1495" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1495" parent="Enemies" unique_id=1587010365 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(74.125, 1967)
 
-[node name="Object1496" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1496" parent="Enemies" unique_id=475566104 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(87.125, 2072)
 
-[node name="Object1497" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1497" parent="Enemies" unique_id=2106777894 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(186.5, 2101)
 
-[node name="Object1498" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1498" parent="Enemies" unique_id=1218083459 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(218.125, 1958)
 
-[node name="Object1499" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1499" parent="Enemies" unique_id=693280451 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(242.125, 2021)
 
-[node name="Object1500" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1500" parent="Enemies" unique_id=424357042 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(119.125, 2085)
 
-[node name="Object1501" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1501" parent="Enemies" unique_id=217859774 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(111.125, 2135)
 
-[node name="Object1502" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1502" parent="Enemies" unique_id=1575950967 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(59.5, 2190)
 
-[node name="Object1503" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1503" parent="Enemies" unique_id=57464021 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(265.5, 2224)
 
-[node name="Object1504" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1504" parent="Enemies" unique_id=1212749236 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(331.125, 2019)
 
-[node name="Object1505" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1505" parent="Enemies" unique_id=1584404674 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(200.125, 2133)
 
-[node name="Object1506" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1506" parent="Enemies" unique_id=518927045 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(299.5, 2162)
 
-[node name="Object1507" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1507" parent="Enemies" unique_id=459671339 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(121.5, 2233)
 
-[node name="Object1508" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1508" parent="Enemies" unique_id=519581089 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(388.5, 2160)
 
-[node name="Object1509" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1509" parent="Enemies" unique_id=1953987282 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(80.5, 2087)
 
-[node name="Object1510" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1510" parent="Enemies" unique_id=602438464 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(64.125, 2092)
 
-[node name="Object1511" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1511" parent="Enemies" unique_id=260875033 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(77.125, 2197)
 
-[node name="Object1512" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1512" parent="Enemies" unique_id=301297918 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(176.5, 2226)
 
-[node name="Object1513" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object1513" parent="Enemies" unique_id=170363127 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(208.125, 2083)
 
-[node name="Object2377" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2377" parent="Enemies" unique_id=640125559 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(304.375, 665)
 
-[node name="Object2378" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2378" parent="Enemies" unique_id=449530444 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(673, 726)
 
-[node name="Object2379" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2379" parent="Enemies" unique_id=1703273936 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(443.625, 553)
 
-[node name="Object2380" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2380" parent="Enemies" unique_id=545466136 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(539.625, 692)
 
-[node name="Object2381" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2381" parent="Enemies" unique_id=67949540 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(712.875, 443)
 
-[node name="Object2382" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2382" parent="Enemies" unique_id=1307246821 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(191, 716)
 
-[node name="Object2383" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2383" parent="Enemies" unique_id=1705740022 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(340.875, 448)
 
-[node name="Object2384" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2384" parent="Enemies" unique_id=1513391451 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(169, 741.5)
 
-[node name="Object2385" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2385" parent="Enemies" unique_id=1263168091 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(255, 758)
 
-[node name="Object2386" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2386" parent="Enemies" unique_id=1847668274 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(710.875, 631)
 
-[node name="Object2387" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2387" parent="Enemies" unique_id=433157540 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(74, 680)
 
-[node name="Object2388" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2388" parent="Enemies" unique_id=122854890 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(759.625, 576)
 
-[node name="Object2389" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2389" parent="Enemies" unique_id=1939029905 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(438.375, 499)
 
-[node name="Object2390" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2390" parent="Enemies" unique_id=1759837052 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(712, 526)
 
-[node name="Object2391" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2391" parent="Enemies" unique_id=599511210 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(711.875, 479)
 
-[node name="Object2392" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2392" parent="Enemies" unique_id=711759963 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(751.625, 626)
 
-[node name="Object2393" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2393" parent="Enemies" unique_id=1063694134 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(801.875, 441)
 
-[node name="Object2394" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2394" parent="Enemies" unique_id=1168907225 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(349.375, 501)
 
-[node name="Object2395" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2395" parent="Enemies" unique_id=1531969118 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(248.875, 502)
 
-[node name="Object2396" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2396" parent="Enemies" unique_id=498832480 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(290, 589)
 
-[node name="Object2397" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2397" parent="Enemies" unique_id=883932131 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(432.625, 789)
 
-[node name="Object2398" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2398" parent="Enemies" unique_id=1868716855 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(218.375, 773)
 
-[node name="Object2399" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2399" parent="Enemies" unique_id=1086425456 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(708.875, 688)
 
-[node name="Object2400" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2400" parent="Enemies" unique_id=979075562 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(403, 650)
 
-[node name="Object2401" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2401" parent="Enemies" unique_id=1063844769 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(470.625, 504)
 
-[node name="Object2402" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2402" parent="Enemies" unique_id=2129831431 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(84, 555)
 
-[node name="Object2403" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2403" parent="Enemies" unique_id=491149804 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(252.875, 472)
 
-[node name="Object2404" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2404" parent="Enemies" unique_id=1949671996 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(105, 452)
 
-[node name="Object2405" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2405" parent="Enemies" unique_id=688900924 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(563.625, 731)
 
-[node name="Object2406" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2406" parent="Enemies" unique_id=1189848115 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(492.625, 649)
 
-[node name="Object2407" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2407" parent="Enemies" unique_id=874617695 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(164, 445)
 
-[node name="Object2408" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2408" parent="Enemies" unique_id=548780634 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(470, 606.5)
 
-[node name="Object2409" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2409" parent="Enemies" unique_id=578589743 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(594.625, 442)
 
-[node name="Object2410" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2410" parent="Enemies" unique_id=1182488261 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(306.875, 789)
 
-[node name="Object2411" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2411" parent="Enemies" unique_id=1217145335 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(584, 728)
 
-[node name="Object2412" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2412" parent="Enemies" unique_id=417097632 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(381.625, 506)
 
-[node name="Object2413" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2413" parent="Enemies" unique_id=751207057 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(667.875, 712)
 
-[node name="Object2414" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2414" parent="Enemies" unique_id=1149195066 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(463.625, 500)
 
-[node name="Object2415" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2415" parent="Enemies" unique_id=1196921013 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(350.375, 571)
 
-[node name="Object2416" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2416" parent="Enemies" unique_id=452207968 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(347.875, 765)
 
-[node name="Object2417" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2417" parent="Enemies" unique_id=138597283 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(461.625, 677)
 
-[node name="Object2418" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2418" parent="Enemies" unique_id=739281222 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(436, 668.5)
 
-[node name="Object2419" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2419" parent="Enemies" unique_id=982830917 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(258.625, 570)
 
-[node name="Object2420" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2420" parent="Enemies" unique_id=1173386396 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(88.625, 457)
 
-[node name="Object2421" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2421" parent="Enemies" unique_id=185375929 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(628.625, 690)
 
-[node name="Object2422" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2422" parent="Enemies" unique_id=1096779179 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(439.375, 411)
 
-[node name="Object2423" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2423" parent="Enemies" unique_id=2011022745 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(534, 597)
 
-[node name="Object2424" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2424" parent="Enemies" unique_id=1643139751 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(217.875, 791)
 
-[node name="Object2425" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2425" parent="Enemies" unique_id=16530271 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(224.625, 498)
 
-[node name="Object2426" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2426" parent="Enemies" unique_id=946279758 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(436.875, 763)
 
-[node name="Object2427" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2427" parent="Enemies" unique_id=1133327386 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(798.875, 598)
 
-[node name="Object2428" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2428" parent="Enemies" unique_id=120852444 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(251.875, 450)
 
-[node name="Object2429" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2429" parent="Enemies" unique_id=900272239 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(218.375, 725)
 
-[node name="Object2430" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2430" parent="Enemies" unique_id=900652545 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(709.875, 600)
 
-[node name="Object2431" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2431" parent="Enemies" unique_id=142712773 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(584, 764)
 
-[node name="Object2432" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2432" parent="Enemies" unique_id=761268374 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(346.375, 553)
 
-[node name="Object2433" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2433" parent="Enemies" unique_id=735945305 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(374.625, 622)
 
-[node name="Object2434" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2434" parent="Enemies" unique_id=1027595955 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(266.625, 386)
 
-[node name="Object2435" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2435" parent="Enemies" unique_id=1678039566 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(668.875, 743)
 
-[node name="Object2436" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2436" parent="Enemies" unique_id=308129958 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(309.875, 737)
 
-[node name="Object2437" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2437" parent="Enemies" unique_id=1213730286 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(395.625, 701)
 
-[node name="Object2438" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2438" parent="Enemies" unique_id=432085393 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(801, 524)
 
-[node name="Object2439" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2439" parent="Enemies" unique_id=1939619861 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(799.875, 565)
 
-[node name="Object2440" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2440" parent="Enemies" unique_id=1857742878 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(203, 679.5)
 
-[node name="Object2441" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2441" parent="Enemies" unique_id=111835765 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(505.625, 444)
 
-[node name="Object2442" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2442" parent="Enemies" unique_id=1508540418 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(95, 577)
 
-[node name="Object2443" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2443" parent="Enemies" unique_id=1959535249 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(668.875, 623)
 
-[node name="Object2444" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2444" parent="Enemies" unique_id=1124750412 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(940, 653)
 
-[node name="Object2445" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2445" parent="Enemies" unique_id=1629025629 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(445, 599)
 
-[node name="Object2446" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2446" parent="Enemies" unique_id=292217881 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(219.375, 685)
 
-[node name="Object2447" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2447" parent="Enemies" unique_id=620769975 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(564.625, 695)
 
-[node name="Object2448" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2448" parent="Enemies" unique_id=905834667 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(439.375, 521)
 
-[node name="Object2449" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2449" parent="Enemies" unique_id=1779450107 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(526.625, 587)
 
-[node name="Object2450" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2450" parent="Enemies" unique_id=2146452194 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(373.625, 591)
 
-[node name="Object2451" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2451" parent="Enemies" unique_id=435087744 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(594.625, 506)
 
-[node name="Object2452" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2452" parent="Enemies" unique_id=451921956 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(303, 610)
 
-[node name="Object2453" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2453" parent="Enemies" unique_id=1226171882 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(347, 670.5)
 
-[node name="Object2454" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2454" parent="Enemies" unique_id=797338211 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(413, 525)
 
-[node name="Object2455" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2455" parent="Enemies" unique_id=191795489 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(437.875, 675)
 
-[node name="Object2456" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2456" parent="Enemies" unique_id=1448722692 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(563.625, 675)
 
-[node name="Object2457" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2457" parent="Enemies" unique_id=1378987979 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(578.875, 714)
 
-[node name="Object2458" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2458" parent="Enemies" unique_id=1904509490 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(711.875, 543)
 
-[node name="Object2459" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2459" parent="Enemies" unique_id=1608255384 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(559, 604.5)
 
-[node name="Object2460" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2460" parent="Enemies" unique_id=2051256554 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(484.625, 699)
 
-[node name="Object2461" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2461" parent="Enemies" unique_id=706068591 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(348.875, 677)
 
-[node name="Object2462" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2462" parent="Enemies" unique_id=1077985021 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(374.625, 558)
 
-[node name="Object2463" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2463" parent="Enemies" unique_id=1220916626 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(611, 683)
 
-[node name="Object2464" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2464" parent="Enemies" unique_id=852954474 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(135.625, 500)
 
-[node name="Object2465" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2465" parent="Enemies" unique_id=171914374 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(399, 749)
 
-[node name="Object2466" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2466" parent="Enemies" unique_id=1243884655 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(580.875, 657)
 
-[node name="Object2467" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2467" parent="Enemies" unique_id=1163593793 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(439.875, 711)
 
-[node name="Object2468" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2468" parent="Enemies" unique_id=1451643203 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(817, 717)
 
-[node name="Object2469" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2469" parent="Enemies" unique_id=322448313 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(475.625, 697)
 
-[node name="Object2470" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2470" parent="Enemies" unique_id=90867925 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(503.625, 565)
 
-[node name="Object2471" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2471" parent="Enemies" unique_id=1633165544 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(101.625, 562)
 
-[node name="Object2472" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2472" parent="Enemies" unique_id=469242645 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(435.375, 551)
 
-[node name="Object2473" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2473" parent="Enemies" unique_id=631645486 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(550, 790)
 
-[node name="Object2474" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2474" parent="Enemies" unique_id=1534816790 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(220.875, 739)
 
-[node name="Object2475" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2475" parent="Enemies" unique_id=112077695 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(347.375, 465)
 
-[node name="Object2476" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2476" parent="Enemies" unique_id=1931220003 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(251, 531.5)
 
-[node name="Object2477" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2477" parent="Enemies" unique_id=1918083041 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(568, 535)
 
-[node name="Object2478" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2478" parent="Enemies" unique_id=798620569 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(480.625, 769)
 
-[node name="Object2479" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2479" parent="Enemies" unique_id=1441269318 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(579.875, 745)
 
-[node name="Object2480" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2480" parent="Enemies" unique_id=1552845800 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(361.625, 763)
 
-[node name="Object2481" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2481" parent="Enemies" unique_id=1576532045 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(438.375, 609)
 
-[node name="Object2482" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2482" parent="Enemies" unique_id=1244561847 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(835, 462)
 
-[node name="Object2483" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2483" parent="Enemies" unique_id=2139704173 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(375.625, 534)
 
-[node name="Object2484" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2484" parent="Enemies" unique_id=1230288611 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(78.625, 582)
 
-[node name="Object2485" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2485" parent="Enemies" unique_id=1697978337 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(305.375, 577)
 
-[node name="Object2486" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2486" parent="Enemies" unique_id=1856754343 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(337.875, 500)
 
-[node name="Object2487" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2487" parent="Enemies" unique_id=1864355098 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(679.875, 800)
 
-[node name="Object2488" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2488" parent="Enemies" unique_id=1657549766 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(80, 743.5)
 
-[node name="Object2489" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2489" parent="Enemies" unique_id=1919889741 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(133.625, 575)
 
-[node name="Object2490" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2490" parent="Enemies" unique_id=192673735 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(592.625, 563)
 
-[node name="Object2491" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2491" parent="Enemies" unique_id=225120039 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(563.625, 795)
 
-[node name="Object2492" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2492" parent="Enemies" unique_id=1891164558 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(666.875, 800)
 
-[node name="Object2493" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2493" parent="Enemies" unique_id=1500570874 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(389.625, 456)
 
-[node name="Object2494" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2494" parent="Enemies" unique_id=1610888528 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(345.625, 509)
 
-[node name="Object2495" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2495" parent="Enemies" unique_id=1812559958 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(562.625, 763)
 
-[node name="Object2496" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2496" parent="Enemies" unique_id=680632897 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(799.875, 509)
 
-[node name="Object2497" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2497" parent="Enemies" unique_id=1780986957 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(349.375, 659)
 
-[node name="Object2498" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2498" parent="Enemies" unique_id=685567949 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(343.625, 791)
 
-[node name="Object2499" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2499" parent="Enemies" unique_id=1036889433 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(136, 723)
 
-[node name="Object2500" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2500" parent="Enemies" unique_id=899234382 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(436.375, 463)
 
-[node name="Object2501" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2501" parent="Enemies" unique_id=1407764405 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(438.375, 657)
 
-[node name="Object2502" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2502" parent="Enemies" unique_id=539610331 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(580.875, 593)
 
-[node name="Object2503" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2503" parent="Enemies" unique_id=315247296 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(350.375, 413)
 
-[node name="Object2504" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2504" parent="Enemies" unique_id=562855421 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(800.875, 541)
 
-[node name="Object2505" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2505" parent="Enemies" unique_id=189094402 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(593.625, 475)
 
-[node name="Object2506" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2506" parent="Enemies" unique_id=1262996508 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(347.625, 568)
 
-[node name="Object2507" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2507" parent="Enemies" unique_id=848704893 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(505.625, 508)
 
-[node name="Object2508" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2508" parent="Enemies" unique_id=716119187 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(125.625, 625)
 
-[node name="Object2509" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2509" parent="Enemies" unique_id=58464471 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(882.625, 512)
 
-[node name="Object2510" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2510" parent="Enemies" unique_id=1874711935 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(307.375, 771)
 
-[node name="Object2511" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2511" parent="Enemies" unique_id=1919864546 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(710.875, 567)
 
-[node name="Object2512" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2512" parent="Enemies" unique_id=2031328166 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(91.625, 687)
 
-[node name="Object2513" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2513" parent="Enemies" unique_id=649662232 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(308.375, 683)
 
-[node name="Object2514" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2514" parent="Enemies" unique_id=2090050530 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(569.625, 767)
 
-[node name="Object2515" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2515" parent="Enemies" unique_id=1132173052 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(473.625, 765)
 
-[node name="Object2516" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2516" parent="Enemies" unique_id=1599408490 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(474.625, 677)
 
-[node name="Object2517" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2517" parent="Enemies" unique_id=1483523350 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(768.875, 798)
 
-[node name="Object2518" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2518" parent="Enemies" unique_id=889386793 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(632, 580)
 
-[node name="Object2519" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2519" parent="Enemies" unique_id=1448152903 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(577.875, 802)
 
-[node name="Object2520" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2520" parent="Enemies" unique_id=1387478334 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(504.625, 477)
 
-[node name="Object2521" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2521" parent="Enemies" unique_id=1727404206 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(222.625, 573)
 
-[node name="Object2522" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2522" parent="Enemies" unique_id=527244465 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(307.375, 723)
 
-[node name="Object2523" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2523" parent="Enemies" unique_id=1512890789 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(465.625, 432)
 
-[node name="Object2524" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2524" parent="Enemies" unique_id=1291823975 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(495, 766)
 
-[node name="Object2525" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2525" parent="Enemies" unique_id=1527716242 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(670.625, 578)
 
-[node name="Object2526" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2526" parent="Enemies" unique_id=1166356973 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(324, 527)
 
-[node name="Object2527" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2527" parent="Enemies" unique_id=1915092311 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(375.625, 470)
 
-[node name="Object2528" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2528" parent="Enemies" unique_id=433224858 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(669.875, 591)
 
-[node name="Object2529" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2529" parent="Enemies" unique_id=587034538 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(219.375, 527)
 
-[node name="Object2530" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2530" parent="Enemies" unique_id=237514005 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(799.875, 629)
 
-[node name="Object2531" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2531" parent="Enemies" unique_id=1543394524 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(308.375, 635)
 
-[node name="Object2532" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2532" parent="Enemies" unique_id=988532559 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(851, 655)
 
-[node name="Object2533" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2533" parent="Enemies" unique_id=93330438 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(474.625, 733)
 
-[node name="Object2534" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2534" parent="Enemies" unique_id=736451141 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(355.625, 384)
 
-[node name="Object2535" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2535" parent="Enemies" unique_id=924971994 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(462.625, 589)
 
-[node name="Object2536" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2536" parent="Enemies" unique_id=123366641 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(162, 533.5)
 
-[node name="Object2537" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2537" parent="Enemies" unique_id=43562991 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(710.875, 511)
 
-[node name="Object2538" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2538" parent="Enemies" unique_id=1929249108 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(463.625, 620)
 
-[node name="Object2539" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2539" parent="Enemies" unique_id=582273055 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(341.875, 470)
 
-[node name="Object2540" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2540" parent="Enemies" unique_id=270280214 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(403.625, 651)
 
-[node name="Object2541" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2541" parent="Enemies" unique_id=1193899241 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(372.625, 679)
 
-[node name="Object2542" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2542" parent="Enemies" unique_id=45999401 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(256.625, 511)
 
-[node name="Object2543" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2543" parent="Enemies" unique_id=1429552501 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(307.375, 613)
 
-[node name="Object2544" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2544" parent="Enemies" unique_id=2042656924 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(797.875, 686)
 
-[node name="Object2545" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2545" parent="Enemies" unique_id=675509401 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(793.625, 514)
 
-[node name="Object2546" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2546" parent="Enemies" unique_id=242138028 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(350.875, 713)
 
-[node name="Object2547" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2547" parent="Enemies" unique_id=2104784672 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(463.625, 556)
 
-[node name="Object2548" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2548" parent="Enemies" unique_id=2116797515 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(351.875, 625)
 
-[node name="Object2549" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2549" parent="Enemies" unique_id=1842641804 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(581.875, 557)
 
-[node name="Object2550" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2550" parent="Enemies" unique_id=1676337977 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(924, 460)
 
-[node name="Object2551" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2551" parent="Enemies" unique_id=1811448724 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(201, 591)
 
-[node name="Object2552" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2552" parent="Enemies" unique_id=2040447095 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(574.625, 439)
 
-[node name="Object2553" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2553" parent="Enemies" unique_id=384751117 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(143.625, 450)
 
-[node name="Object2554" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2554" parent="Enemies" unique_id=678092396 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(214, 612)
 
-[node name="Object2555" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2555" parent="Enemies" unique_id=1115705135 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(485.625, 441)
 
-[node name="Object2556" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2556" parent="Enemies" unique_id=1596992939 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(670.875, 555)
 
-[node name="Object2557" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2557" parent="Enemies" unique_id=765517 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(464.625, 468)
 
-[node name="Object2558" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2558" parent="Enemies" unique_id=1793017706 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(219.375, 637)
 
-[node name="Object2559" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2559" parent="Enemies" unique_id=36735043 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(146, 598)
 
-[node name="Object2560" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2560" parent="Enemies" unique_id=577461332 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(488, 747)
 
-[node name="Object2561" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2561" parent="Enemies" unique_id=1647904290 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(478.625, 454)
 
-[node name="Object2562" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2562" parent="Enemies" unique_id=1237921346 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(280, 714)
 
-[node name="Object2563" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2563" parent="Enemies" unique_id=764513615 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(351.875, 735)
 
-[node name="Object2564" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2564" parent="Enemies" unique_id=598399891 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(543, 582)
 
-[node name="Object2565" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2565" parent="Enemies" unique_id=1451918327 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(308.375, 525)
 
-[node name="Object2566" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2566" parent="Enemies" unique_id=1848865819 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(580.875, 537)
 
-[node name="Object2567" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2567" parent="Enemies" unique_id=1532893397 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(522, 685)
 
-[node name="Object2568" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2568" parent="Enemies" unique_id=1419780846 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(440.875, 733)
 
-[node name="Object2569" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2569" parent="Enemies" unique_id=2034785768 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(669.875, 535)
 
-[node name="Object2570" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2570" parent="Enemies" unique_id=526370400 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(800.875, 477)
 
-[node name="Object2571" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2571" parent="Enemies" unique_id=1336945210 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(579.875, 681)
 
-[node name="Object2572" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2572" parent="Enemies" unique_id=2019514197 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(461, 792)
 
-[node name="Object2573" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2573" parent="Enemies" unique_id=2081217036 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(216.375, 579)
 
-[node name="Object2574" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2574" parent="Enemies" unique_id=183863406 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(669.875, 655)
 
-[node name="Object2575" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2575" parent="Enemies" unique_id=2022960575 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(292, 677.5)
 
-[node name="Object2576" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2576" parent="Enemies" unique_id=12100608 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(350.375, 523)
 
-[node name="Object2577" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2577" parent="Enemies" unique_id=1804888431 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(214.625, 623)
 
-[node name="Object2578" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2578" parent="Enemies" unique_id=928635472 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(657, 533)
 
-[node name="Object2579" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2579" parent="Enemies" unique_id=173580631 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(579.875, 625)
 
-[node name="Object2580" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2580" parent="Enemies" unique_id=1184676885 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(232.625, 448)
 
-[node name="Object2581" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2581" parent="Enemies" unique_id=47525547 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(464.625, 532)
 
-[node name="Object2582" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2582" parent="Enemies" unique_id=1574758380 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(376.625, 434)
 
-[node name="Object2583" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2583" parent="Enemies" unique_id=1673649049 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(374.625, 502)
 
-[node name="Object2584" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2584" parent="Enemies" unique_id=239164618 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(354.625, 555)
 
-[node name="Object2585" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2585" parent="Enemies" unique_id=1250445849 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(439.375, 569)
 
-[node name="Object2586" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2586" parent="Enemies" unique_id=156245724 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(215.375, 667)
 
-[node name="Object2587" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2587" parent="Enemies" unique_id=919141671 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(440.875, 623)
 
-[node name="Object2588" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2588" parent="Enemies" unique_id=655060111 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(615.625, 585)
 
-[node name="Object2589" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2589" parent="Enemies" unique_id=218383156 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(728, 719)
 
-[node name="Object2590" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2590" parent="Enemies" unique_id=1672659477 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(474.625, 797)
 
-[node name="Object2591" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2591" parent="Enemies" unique_id=2138902053 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(253, 443)
 
-[node name="Object2592" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2592" parent="Enemies" unique_id=260824271 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(344, 756)
 
-[node name="Object2593" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2593" parent="Enemies" unique_id=1389127594 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(349.375, 611)
 
-[node name="Object2594" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2594" parent="Enemies" unique_id=1432228394 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(218.375, 615)
 
-[node name="Object2595" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2595" parent="Enemies" unique_id=2012461967 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(314, 652)
 
-[node name="Object2596" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
+[node name="Object2596" parent="Enemies" unique_id=1732495186 instance=ExtResource("gamespolarbearsscenesobjectspatrol")]
 position = Vector2(668.875, 679)
 
-[node name="Object2597" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2597" parent="Enemies" unique_id=1009276389 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(272.625, 765)
 
-[node name="Object2598" parent="Enemies" instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
+[node name="Object2598" parent="Enemies" unique_id=1082155797 instance=ExtResource("gamespolarbearsscenesobjectsgrunt")]
 position = Vector2(662.625, 628)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1794663728]
 position = Vector2(480, 9330)
 
-[node name="Protagonists" type="Node2D" parent="Camera2D"]
+[node name="Protagonists" type="Node2D" parent="Camera2D" unique_id=54617354]
 unique_name_in_owner = true
 
-[node name="CountDown" type="Label" parent="Camera2D"]
+[node name="CountDown" type="Label" parent="Camera2D" unique_id=317132948]
 unique_name_in_owner = true
 offset_left = -472.0
 offset_top = -262.0
@@ -2451,7 +2451,7 @@ offset_bottom = -230.0
 text = "Countdown: "
 label_settings = SubResource("LabelSettings_xypvr")
 
-[node name="BestTime" type="Label" parent="Camera2D"]
+[node name="BestTime" type="Label" parent="Camera2D" unique_id=1671616116]
 unique_name_in_owner = true
 offset_left = -152.0
 offset_top = -262.0
@@ -2460,7 +2460,7 @@ offset_bottom = -230.0
 text = "Best time: "
 label_settings = SubResource("LabelSettings_xypvr")
 
-[node name="Deaths" type="Label" parent="Camera2D"]
+[node name="Deaths" type="Label" parent="Camera2D" unique_id=1364072316]
 unique_name_in_owner = true
 offset_left = 168.0
 offset_top = -262.0
@@ -2469,21 +2469,21 @@ offset_bottom = -230.0
 text = "Deaths: "
 label_settings = SubResource("LabelSettings_xypvr")
 
-[node name="Area2D" type="Area2D" parent="Camera2D"]
+[node name="Area2D" type="Area2D" parent="Camera2D" unique_id=987024912]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D" unique_id=1606473238]
 shape = SubResource("RectangleShape2D_pxh11")
 
-[node name="KillZone" type="Area2D" parent="Camera2D"]
+[node name="KillZone" type="Area2D" parent="Camera2D" unique_id=1308181260]
 position = Vector2(0, 400)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/KillZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/KillZone" unique_id=2144606367]
 shape = SubResource("WorldBoundaryShape2D_cd1qa")
 
-[node name="SafeZone" type="Area2D" parent="Camera2D"]
+[node name="SafeZone" type="Area2D" parent="Camera2D" unique_id=1622654491]
 position = Vector2(0, -270)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/SafeZone"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/SafeZone" unique_id=1166467004]
 shape = SubResource("WorldBoundaryShape2D_bct1u")
 
 [connection signal="area_entered" from="Camera2D/Area2D" to="." method="_on_area_2d_area_entered"]

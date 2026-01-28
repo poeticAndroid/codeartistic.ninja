@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=35 format=3 uid="uid://bric0r8jxp475"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://bric0r8jxp475"]
 
 [ext_resource type="Texture2D" uid="uid://c0vq7cpx6sccp" path="res://games/fine/assets/sprites/aye.png" id="1_logd0"]
 [ext_resource type="Texture2D" uid="uid://cep6va2wcaxbv" path="res://games/fine/assets/sprites/dark_aye.png" id="2_pswc7"]

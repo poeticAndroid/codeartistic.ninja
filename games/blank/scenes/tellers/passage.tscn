@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch6i21kbpna52"]
+[gd_scene format=3 uid="uid://ch6i21kbpna52"]
 
 [ext_resource type="Texture2D" uid="uid://xv78ahqkydk6" path="res://games/blank/assets/gfx/passage_bg.png" id="1_4jqb3"]
 [ext_resource type="Script" uid="uid://craevggl70gnq" path="res://games/blank/scenes/tellers/scripts/passage.gd" id="2_g2p50"]
@@ -12,7 +12,7 @@ texture = ExtResource("1_4jqb3")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="Passage" type="PanelContainer"]
+[node name="Passage" type="PanelContainer" unique_id=1059601310]
 custom_minimum_size = Vector2(960, 540)
 anchors_preset = 10
 anchor_right = 1.0
@@ -23,7 +23,7 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_qxdng")
 script = ExtResource("2_g2p50")
 
-[node name="StoryContainer" type="VBoxContainer" parent="."]
+[node name="StoryContainer" type="VBoxContainer" parent="." unique_id=1389573576]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 16

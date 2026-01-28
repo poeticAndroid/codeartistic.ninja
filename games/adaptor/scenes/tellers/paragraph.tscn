@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://blmctfdlxdlaq"]
+[gd_scene format=3 uid="uid://blmctfdlxdlaq"]
 
 [ext_resource type="LabelSettings" uid="uid://ur5inuda4q1c" path="res://games/adaptor/assets/fonts/label.tres" id="1_2u48j"]
 [ext_resource type="Script" uid="uid://lbns80tmw2wo" path="res://scripts/story/tellers/paragraph.gd" id="1_obqov"]
@@ -39,7 +39,7 @@ _data = {
 &"reveal": SubResource("Animation_obqov")
 }
 
-[node name="Paragraph" type="Label"]
+[node name="Paragraph" type="Label" unique_id=629695778]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 10
 anchor_right = 1.0
@@ -52,7 +52,5 @@ vertical_alignment = 2
 autowrap_mode = 3
 script = ExtResource("1_obqov")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_nhmyy")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1921389027]
+libraries/ = SubResource("AnimationLibrary_nhmyy")

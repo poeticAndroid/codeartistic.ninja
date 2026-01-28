@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnd6r5xajtriu"]
+[gd_scene format=3 uid="uid://cnd6r5xajtriu"]
 
-[ext_resource type="Script" uid="uid://cvxtuks2drlgt" path="res://games/oneofyouguys/scenes/objects/scripts/text.gd" id="2_yyy8d"]
 [ext_resource type="FontFile" uid="uid://crp62cke5cow0" path="res://games/oneofyouguys/assets/fonts/VictoriaBold.png" id="1_tkrbh"]
+[ext_resource type="Script" uid="uid://cvxtuks2drlgt" path="res://games/oneofyouguys/scenes/objects/scripts/text.gd" id="2_yyy8d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s01me"]
 line_spacing = 0.0
@@ -9,10 +9,10 @@ font = ExtResource("1_tkrbh")
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
-[node name="Text" type="Node2D"]
+[node name="Text" type="Node2D" unique_id=275458365]
 script = ExtResource("2_yyy8d")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=477111089]
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 752.0

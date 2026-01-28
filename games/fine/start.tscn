@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsx6yg75fnvv"]
+[gd_scene format=3 uid="uid://dsx6yg75fnvv"]
 
 [ext_resource type="Script" uid="uid://bjtm2mkq1qnyd" path="res://games/fine/scripts/start.gd" id="1_lpsog"]
 [ext_resource type="Texture2D" uid="uid://cpx71v68vy1ny" path="res://games/fine/assets/backgrounds/dream.png" id="1_u8i2w"]
@@ -6,7 +6,7 @@
 [ext_resource type="FontVariation" uid="uid://dijhi4rxb1uhd" path="res://games/fine/assets/fonts/PermanentMarker-Regular.tres" id="4_lpsog"]
 [ext_resource type="AudioStream" uid="uid://ccnie8sppsynw" path="res://games/fine/assets/sounds/water.mp3" id="5_lr2ga"]
 
-[node name="Start" type="CenterContainer"]
+[node name="Start" type="CenterContainer" unique_id=566306600]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,14 +14,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lpsog")
 
-[node name="Dream" type="Sprite2D" parent="."]
+[node name="Dream" type="Sprite2D" parent="." unique_id=1898935413]
 position = Vector2(480, 270)
 texture = ExtResource("1_u8i2w")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=54680657]
 layout_mode = 2
 
-[node name="CreditsLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="CreditsLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1496157467]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_xhte3")
@@ -43,12 +43,12 @@ Fonts from [url=https://fonts.google.com/share?selection.family=Coming+Soon|Perm
 "
 fit_content = true
 
-[node name="PlayBtn" type="Button" parent="VBoxContainer" groups=["autofocus"]]
+[node name="PlayBtn" type="Button" parent="VBoxContainer" unique_id=1493396419 groups=["autofocus"]]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Begin"
 
-[node name="Water" type="AudioStreamPlayer" parent="." groups=["music"]]
+[node name="Water" type="AudioStreamPlayer" parent="." unique_id=1856461344 groups=["music"]]
 stream = ExtResource("5_lr2ga")
 
 [connection signal="meta_clicked" from="VBoxContainer/CreditsLabel" to="." method="_on_credits_label_meta_clicked"]

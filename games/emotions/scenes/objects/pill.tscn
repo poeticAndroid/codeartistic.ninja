@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bopwjb4t572nd"]
+[gd_scene format=3 uid="uid://bopwjb4t572nd"]
 
 [ext_resource type="Texture2D" uid="uid://hp5swp1rokkr" path="res://games/emotions/assets/sprites/pill.png" id="1_0mj0r"]
 [ext_resource type="Script" uid="uid://kufff2ny00a6" path="res://games/emotions/scenes/objects/scripts/pill.gd" id="1_1hmak"]
@@ -70,13 +70,13 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Pill" type="Area2D" groups=["pill"]]
+[node name="Pill" type="Area2D" unique_id=1877678957 groups=["pill"]]
 script = ExtResource("1_1hmak")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1848043356]
 shape = SubResource("CircleShape2D_1hmak")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=653597446]
 sprite_frames = SubResource("SpriteFrames_38p26")
 autoplay = "default"
 frame_progress = 0.8761159

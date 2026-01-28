@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3bba7rfsgi10"]
+[gd_scene format=3 uid="uid://c3bba7rfsgi10"]
 
 [ext_resource type="Script" uid="uid://b6dngicgl08sk" path="res://games/blank/scenes/tellers/scripts/mad_lipper.gd" id="1_57hpy"]
 [ext_resource type="FontFile" uid="uid://binqp1mqfam6w" path="res://games/blank/assets/fonts/Ldfcomicsans-jj7l.ttf" id="1_yd70c"]
@@ -14,7 +14,7 @@ stream_0/stream = ExtResource("2_1vkhe")
 stream_1/stream = ExtResource("3_yd70c")
 stream_2/stream = ExtResource("4_8uha4")
 
-[node name="MadLipper" type="RichTextLabel"]
+[node name="MadLipper" type="RichTextLabel" unique_id=1001738931]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
@@ -30,7 +30,7 @@ text = "The quick brown fox jumped over the lazy dogs."
 fit_content = true
 script = ExtResource("1_57hpy")
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1134166446]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -43,20 +43,20 @@ drag_and_drop_selection_enabled = false
 wrap_mode = 1
 caret_multiple = false
 
-[node name="TypewriterSfx" type="AudioStreamPlayer" parent="."]
+[node name="TypewriterSfx" type="AudioStreamPlayer" parent="." unique_id=1845852120]
 stream = SubResource("AudioStreamRandomizer_c37tn")
 
-[node name="EnterSfx" type="AudioStreamPlayer" parent="."]
+[node name="EnterSfx" type="AudioStreamPlayer" parent="." unique_id=748898293]
 stream = ExtResource("5_x2i67")
 
-[node name="StopSfx" type="AudioStreamPlayer" parent="."]
+[node name="StopSfx" type="AudioStreamPlayer" parent="." unique_id=1814584860]
 stream = ExtResource("6_egnfs")
 
-[node name="GameKeyTimer" type="Timer" parent="."]
+[node name="GameKeyTimer" type="Timer" parent="." unique_id=1130499403]
 one_shot = true
 autostart = true
 
-[node name="TestTimer" type="Timer" parent="."]
+[node name="TestTimer" type="Timer" parent="." unique_id=2016216845]
 wait_time = 0.5
 
 [connection signal="timeout" from="GameKeyTimer" to="." method="_on_game_key_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://xbcsln686yky"]
+[gd_scene format=3 uid="uid://xbcsln686yky"]
 
 [ext_resource type="Texture2D" uid="uid://blfxasjqmys6o" path="res://assets/images/cubular_space_plugs.jpg" id="1_bxklj"]
 [ext_resource type="Script" uid="uid://pli4hjapc0eo" path="res://scenes/scripts/gallery.gd" id="1_fcl6s"]
@@ -31,7 +31,7 @@ modulate_color = Color(0.5, 0.5, 0.5, 1)
 base_font = ExtResource("1_kxh0q")
 variation_embolden = 0.5
 
-[node name="Gallery" type="Control"]
+[node name="Gallery" type="Control" unique_id=282711086]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +41,7 @@ grow_vertical = 2
 focus_mode = 2
 script = ExtResource("1_fcl6s")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1654507032]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -53,28 +53,28 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_u5j2l")
 
-[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer" unique_id=7800228]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/CenterContainer" unique_id=1587743228]
 layout_mode = 2
 alignment = 1
 
-[node name="BlankLine" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="BlankLine" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=141472880]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 35
 
-[node name="Title3" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Title3" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=546808533]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.666667, 0.8, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 35
 text = "Legacy of the"
 
-[node name="Title2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Title2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=685203866]
 custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
@@ -83,11 +83,11 @@ theme_override_font_sizes/font_size = 70
 text = "codeartistic.ninja"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=894589921]
 layout_mode = 2
 alignment = 2
 
-[node name="WorksLink" type="LinkButton" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="WorksLink" type="LinkButton" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1853995459]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 2
@@ -98,13 +98,13 @@ theme_override_font_sizes/font_size = 25
 text = "works"
 underline = 1
 
-[node name="Seperator2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Seperator2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=51780553]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 25
 text = " / "
 
-[node name="ManifestoLink" type="LinkButton" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="ManifestoLink" type="LinkButton" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=201261267]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 2
@@ -115,13 +115,13 @@ theme_override_font_sizes/font_size = 25
 text = "manifesto"
 underline = 1
 
-[node name="Seperator3" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Seperator3" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=567704737]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 25
 text = " / "
 
-[node name="WebLink" type="LinkButton" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="WebLink" type="LinkButton" parent="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1226805329]
 unique_name_in_owner = true
 layout_mode = 2
 focus_mode = 2
@@ -133,26 +133,26 @@ text = "poeticAndroid"
 underline = 1
 uri = "http://poeticandroid.online/"
 
-[node name="BlankLine2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="BlankLine2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=782753374]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.6, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 10
 
-[node name="Heading" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Heading" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=349507340]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.6, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 40
 
-[node name="BlankLine5" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="BlankLine5" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=1422187185]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 0.6, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 10
 
-[node name="GamesContainer" type="GridContainer" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="GamesContainer" type="GridContainer" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=327694527]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -161,98 +161,98 @@ theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 3
 
-[node name="OneofyouguysGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="OneofyouguysGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=1945684896 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("4_cgpmf")
 game_title = "I'm one of you guys now"
 game_name = "oneofyouguys"
 game_description = "My first game release and entry for the Ludum Dare 35."
 
-[node name="PolarbearsGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="PolarbearsGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=1871807418 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("5_tb3wq")
 game_title = "Polar bears..?"
 game_name = "polarbears"
 game_description = "A fight against the polar bear invasion with timeloop ship!"
 
-[node name="AdaptorGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="AdaptorGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=1707808838 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("6_swq45")
 game_title = "The Adaptor"
 game_name = "adaptor"
 game_description = "A mysterious text adventure game about existence."
 
-[node name="SomedayGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="SomedayGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=1590718285 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("7_s86oa")
 game_title = "Some day"
 game_name = "someday"
 game_description = "A game about cats, little blue boys and astronauts."
 
-[node name="BlankGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="BlankGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=307165647 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("8_e1m1r")
 game_title = "The ___ adventure of ___"
 game_name = "blank"
 game_description = "It's the ___ game where you play the role of ___ and help ___ in order to ___."
 
-[node name="RestlessGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="RestlessGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=897511327 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("9_8tby2")
 game_title = "Restless in a small world"
 game_name = "restless"
 game_description = "A pico-8 game about the afterlife, made for Ludum Dare 38."
 
-[node name="KillerappGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="KillerappGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=527337133 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("10_umsnr")
 game_title = "Killer App 2017"
 game_name = "killerapp"
 game_description = "This is what the kids are into these days! Hours of fun! Totally gonna win Game Of The Year 2017! ;)"
 
-[node name="DangerGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="DangerGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=854050825 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("11_wutrm")
 game_title = "Danger everywhere"
 game_name = "danger"
 game_description = "Something about anxiety and not being able to rest anywhere.."
 
-[node name="FineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="FineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=601626526 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("12_puv5g")
 game_title = "This is fine"
 game_name = "fine"
 game_description = "Yet another pretentious anti-game.. *You* figure out what it means.."
 
-[node name="SertralineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="SertralineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=1408343579 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("13_voiff")
 game_title = "Sertraline"
 game_name = "sertraline"
 game_description = "Gimme them calming drugs.. so that I may feel nothing.."
 
-[node name="EmotionsGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="EmotionsGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=161678375 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("14_wxqpj")
 game_title = "It's just emotions"
 game_name = "emotions"
 game_description = "What am I supposed to do with these..?"
 
-[node name="MachineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="MachineGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=2037351672 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("15_08qmf")
 game_title = "The Machine"
 game_name = "machine"
 game_description = "We built it over centuries.. Now it's everywhere.. Now there is no going back.."
 
-[node name="Cost Of CreationGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="Cost Of CreationGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=6063219 instance=ExtResource("3_geavr")]
 layout_mode = 2
 game_cover = ExtResource("16_daghe")
 game_title = "The cost of creation"
 game_name = "cost_of_creation"
 game_description = "This is a multiplayer/collaborative canvas.."
 
-[node name="MothballedGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" instance=ExtResource("3_geavr")]
+[node name="MothballedGame" parent="ScrollContainer/CenterContainer/VBoxContainer/GamesContainer" unique_id=434791764 instance=ExtResource("3_geavr")]
 modulate = Color(1, 1, 1, 0.25)
 layout_mode = 2
 game_cover = ExtResource("17_f1ijr")
@@ -261,7 +261,7 @@ game_name = "mothballed"
 game_description = "My gallery of failure.."
 wip = true
 
-[node name="ManifestoTxt" type="RichTextLabel" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="ManifestoTxt" type="RichTextLabel" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=1761423121]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
@@ -294,14 +294,14 @@ Life is too short for regrets..
 "
 fit_content = true
 
-[node name="BlankLine3" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="BlankLine3" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=1418873955]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
-[node name="Copyright2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="Copyright2" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=415125917]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
@@ -309,14 +309,14 @@ theme_override_font_sizes/font_size = 16
 text = "(c) 2016-2025 poeticAndroid (formerly codeartistic.ninja)"
 horizontal_alignment = 1
 
-[node name="BlankLine4" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer"]
+[node name="BlankLine4" type="Label" parent="ScrollContainer/CenterContainer/VBoxContainer" unique_id=2031120471]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.933333, 0.666667, 1, 1)
 theme_override_fonts/font = SubResource("FontVariation_625yf")
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
-[node name="AuditoryCheesecakeGreystone" type="AudioStreamPlayer" parent="." groups=["music"]]
+[node name="AuditoryCheesecakeGreystone" type="AudioStreamPlayer" parent="." unique_id=1603158996 groups=["music"]]
 stream = ExtResource("20_gp0uh")
 
 [connection signal="pressed" from="ScrollContainer/CenterContainer/VBoxContainer/HBoxContainer/WorksLink" to="." method="_on_works_link_pressed"]

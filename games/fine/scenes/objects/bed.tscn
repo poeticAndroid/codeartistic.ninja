@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://omqnbkl41wbp"]
+[gd_scene format=3 uid="uid://omqnbkl41wbp"]
 
 [ext_resource type="Script" uid="uid://bxtks1mjbt6er" path="res://games/fine/scenes/objects/scripts/bed.gd" id="1_5b2fa"]
 [ext_resource type="Texture2D" uid="uid://daqv7gwdty7p8" path="res://games/fine/assets/sprites/things.png" id="1_64o4x"]
@@ -33,13 +33,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bed" type="Area2D"]
+[node name="Bed" type="Area2D" unique_id=1571854309]
 script = ExtResource("1_5b2fa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=783629214]
 shape = SubResource("RectangleShape2D_ie1dn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=541088998]
 sprite_frames = SubResource("SpriteFrames_64o4x")
 animation = &"active"
 autoplay = "idle"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bphds7o1i4gf7"]
+[gd_scene format=3 uid="uid://bphds7o1i4gf7"]
 
 [ext_resource type="Script" uid="uid://ca8s0jgtt1o0b" path="res://games/fine/scenes/objects/scripts/computer.gd" id="1_kcex5"]
 [ext_resource type="Texture2D" uid="uid://daqv7gwdty7p8" path="res://games/fine/assets/sprites/things.png" id="2_bpfot"]
@@ -34,19 +34,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Computer" type="Area2D"]
+[node name="Computer" type="Area2D" unique_id=139465902]
 script = ExtResource("1_kcex5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1268773996]
 shape = SubResource("RectangleShape2D_ie1dn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=436611539]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_64o4x")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Sfx" type="AudioStreamPlayer2D" parent="."]
+[node name="Sfx" type="AudioStreamPlayer2D" parent="." unique_id=1512292220]
 unique_name_in_owner = true
 stream = ExtResource("3_bpfot")
 

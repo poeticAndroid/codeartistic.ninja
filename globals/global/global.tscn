@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkabeq3ceyrqw"]
+[gd_scene format=3 uid="uid://dkabeq3ceyrqw"]
 
 [ext_resource type="Script" uid="uid://ujm7jwk42ikt" path="res://globals/global/scripts/global.gd" id="1_xolcf"]
 
@@ -33,17 +33,15 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="Global" type="Node2D"]
+[node name="Global" type="Node2D" unique_id=207693946]
 z_index = 1024
 script = ExtResource("1_xolcf")
 
-[node name="TransitionAnimations" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_jdcfe")
-}
+[node name="TransitionAnimations" type="AnimationPlayer" parent="." unique_id=1964329973]
+libraries/ = SubResource("AnimationLibrary_jdcfe")
 speed_scale = 2.0
 
-[node name="QuitTip" type="Label" parent="."]
+[node name="QuitTip" type="Label" parent="." unique_id=910443935]
 visible = false
 offset_left = 320.0
 offset_top = 8.0
@@ -53,22 +51,22 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qkc67")
 text = "Quit? Press again!"
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=773453574]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.14748e+09
-offset_top = -2.14748e+09
-offset_right = 2.14748e+09
-offset_bottom = 2.14748e+09
+offset_left = -2147480100.0
+offset_top = -2147480100.0
+offset_right = 2147480100.0
+offset_bottom = 2147480100.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="ReloadTimer" type="Timer" parent="."]
+[node name="ReloadTimer" type="Timer" parent="." unique_id=1490889607]
 one_shot = true
 
-[node name="SaveTimer" type="Timer" parent="."]
+[node name="SaveTimer" type="Timer" parent="." unique_id=424793137]
 autostart = true
 
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

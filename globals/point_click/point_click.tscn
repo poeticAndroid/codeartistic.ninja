@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnqfewl3rmtcw"]
+[gd_scene format=3 uid="uid://bnqfewl3rmtcw"]
 
 [ext_resource type="Script" uid="uid://dok475grsgf1v" path="res://globals/point_click/scripts/point_click.gd" id="1_x3lop"]
 
-[node name="PointClick" type="Node2D"]
+[node name="PointClick" type="Node2D" unique_id=1231893495]
 script = ExtResource("1_x3lop")

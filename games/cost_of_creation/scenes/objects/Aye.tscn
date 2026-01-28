@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://xogk2vlnh8hc"]
+[gd_scene format=3 uid="uid://xogk2vlnh8hc"]
 
 [ext_resource type="Texture2D" uid="uid://d4h2l1nan65hs" path="res://games/cost_of_creation/assets/sprites/aye.png" id="1_7j1cg"]
 [ext_resource type="Script" uid="uid://d6ch30ocxfmk" path="res://games/cost_of_creation/scenes/objects/scripts/aye.gd" id="1_80ds6"]
@@ -321,13 +321,13 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Aye" type="Area2D" groups=["aye"]]
+[node name="Aye" type="Area2D" unique_id=1211472458 groups=["aye"]]
 script = ExtResource("1_80ds6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1916457053]
 shape = SubResource("CircleShape2D_80ds6")
 
-[node name="FillSprite" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="FillSprite" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1802449916]
 unique_name_in_owner = true
 clip_children = 1
 position = Vector2(0, -50)
@@ -335,20 +335,20 @@ sprite_frames = SubResource("SpriteFrames_htd4c")
 animation = &"idle"
 frame_progress = 0.72031116
 
-[node name="InkMask" type="AnimatedSprite2D" parent="CollisionShape2D/FillSprite"]
+[node name="InkMask" type="AnimatedSprite2D" parent="CollisionShape2D/FillSprite" unique_id=634792520]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_jtj1u")
 autoplay = "default"
 frame_progress = 0.7462643
 
-[node name="StrokeSprite" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="StrokeSprite" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1523767552]
 unique_name_in_owner = true
 position = Vector2(0, -50)
 sprite_frames = SubResource("SpriteFrames_80ds6")
 animation = &"idle"
 frame_progress = 0.2315141
 
-[node name="SuckBtn" type="Button" parent="."]
+[node name="SuckBtn" type="Button" parent="." unique_id=55748184]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5

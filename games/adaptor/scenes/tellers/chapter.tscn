@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://caiiqe5cttop7"]
+[gd_scene format=3 uid="uid://caiiqe5cttop7"]
 
 [ext_resource type="Script" uid="uid://bd1t0ct4oll4e" path="res://scripts/story/tellers/chapter.gd" id="1_oig1t"]
 
-[node name="Chapter" type="Control"]
+[node name="Chapter" type="Control" unique_id=2054720110]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

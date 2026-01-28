@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bo8yfdwlehrld"]
+[gd_scene format=3 uid="uid://bo8yfdwlehrld"]
 
 [ext_resource type="Script" uid="uid://clfgl34vokbut" path="res://games/polarbears/scenes/objects/scripts/grunt.gd" id="1_ee0l3"]
 [ext_resource type="Texture2D" uid="uid://bqfn8yv81expj" path="res://games/polarbears/assets/gfx/polarbear_64x64.png" id="1_vcoik"]
@@ -73,23 +73,23 @@ size = Vector2(32, 64)
 [sub_resource type="Gradient" id="Gradient_12wmf"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="Grunt" type="Area2D" groups=["enemy"]]
+[node name="Grunt" type="Area2D" unique_id=1196902444 groups=["enemy"]]
 script = ExtResource("1_ee0l3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=612846440]
 sprite_frames = SubResource("SpriteFrames_s5nnq")
 autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1284626664]
 shape = SubResource("RectangleShape2D_w287w")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1177486752]
 emitting = false
 amount = 20
+texture = ExtResource("3_xwo8e")
 one_shot = true
 explosiveness = 1.0
 local_coords = true
-texture = ExtResource("3_xwo8e")
 direction = Vector2(0, -1)
 spread = 180.0
 gravity = Vector2(0, 0)
@@ -98,7 +98,7 @@ angular_velocity_min = -720.0
 angular_velocity_max = 720.0
 color_ramp = SubResource("Gradient_12wmf")
 
-[node name="SplatSfx" type="AudioStreamPlayer2D" parent="."]
+[node name="SplatSfx" type="AudioStreamPlayer2D" parent="." unique_id=2075130449]
 stream = ExtResource("4_2qtol")
 
 [connection signal="on_screen" from="." to="." method="_on_on_screen"]

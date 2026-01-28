@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dl0sdau0pdbqa"]
+[gd_scene format=3 uid="uid://dl0sdau0pdbqa"]
 
 [ext_resource type="Texture2D" uid="uid://d3515ryc1hock" path="res://assets/images/Aye_on_cube-Sheet.png" id="1_otd0x"]
 [ext_resource type="Script" uid="uid://cubm4gn06a2ty" path="res://scripts/start.gd" id="1_xosbf"]
@@ -347,7 +347,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Start" type="CenterContainer"]
+[node name="Start" type="CenterContainer" unique_id=558191602]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -355,17 +355,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xosbf")
 
-[node name="WakeUpCall" type="HTTPRequest" parent="."]
+[node name="WakeUpCall" type="HTTPRequest" parent="." unique_id=432142859]
 unique_name_in_owner = true
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=70398598]
 layout_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control" unique_id=2071207185]
 sprite_frames = SubResource("SpriteFrames_7o378")
 autoplay = "default"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1186697019]
 wait_time = 3.0
 autostart = true
 

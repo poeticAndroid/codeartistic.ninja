@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cx72467u683d4"]
+[gd_scene format=3 uid="uid://cx72467u683d4"]
 
 [ext_resource type="Script" uid="uid://bbhc718s6hjac" path="res://games/sertraline/scenes/objects/scripts/anx.gd" id="1_onays"]
 [ext_resource type="Shape2D" uid="uid://bqmepqmu1xa3s" path="res://games/sertraline/scenes/objects/circle.tres" id="2_3mb1q"]
@@ -69,17 +69,17 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Anx" type="Area2D" groups=["anx"]]
+[node name="Anx" type="Area2D" unique_id=1582022459 groups=["anx"]]
 script = ExtResource("1_onays")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1278206447]
 shape = ExtResource("2_3mb1q")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1325784279]
 sprite_frames = SubResource("SpriteFrames_llmwc")
 autoplay = "default"
 
-[node name="ExplosionSnd" type="AudioStreamPlayer2D" parent="."]
+[node name="ExplosionSnd" type="AudioStreamPlayer2D" parent="." unique_id=2121077305]
 unique_name_in_owner = true
 stream = ExtResource("4_3mb1q")
 

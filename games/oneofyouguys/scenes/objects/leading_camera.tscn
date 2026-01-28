@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://vc10yy8hd6cr"]
+[gd_scene format=3 uid="uid://vc10yy8hd6cr"]
 
 [ext_resource type="Script" uid="uid://dgslmg1q2kk4u" path="res://games/oneofyouguys/scenes/objects/scripts/leading_camera.gd" id="1_okhsb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjft1"]
 
-[node name="LeadingCamera" type="Camera2D"]
+[node name="LeadingCamera" type="Camera2D" unique_id=1034098268]
 script = ExtResource("1_okhsb")
 sight = Vector2(271.2, 126)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=469134143]
 collision_layer = 8
 collision_mask = 255
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1261710315]
 shape = SubResource("RectangleShape2D_pjft1")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

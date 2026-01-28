@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://pvwvibne5fog"]
+[gd_scene format=3 uid="uid://pvwvibne5fog"]
 
 [ext_resource type="Script" uid="uid://cb7ceejqwog78" path="res://games/sertraline/scenes/scripts/game.gd" id="1_0g478"]
 [ext_resource type="Texture2D" uid="uid://b1p574c3digf3" path="res://games/sertraline/assets/backgrounds/neuron-map.jpg" id="2_r36d6"]
@@ -7,25 +7,25 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hpnv1"]
 size = Vector2(960, 540)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1317536386]
 script = ExtResource("1_0g478")
 
-[node name="Area2D" type="Area2D" parent="." groups=["screen"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=724268722 groups=["screen"]]
 position = Vector2(480, 270)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=575766601]
 shape = SubResource("RectangleShape2D_hpnv1")
 
-[node name="Neuron-map" type="Sprite2D" parent="."]
+[node name="Neuron-map" type="Sprite2D" parent="." unique_id=2002775144]
 position = Vector2(480, 270)
 texture = ExtResource("2_r36d6")
 
-[node name="ChallengeTimer" type="Timer" parent="."]
+[node name="ChallengeTimer" type="Timer" parent="." unique_id=1314900097]
 unique_name_in_owner = true
 wait_time = 10.0
 autostart = true
 
-[node name="Ship" parent="." instance=ExtResource("3_hpnv1")]
+[node name="Ship" parent="." unique_id=1585059898 instance=ExtResource("3_hpnv1")]
 unique_name_in_owner = true
 position = Vector2(480, 540)
 

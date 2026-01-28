@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtwk8kpufhena"]
+[gd_scene format=3 uid="uid://dtwk8kpufhena"]
 
 [ext_resource type="Script" uid="uid://ctgmnahgkqwoc" path="res://scripts/story/story.gd" id="1_pb40g"]
 [ext_resource type="Resource" uid="uid://c24m32hdd2itb" path="res://games/adaptor/assets/story/adaptor.txt" id="2_ikdwg"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://caiiqe5cttop7" path="res://games/adaptor/scenes/tellers/chapter.tscn" id="5_6a44h"]
 [ext_resource type="PackedScene" uid="uid://l04brq6v03bg" path="res://games/adaptor/scenes/tellers/chooser.tscn" id="6_gefvv"]
 
-[node name="Story" type="ScrollContainer"]
+[node name="Story" type="ScrollContainer" unique_id=83970846]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,7 +27,7 @@ tellers = Dictionary[String, PackedScene]({
 "ul": ExtResource("6_gefvv")
 })
 
-[node name="StoryContainer" type="VBoxContainer" parent="."]
+[node name="StoryContainer" type="VBoxContainer" parent="." unique_id=1265299001]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

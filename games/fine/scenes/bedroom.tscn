@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3forku44dj40"]
+[gd_scene format=3 uid="uid://d3forku44dj40"]
 
 [ext_resource type="Script" uid="uid://dm6rbjcxefiml" path="res://games/fine/scenes/scripts/bedroom.gd" id="1_4kyej"]
 [ext_resource type="Texture2D" uid="uid://b2du7tx2cb0g4" path="res://games/fine/assets/backgrounds/bedroom.png" id="2_6oelb"]
@@ -11,60 +11,60 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f11sf"]
 
-[node name="Bedroom" type="Node2D"]
+[node name="Bedroom" type="Node2D" unique_id=1381098695]
 script = ExtResource("1_4kyej")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["music"]]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=863328319 groups=["music"]]
 
-[node name="Bedroom" type="Sprite2D" parent="."]
+[node name="Bedroom" type="Sprite2D" parent="." unique_id=1030958510]
 position = Vector2(480, 270)
 texture = ExtResource("2_6oelb")
 
-[node name="Bed" parent="." instance=ExtResource("6_638es")]
+[node name="Bed" parent="." unique_id=1334781885 instance=ExtResource("6_638es")]
 unique_name_in_owner = true
 position = Vector2(156, 339)
 
-[node name="Computer" parent="." instance=ExtResource("7_pi0wa")]
+[node name="Computer" parent="." unique_id=1123748759 instance=ExtResource("7_pi0wa")]
 position = Vector2(441, 339)
 
-[node name="Fridge" parent="." instance=ExtResource("8_du0js")]
+[node name="Fridge" parent="." unique_id=1851425016 instance=ExtResource("8_du0js")]
 position = Vector2(771, 339)
 
-[node name="Aye" parent="." instance=ExtResource("3_f11sf")]
+[node name="Aye" parent="." unique_id=1817538131 instance=ExtResource("3_f11sf")]
 unique_name_in_owner = true
 position = Vector2(156, 420)
 dark = false
 state = "sleep"
 
-[node name="Dialog" parent="." instance=ExtResource("4_5sdw1")]
+[node name="Dialog" parent="." unique_id=1128413089 instance=ExtResource("4_5sdw1")]
 unique_name_in_owner = true
 
-[node name="PointClick" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_vkgft")]
+[node name="PointClick" parent="." unique_id=1436759397 node_paths=PackedStringArray("player") instance=ExtResource("5_vkgft")]
 player = NodePath("../Aye")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=4568768]
 position = Vector2(480, 435)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1675727372]
 shape = SubResource("WorldBoundaryShape2D_f11sf")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=918946551]
 position = Vector2(480, 404)
 rotation = 3.14159
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=163132123]
 shape = SubResource("WorldBoundaryShape2D_f11sf")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1607590575]
 position = Vector2(60, 270)
 rotation = 1.5708
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1160532955]
 shape = SubResource("WorldBoundaryShape2D_f11sf")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1530905622]
 position = Vector2(900, 270)
 rotation = -1.5708
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=215599020]
 shape = SubResource("WorldBoundaryShape2D_f11sf")

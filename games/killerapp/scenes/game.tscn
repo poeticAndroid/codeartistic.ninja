@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy3n3aqyclnel"]
+[gd_scene format=3 uid="uid://cy3n3aqyclnel"]
 
 [ext_resource type="Texture2D" uid="uid://bwuowxoti4ij5" path="res://games/killerapp/assets/gfx/sunburst.png" id="1_3a2km"]
 [ext_resource type="Script" uid="uid://osqct1ft7lvv" path="res://games/killerapp/scenes/scripts/game.gd" id="1_w4ocm"]
@@ -9,48 +9,48 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tijbp"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=607761756]
 script = ExtResource("1_w4ocm")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1360273080]
 offset_right = 960.0
 offset_bottom = 540.0
 color = Color(1, 1, 0.933333, 1)
 
-[node name="Sunburst" type="Sprite2D" parent="."]
+[node name="Sunburst" type="Sprite2D" parent="." unique_id=1213983352]
 position = Vector2(480, 480)
 texture = ExtResource("1_3a2km")
 
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=2066050277]
 position = Vector2(480, 270)
 node_a = NodePath("../StaticBody2D")
 node_b = NodePath("../Spinner")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=742356265]
 position = Vector2(480, 270)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1061542575]
 shape = SubResource("CircleShape2D_w4ocm")
 
-[node name="Spinner" type="RigidBody2D" parent="."]
+[node name="Spinner" type="RigidBody2D" parent="." unique_id=1398441531]
 unique_name_in_owner = true
 position = Vector2(480, 270)
 angular_damp_mode = 1
 angular_damp = 0.12
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spinner"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spinner" unique_id=2096645393]
 shape = SubResource("CircleShape2D_tijbp")
 
-[node name="Spinner" type="Sprite2D" parent="Spinner/CollisionShape2D"]
+[node name="Spinner" type="Sprite2D" parent="Spinner/CollisionShape2D" unique_id=338458901]
 texture = ExtResource("2_0qwjd")
 
-[node name="Cap" type="Sprite2D" parent="."]
+[node name="Cap" type="Sprite2D" parent="." unique_id=1972609499]
 position = Vector2(480, 270)
 texture = ExtResource("3_h0aep")
 
-[node name="SpinBtn" type="Button" parent="." groups=["autofocus"]]
+[node name="SpinBtn" type="Button" parent="." unique_id=174617056 groups=["autofocus"]]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(512, 512)
 anchors_preset = 15

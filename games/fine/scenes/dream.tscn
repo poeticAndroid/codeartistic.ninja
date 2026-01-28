@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1e5y5ebegbl4"]
+[gd_scene format=3 uid="uid://b1e5y5ebegbl4"]
 
 [ext_resource type="Script" uid="uid://dibe2u1aq77l5" path="res://games/fine/scenes/scripts/dream.gd" id="1_a8emj"]
 [ext_resource type="Texture2D" uid="uid://cpx71v68vy1ny" path="res://games/fine/assets/backgrounds/dream.png" id="2_f455c"]
@@ -8,84 +8,84 @@
 [ext_resource type="PackedScene" uid="uid://n3t7ell5snjg" path="res://games/fine/scenes/objects/dialog.tscn" id="6_emcgc"]
 [ext_resource type="PackedScene" uid="uid://bnqfewl3rmtcw" path="res://globals/point_click/point_click.tscn" id="7_w7tl5"]
 
-[node name="Dream" type="Node2D"]
+[node name="Dream" type="Node2D" unique_id=1378573066]
 script = ExtResource("1_a8emj")
 
-[node name="Water" type="AudioStreamPlayer" parent="." groups=["music"]]
+[node name="Water" type="AudioStreamPlayer" parent="." unique_id=1562084868 groups=["music"]]
 stream = ExtResource("2_iy3lj")
 
-[node name="Dream" type="Sprite2D" parent="."]
+[node name="Dream" type="Sprite2D" parent="." unique_id=1132611014]
 position = Vector2(480, 270)
 texture = ExtResource("2_f455c")
 
-[node name="Fishes" type="Node2D" parent="."]
+[node name="Fishes" type="Node2D" parent="." unique_id=1290115125]
 
-[node name="Fish" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish" parent="Fishes" unique_id=311692638 instance=ExtResource("4_iy3lj")]
 position = Vector2(356, 262)
 
-[node name="Fish2" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish2" parent="Fishes" unique_id=1896286106 instance=ExtResource("4_iy3lj")]
 position = Vector2(440, 289)
 
-[node name="Fish3" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish3" parent="Fishes" unique_id=855254125 instance=ExtResource("4_iy3lj")]
 position = Vector2(521, 234)
 
-[node name="Fish4" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish4" parent="Fishes" unique_id=516092765 instance=ExtResource("4_iy3lj")]
 position = Vector2(204, 106)
 
-[node name="Fish5" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish5" parent="Fishes" unique_id=17443307 instance=ExtResource("4_iy3lj")]
 position = Vector2(419, 128)
 
-[node name="Fish6" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish6" parent="Fishes" unique_id=1475602997 instance=ExtResource("4_iy3lj")]
 position = Vector2(513, 398)
 
-[node name="Fish7" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish7" parent="Fishes" unique_id=274286164 instance=ExtResource("4_iy3lj")]
 position = Vector2(192, 352)
 
-[node name="Fish8" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish8" parent="Fishes" unique_id=1583547330 instance=ExtResource("4_iy3lj")]
 position = Vector2(177, 225)
 
-[node name="Fish9" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish9" parent="Fishes" unique_id=2125325614 instance=ExtResource("4_iy3lj")]
 position = Vector2(738, 154)
 
-[node name="Fish10" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish10" parent="Fishes" unique_id=430178237 instance=ExtResource("4_iy3lj")]
 position = Vector2(791, 361)
 
-[node name="Fish11" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish11" parent="Fishes" unique_id=1145352610 instance=ExtResource("4_iy3lj")]
 position = Vector2(653, 303)
 
-[node name="Fish12" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish12" parent="Fishes" unique_id=362640189 instance=ExtResource("4_iy3lj")]
 position = Vector2(320, 450)
 
-[node name="Fish13" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish13" parent="Fishes" unique_id=1353366962 instance=ExtResource("4_iy3lj")]
 position = Vector2(695, 480)
 
-[node name="Fish14" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish14" parent="Fishes" unique_id=1542074258 instance=ExtResource("4_iy3lj")]
 position = Vector2(606, 89)
 
-[node name="Fish15" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish15" parent="Fishes" unique_id=1154299700 instance=ExtResource("4_iy3lj")]
 position = Vector2(827, 257)
 
-[node name="Fish16" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish16" parent="Fishes" unique_id=50989306 instance=ExtResource("4_iy3lj")]
 position = Vector2(311, 59)
 
-[node name="Fish17" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish17" parent="Fishes" unique_id=199212381 instance=ExtResource("4_iy3lj")]
 position = Vector2(505, 479)
 
-[node name="Fish18" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish18" parent="Fishes" unique_id=1896452469 instance=ExtResource("4_iy3lj")]
 position = Vector2(103, 473)
 
-[node name="Fish19" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish19" parent="Fishes" unique_id=1709728707 instance=ExtResource("4_iy3lj")]
 position = Vector2(867, 77)
 
-[node name="Fish20" parent="Fishes" instance=ExtResource("4_iy3lj")]
+[node name="Fish20" parent="Fishes" unique_id=654122709 instance=ExtResource("4_iy3lj")]
 position = Vector2(847, 471)
 
-[node name="Aye" parent="." instance=ExtResource("5_py681")]
+[node name="Aye" parent="." unique_id=1658497279 instance=ExtResource("5_py681")]
 unique_name_in_owner = true
 position = Vector2(480, 319)
 
-[node name="Dialog" parent="." instance=ExtResource("6_emcgc")]
+[node name="Dialog" parent="." unique_id=1623637248 instance=ExtResource("6_emcgc")]
 unique_name_in_owner = true
 
-[node name="PointClick" parent="." node_paths=PackedStringArray("player") instance=ExtResource("7_w7tl5")]
+[node name="PointClick" parent="." unique_id=1346051199 node_paths=PackedStringArray("player") instance=ExtResource("7_w7tl5")]
 player = NodePath("../Aye")

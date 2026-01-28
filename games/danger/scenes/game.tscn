@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://clutlp37s41qq"]
+[gd_scene format=3 uid="uid://clutlp37s41qq"]
 
 [ext_resource type="Script" uid="uid://klqtjwc6v7l8" path="res://games/danger/scenes/scripts/game.gd" id="1_2er3f"]
 [ext_resource type="Texture2D" uid="uid://dd0mpmv6fg3wr" path="res://games/danger/assets/gfx/chaos.png" id="1_igb4c"]
@@ -104,16 +104,16 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=2123822448]
 script = ExtResource("1_2er3f")
 
-[node name="Chaos" type="AnimatedSprite2D" parent="."]
+[node name="Chaos" type="AnimatedSprite2D" parent="." unique_id=1282892477]
 unique_name_in_owner = true
 position = Vector2(480, 270)
 sprite_frames = SubResource("SpriteFrames_wwgq0")
 frame = 7
 
-[node name="Anx" type="AnimatedSprite2D" parent="."]
+[node name="Anx" type="AnimatedSprite2D" parent="." unique_id=1801354347]
 unique_name_in_owner = true
 position = Vector2(480, 270)
 sprite_frames = SubResource("SpriteFrames_igb4c")

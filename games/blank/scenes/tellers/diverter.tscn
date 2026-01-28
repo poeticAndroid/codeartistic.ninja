@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://btkjeuh1slswe"]
+[gd_scene format=3 uid="uid://btkjeuh1slswe"]
 
 [ext_resource type="Script" uid="uid://d1wt4e30x4f2k" path="res://scripts/story/tellers/diverter.gd" id="1_eld24"]
 
-[node name="Diverter" type="Control"]
+[node name="Diverter" type="Control" unique_id=2058689016]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

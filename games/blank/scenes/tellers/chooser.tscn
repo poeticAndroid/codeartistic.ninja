@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://k7lb2osbucc5"]
+[gd_scene format=3 uid="uid://k7lb2osbucc5"]
 
 [ext_resource type="Script" uid="uid://2864ktwe0lhs" path="res://scripts/story/tellers/chooser.gd" id="1_gsyog"]
 [ext_resource type="FontVariation" uid="uid://bcbgt4n72bna3" path="res://games/blank/assets/fonts/Ldfcomicsans-jj7l_bold.tres" id="2_gsyog"]
@@ -65,7 +65,7 @@ _data = {
 &"reveal": SubResource("Animation_8v61k")
 }
 
-[node name="Chooser" type="Control"]
+[node name="Chooser" type="Control" unique_id=354143411]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 256)
 layout_mode = 3
@@ -78,7 +78,7 @@ grow_horizontal = 0
 size_flags_vertical = 3
 script = ExtResource("1_gsyog")
 
-[node name="Choices" type="VBoxContainer" parent="."]
+[node name="Choices" type="VBoxContainer" parent="." unique_id=2047770535]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
@@ -90,7 +90,7 @@ offset_bottom = 124.0
 grow_horizontal = 0
 theme_override_constants/separation = 20
 
-[node name="Choice" type="LinkButton" parent="Choices"]
+[node name="Choice" type="LinkButton" parent="Choices" unique_id=1554507212]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
@@ -104,7 +104,5 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_8v61k")
 text = "Choice!"
 underline = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_6tn5s")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=242788899]
+libraries/ = SubResource("AnimationLibrary_6tn5s")

@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxjmdb1hiosu"]
+[gd_scene format=3 uid="uid://bxjmdb1hiosu"]
 
 [ext_resource type="Script" uid="uid://c3h2rrbw2wj6l" path="res://games/polarbears/scenes/objects/scripts/text.gd" id="1_15yuf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g3h3f"]
 font_size = 32
 
-[node name="Text" type="Node2D"]
+[node name="Text" type="Node2D" unique_id=1029150734]
 script = ExtResource("1_15yuf")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1496562144]
 offset_left = -16.0
 offset_top = -16.0
 offset_right = -15.0

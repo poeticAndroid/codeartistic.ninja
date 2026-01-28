@@ -1,4 +1,4 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ur5inuda4q1c"]
+[gd_resource type="LabelSettings" format=3 uid="uid://ur5inuda4q1c"]
 
 [ext_resource type="FontFile" uid="uid://n4ljjryc8g6x" path="res://games/adaptor/assets/fonts/Georgia.ttf" id="1_3bp6t"]
 

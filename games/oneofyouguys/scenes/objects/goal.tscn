@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://6mpo0x3vsl7m"]
+[gd_scene format=3 uid="uid://6mpo0x3vsl7m"]
 
 [ext_resource type="Script" uid="uid://dov2oqk1x80u2" path="res://games/oneofyouguys/scenes/objects/scripts/goal.gd" id="1_0rqs0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_518xn"]
 
-[node name="Goal" type="Area2D"]
+[node name="Goal" type="Area2D" unique_id=1410845882]
 collision_mask = 2
 script = ExtResource("1_0rqs0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=408414142]
 shape = SubResource("RectangleShape2D_518xn")
 
-[node name="ColorRect" type="ColorRect" parent="CollisionShape2D"]
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=2022694731]
 unique_name_in_owner = true
 color = Color(0.87451, 0.87451, 0.87451, 1)
 

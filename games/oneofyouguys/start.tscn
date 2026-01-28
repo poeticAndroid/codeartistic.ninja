@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b1tyc3s8wmdf3"]
+[gd_scene format=4 uid="uid://b1tyc3s8wmdf3"]
 
 [ext_resource type="TileSet" uid="uid://buktleburdafy" path="res://games/oneofyouguys/scenes/tileset.tres" id="1_6gbva"]
 [ext_resource type="PackedScene" uid="uid://vc10yy8hd6cr" path="res://games/oneofyouguys/scenes/objects/leading_camera.tscn" id="1_lrk5f"]
@@ -9,50 +9,50 @@
 [ext_resource type="PackedScene" uid="uid://djqlsg7if4btu" path="res://games/oneofyouguys/scenes/objects/body.tscn" id="gamesoneofyouguysscenesobjectsbody"]
 [ext_resource type="PackedScene" uid="uid://cnd6r5xajtriu" path="res://games/oneofyouguys/scenes/objects/text.tscn" id="gamesoneofyouguysscenesobjectstext"]
 
-[node name="start" type="Node2D"]
+[node name="start" type="Node2D" unique_id=640740612]
 script = ExtResource("1_y72rf")
 
-[node name="LeadingCamera" parent="." node_paths=PackedStringArray("limit") instance=ExtResource("1_lrk5f")]
+[node name="LeadingCamera" parent="." unique_id=1183028250 node_paths=PackedStringArray("limit") instance=ExtResource("1_lrk5f")]
 position = Vector2(-1024, -1024)
 sight = Vector2(160, 0)
 limit = NodePath("../ColorRect")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=795380465]
 offset_right = 960.0
 offset_bottom = 544.0
 color = Color(0.933333, 0.933333, 0.933333, 1)
 
-[node name="Sandbox" type="Node2D" parent="."]
+[node name="Sandbox" type="Node2D" parent="." unique_id=1954379224]
 script = ExtResource("4_fhe00")
 
-[node name="tiles" type="TileMapLayer" parent="Sandbox"]
+[node name="tiles" type="TileMapLayer" parent="Sandbox" unique_id=2126174689]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAAAA4AAAACAAMAAAAAAA8AAAACAAMAAAAAABAAAAACAAMAAAABABAAAAACAAMAAAACABAAAAACAAMAAAADABAAAAACAAMAAAAEABAAAAACAAMAAAAFABAAAAACAAMAAAAGABAAAAACAAMAAAAHABAAAAACAAMAAAAIABAAAAACAAMAAAAJABAAAAACAAMAAAAKABAAAAACAAMAAAALABAAAAACAAMAAAAMABAAAAACAAMAAAANABAAAAACAAMAAAAOABAAAAACAAMAAAAPABAAAAACAAMAAAAPAA8AAAACAAMAAAAQAA8AAAACAAMAAAARAA8AAAACAAMAAAASAA8AAAACAAMAAAASABAAAAACAAMAAAATABAAAAACAAMAAAAUABAAAAACAAMAAAAVABAAAAACAAMAAAAWABAAAAACAAMAAAAWAA8AAAACAAMAAAAXAA8AAAACAAMAAAAYAA8AAAACAAMAAAAYABAAAAACAAMAAAAZABAAAAACAAMAAAAaABAAAAACAAMAAAAbABAAAAACAAMAAAAcABAAAAACAAMAAAAdABAAAAACAAMAAAAXABAAAAACAAMAAAARABAAAAACAAMAAAAQABAAAAACAAMAAAANAA8AAAACAAMAAAAMAA8AAAACAAMAAAALAA8AAAACAAMAAAAKAA8AAAACAAMAAAAJAA8AAAACAAMAAAAIAA8AAAACAAMAAAAHAA8AAAACAAMAAAAGAA8AAAACAAMAAAAFAA8AAAACAAMAAAAEAA8AAAACAAMAAAADAA8AAAACAAMAAAACAA8AAAACAAMAAAABAA8AAAACAAMAAAAVAA8AAAACAAMAAAAZAA8AAAACAAMAAAAaAA8AAAACAAMAAAAbAA8AAAACAAMAAAAcAA8AAAACAAMAAAAdAA8AAAACAAMAAAAUAA8AAAACAAMAAAATAA8AAAACAAMAAAAOAA8AAAACAAMAAAAFAA4AAAACAAMAAAAEAA4AAAACAAMAAAADAA4AAAACAAMAAAACAA4AAAACAAMAAAABAA4AAAACAAMAAAAGAA4AAAACAAMAAAAHAA4AAAACAAMAAAAIAA4AAAACAAMAAAAJAA4AAAACAAMAAAAKAA4AAAACAAMAAAALAA4AAAACAAMAAAAMAA4AAAACAAMAAAANAA4AAAACAAMAAAAOAA4AAAACAAMAAAAPAA4AAAACAAMAAAAQAA4AAAACAAMAAAARAA4AAAACAAMAAAASAA4AAAACAAMAAAATAA4AAAACAAMAAAAUAA4AAAACAAMAAAAVAA4AAAACAAMAAAAWAA4AAAACAAMAAAAXAA4AAAACAAMAAAAYAA4AAAACAAMAAAAZAA4AAAACAAMAAAAaAA4AAAACAAMAAAAbAA4AAAACAAMAAAAcAA4AAAACAAMAAAAdAA4AAAACAAMAAAAAAA0AAAACAAEAAAAdAA0AAAACAAEAAAA=")
 tile_set = ExtResource("1_6gbva")
 
-[node name="Object92" parent="Sandbox" groups=["player"] instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object92" parent="Sandbox" unique_id=1503280266 groups=["player"] instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(624, 48)
 
-[node name="Object95" parent="Sandbox" instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object95" parent="Sandbox" unique_id=1988620047 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(688, 48)
 
-[node name="Object97" parent="Sandbox" instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
+[node name="Object97" parent="Sandbox" unique_id=323344522 instance=ExtResource("gamesoneofyouguysscenesobjectsbody")]
 position = Vector2(752, 48)
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=12509237]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="one of you guys" parent="Control" instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="one of you guys" parent="Control" unique_id=429792161 instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(64, 64)
 cols = 8
 size = 2.0
 center = true
 text = "I'm one of you guys now"
 
-[node name="StartBtn" type="Button" parent="Control" groups=["autofocus"]]
+[node name="StartBtn" type="Button" parent="Control" unique_id=600884052 groups=["autofocus"]]
 layout_mode = 0
 offset_left = 656.0
 offset_top = 56.0
@@ -63,7 +63,7 @@ theme = ExtResource("3_8epp7")
 theme_override_font_sizes/font_size = 32
 text = "Play"
 
-[node name="CreditsBtn" type="Button" parent="Control"]
+[node name="CreditsBtn" type="Button" parent="Control" unique_id=1132613163]
 layout_mode = 0
 offset_left = 656.0
 offset_top = 168.0
@@ -75,7 +75,7 @@ theme = ExtResource("3_8epp7")
 theme_override_font_sizes/font_size = 24
 text = "Credits"
 
-[node name="ColorRect2" type="ColorRect" parent="Control"]
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=1332944261]
 layout_mode = 0
 offset_left = 640.0
 offset_top = 496.0
@@ -83,7 +83,7 @@ offset_right = 944.0
 offset_bottom = 528.0
 color = Color(0.254902, 0.25098, 0.745098, 1)
 
-[node name="LinkButton" type="LinkButton" parent="Control/ColorRect2"]
+[node name="LinkButton" type="LinkButton" parent="Control/ColorRect2" unique_id=402738944]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
@@ -95,7 +95,7 @@ text = "codeartistic.ninja"
 underline = 2
 uri = "http://codeartistic.ninja/"
 
-[node name="AuditoryCheesecakeFresh" type="AudioStreamPlayer" parent="." groups=["music"]]
+[node name="AuditoryCheesecakeFresh" type="AudioStreamPlayer" parent="." unique_id=1088006640 groups=["music"]]
 stream = ExtResource("8_nq5ly")
 
 [connection signal="pressed" from="Control/StartBtn" to="." method="_on_start_btn_pressed"]

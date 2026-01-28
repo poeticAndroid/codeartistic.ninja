@@ -1,26 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bg46aekrcovu3"]
+[gd_scene format=3 uid="uid://bg46aekrcovu3"]
 
 [ext_resource type="Script" uid="uid://dwskvvjrwdu6o" path="res://games/oneofyouguys/scripts/start.gd" id="1_isq0g"]
 [ext_resource type="Theme" uid="uid://caaq1vn7ayumq" path="res://games/oneofyouguys/scenes/theme.tres" id="2_fgbsb"]
 [ext_resource type="AudioStream" uid="uid://decmeuy1n1gjg" path="res://games/oneofyouguys/assets/music/AuditoryCheesecake_DressForIt.ogg" id="4_4a648"]
 [ext_resource type="PackedScene" uid="uid://cnd6r5xajtriu" path="res://games/oneofyouguys/scenes/objects/text.tscn" id="gamesoneofyouguysscenesobjectstext"]
 
-[node name="win" type="Node2D"]
+[node name="win" type="Node2D" unique_id=1656523050]
 script = ExtResource("1_isq0g")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1076646633]
 offset_right = 960.0
 offset_bottom = 544.0
 color = Color(0.933333, 0.933333, 0.933333, 1)
 
-[node name="You made it!" parent="." instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
+[node name="You made it!" parent="." unique_id=625643477 instance=ExtResource("gamesoneofyouguysscenesobjectstext")]
 position = Vector2(112, 64)
 cols = 12
 size = 2.0
 center = true
 text = "You did it! Thank you for playing!"
 
-[node name="MenuBtn" type="Button" parent="." groups=["autofocus"]]
+[node name="MenuBtn" type="Button" parent="." unique_id=355401151 groups=["autofocus"]]
 offset_left = 384.0
 offset_top = 384.0
 offset_right = 576.0
@@ -28,7 +28,7 @@ offset_bottom = 448.0
 theme = ExtResource("2_fgbsb")
 text = "Menu"
 
-[node name="AuditoryCheesecakeDressForIt" type="AudioStreamPlayer" parent="." groups=["music"]]
+[node name="AuditoryCheesecakeDressForIt" type="AudioStreamPlayer" parent="." unique_id=1921985717 groups=["music"]]
 stream = ExtResource("4_4a648")
 
 [connection signal="pressed" from="MenuBtn" to="." method="_on_menu_btn_pressed"]
