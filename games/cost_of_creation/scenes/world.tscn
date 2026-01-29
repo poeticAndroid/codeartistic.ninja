@@ -3,13 +3,15 @@
 [ext_resource type="Script" uid="uid://hxfa7mrw1bf7" path="res://games/cost_of_creation/scenes/scripts/world.gd" id="1_bft0m"]
 [ext_resource type="Texture2D" uid="uid://dcq46kalbvp3p" path="res://games/cost_of_creation/assets/backgrounds/world_paper.png" id="2_ql6q4"]
 [ext_resource type="PackedScene" uid="uid://sxp715dkxj26" path="res://games/cost_of_creation/scenes/objects/canvas.tscn" id="3_opyjd"]
+[ext_resource type="FontFile" uid="uid://b2wao71iuc47c" path="res://games/cost_of_creation/assets/fonts/Pangolin-Regular.ttf" id="3_wo6ce"]
 [ext_resource type="PackedScene" uid="uid://dek6n8q6pm5l0" path="res://games/cost_of_creation/scenes/objects/tile.tscn" id="4_bf8kl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bf8kl"]
 size = Vector2(2048, 2048)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bf8kl"]
-font_color = Color(0, 0, 0, 1)
+font = ExtResource("3_wo6ce")
+font_color = Color(0.13333334, 0.2, 0.26666668, 1)
 outline_size = 4
 
 [node name="World" type="Node2D" unique_id=1962400444]

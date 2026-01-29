@@ -82,6 +82,7 @@ func _process(delta: float) -> void:
 		match msg.type:
 			"user":
 				user = msg
+				room.host = user.id
 				Global.persistant.creation_user = JSON.parse_string(JSON.stringify(user))
 				send({ type = "topic", key = NetConfig.get_key(user) })
 

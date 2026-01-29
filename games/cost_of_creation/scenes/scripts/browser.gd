@@ -1,5 +1,7 @@
 extends CenterContainer
 
+@export var button: Texture2D
+
 var entries = { }
 
 var ws = WebSocketPeer.new()
@@ -10,26 +12,28 @@ var outbox = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%Tree.set_column_title(0, "Title")
+	%Tree.set_column_expand_ratio(0, 256)
 	%Tree.set_column_title(1, "Users")
+	%Tree.set_column_expand_ratio(1, 64)
+	%Tree.set_column_expand_ratio(2, 0)
 	if not %Tree.get_root():
 		%Tree.create_item()
-	%Tree.get_root().set_metadata(0, { dir = "blank" })
-	%Tree.get_root().set_text(0, "The Empty Void")
+	%Tree.get_root().set_metadata(0, { dir = "blank", name = "The Blank Page" })
+	%Tree.get_root().set_text(0, "Searching ...")
 	%Tree.get_root().set_text(1, "0 users")
 	%Tree.get_root().set_text_alignment(1, HORIZONTAL_ALIGNMENT_RIGHT)
 
-	apply_rooms(get_stored_rooms())
-
-	print("Connecting to server...")
+	#%Status.text = "Looking for worlds online ..."
 	ws.connect_to_url(NetConfig.servers[0])
 	outbox = [{ type = "user", name = "Aye" }]
+
+	await get_tree().create_timer(4).timeout
+	%Tree.get_root().set_text(0, "The Blank Page")
+	apply_rooms(get_stored_rooms(), true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		_on_play_btn_pressed()
-
 	ws.poll()
 	var state = ws.get_ready_state()
 
@@ -41,7 +45,10 @@ func _process(delta: float) -> void:
 				send({ type = "topic", key = NetConfig.get_key(msg) })
 
 			"topic":
+				%Tree.get_root().set_text(0, "The Blank Page")
+				apply_rooms(get_stored_rooms(), true)
 				apply_rooms(msg.rooms)
+				#%Status.text = "Select world:"
 
 	if state == WebSocketPeer.STATE_OPEN:
 		while outbox.size():
@@ -57,7 +64,7 @@ func get_stored_rooms():
 	return rooms
 
 
-func apply_rooms(rooms):
+func apply_rooms(rooms, deletable = false):
 	var _entries = { }
 	for id in rooms.keys():
 		var room = rooms[id]
@@ -80,6 +87,9 @@ func apply_rooms(rooms):
 			if history.size():
 				parent = entries["/".join(history)]
 			entries[path] = parent.create_child()
+			if deletable:
+				entries[path].add_button(2, button)
+				entries[path].set_button_tooltip_text(2, 0, "Destroy this world!")
 		entries[path].set_metadata(0, room)
 		entries[path].set_text(0, room.name)
 		entries[path].set_text(1, str(room.users.size()) + " users")
@@ -99,3 +109,20 @@ func _on_play_btn_pressed() -> void:
 		room.id = %Tree.get_selected().get_metadata(0).id
 		FileSystem.put_file_as_json("user://cost_of_creation/" + Global.session.room_id + "/room", room)
 	Global.goto_scene("world")
+
+
+func _on_tree_button_clicked(item: TreeItem, column: int, id: int, mouse_button_index: int) -> void:
+	var room = item.get_metadata(0)
+	var confirm = ConfirmationDialog.new()
+	confirm.dialog_text = "Are you sure you want to destroy " + room.name + "?"
+	add_child(confirm)
+	confirm.popup_centered()
+	print("just confirming ...")
+
+	await confirm.confirmed
+
+	print("Deleting ", room.dir, " ...")
+	for _file in DirAccess.get_files_at("user://cost_of_creation/" + room.dir):
+		DirAccess.remove_absolute("user://cost_of_creation/" + room.dir + "/" + _file)
+	DirAccess.remove_absolute("user://cost_of_creation/" + room.dir)
+	Global.reload_current_scene(false)
