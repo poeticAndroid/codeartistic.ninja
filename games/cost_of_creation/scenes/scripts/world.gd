@@ -82,7 +82,6 @@ func _process(delta: float) -> void:
 		match msg.type:
 			"user":
 				user = msg
-				room.host = user.id
 				Global.persistant.creation_user = JSON.parse_string(JSON.stringify(user))
 				send({ type = "topic", key = NetConfig.get_key(user) })
 
@@ -134,12 +133,12 @@ func _process(delta: float) -> void:
 						else:
 							aye.node.leave()
 				room = msg
-				%Title.text = room.name + " (" + str(room.users.size()) + " users)"
 
 			"obj":
 				if msg.has("obj"):
 					match msg.obj:
 						"Aye":
+							%Title.text = room.name + " (" + str(room.users.size()) + " users)"
 							var aye = room.users[msg.from]
 							if not aye.has("node"):
 								aye.node = aye_scene.instantiate()
@@ -162,6 +161,7 @@ func _process(delta: float) -> void:
 						"Canvas":
 							apply_canvas(msg)
 						"Tile":
+							%Title.text = room.name + " (Downloading from " + get_username(room.host) + "...)"
 							if msg.has("col") and msg.has("row") and msg.has("data"):
 								FileSystem.put_file_as_bytes(world_dir + "tile_" + str(int(msg.col)) + "_" + str(int(msg.row)), msg.data.hex_decode())
 								refresh_tile(msg.col, msg.row)
@@ -237,13 +237,20 @@ func send(msg):
 	outbox.push_back(msg)
 
 
+func get_username(id):
+	if room.users.has(id):
+		return room.users[id].name
+	return id
+
+
 func introduce(user_id):
 	await get_tree().create_timer(0.1).timeout
 	if not user: return
 	if not room: return
 	if room.host != user.id: return
+	if room.users.size() < 2: return
 	if user_id == user.id: return
-	print("Introducing ", user_id, " to the world...")
+	print("Introducing ", get_username(user_id), " to the world...")
 
 	var map_size = 1
 
@@ -261,6 +268,7 @@ func introduce(user_id):
 	await send_tile(col, row, user_id)
 	var side = 1
 	while side <= map_size:
+		%Title.text = room.name + " (Uploading to " + get_username(user_id) + "...)"
 		for i in range(0, side):
 			col -= 1
 			await send_tile(col, row, user_id)

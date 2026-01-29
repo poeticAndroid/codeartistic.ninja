@@ -8,6 +8,8 @@ var ws = WebSocketPeer.new()
 var lastState
 var outbox = []
 
+const BLANK_TITLE = "The Blank Page"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,7 +20,7 @@ func _ready() -> void:
 	%Tree.set_column_expand_ratio(2, 0)
 	if not %Tree.get_root():
 		%Tree.create_item()
-	%Tree.get_root().set_metadata(0, { dir = "blank", name = "The Blank Page" })
+	%Tree.get_root().set_metadata(0, { dir = "blank", name = BLANK_TITLE })
 	%Tree.get_root().set_text(0, "Searching ...")
 	%Tree.get_root().set_text(1, "0 users")
 	%Tree.get_root().set_text_alignment(1, HORIZONTAL_ALIGNMENT_RIGHT)
@@ -28,8 +30,9 @@ func _ready() -> void:
 	outbox = [{ type = "user", name = "Aye" }]
 
 	await get_tree().create_timer(4).timeout
-	%Tree.get_root().set_text(0, "The Blank Page")
-	apply_rooms(get_stored_rooms(), true)
+	if %Tree.get_root().get_text(0) != BLANK_TITLE:
+		%Tree.get_root().set_text(0, BLANK_TITLE)
+		apply_rooms(get_stored_rooms(), true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,7 +48,7 @@ func _process(delta: float) -> void:
 				send({ type = "topic", key = NetConfig.get_key(msg) })
 
 			"topic":
-				%Tree.get_root().set_text(0, "The Blank Page")
+				%Tree.get_root().set_text(0, BLANK_TITLE)
 				apply_rooms(get_stored_rooms(), true)
 				apply_rooms(msg.rooms)
 				#%Status.text = "Select world:"
@@ -92,6 +95,7 @@ func apply_rooms(rooms, deletable = false):
 				entries[path].set_button_tooltip_text(2, 0, "Destroy this world!")
 		entries[path].set_metadata(0, room)
 		entries[path].set_text(0, room.name)
+		entries[path].set_tooltip_text(0, room.dir)
 		entries[path].set_text(1, str(room.users.size()) + " users")
 		entries[path].set_text_alignment(1, HORIZONTAL_ALIGNMENT_RIGHT)
 
@@ -114,7 +118,7 @@ func _on_play_btn_pressed() -> void:
 func _on_tree_button_clicked(item: TreeItem, column: int, id: int, mouse_button_index: int) -> void:
 	var room = item.get_metadata(0)
 	var confirm = ConfirmationDialog.new()
-	confirm.dialog_text = "Are you sure you want to destroy " + room.name + "?"
+	confirm.dialog_text = "Are you sure you want to destroy\n" + room.name + " ?"
 	add_child(confirm)
 	confirm.popup_centered()
 	print("just confirming ...")
