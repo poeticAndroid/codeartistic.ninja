@@ -9,6 +9,8 @@ var ws = WebSocketPeer.new()
 var lastState
 var outbox = []
 var joined = false
+var changed = false
+var introducing = ""
 
 var user = { type = "user", name = genrate_random_name().to_camel_case() }
 var room = { type = "room", id = "auto", name = "The " + genrate_random_name().capitalize() }
@@ -118,8 +120,8 @@ func _process(delta: float) -> void:
 				if not user.has("node"):
 					send({ type = "obj", obj = "Aye", id = "from", x = 0, y = 1 })
 				if room.has("host") and room.host != msg.host:
-					introduce("others")
-				if msg.host == user.id and msg.users.size() > 1:
+					introduce("other")
+				if changed and msg.host == user.id and msg.users.size() > 1:
 					if not msg.has("meta"): msg.meta = { }
 					if not msg.meta.has("history"): msg.meta.history = []
 					if not msg.meta.history.has(msg.id):
@@ -133,12 +135,12 @@ func _process(delta: float) -> void:
 						else:
 							aye.node.leave()
 				room = msg
+				%Title.text = room.name + " (" + str(room.users.size()) + " users)"
 
 			"obj":
 				if msg.has("obj"):
 					match msg.obj:
 						"Aye":
-							%Title.text = room.name + " (" + str(room.users.size()) + " users)"
 							var aye = room.users[msg.from]
 							if not aye.has("node"):
 								aye.node = aye_scene.instantiate()
@@ -159,6 +161,9 @@ func _process(delta: float) -> void:
 							if msg.has("h") and msg.has("s") and msg.has("l"):
 								aye.node.set_ink_color(msg.h, msg.s, msg.l)
 						"Canvas":
+							if room.host == user.id and not changed:
+								send(room)
+							changed = true
 							apply_canvas(msg)
 						"Tile":
 							%Title.text = room.name + " (Downloading from " + get_username(msg.from) + "...)"
@@ -204,6 +209,8 @@ func _input(event: InputEvent) -> void:
 	if not user.has("node"): return
 
 	var mouse_pos = Vector2.ZERO
+	if event is InputEventAction:
+		%IdleTimer.start()
 	if event is InputEventMouse:
 		mouse_pos = round(%Camera.position + event.position - Vector2(480, 270))
 		%IdleTimer.start()
@@ -250,6 +257,12 @@ func introduce(user_id):
 	if room.host != user.id: return
 	if room.users.size() < 2: return
 	if user_id == user.id: return
+
+	if introducing:
+		introducing = "others"
+		return
+	else:
+		introducing = user_id
 	print("Introducing ", get_username(user_id), " to the world...")
 
 	var map_size = 1
@@ -283,6 +296,10 @@ func introduce(user_id):
 			row += 1
 			await send_tile(col, row, user_id)
 		side += 1
+
+	if introducing != user_id: introduce("other")
+	introducing = ""
+	send(room)
 
 
 func send_tile(col, row, user_id):

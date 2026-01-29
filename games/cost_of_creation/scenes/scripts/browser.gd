@@ -50,8 +50,7 @@ func _process(delta: float) -> void:
 			"topic":
 				%Tree.get_root().set_text(0, BLANK_TITLE)
 				apply_rooms(get_stored_rooms(), true)
-				apply_rooms(msg.rooms)
-				#%Status.text = "Select world:"
+				apply_rooms(msg.rooms, false)
 
 	if state == WebSocketPeer.STATE_OPEN:
 		while outbox.size():
@@ -89,6 +88,7 @@ func apply_rooms(rooms, deletable = false):
 			var parent = %Tree.get_root()
 			if history.size():
 				parent = entries["/".join(history)]
+				room.dir = parent.get_metadata(0).dir
 			entries[path] = parent.create_child()
 			if deletable:
 				entries[path].add_button(2, button)
