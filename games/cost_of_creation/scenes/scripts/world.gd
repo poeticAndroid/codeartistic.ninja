@@ -161,7 +161,7 @@ func _process(delta: float) -> void:
 						"Canvas":
 							apply_canvas(msg)
 						"Tile":
-							%Title.text = room.name + " (Downloading from " + get_username(room.host) + "...)"
+							%Title.text = room.name + " (Downloading from " + get_username(msg.from) + "...)"
 							if msg.has("col") and msg.has("row") and msg.has("data"):
 								FileSystem.put_file_as_bytes(world_dir + "tile_" + str(int(msg.col)) + "_" + str(int(msg.row)), msg.data.hex_decode())
 								refresh_tile(msg.col, msg.row)
