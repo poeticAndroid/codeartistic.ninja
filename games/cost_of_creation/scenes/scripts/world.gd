@@ -121,10 +121,12 @@ func _process(delta: float) -> void:
 					send({ type = "obj", obj = "Aye", id = "from", x = 0, y = 1 })
 				if room.has("host") and room.host != msg.host:
 					introduce("other")
-				if changed and msg.host == user.id and msg.users.size() > 1:
+				if msg.host == user.id:
 					if not msg.has("meta"): msg.meta = { }
-					if not msg.meta.has("history"): msg.meta.history = []
-					if not msg.meta.history.has(msg.id):
+					if not msg.meta.has("history"):
+						msg.meta.history = [msg.id]
+						send(msg)
+					if changed and msg.users.size() > 1 and not msg.meta.history.has(msg.id):
 						msg.meta.history.push_back(msg.id)
 						send(msg)
 				if room.has("users"):
@@ -172,7 +174,7 @@ func _process(delta: float) -> void:
 								refresh_tile(msg.col, msg.row)
 						"Puddle":
 							FileSystem.put_file_as_json(world_dir + msg.id, msg)
-							var node = %Puddles.get_node(msg.id)
+							var node = %Puddles.has_node(msg.id)
 							if msg.ink_fill and not node:
 								node = puddle_scene.instantiate()
 								node.name = msg.id
@@ -183,6 +185,7 @@ func _process(delta: float) -> void:
 								else:
 									node.set_ink_fill()
 							if node:
+								node = %Puddles.get_node(msg.id)
 								if msg.has("ink_fill"):
 									node.set_ink_fill(msg.ink_fill)
 								if msg.has("h") and msg.has("s") and msg.has("l"):
@@ -370,8 +373,10 @@ func refresh_puddles(col, row):
 	for file in DirAccess.get_files_at(world_dir):
 		if file.begins_with(prefix):
 			var puddle = FileSystem.get_file_as_json(world_dir + file)
-			var node = %Puddles.get_node(puddle.id)
-			if not node:
+			var node = %Puddles.has_node(puddle.id)
+			if node:
+				node = %Puddles.get_node(puddle.id)
+			else:
 				node = puddle_scene.instantiate()
 				node.name = puddle.id
 				%Puddles.add_child(node)

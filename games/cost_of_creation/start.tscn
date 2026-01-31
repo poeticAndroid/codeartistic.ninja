@@ -52,7 +52,7 @@ fit_content = true
 [node name="PlayBtn" type="Button" parent="VBoxContainer" unique_id=732198558 groups=["autofocus"]]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Begin"
+text = " Begin "
 
 [node name="DewdropFantasy" type="AudioStreamPlayer" parent="." unique_id=1684558174 groups=["music"]]
 stream = ExtResource("5_uyvn6")

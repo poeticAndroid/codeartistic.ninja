@@ -11,6 +11,7 @@ size = Vector2(2048, 2048)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bf8kl"]
 font = ExtResource("3_wo6ce")
+font_size = 20
 font_color = Color(0.13333334, 0.2, 0.26666668, 1)
 outline_size = 4
 

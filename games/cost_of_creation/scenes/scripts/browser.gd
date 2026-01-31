@@ -72,9 +72,7 @@ func apply_rooms(rooms, deletable = false):
 		var room = rooms[id]
 		room.dir = id
 		if not room.has("meta"): room.meta = { }
-		if not room.meta.has("history"): room.meta.history = []
-		if not room.meta.history.has(room.id):
-			room.meta.history.push_back(room.id)
+		if not room.meta.has("history"): room.meta.history = [room.id]
 		room.path = "/".join(PackedStringArray(room.meta.history))
 		_entries[room.path] = id
 	var paths = _entries.keys()
@@ -95,7 +93,10 @@ func apply_rooms(rooms, deletable = false):
 				entries[path].set_button_tooltip_text(2, 0, "Destroy this world!")
 		entries[path].set_metadata(0, room)
 		entries[path].set_text(0, room.name)
-		entries[path].set_tooltip_text(0, room.dir)
+		if OS.is_debug_build():
+			entries[path].set_tooltip_text(0, path.replace("/", "/\n") + "\n - " + room.dir)
+		else:
+			entries[path].set_tooltip_text(0, room.dir)
 		entries[path].set_text(1, str(room.users.size()) + " users")
 		entries[path].set_text_alignment(1, HORIZONTAL_ALIGNMENT_RIGHT)
 
@@ -130,3 +131,11 @@ func _on_tree_button_clicked(item: TreeItem, column: int, id: int, mouse_button_
 		DirAccess.remove_absolute("user://cost_of_creation/" + room.dir + "/" + _file)
 	DirAccess.remove_absolute("user://cost_of_creation/" + room.dir)
 	Global.reload_current_scene(false)
+
+
+func _on_refresh_timer_timeout() -> void:
+	Global.reload_current_scene(false)
+
+
+func _on_idle_timer_timeout() -> void:
+	Global.go_back()
