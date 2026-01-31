@@ -5,6 +5,12 @@ static var key
 static var lock
 
 static func make_key():
+	if not FileSystem.lock:
+		FileSystem.lock = str(OS.get_process_id())
+		var file = FileAccess.open("user://lock", FileAccess.WRITE)
+		file.store_string(FileSystem.lock)
+		file.close()
+		print("New fileSystem lock! ", FileSystem.lock)
 	if not FileSystem.key:
 		if FileAccess.file_exists("user://secret.key"):
 			FileSystem.key = FileAccess.get_file_as_bytes("user://secret.key")
@@ -19,26 +25,32 @@ static func file_exists(path: String):
 
 static func get_file_as_bytes(path: String):
 	FileSystem.make_key()
-	var file = FileAccess.open_encrypted(path, FileAccess.READ, FileSystem.key)
 	var bytes = PackedByteArray()
+	if not FileSystem.file_exists(path): return bytes
+	var file = FileAccess.open_encrypted(path, FileAccess.READ, FileSystem.key)
 	if file:
 		bytes = file.get_buffer(file.get_length())
 		file.close()
+	else:
+		print("Error ", FileAccess.get_open_error(), " opening ", path, " for reading! ")
 	return bytes
 
 static func put_file_as_bytes(path: String, bytes: PackedByteArray):
-	if path.get_file() != "lock":
-		if FileSystem.lock and FileSystem.file_exists("user://lock"):
-			if FileSystem.get_file_as_json("user://lock") != FileSystem.lock:
-				return Global.go_back()
-		else:
-			FileSystem.lock = Time.get_unix_time_from_system()
-			FileSystem.put_file_as_json("user://lock", FileSystem.lock)
 	FileSystem.make_key()
-	var file = FileAccess.open_encrypted(path, FileAccess.WRITE, FileSystem.key)
+	if path.get_file() != "lock":
+		var lock = FileAccess.get_file_as_string("user://lock")
+		if lock != FileSystem.lock:
+			print("FileSystem locked by another process! ", FileSystem.lock, " ", lock)
+			return Global.go_back()
+	var tmp = path.get_base_dir() + "/" + "tmp_" + str(abs(randi()))
+	var file = FileAccess.open_encrypted(tmp, FileAccess.WRITE, FileSystem.key)
 	if file:
 		file.store_buffer(bytes)
 		file.close()
+	else:
+		print("Error ", FileAccess.get_open_error(), " opening ", tmp, " for writing! ")
+	if FileSystem.file_exists(tmp):
+		DirAccess.rename_absolute(tmp, path)
 
 static func get_file_as_json(path: String):
 	return JSON.parse_string(FileSystem.get_file_as_bytes(path).get_string_from_utf8())
