@@ -4,6 +4,7 @@ static var crypto = Crypto.new()
 static var key
 static var lock
 
+
 static func make_key():
 	if not FileSystem.lock:
 		FileSystem.lock = str(OS.get_process_id())
@@ -20,8 +21,10 @@ static func make_key():
 			file.store_buffer(FileSystem.key)
 			file.close()
 
+
 static func file_exists(path: String):
 	return FileAccess.file_exists(path)
+
 
 static func get_file_as_bytes(path: String):
 	FileSystem.make_key()
@@ -34,6 +37,7 @@ static func get_file_as_bytes(path: String):
 	else:
 		print("Error ", FileAccess.get_open_error(), " opening ", path, " for reading! ")
 	return bytes
+
 
 static func put_file_as_bytes(path: String, bytes: PackedByteArray):
 	FileSystem.make_key()
@@ -52,11 +56,14 @@ static func put_file_as_bytes(path: String, bytes: PackedByteArray):
 	if FileSystem.file_exists(tmp):
 		DirAccess.rename_absolute(tmp, path)
 
+
 static func get_file_as_json(path: String):
 	return JSON.parse_string(FileSystem.get_file_as_bytes(path).get_string_from_utf8())
 
+
 static func put_file_as_json(path: String, obj):
 	return FileSystem.put_file_as_bytes(path, JSON.stringify(obj).to_utf8_buffer())
+
 
 static func remove_absolute(path):
 	if FileSystem.get_file_as_json("user://lock") != FileSystem.lock: return

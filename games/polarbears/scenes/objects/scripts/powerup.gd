@@ -3,6 +3,8 @@ class_name Powerup
 extends Area2D
 
 static var scene = preload("../powerup.tscn")
+
+
 static func create(pos: Vector2):
 	var inst = scene.instantiate()
 	inst.position = pos

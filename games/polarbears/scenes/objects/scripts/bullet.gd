@@ -4,6 +4,8 @@ extends Area2D
 
 static var bullet_pool = []
 static var scene = preload("../bullet.tscn")
+
+
 static func create(pos: Vector2, pool = Bullet.bullet_pool):
 	var inst = bullet_pool.pop_back()
 	if not inst: inst = scene.instantiate()

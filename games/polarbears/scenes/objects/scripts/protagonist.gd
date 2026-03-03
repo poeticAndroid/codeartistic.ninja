@@ -3,6 +3,8 @@ class_name Protagonist
 extends Area2D
 
 static var scene = preload("../protagonist.tscn")
+
+
 static func create(_recording = [], _record = false):
 	var inst = scene.instantiate()
 	inst.position = Vector2(0, 171)
