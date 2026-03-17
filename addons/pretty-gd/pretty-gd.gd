@@ -3,13 +3,14 @@ extends EditorPlugin
 
 var included_paths = ["res://"]
 var excluded_paths = ["res://addons/"]
-var is_enabled_prettify_focus = true
-var is_enabled_prettify_line = false
-var is_enabled_prettify_editor = true
-var is_enabled_prettify_dir = false
+var is_enabled_prettify_editor_on_focus = true
+var is_enabled_prettify_editor_on_line_change = false
+var is_enabled_prettify_editor_on_save = true
+var is_enabled_prettify_filesystem_on_save = false
+var is_enabled_prettify_filesystem_every_second = false
 
 var timer
-var unsaved
+var just_saved
 
 var _last_modified = 0
 var _last_line = 0
@@ -20,6 +21,7 @@ var Prettifier = preload("res://addons/pretty-gd/pretty.gd").new()
 
 func _enter_tree() -> void:
 	# Initialization of the plugin goes here.
+	_migrate_settings()
 	_on_settings_changed()
 	EditorInterface.get_editor_settings().settings_changed.connect(_on_settings_changed)
 	EditorInterface.get_script_editor().editor_script_changed.connect(_on_editor_script_changed)
@@ -43,34 +45,52 @@ func _exit_tree() -> void:
 	if timer: timer.queue_free()
 	print("pretty.gd disabled 💩")
 
+	return
+	var settings = EditorInterface.get_editor_settings()
+	settings.erase(SETTINGS_PATH + "included_paths")
+	settings.erase(SETTINGS_PATH + "excluded_paths")
+	settings.erase(SETTINGS_PATH + "prettify_editor_on_focus")
+	settings.erase(SETTINGS_PATH + "prettify_editor_on_line_change")
+	settings.erase(SETTINGS_PATH + "prettify_editor_on_save")
+	settings.erase(SETTINGS_PATH + "prettify_filesystem_on_save")
+	settings.erase(SETTINGS_PATH + "prettify_filesystem_every_second")
 
-func _on_settings_changed():
+
+func _migrate_settings():
+	var default = {
+		"included_paths": "\n".join(included_paths),
+		"excluded_paths": "\n".join(excluded_paths),
+		"prettify_editor_on_focus": is_enabled_prettify_editor_on_focus,
+		"prettify_editor_on_line_change": is_enabled_prettify_editor_on_line_change,
+		"prettify_editor_on_save": is_enabled_prettify_editor_on_save,
+		"prettify_filesystem_on_save": is_enabled_prettify_filesystem_on_save,
+		"prettify_filesystem_every_second": is_enabled_prettify_filesystem_every_second,
+	}
+
 	var settings = EditorInterface.get_editor_settings()
 	settings.erase(SETTINGS_PATH + "pretty_editor_on_focus")
 	settings.erase(SETTINGS_PATH + "pretty_editor_on_save")
 	settings.erase(SETTINGS_PATH + "pretty_filesystem_on_save")
 
-	if not settings.has_setting(SETTINGS_PATH + "included_paths"):
-		settings.set_setting(SETTINGS_PATH + "included_paths", "\n".join(included_paths))
+	for key in default:
+		if not settings.has_setting(SETTINGS_PATH + key):
+			settings.set_setting(SETTINGS_PATH + key, default[key])
+		settings.set_initial_value(SETTINGS_PATH + key, default[key], false)
+
 	settings.add_property_info({ name = SETTINGS_PATH + "included_paths", type = TYPE_STRING, hint = PROPERTY_HINT_MULTILINE_TEXT })
-	if not settings.has_setting(SETTINGS_PATH + "excluded_paths"):
-		settings.set_setting(SETTINGS_PATH + "excluded_paths", "\n".join(excluded_paths))
 	settings.add_property_info({ name = SETTINGS_PATH + "excluded_paths", type = TYPE_STRING, hint = PROPERTY_HINT_MULTILINE_TEXT })
-	if not settings.has_setting(SETTINGS_PATH + "prettify_editor_on_focus"):
-		settings.set_setting(SETTINGS_PATH + "prettify_editor_on_focus", is_enabled_prettify_focus)
-	if not settings.has_setting(SETTINGS_PATH + "prettify_editor_on_line_change"):
-		settings.set_setting(SETTINGS_PATH + "prettify_editor_on_line_change", is_enabled_prettify_line)
-	if not settings.has_setting(SETTINGS_PATH + "prettify_editor_on_save"):
-		settings.set_setting(SETTINGS_PATH + "prettify_editor_on_save", is_enabled_prettify_editor)
-	if not settings.has_setting(SETTINGS_PATH + "prettify_filesystem_on_save"):
-		settings.set_setting(SETTINGS_PATH + "prettify_filesystem_on_save", is_enabled_prettify_dir)
+
+
+func _on_settings_changed():
+	var settings = EditorInterface.get_editor_settings()
 
 	included_paths = settings.get_setting(SETTINGS_PATH + "included_paths").split("\n", false)
 	excluded_paths = settings.get_setting(SETTINGS_PATH + "excluded_paths").split("\n", false)
-	is_enabled_prettify_focus = settings.get_setting(SETTINGS_PATH + "prettify_editor_on_focus")
-	is_enabled_prettify_line = settings.get_setting(SETTINGS_PATH + "prettify_editor_on_line_change")
-	is_enabled_prettify_editor = settings.get_setting(SETTINGS_PATH + "prettify_editor_on_save")
-	is_enabled_prettify_dir = settings.get_setting(SETTINGS_PATH + "prettify_filesystem_on_save")
+	is_enabled_prettify_editor_on_focus = settings.get_setting(SETTINGS_PATH + "prettify_editor_on_focus")
+	is_enabled_prettify_editor_on_line_change = settings.get_setting(SETTINGS_PATH + "prettify_editor_on_line_change")
+	is_enabled_prettify_editor_on_save = settings.get_setting(SETTINGS_PATH + "prettify_editor_on_save")
+	is_enabled_prettify_filesystem_on_save = settings.get_setting(SETTINGS_PATH + "prettify_filesystem_on_save")
+	is_enabled_prettify_filesystem_every_second = settings.get_setting(SETTINGS_PATH + "prettify_filesystem_every_second")
 
 	Prettifier.tab_size = settings.get_setting("text_editor/behavior/indent/size")
 	if settings.get_setting("text_editor/behavior/indent/type"):
@@ -80,7 +100,7 @@ func _on_settings_changed():
 
 
 func _on_editor_script_changed(script = null):
-	if is_enabled_prettify_focus:
+	if is_enabled_prettify_editor_on_focus:
 		prettify_editor()
 
 
@@ -89,7 +109,7 @@ func _on_input(input: InputEvent):
 	if input.is_pressed(): return
 
 	var editor = EditorInterface.get_script_editor().get_current_editor()
-	if is_enabled_prettify_line and editor:
+	if is_enabled_prettify_editor_on_line_change and editor:
 		var ed = editor.get_base_editor()
 		var line = ed.get_caret_line()
 		if input.get_modifiers_mask() == 0:
@@ -101,20 +121,24 @@ func _on_input(input: InputEvent):
 
 
 func _on_scene_saved(path: String):
-	unsaved = true
+	just_saved = true
 
 
 func _on_tick():
-	if not unsaved: return
-	unsaved = false
+	if not just_saved:
+		if is_enabled_prettify_filesystem_every_second:
+			for included in included_paths:
+				prettify_dir(included)
+		return
 
-	if is_enabled_prettify_editor and prettify_editor():
+	just_saved = false
+
+	if is_enabled_prettify_editor_on_save and prettify_editor():
 		EditorInterface.save_scene()
 		var script = EditorInterface.get_script_editor().get_current_script()
 		if not script: return false
 		print("pretty.gd: ", script.resource_path, " 🎀")
-	else:
-		await get_tree().create_timer(1).timeout
+	elif is_enabled_prettify_filesystem_on_save:
 		for included in included_paths:
 			prettify_dir(included)
 
@@ -153,7 +177,6 @@ func prettify_editor(until_line = INF):
 
 
 func prettify_dir(path = "res://", since = _last_modified):
-	if not is_enabled_prettify_dir: return false
 	for excluded in excluded_paths:
 		if path.begins_with(excluded): return false
 	var files = DirAccess.get_files_at(path)
