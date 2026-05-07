@@ -11,11 +11,11 @@ No Python! No binaries! No dependencies!
 ### Godot editor
 
 1. Backup or commit your code first, just in case! 
-2. Install the plugin in the `res://addons/` folder.
+2. Install [the plugin](https://godotengine.org/asset-library/asset/4855) in the `res://addons/` folder.
 3. Enable the plugin in project settings.
 4. Adjust editor settings to your liking.
 
-![Editor Settings window](./images/settings.png)
+![Editor Settings window](./images/editor_settings.png)
 
 5. Profit! Your GDScripts will be prettified automatically! 🎀
 
@@ -49,6 +49,18 @@ func _ready():
 If you come across any other issues with using this software, please [let me know](https://github.com/poeticAndroid/pretty-gd/issues).
 
 ## Release Notes
+
+### 2.0.5
+
+ - Version parity with [pretty-gd-js](https://github.com/poeticAndroid/pretty-gd-js) and [pretty-gd-vs](https://github.com/poeticAndroid/pretty-gd-vs).
+
+
+### 2.0.2
+
+ - Simplified settings a bit.
+ - Cleanup and migrate old settings on first install.
+ - Option to erase old settings on startup.
+
 
 ### 0.6.1
 

@@ -34,14 +34,14 @@ func prettify(_input: String) -> String:
 
 
 func reset(_input = input, _indent_str = indent_str, _tab_size = tab_size, _pos = 0):
-	input = _input
+	input = "" + _input
 	indent_str = _indent_str
 	tab_size = _tab_size
 	pos = _pos
 	if not indent_str: indent_str = "\t"
 	tab_size = space_size(indent_str)
-	var first_words = []
-	var last_token = ""
+	first_words = []
+	last_token = ""
 
 
 func read_line(min_indent = 0, max_indent = 10):
@@ -49,7 +49,7 @@ func read_line(min_indent = 0, max_indent = 10):
 	first_words = []
 	last_token = ""
 	if is_eol(): return read().strip_edges()
-	var indent = clamp(ceil((space_size(line) + tab_size - 1) / tab_size), min_indent, max_indent)
+	var indent = clamp(ceil(space_size(line) / float(tab_size)), min_indent, max_indent)
 	line = ""
 	for i in range(indent):
 		line += indent_str
@@ -66,7 +66,9 @@ func read_line(min_indent = 0, max_indent = 10):
 func read_token():
 	var token = ""
 	read_whitespace()
-	if longoperators.has(peek(4)):
+	if peek() == "\n":
+		token += read() + read_whitespace()
+	elif longoperators.has(peek(4)):
 		token += read(4)
 	elif longoperators.has(peek(3)):
 		token += read(3)
@@ -196,12 +198,25 @@ func is_eof():
 	return pos >= input.length()
 
 
+func is_keyword(token):
+	return keywords.has(token)
+
+
+func is_identifier(token):
+	if not token.strip_edges(): return false
+	if is_keyword(token): return false
+	if number.containsn(token.substr(0, 1)): return false
+	for char in token:
+		if not identifier.containsn(char): return false
+	return true
+
+
 func between(token0, token1, token2):
 	if !token1: return ""
 	if !token2: return ""
 	if token2.begins_with("#"): return "  "
 
-	if sign.containsn(token1):
+	if signage.containsn(token1):
 		if keywords.has(token0): return ""
 		if parens_end.containsn(token0): return " "
 		if quote.containsn(token0.right(1)): return " "
@@ -237,28 +252,26 @@ func space_size(whitespace):
 	if not tab_size: tab_size = 4
 	var sum = 0
 	for char in whitespace:
-		match char:
-			"\n":
-				sum = 0
-
-			"\t":
-				sum += 1
-				while sum % tab_size: sum += 1
-
-			" ":
-				sum += 1
-
-			_:
-				return sum
+		if char == "\n":
+			sum = 0
+		elif char == "\t":
+			sum += 1
+			while sum % tab_size: sum += 1
+		elif char == " ":
+			sum += 1
+		else:
+			return sum
 	return sum
 
 const keywords = ["if", "else", "elif", "for", "while", "break", "continue",
 	"pass", "return", "class", "class_name", "extends", "is", "as", "signal",
-	"static", "const", "enum", "var", "breakpoint", "yield", "in", "and", "or"]
+	"static", "const", "enum", "var", "breakpoint", "yield", "in", "and", "or"
+]
 const doubleblank = ["class", "func"]
 const longoperators = ["**", "<<", ">>", "==", "!=", ">=", "<=", "&&", "||",
 	"+=", "-=", "*=", "/=", "%=", "**=", "&=", "^=", "|=", "<<=", ">>=",
-	":=", "->"]
+	":=", "->"
+]
 const operator = "%&*+-/<=>?\\^|"
 const string = "r&^"
 const quote = "\"\'"
@@ -267,7 +280,7 @@ const comma = ",;:"
 const parens_start = "(["
 const parens = "([.])"
 const parens_end = "]})"
-const sign = "!+-"
+const signage = "!+-"
 const number = "0123456789"
 const identifier = "0123456789_abcdefghijklmnopqrstuvwxyzø"
 const nodepath = "%/" + identifier
